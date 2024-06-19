@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34729.46
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaz", "Interfaz\Interfaz.csproj", "{17DE284E-A70C-4F24-9991-AC4A1F539149}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17DE284E-A70C-4F24-9991-AC4A1F539149}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17DE284E-A70C-4F24-9991-AC4A1F539149}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17DE284E-A70C-4F24-9991-AC4A1F539149}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17DE284E-A70C-4F24-9991-AC4A1F539149}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D0A92C61-4FFB-447A-A7D0-1BD19811DBB9}
+	EndGlobalSection
+EndGlobal
