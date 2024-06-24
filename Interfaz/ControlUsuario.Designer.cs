@@ -42,6 +42,12 @@ namespace Interfaz
             this.StaticLbEstado = new System.Windows.Forms.Label();
             this.StaticLbUsername = new System.Windows.Forms.Label();
             this.StaticLbImgProfile = new System.Windows.Forms.Label();
+            this.TboxContenido = new System.Windows.Forms.TextBox();
+            this.BtnEdit = new System.Windows.Forms.Button();
+            this.BtnEliminarPost = new System.Windows.Forms.Button();
+            this.StaticLbReaccion = new System.Windows.Forms.Label();
+            this.LbReacciones = new System.Windows.Forms.Label();
+            this.BtnActualizarPub = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // StaticLbPublicacion
@@ -158,10 +164,71 @@ namespace Interfaz
             this.StaticLbImgProfile.TabIndex = 16;
             this.StaticLbImgProfile.Text = "( imagen de perfil )";
             // 
+            // TboxContenido
+            // 
+            this.TboxContenido.Location = new System.Drawing.Point(610, 30);
+            this.TboxContenido.Multiline = true;
+            this.TboxContenido.Name = "TboxContenido";
+            this.TboxContenido.Size = new System.Drawing.Size(169, 112);
+            this.TboxContenido.TabIndex = 29;
+            // 
+            // BtnEdit
+            // 
+            this.BtnEdit.Location = new System.Drawing.Point(610, 161);
+            this.BtnEdit.Name = "BtnEdit";
+            this.BtnEdit.Size = new System.Drawing.Size(75, 23);
+            this.BtnEdit.TabIndex = 30;
+            this.BtnEdit.Text = "Editar";
+            this.BtnEdit.UseVisualStyleBackColor = true;
+            // 
+            // BtnEliminarPost
+            // 
+            this.BtnEliminarPost.Location = new System.Drawing.Point(704, 161);
+            this.BtnEliminarPost.Name = "BtnEliminarPost";
+            this.BtnEliminarPost.Size = new System.Drawing.Size(75, 23);
+            this.BtnEliminarPost.TabIndex = 31;
+            this.BtnEliminarPost.Text = "Eliminar";
+            this.BtnEliminarPost.UseVisualStyleBackColor = true;
+            this.BtnEliminarPost.Click += new System.EventHandler(this.BtnEliminarPost_Click);
+            // 
+            // StaticLbReaccion
+            // 
+            this.StaticLbReaccion.AutoSize = true;
+            this.StaticLbReaccion.Location = new System.Drawing.Point(609, 145);
+            this.StaticLbReaccion.Name = "StaticLbReaccion";
+            this.StaticLbReaccion.Size = new System.Drawing.Size(67, 13);
+            this.StaticLbReaccion.TabIndex = 32;
+            this.StaticLbReaccion.Text = "Reacciones:";
+            // 
+            // LbReacciones
+            // 
+            this.LbReacciones.AutoSize = true;
+            this.LbReacciones.Location = new System.Drawing.Point(680, 145);
+            this.LbReacciones.Name = "LbReacciones";
+            this.LbReacciones.Size = new System.Drawing.Size(14, 13);
+            this.LbReacciones.TabIndex = 33;
+            this.LbReacciones.Text = "X";
+            // 
+            // BtnActualizarPub
+            // 
+            this.BtnActualizarPub.Location = new System.Drawing.Point(610, 219);
+            this.BtnActualizarPub.Name = "BtnActualizarPub";
+            this.BtnActualizarPub.Size = new System.Drawing.Size(75, 23);
+            this.BtnActualizarPub.TabIndex = 34;
+            this.BtnActualizarPub.Text = "Actualizar";
+            this.BtnActualizarPub.UseVisualStyleBackColor = true;
+            this.BtnActualizarPub.Click += new System.EventHandler(this.BtnActualizarPub_Click);
+            // 
             // ControlUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.BtnActualizarPub);
+            this.Controls.Add(this.LbReacciones);
+            this.Controls.Add(this.StaticLbReaccion);
+            this.Controls.Add(this.BtnEliminarPost);
+            this.Controls.Add(this.BtnEdit);
+            this.Controls.Add(this.TboxContenido);
             this.Controls.Add(this.StaticLbPublicacion);
             this.Controls.Add(this.LboxPublicaciones);
             this.Controls.Add(this.LbRolUsr);
@@ -197,5 +264,11 @@ namespace Interfaz
         private System.Windows.Forms.Label StaticLbEstado;
         private System.Windows.Forms.Label StaticLbUsername;
         private System.Windows.Forms.Label StaticLbImgProfile;
+        private System.Windows.Forms.TextBox TboxContenido;
+        private System.Windows.Forms.Button BtnEdit;
+        private System.Windows.Forms.Button BtnEliminarPost;
+        private System.Windows.Forms.Label StaticLbReaccion;
+        private System.Windows.Forms.Label LbReacciones;
+        private System.Windows.Forms.Button BtnActualizarPub;
     }
 }

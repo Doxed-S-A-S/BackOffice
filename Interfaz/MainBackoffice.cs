@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Controlador;
+
 namespace Interfaz
 {
     public partial class MainBackoffice : Form
@@ -22,5 +24,12 @@ namespace Interfaz
             controlUsuario1.Show();
             controlUsuario1.BringToFront();
         }
+
+        private void TestingBtnPub_Click(object sender, EventArgs e)
+        {
+            ControlPosts.CrearPost(TestingTboxPub.Text, TestingTboxReacciones.Text);
+
+        }
+
     }
 }

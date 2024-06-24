@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaz", "Interfaz\Interf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controlador", "Controlador\Controlador.csproj", "{01107451-8512-419B-AAD7-CE6A7C422A5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelo", "Modelo\Modelo.csproj", "{12BD6A2E-27EA-430A-BAA2-D47D3A40864E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelos", "Modelo\Modelos.csproj", "{12BD6A2E-27EA-430A-BAA2-D47D3A40864E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

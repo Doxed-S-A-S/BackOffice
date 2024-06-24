@@ -53,6 +53,9 @@ namespace Interfaz
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnContUsuarios = new System.Windows.Forms.Button();
             this.controlUsuario1 = new Interfaz.ControlUsuario();
+            this.TestingTboxReacciones = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -192,7 +195,7 @@ namespace Interfaz
             // Label1
             // 
             this.Label1.AutoSize = true;
-            this.Label1.Location = new System.Drawing.Point(1280, 56);
+            this.Label1.Location = new System.Drawing.Point(1280, 24);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(78, 13);
             this.Label1.TabIndex = 16;
@@ -208,12 +211,13 @@ namespace Interfaz
             // 
             // TestingBtnPub
             // 
-            this.TestingBtnPub.Location = new System.Drawing.Point(1283, 177);
+            this.TestingBtnPub.Location = new System.Drawing.Point(1283, 205);
             this.TestingBtnPub.Name = "TestingBtnPub";
             this.TestingBtnPub.Size = new System.Drawing.Size(75, 23);
             this.TestingBtnPub.TabIndex = 18;
             this.TestingBtnPub.Text = "Publicar";
             this.TestingBtnPub.UseVisualStyleBackColor = true;
+            this.TestingBtnPub.Click += new System.EventHandler(this.TestingBtnPub_Click);
             // 
             // panel1
             // 
@@ -242,11 +246,39 @@ namespace Interfaz
             this.controlUsuario1.TabIndex = 20;
             this.controlUsuario1.Visible = false;
             // 
+            // TestingTboxReacciones
+            // 
+            this.TestingTboxReacciones.Location = new System.Drawing.Point(1258, 177);
+            this.TestingTboxReacciones.Name = "TestingTboxReacciones";
+            this.TestingTboxReacciones.Size = new System.Drawing.Size(100, 20);
+            this.TestingTboxReacciones.TabIndex = 21;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(1199, 59);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(147, 13);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Publicacion ( Max 100 chars )";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(1220, 180);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Likes";
+            // 
             // MainBackoffice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 703);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.TestingTboxReacciones);
             this.Controls.Add(this.controlUsuario1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.TestingBtnPub);
@@ -290,5 +322,8 @@ namespace Interfaz
         private System.Windows.Forms.Panel panel1;
         private ControlUsuario controlUsuario1;
         private System.Windows.Forms.Button BtnContUsuarios;
+        private System.Windows.Forms.TextBox TestingTboxReacciones;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
