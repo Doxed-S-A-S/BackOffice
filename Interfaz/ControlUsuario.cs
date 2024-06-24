@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace Interfaz
 {
-    public partial class MainBackoffice : Form
+    public partial class ControlUsuario : UserControl
     {
-        public MainBackoffice()
+        public ControlUsuario()
         {
             InitializeComponent();
-        }
-
-        private void BtnContUsuarios_Click(object sender, EventArgs e)
-        {
-            controlUsuario1.Show();
-            controlUsuario1.BringToFront();
         }
     }
 }
