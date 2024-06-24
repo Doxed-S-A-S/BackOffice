@@ -23,14 +23,14 @@ namespace Controlador
         public static void ElimiarPost(string id)
         {
             ModeloPost post = new ModeloPost();
-            post.id = Int32.Parse(id);
+            post.Id_Post = Int32.Parse(id);
             post.Eliminar();
         }
 
         public static DataTable Listar()
         {
             DataTable tabla = new DataTable();
-            tabla.Columns.Add("Id", typeof(int));
+            tabla.Columns.Add("Id_Post", typeof(int));
             tabla.Columns.Add("Contenido", typeof(string));
             tabla.Columns.Add("Reaccion", typeof(int));
 
@@ -39,7 +39,7 @@ namespace Controlador
             foreach (ModeloPost p in pizza.ObtenerPosts())
             {
                 DataRow fila = tabla.NewRow();
-                fila["Id"] = p.id;
+                fila["Id_post"] = p.Id_Post;
                 fila["Nombre"] = p.Contenido;
                 fila["Precio"] = p.Reacciones;
                 tabla.Rows.Add(fila);
@@ -48,5 +48,6 @@ namespace Controlador
             return tabla;
 
         }
+
     }
 }

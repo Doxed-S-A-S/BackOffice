@@ -8,7 +8,7 @@ namespace Modelos
 {
     public class ModeloPost : Modelo
     {
-        public int id;
+        public int Id_Post;
         public string Contenido;
         public int Reacciones;
 
@@ -21,7 +21,7 @@ namespace Modelos
 
         public void Eliminar()
         {
-            string sql = $"update Posts set Eliminado = true where id ='{this.id}'";
+            string sql = $"update Posts set Eliminado = true where id ='{this.Id_Post}'";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
@@ -30,16 +30,16 @@ namespace Modelos
         {
             List<ModeloPost> posts = new List<ModeloPost>();
 
-            string sql = $"select * from Posts where Eliminado ) false";
+            string sql = $"select * from Posts where Eliminado = false";
             this.Comando.CommandText = sql;
             this.Lector = this.Comando.ExecuteReader();
 
             while (this.Lector.Read())
             {
                 ModeloPost post = new ModeloPost();
-                post.id = Int32.Parse(this.Lector["id"].ToString());
+                post.Id_Post = Int32.Parse(this.Lector["Id_post"].ToString());
                 post.Contenido = this.Lector["Contenido"].ToString();
-                post.Reacciones = Int32.Parse(this.Lector[Reacciones].ToString());
+                post.Reacciones = Int32.Parse(this.Lector["Reacciones"].ToString());
             }
             return posts;
         }

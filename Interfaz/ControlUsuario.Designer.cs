@@ -180,6 +180,7 @@ namespace Interfaz
             this.BtnEdit.TabIndex = 30;
             this.BtnEdit.Text = "Editar";
             this.BtnEdit.UseVisualStyleBackColor = true;
+            this.BtnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // BtnEliminarPost
             // 
