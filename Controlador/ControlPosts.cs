@@ -27,7 +27,7 @@ namespace Controlador
             post.Eliminar();
         }
 
-        public static DataTable Listar()
+        public static DataTable Listar()  // iterar con foreach y trear contenido e i, luego agarrar el id y cargar los datos alado
         {
             DataTable tabla = new DataTable();
             tabla.Columns.Add("Id_Post", typeof(int));
