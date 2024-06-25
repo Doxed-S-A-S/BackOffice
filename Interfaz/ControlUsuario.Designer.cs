@@ -48,6 +48,8 @@ namespace Interfaz
             this.StaticLbReaccion = new System.Windows.Forms.Label();
             this.LbReacciones = new System.Windows.Forms.Label();
             this.BtnActualizarPub = new System.Windows.Forms.Button();
+            this.tablaDeDatos = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaDeDatos)).BeginInit();
             this.SuspendLayout();
             // 
             // StaticLbPublicacion
@@ -220,10 +222,19 @@ namespace Interfaz
             this.BtnActualizarPub.UseVisualStyleBackColor = true;
             this.BtnActualizarPub.Click += new System.EventHandler(this.BtnActualizarPub_Click);
             // 
+            // tablaDeDatos
+            // 
+            this.tablaDeDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tablaDeDatos.Location = new System.Drawing.Point(612, 248);
+            this.tablaDeDatos.Name = "tablaDeDatos";
+            this.tablaDeDatos.Size = new System.Drawing.Size(240, 150);
+            this.tablaDeDatos.TabIndex = 35;
+            // 
             // ControlUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.tablaDeDatos);
             this.Controls.Add(this.BtnActualizarPub);
             this.Controls.Add(this.LbReacciones);
             this.Controls.Add(this.StaticLbReaccion);
@@ -245,6 +256,8 @@ namespace Interfaz
             this.Controls.Add(this.StaticLbImgProfile);
             this.Name = "ControlUsuario";
             this.Size = new System.Drawing.Size(1012, 648);
+            this.Load += new System.EventHandler(this.ControlUsuario_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.tablaDeDatos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,5 +284,6 @@ namespace Interfaz
         private System.Windows.Forms.Label StaticLbReaccion;
         private System.Windows.Forms.Label LbReacciones;
         private System.Windows.Forms.Button BtnActualizarPub;
+        private System.Windows.Forms.DataGridView tablaDeDatos;
     }
 }

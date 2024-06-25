@@ -32,7 +32,7 @@ namespace Controlador
             DataTable tabla = new DataTable();
             tabla.Columns.Add("Id_Post", typeof(int));
             tabla.Columns.Add("Contenido", typeof(string));
-            tabla.Columns.Add("Reaccion", typeof(int));
+            tabla.Columns.Add("Reacciones", typeof(int));
 
 
             ModeloPost pizza = new ModeloPost();
@@ -40,8 +40,8 @@ namespace Controlador
             {
                 DataRow fila = tabla.NewRow();
                 fila["Id_post"] = p.Id_Post;
-                fila["Nombre"] = p.Contenido;
-                fila["Precio"] = p.Reacciones;
+                fila["Contenido"] = p.Contenido;
+                fila["Reacciones"] = p.Reacciones;
                 tabla.Rows.Add(fila);
             }
 

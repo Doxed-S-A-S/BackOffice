@@ -40,6 +40,7 @@ namespace Modelos
                 post.Id_Post = Int32.Parse(this.Lector["Id_post"].ToString());
                 post.Contenido = this.Lector["Contenido"].ToString();
                 post.Reacciones = Int32.Parse(this.Lector["Reacciones"].ToString());
+                posts.Add(post);
             }
             return posts;
         }
