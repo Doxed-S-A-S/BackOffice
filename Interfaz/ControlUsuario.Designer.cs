@@ -30,7 +30,6 @@ namespace Interfaz
         private void InitializeComponent()
         {
             this.StaticLbPublicacion = new System.Windows.Forms.Label();
-            this.LboxPublicaciones = new System.Windows.Forms.ListBox();
             this.LbRolUsr = new System.Windows.Forms.Label();
             this.StaticLbRolUsr = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,8 +47,8 @@ namespace Interfaz
             this.StaticLbReaccion = new System.Windows.Forms.Label();
             this.LbReacciones = new System.Windows.Forms.Label();
             this.BtnActualizarPub = new System.Windows.Forms.Button();
-            this.tablaDeDatos = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.tablaDeDatos)).BeginInit();
+            this.DgridPublicaciones = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.DgridPublicaciones)).BeginInit();
             this.SuspendLayout();
             // 
             // StaticLbPublicacion
@@ -60,14 +59,6 @@ namespace Interfaz
             this.StaticLbPublicacion.Size = new System.Drawing.Size(76, 13);
             this.StaticLbPublicacion.TabIndex = 28;
             this.StaticLbPublicacion.Text = "Publicaciones:";
-            // 
-            // LboxPublicaciones
-            // 
-            this.LboxPublicaciones.FormattingEnabled = true;
-            this.LboxPublicaciones.Location = new System.Drawing.Point(238, 30);
-            this.LboxPublicaciones.Name = "LboxPublicaciones";
-            this.LboxPublicaciones.Size = new System.Drawing.Size(365, 615);
-            this.LboxPublicaciones.TabIndex = 27;
             // 
             // LbRolUsr
             // 
@@ -222,19 +213,23 @@ namespace Interfaz
             this.BtnActualizarPub.UseVisualStyleBackColor = true;
             this.BtnActualizarPub.Click += new System.EventHandler(this.BtnActualizarPub_Click);
             // 
-            // tablaDeDatos
+            // DgridPublicaciones
             // 
-            this.tablaDeDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tablaDeDatos.Location = new System.Drawing.Point(612, 248);
-            this.tablaDeDatos.Name = "tablaDeDatos";
-            this.tablaDeDatos.Size = new System.Drawing.Size(240, 150);
-            this.tablaDeDatos.TabIndex = 35;
+            this.DgridPublicaciones.AllowUserToAddRows = false;
+            this.DgridPublicaciones.AllowUserToDeleteRows = false;
+            this.DgridPublicaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.DgridPublicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgridPublicaciones.Location = new System.Drawing.Point(241, 30);
+            this.DgridPublicaciones.MultiSelect = false;
+            this.DgridPublicaciones.Name = "DgridPublicaciones";
+            this.DgridPublicaciones.Size = new System.Drawing.Size(363, 615);
+            this.DgridPublicaciones.TabIndex = 35;
             // 
             // ControlUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tablaDeDatos);
+            this.Controls.Add(this.DgridPublicaciones);
             this.Controls.Add(this.BtnActualizarPub);
             this.Controls.Add(this.LbReacciones);
             this.Controls.Add(this.StaticLbReaccion);
@@ -242,7 +237,6 @@ namespace Interfaz
             this.Controls.Add(this.BtnEdit);
             this.Controls.Add(this.TboxContenido);
             this.Controls.Add(this.StaticLbPublicacion);
-            this.Controls.Add(this.LboxPublicaciones);
             this.Controls.Add(this.LbRolUsr);
             this.Controls.Add(this.StaticLbRolUsr);
             this.Controls.Add(this.label2);
@@ -257,7 +251,7 @@ namespace Interfaz
             this.Name = "ControlUsuario";
             this.Size = new System.Drawing.Size(1012, 648);
             this.Load += new System.EventHandler(this.ControlUsuario_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.tablaDeDatos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgridPublicaciones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,7 +260,6 @@ namespace Interfaz
         #endregion
 
         private System.Windows.Forms.Label StaticLbPublicacion;
-        private System.Windows.Forms.ListBox LboxPublicaciones;
         private System.Windows.Forms.Label LbRolUsr;
         private System.Windows.Forms.Label StaticLbRolUsr;
         private System.Windows.Forms.Label label2;
@@ -284,6 +277,6 @@ namespace Interfaz
         private System.Windows.Forms.Label StaticLbReaccion;
         private System.Windows.Forms.Label LbReacciones;
         private System.Windows.Forms.Button BtnActualizarPub;
-        private System.Windows.Forms.DataGridView tablaDeDatos;
+        private System.Windows.Forms.DataGridView DgridPublicaciones;
     }
 }

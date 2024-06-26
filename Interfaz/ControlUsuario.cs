@@ -26,8 +26,9 @@ namespace Interfaz
 
         private void refrescarTablaDeDatos()
         {
-            tablaDeDatos.Refresh();
-            tablaDeDatos.DataSource = ControlPosts.Listar();
+            DgridPublicaciones.Refresh();
+            DgridPublicaciones.DataSource = ControlPosts.Listar();
+            DgridPublicaciones.Columns["Id_post"].Visible = false;
         }
 
         private void BtnActualizarPub_Click(object sender, EventArgs e)
