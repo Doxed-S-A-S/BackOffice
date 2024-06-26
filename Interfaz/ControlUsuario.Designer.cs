@@ -42,13 +42,17 @@ namespace Interfaz
             this.StaticLbUsername = new System.Windows.Forms.Label();
             this.StaticLbImgProfile = new System.Windows.Forms.Label();
             this.TboxContenido = new System.Windows.Forms.TextBox();
-            this.BtnEdit = new System.Windows.Forms.Button();
+            this.BtnEditarPost = new System.Windows.Forms.Button();
             this.BtnEliminarPost = new System.Windows.Forms.Button();
-            this.StaticLbReaccion = new System.Windows.Forms.Label();
-            this.LbReacciones = new System.Windows.Forms.Label();
             this.BtnActualizarPub = new System.Windows.Forms.Button();
             this.DgridPublicaciones = new System.Windows.Forms.DataGridView();
+            this.DgridComentarios = new System.Windows.Forms.DataGridView();
+            this.TboxComentarios = new System.Windows.Forms.TextBox();
+            this.BtnActualizarComentarios = new System.Windows.Forms.Button();
+            this.BtnEliminarComentario = new System.Windows.Forms.Button();
+            this.BtnEditarComentario = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgridPublicaciones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgridComentarios)).BeginInit();
             this.SuspendLayout();
             // 
             // StaticLbPublicacion
@@ -159,25 +163,25 @@ namespace Interfaz
             // 
             // TboxContenido
             // 
-            this.TboxContenido.Location = new System.Drawing.Point(610, 30);
+            this.TboxContenido.Location = new System.Drawing.Point(610, 59);
             this.TboxContenido.Multiline = true;
             this.TboxContenido.Name = "TboxContenido";
             this.TboxContenido.Size = new System.Drawing.Size(169, 112);
             this.TboxContenido.TabIndex = 29;
             // 
-            // BtnEdit
+            // BtnEditarPost
             // 
-            this.BtnEdit.Location = new System.Drawing.Point(610, 161);
-            this.BtnEdit.Name = "BtnEdit";
-            this.BtnEdit.Size = new System.Drawing.Size(75, 23);
-            this.BtnEdit.TabIndex = 30;
-            this.BtnEdit.Text = "Editar";
-            this.BtnEdit.UseVisualStyleBackColor = true;
-            this.BtnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
+            this.BtnEditarPost.Location = new System.Drawing.Point(610, 177);
+            this.BtnEditarPost.Name = "BtnEditarPost";
+            this.BtnEditarPost.Size = new System.Drawing.Size(75, 23);
+            this.BtnEditarPost.TabIndex = 30;
+            this.BtnEditarPost.Text = "Editar";
+            this.BtnEditarPost.UseVisualStyleBackColor = true;
+            this.BtnEditarPost.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // BtnEliminarPost
             // 
-            this.BtnEliminarPost.Location = new System.Drawing.Point(704, 161);
+            this.BtnEliminarPost.Location = new System.Drawing.Point(704, 177);
             this.BtnEliminarPost.Name = "BtnEliminarPost";
             this.BtnEliminarPost.Size = new System.Drawing.Size(75, 23);
             this.BtnEliminarPost.TabIndex = 31;
@@ -185,31 +189,13 @@ namespace Interfaz
             this.BtnEliminarPost.UseVisualStyleBackColor = true;
             this.BtnEliminarPost.Click += new System.EventHandler(this.BtnEliminarPost_Click);
             // 
-            // StaticLbReaccion
-            // 
-            this.StaticLbReaccion.AutoSize = true;
-            this.StaticLbReaccion.Location = new System.Drawing.Point(609, 145);
-            this.StaticLbReaccion.Name = "StaticLbReaccion";
-            this.StaticLbReaccion.Size = new System.Drawing.Size(67, 13);
-            this.StaticLbReaccion.TabIndex = 32;
-            this.StaticLbReaccion.Text = "Reacciones:";
-            // 
-            // LbReacciones
-            // 
-            this.LbReacciones.AutoSize = true;
-            this.LbReacciones.Location = new System.Drawing.Point(680, 145);
-            this.LbReacciones.Name = "LbReacciones";
-            this.LbReacciones.Size = new System.Drawing.Size(14, 13);
-            this.LbReacciones.TabIndex = 33;
-            this.LbReacciones.Text = "X";
-            // 
             // BtnActualizarPub
             // 
-            this.BtnActualizarPub.Location = new System.Drawing.Point(610, 219);
+            this.BtnActualizarPub.Location = new System.Drawing.Point(610, 30);
             this.BtnActualizarPub.Name = "BtnActualizarPub";
-            this.BtnActualizarPub.Size = new System.Drawing.Size(75, 23);
+            this.BtnActualizarPub.Size = new System.Drawing.Size(169, 23);
             this.BtnActualizarPub.TabIndex = 34;
-            this.BtnActualizarPub.Text = "Actualizar";
+            this.BtnActualizarPub.Text = "Actualizar lista de post";
             this.BtnActualizarPub.UseVisualStyleBackColor = true;
             this.BtnActualizarPub.Click += new System.EventHandler(this.BtnActualizarPub_Click);
             // 
@@ -222,20 +208,69 @@ namespace Interfaz
             this.DgridPublicaciones.Location = new System.Drawing.Point(241, 30);
             this.DgridPublicaciones.MultiSelect = false;
             this.DgridPublicaciones.Name = "DgridPublicaciones";
-            this.DgridPublicaciones.Size = new System.Drawing.Size(363, 615);
+            this.DgridPublicaciones.Size = new System.Drawing.Size(363, 391);
             this.DgridPublicaciones.TabIndex = 35;
             this.DgridPublicaciones.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgridPublicaciones_CellClick);
+            // 
+            // DgridComentarios
+            // 
+            this.DgridComentarios.AllowUserToAddRows = false;
+            this.DgridComentarios.AllowUserToDeleteRows = false;
+            this.DgridComentarios.AllowUserToResizeColumns = false;
+            this.DgridComentarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgridComentarios.Location = new System.Drawing.Point(241, 459);
+            this.DgridComentarios.Name = "DgridComentarios";
+            this.DgridComentarios.Size = new System.Drawing.Size(363, 186);
+            this.DgridComentarios.TabIndex = 36;
+            // 
+            // TboxComentarios
+            // 
+            this.TboxComentarios.Location = new System.Drawing.Point(610, 488);
+            this.TboxComentarios.Multiline = true;
+            this.TboxComentarios.Name = "TboxComentarios";
+            this.TboxComentarios.Size = new System.Drawing.Size(169, 112);
+            this.TboxComentarios.TabIndex = 37;
+            // 
+            // BtnActualizarComentarios
+            // 
+            this.BtnActualizarComentarios.Location = new System.Drawing.Point(610, 459);
+            this.BtnActualizarComentarios.Name = "BtnActualizarComentarios";
+            this.BtnActualizarComentarios.Size = new System.Drawing.Size(169, 23);
+            this.BtnActualizarComentarios.TabIndex = 38;
+            this.BtnActualizarComentarios.Text = "Actualizar lista de comentarios";
+            this.BtnActualizarComentarios.UseVisualStyleBackColor = true;
+            // 
+            // BtnEliminarComentario
+            // 
+            this.BtnEliminarComentario.Location = new System.Drawing.Point(704, 606);
+            this.BtnEliminarComentario.Name = "BtnEliminarComentario";
+            this.BtnEliminarComentario.Size = new System.Drawing.Size(75, 23);
+            this.BtnEliminarComentario.TabIndex = 40;
+            this.BtnEliminarComentario.Text = "Eliminar";
+            this.BtnEliminarComentario.UseVisualStyleBackColor = true;
+            // 
+            // BtnEditarComentario
+            // 
+            this.BtnEditarComentario.Location = new System.Drawing.Point(610, 606);
+            this.BtnEditarComentario.Name = "BtnEditarComentario";
+            this.BtnEditarComentario.Size = new System.Drawing.Size(75, 23);
+            this.BtnEditarComentario.TabIndex = 39;
+            this.BtnEditarComentario.Text = "Editar";
+            this.BtnEditarComentario.UseVisualStyleBackColor = true;
             // 
             // ControlUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.BtnEliminarComentario);
+            this.Controls.Add(this.BtnEditarComentario);
+            this.Controls.Add(this.BtnActualizarComentarios);
+            this.Controls.Add(this.TboxComentarios);
+            this.Controls.Add(this.DgridComentarios);
             this.Controls.Add(this.DgridPublicaciones);
             this.Controls.Add(this.BtnActualizarPub);
-            this.Controls.Add(this.LbReacciones);
-            this.Controls.Add(this.StaticLbReaccion);
             this.Controls.Add(this.BtnEliminarPost);
-            this.Controls.Add(this.BtnEdit);
+            this.Controls.Add(this.BtnEditarPost);
             this.Controls.Add(this.TboxContenido);
             this.Controls.Add(this.StaticLbPublicacion);
             this.Controls.Add(this.LbRolUsr);
@@ -251,8 +286,8 @@ namespace Interfaz
             this.Controls.Add(this.StaticLbImgProfile);
             this.Name = "ControlUsuario";
             this.Size = new System.Drawing.Size(1012, 648);
-            this.Load += new System.EventHandler(this.ControlUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgridPublicaciones)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgridComentarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,11 +308,14 @@ namespace Interfaz
         private System.Windows.Forms.Label StaticLbUsername;
         private System.Windows.Forms.Label StaticLbImgProfile;
         private System.Windows.Forms.TextBox TboxContenido;
-        private System.Windows.Forms.Button BtnEdit;
+        private System.Windows.Forms.Button BtnEditarPost;
         private System.Windows.Forms.Button BtnEliminarPost;
-        private System.Windows.Forms.Label StaticLbReaccion;
-        private System.Windows.Forms.Label LbReacciones;
         private System.Windows.Forms.Button BtnActualizarPub;
         private System.Windows.Forms.DataGridView DgridPublicaciones;
+        private System.Windows.Forms.DataGridView DgridComentarios;
+        private System.Windows.Forms.TextBox TboxComentarios;
+        private System.Windows.Forms.Button BtnActualizarComentarios;
+        private System.Windows.Forms.Button BtnEliminarComentario;
+        private System.Windows.Forms.Button BtnEditarComentario;
     }
 }
