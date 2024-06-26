@@ -224,6 +224,7 @@ namespace Interfaz
             this.DgridPublicaciones.Name = "DgridPublicaciones";
             this.DgridPublicaciones.Size = new System.Drawing.Size(363, 615);
             this.DgridPublicaciones.TabIndex = 35;
+            this.DgridPublicaciones.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgridPublicaciones_CellClick);
             // 
             // ControlUsuario
             // 

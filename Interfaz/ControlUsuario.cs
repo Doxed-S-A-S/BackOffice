@@ -45,5 +45,10 @@ namespace Interfaz
         {
             refrescarTablaDeDatos();
         }
+
+        private void DgridPublicaciones_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            TboxContenido.Text = DgridPublicaciones.SelectedRows[0].Cells["Contenido"].Value.ToString();
+        }
     }
 }
