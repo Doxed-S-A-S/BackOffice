@@ -21,7 +21,18 @@ namespace Interfaz
 
         private void BtnEliminarPost_Click(object sender, EventArgs e)
         {
+            string id_post = DgridPublicaciones.SelectedRows[0].Cells["Id_Post"].Value.ToString();
+            DialogResult resultado = MessageBox.Show(
+                $"Esta seguro que quiere eliminar el post {id_post}?",
+                "Esta seguro?",
+                MessageBoxButtons.YesNo);
 
+            if (resultado.ToString() == "Yes")
+            {
+                ControlPosts.ElimiarPost(id_post);
+                refrescarTablaDeDatos();
+                MessageBox.Show("Post eliminado");
+            }
         }
 
         private void refrescarTablaDeDatos()

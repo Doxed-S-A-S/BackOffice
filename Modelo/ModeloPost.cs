@@ -21,7 +21,7 @@ namespace Modelos
 
         public void Eliminar()
         {
-            string sql = $"update Posts set Eliminado = true where id ='{this.Id_Post}'";
+            string sql = $"update Posts set Eliminado = true where ID_post ='{this.Id_Post}'";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
