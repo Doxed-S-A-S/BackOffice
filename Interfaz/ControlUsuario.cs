@@ -49,7 +49,10 @@ namespace Interfaz
 
         private void BtnEdit_Click(object sender, EventArgs e)
         {
-
+            string id = DgridPublicaciones.SelectedRows[0].Cells["Id_post"].Value.ToString();
+            ControlPosts.ModificarPost(id, TboxContenido.Text);
+            MessageBox.Show("Se modifico el contenido");
+            refrescarTablaDeDatos();
         }
 
         private void ControlUsuario_Load(object sender, EventArgs e)

@@ -19,6 +19,13 @@ namespace Modelos
             this.Comando.ExecuteNonQuery();
         }
 
+        public void AcutalizarP()
+        {
+            string sql = $"update Posts set Contenido ='{this.Contenido}'where ID_post ='{this.Id_Post}'";
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+        }
+
         public void Eliminar()
         {
             string sql = $"update Posts set Eliminado = true where ID_post ='{this.Id_Post}'";

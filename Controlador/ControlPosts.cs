@@ -27,6 +27,14 @@ namespace Controlador
             post.Eliminar();
         }
 
+        public static void ModificarPost(string id, string contenido)
+        {
+            ModeloPost post = new ModeloPost();
+            post.Id_Post = Int32.Parse(id);
+            post.Contenido = contenido;
+            post.AcutalizarP();
+        }
+
         public static DataTable Listar()  // iterar con foreach y trear contenido e i, luego agarrar el id y cargar los datos alado
         {
             DataTable tabla = new DataTable();
