@@ -30,21 +30,28 @@ namespace Interfaz
             if (resultado.ToString() == "Yes")
             {
                 ControlPosts.ElimiarPost(id_post);
-                refrescarTablaDeDatos();
+                refrescarTablaDePublicaciones();
                 MessageBox.Show("Post eliminado");
             }
         }
 
-        private void refrescarTablaDeDatos()
+        private void refrescarTablaDePublicaciones()
         {
             DgridPublicaciones.Refresh();
             DgridPublicaciones.DataSource = ControlPosts.Listar();
             DgridPublicaciones.Columns["Id_post"].Visible = false;
         }
 
+        private void refrescarTablaDeComentarios()
+        {
+            DgridComentarios.Refresh();
+            DgridComentarios.DataSource = ControlComentarios.ListarComentarios(DgridPublicaciones.SelectedRows[0].Cells["Id_post"].Value.ToString());
+            //DgridComentarios.Columns["Id_post"].Visible = false;
+        }
+
         private void BtnActualizarPub_Click(object sender, EventArgs e)
         {
-            refrescarTablaDeDatos();
+            refrescarTablaDePublicaciones();
         }
 
         private void BtnEdit_Click(object sender, EventArgs e)
@@ -52,12 +59,22 @@ namespace Interfaz
             string id = DgridPublicaciones.SelectedRows[0].Cells["Id_post"].Value.ToString();
             ControlPosts.ModificarPost(id, TboxContenido.Text);
             MessageBox.Show("Se modifico el contenido");
-            refrescarTablaDeDatos();
+            refrescarTablaDePublicaciones();
         }
 
         private void DgridPublicaciones_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             TboxContenido.Text = DgridPublicaciones.SelectedRows[0].Cells["Contenido"].Value.ToString();
+        }
+
+        private void BtnEditarComentario_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnActualizarComentarios_Click(object sender, EventArgs e)
+        {
+            refrescarTablaDeComentarios();
         }
     }
 }

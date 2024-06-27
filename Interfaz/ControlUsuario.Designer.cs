@@ -239,6 +239,7 @@ namespace Interfaz
             this.BtnActualizarComentarios.TabIndex = 38;
             this.BtnActualizarComentarios.Text = "Actualizar lista de comentarios";
             this.BtnActualizarComentarios.UseVisualStyleBackColor = true;
+            this.BtnActualizarComentarios.Click += new System.EventHandler(this.BtnActualizarComentarios_Click);
             // 
             // BtnEliminarComentario
             // 
@@ -257,6 +258,7 @@ namespace Interfaz
             this.BtnEditarComentario.TabIndex = 39;
             this.BtnEditarComentario.Text = "Editar";
             this.BtnEditarComentario.UseVisualStyleBackColor = true;
+            this.BtnEditarComentario.Click += new System.EventHandler(this.BtnEditarComentario_Click);
             // 
             // ControlUsuario
             // 

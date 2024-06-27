@@ -15,7 +15,7 @@ namespace Modelos
 
         public void GuardarComentario()
         {
-            string sql = $"insert into Comentarios (Comentario,C_Reacciones) values('{this.Comentario}',{this.ReaccionesCom})";
+            string sql = $"insert into Comentarios (ID_post,Comentario,C_Reacciones) values({this.IdPost},'{this.Comentario}',{this.ReaccionesCom})";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
@@ -27,21 +27,29 @@ namespace Modelos
             this.Comando.ExecuteNonQuery();
         }
 
-        public List<ModeloComentario> ObtenerComentarios()
+        public void AcualizarComentario()
         {
-            List<ModeloComentario> comentarios = new List<ModeloComentario>();
-
-            string sql = $"select * from Comentarios where ID_post = '{this.IdPost}' and Eliminado = false";
+            string sql = $"update Comentarios set Comentario ='{this.Comentario}'where ID_post ='{this.IdComentario}'";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
+        }
+
+        public List<ModeloComentario> ObtenerComentarios(string idPost)
+        {
+            string idP = idPost;
+            List<ModeloComentario> comentarios = new List<ModeloComentario>();
+
+            string sql = $"select * from Comentarios where ID_post = '{idP}' and Eliminado = false";
+            this.Comando.CommandText = sql;
+            this.Lector = this.Comando.ExecuteReader();
 
             while (this.Lector.Read())
             {
                 ModeloComentario coment = new ModeloComentario();
-                coment.IdPost = Int32.Parse(this.Lector["IdPost"].ToString());
-                coment.IdComentario = Int32.Parse(this.Lector["IdComentario"].ToString());
+                coment.IdComentario = Int32.Parse(this.Lector["ID_comentario"].ToString());
+                coment.IdPost = Int32.Parse(this.Lector["ID_post"].ToString());
                 coment.Comentario = this.Lector["Comentario"].ToString();
-                coment.ReaccionesCom = Int32.Parse(this.Lector["ReaccionesCom"].ToString());
+                coment.ReaccionesCom = Int32.Parse(this.Lector["C_reacciones"].ToString());
                 comentarios.Add(coment);
             }
             return comentarios;
