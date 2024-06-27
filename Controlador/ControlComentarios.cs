@@ -25,7 +25,7 @@ namespace Controlador
         {
             ModeloComentario coment = new ModeloComentario();
             coment.IdComentario = Int32.Parse(idcoment);
-            coment.GuardarComentario();
+            coment.EliminarComentario();
         }
 
         public static void ModificarComentario(string idcoment,string comentario)

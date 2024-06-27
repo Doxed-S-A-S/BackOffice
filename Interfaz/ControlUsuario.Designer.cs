@@ -222,6 +222,7 @@ namespace Interfaz
             this.DgridComentarios.Name = "DgridComentarios";
             this.DgridComentarios.Size = new System.Drawing.Size(363, 186);
             this.DgridComentarios.TabIndex = 36;
+            this.DgridComentarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgridComentarios_CellClick);
             // 
             // TboxComentarios
             // 
@@ -249,6 +250,7 @@ namespace Interfaz
             this.BtnEliminarComentario.TabIndex = 40;
             this.BtnEliminarComentario.Text = "Eliminar";
             this.BtnEliminarComentario.UseVisualStyleBackColor = true;
+            this.BtnEliminarComentario.Click += new System.EventHandler(this.BtnEliminarComentario_Click);
             // 
             // BtnEditarComentario
             // 

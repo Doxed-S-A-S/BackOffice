@@ -29,7 +29,7 @@ namespace Modelos
 
         public void AcualizarComentario()
         {
-            string sql = $"update Comentarios set Comentario ='{this.Comentario}'where ID_post ='{this.IdComentario}'";
+            string sql = $"update Comentarios set Comentario ='{this.Comentario}'where ID_comentario ='{this.IdComentario}'";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }

@@ -69,12 +69,36 @@ namespace Interfaz
 
         private void BtnEditarComentario_Click(object sender, EventArgs e)
         {
-
+            string id = DgridComentarios.SelectedRows[0].Cells["IdComentario"].Value.ToString();
+            ControlComentarios.ModificarComentario(id, TboxComentarios.Text);
+            MessageBox.Show("Se modifico el comentario");
+            refrescarTablaDeComentarios();
         }
 
         private void BtnActualizarComentarios_Click(object sender, EventArgs e)
         {
             refrescarTablaDeComentarios();
+        }
+
+        private void DgridComentarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            TboxComentarios.Text = DgridComentarios.SelectedRows[0].Cells["Comentario"].Value.ToString();
+        }
+
+        private void BtnEliminarComentario_Click(object sender, EventArgs e)
+        {
+            string id = DgridComentarios.SelectedRows[0].Cells["IdComentario"].Value.ToString();
+            DialogResult resultado = MessageBox.Show(
+                $"Esta seguro que quiere eliminar el comentario selecionado?",
+                "Esta seguro?",
+                MessageBoxButtons.YesNo);
+
+            if (resultado.ToString() == "Yes")
+            {
+                ControlComentarios.EliminarComentario(id);
+                refrescarTablaDeComentarios();
+                MessageBox.Show("Comentario eliminado");
+            }
         }
     }
 }
