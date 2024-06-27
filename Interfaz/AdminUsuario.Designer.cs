@@ -1,7 +1,7 @@
 ﻿
 namespace Interfaz
 {
-    partial class ControlUsuario
+    partial class AdminUsuario
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -203,7 +203,8 @@ namespace Interfaz
             // 
             this.DgridPublicaciones.AllowUserToAddRows = false;
             this.DgridPublicaciones.AllowUserToDeleteRows = false;
-            this.DgridPublicaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.DgridPublicaciones.AllowUserToResizeColumns = false;
+            this.DgridPublicaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgridPublicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgridPublicaciones.Location = new System.Drawing.Point(241, 30);
             this.DgridPublicaciones.MultiSelect = false;
@@ -217,6 +218,8 @@ namespace Interfaz
             this.DgridComentarios.AllowUserToAddRows = false;
             this.DgridComentarios.AllowUserToDeleteRows = false;
             this.DgridComentarios.AllowUserToResizeColumns = false;
+            this.DgridComentarios.AllowUserToResizeRows = false;
+            this.DgridComentarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgridComentarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgridComentarios.Location = new System.Drawing.Point(241, 459);
             this.DgridComentarios.Name = "DgridComentarios";
@@ -262,7 +265,7 @@ namespace Interfaz
             this.BtnEditarComentario.UseVisualStyleBackColor = true;
             this.BtnEditarComentario.Click += new System.EventHandler(this.BtnEditarComentario_Click);
             // 
-            // ControlUsuario
+            // AdminUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -288,8 +291,9 @@ namespace Interfaz
             this.Controls.Add(this.StaticLbEstado);
             this.Controls.Add(this.StaticLbUsername);
             this.Controls.Add(this.StaticLbImgProfile);
-            this.Name = "ControlUsuario";
+            this.Name = "AdminUsuario";
             this.Size = new System.Drawing.Size(1012, 648);
+            this.Load += new System.EventHandler(this.AdminUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgridPublicaciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridComentarios)).EndInit();
             this.ResumeLayout(false);

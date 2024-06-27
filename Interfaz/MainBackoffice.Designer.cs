@@ -52,7 +52,7 @@ namespace Interfaz
             this.TestingBtnPub = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnContUsuarios = new System.Windows.Forms.Button();
-            this.controlUsuario1 = new Interfaz.ControlUsuario();
+            this.controlUsuario1 = new Interfaz.AdminUsuario();
             this.TestingTboxReacciones = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -393,7 +393,7 @@ namespace Interfaz
         private System.Windows.Forms.TextBox TestingTboxPub;
         private System.Windows.Forms.Button TestingBtnPub;
         private System.Windows.Forms.Panel panel1;
-        private ControlUsuario controlUsuario1;
+        private AdminUsuario controlUsuario1;
         private System.Windows.Forms.Button BtnContUsuarios;
         private System.Windows.Forms.TextBox TestingTboxReacciones;
         private System.Windows.Forms.Label label2;

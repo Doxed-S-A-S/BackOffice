@@ -12,9 +12,9 @@ using Controlador;
 
 namespace Interfaz
 {
-    public partial class ControlUsuario : UserControl
+    public partial class AdminUsuario : UserControl
     {
-        public ControlUsuario()
+        public AdminUsuario()
         {
             InitializeComponent();
         }
@@ -46,7 +46,8 @@ namespace Interfaz
         {
             DgridComentarios.Refresh();
             DgridComentarios.DataSource = ControlComentarios.ListarComentarios(DgridPublicaciones.SelectedRows[0].Cells["Id_post"].Value.ToString());
-            //DgridComentarios.Columns["Id_post"].Visible = false;
+            DgridComentarios.Columns["IdComentario"].Visible = false;
+            DgridComentarios.Columns["idPost"].Visible = false;
         }
 
         private void BtnActualizarPub_Click(object sender, EventArgs e)
@@ -99,6 +100,11 @@ namespace Interfaz
                 refrescarTablaDeComentarios();
                 MessageBox.Show("Comentario eliminado");
             }
+        }
+
+        private void AdminUsuario_Load(object sender, EventArgs e)
+        {
+            refrescarTablaDePublicaciones();
         }
     }
 }

@@ -34,7 +34,7 @@ namespace Interfaz
             this.label3 = new System.Windows.Forms.Label();
             this.TboxUsrLogin = new System.Windows.Forms.TextBox();
             this.TboxPassLogin = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.StaticLbErrorMsg = new System.Windows.Forms.Label();
             this.BtnLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -79,14 +79,13 @@ namespace Interfaz
             this.TboxPassLogin.Size = new System.Drawing.Size(163, 20);
             this.TboxPassLogin.TabIndex = 4;
             // 
-            // label4
+            // StaticLbErrorMsg
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(83, 258);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "( Mensaje de error )";
+            this.StaticLbErrorMsg.AutoSize = true;
+            this.StaticLbErrorMsg.Location = new System.Drawing.Point(12, 260);
+            this.StaticLbErrorMsg.Name = "StaticLbErrorMsg";
+            this.StaticLbErrorMsg.Size = new System.Drawing.Size(0, 13);
+            this.StaticLbErrorMsg.TabIndex = 5;
             // 
             // BtnLogin
             // 
@@ -104,7 +103,7 @@ namespace Interfaz
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(264, 369);
             this.Controls.Add(this.BtnLogin);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.StaticLbErrorMsg);
             this.Controls.Add(this.TboxPassLogin);
             this.Controls.Add(this.TboxUsrLogin);
             this.Controls.Add(this.label3);
@@ -124,7 +123,7 @@ namespace Interfaz
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TboxUsrLogin;
         private System.Windows.Forms.TextBox TboxPassLogin;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label StaticLbErrorMsg;
         private System.Windows.Forms.Button BtnLogin;
     }
 }

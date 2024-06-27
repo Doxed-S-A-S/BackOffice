@@ -17,14 +17,14 @@ namespace Controlador
             post.Contenido = contenido;
             post.Reacciones = Int32.Parse(reacciones);
 
-            post.Guardar();
+            post.GuardarPost();
         }
 
         public static void ElimiarPost(string id)
         {
             ModeloPost post = new ModeloPost();
             post.Id_Post = Int32.Parse(id);
-            post.Eliminar();
+            post.EliminarPost();
         }
 
         public static void ModificarPost(string id, string contenido)
@@ -32,7 +32,7 @@ namespace Controlador
             ModeloPost post = new ModeloPost();
             post.Id_Post = Int32.Parse(id);
             post.Contenido = contenido;
-            post.AcutalizarP();
+            post.AcutalizarPost();
         }
 
         public static DataTable Listar()  // iterar con foreach y trear contenido e i, luego agarrar el id y cargar los datos alado

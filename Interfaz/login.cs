@@ -26,9 +26,8 @@ namespace Interfaz
                 var MBO = new MainBackoffice();
                 MBO.Closed += (s, args) => this.Close();
                 MBO.Show();
-
-                // añadir boton de enter automatico para login
             }
+            StaticLbErrorMsg.Text = "Credenciales incorrectas (admin en los 2 campos)";
         }
     }
 }
