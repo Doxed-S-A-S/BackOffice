@@ -31,5 +31,9 @@ namespace Interfaz
 
         }
 
+        private void TestingBtnPuliComentario_Click(object sender, EventArgs e)
+        {
+            ControlComentarios.CrearComentario(TestingTboxIdPub.Text, TestingTboxComentario.Text, TestingTboxComReacciones.Text);
+        }
     }
 }
