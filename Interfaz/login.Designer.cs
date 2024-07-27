@@ -76,6 +76,7 @@ namespace Interfaz
             // 
             this.TboxPassLogin.Location = new System.Drawing.Point(51, 222);
             this.TboxPassLogin.Name = "TboxPassLogin";
+            this.TboxPassLogin.PasswordChar = '*';
             this.TboxPassLogin.Size = new System.Drawing.Size(163, 20);
             this.TboxPassLogin.TabIndex = 4;
             // 

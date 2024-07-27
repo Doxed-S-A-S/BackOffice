@@ -19,13 +19,13 @@ namespace Interfaz
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            string ad = "admin";
-            if (TboxUsrLogin.Text == ad && TboxPassLogin.Text == ad)
+            string admin = "admin";
+            if (TboxUsrLogin.Text == admin && TboxPassLogin.Text == admin)
             {
                 this.Hide();
-                var MBO = new MainBackoffice();
-                MBO.Closed += (s, args) => this.Close();
-                MBO.Show();
+                var MainInterface = new MainBackoffice();
+                MainInterface.Closed += (s, args) => this.Close();
+                MainInterface.Show();
             }
             StaticLbErrorMsg.Text = "Credenciales incorrectas (admin en los 2 campos)";
         }
