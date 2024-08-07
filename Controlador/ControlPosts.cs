@@ -32,7 +32,7 @@ namespace Controlador
             ModeloPost post = new ModeloPost();
             post.Id_Post = Int32.Parse(id);
             post.Contenido = contenido;
-            post.AcutalizarPost();
+            post.GuardarPost();
         }
 
         public static DataTable Listar()  // iterar con foreach y trear contenido e i, luego agarrar el id y cargar los datos alado

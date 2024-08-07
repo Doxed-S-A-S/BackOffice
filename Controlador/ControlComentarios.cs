@@ -33,7 +33,7 @@ namespace Controlador
             ModeloComentario coment = new ModeloComentario();
             coment.IdComentario = Int32.Parse(idcoment);
             coment.Comentario = comentario;
-            coment.AcualizarComentario();
+            coment.GuardarComentario();
         }
 
 
@@ -62,3 +62,4 @@ namespace Controlador
         }
     }
 }
+//test
