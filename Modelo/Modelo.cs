@@ -21,7 +21,7 @@ namespace Modelos
         public Modelo()
         {
             this.IP = "127.0.0.1";
-            this.NombreBase = "BackT";
+            this.NombreBase = "LinguaLinkDB";
             this.Password = "1234";
             this.NombreDeUsuario = "root";
 
@@ -42,4 +42,3 @@ namespace Modelos
 
     }
 }
-//coso

@@ -15,7 +15,6 @@ namespace Controlador
         {
             ModeloPost post = new ModeloPost();
             post.Contenido = contenido;
-            post.Reacciones = Int32.Parse(reacciones);
 
             post.GuardarPost();
         }
@@ -40,7 +39,6 @@ namespace Controlador
             DataTable tabla = new DataTable();
             tabla.Columns.Add("Id_Post", typeof(int));
             tabla.Columns.Add("Contenido", typeof(string));
-            tabla.Columns.Add("Reacciones", typeof(int));
 
 
             ModeloPost pizza = new ModeloPost();
@@ -49,7 +47,6 @@ namespace Controlador
                 DataRow fila = tabla.NewRow();
                 fila["Id_post"] = p.Id_Post;
                 fila["Contenido"] = p.Contenido;
-                fila["Reacciones"] = p.Reacciones;
                 tabla.Rows.Add(fila);
             }
 
