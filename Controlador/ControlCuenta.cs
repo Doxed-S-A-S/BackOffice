@@ -43,6 +43,7 @@ namespace Controlador
         public static DataTable ListarCuentas()
         {
             DataTable tabla = new DataTable();
+            tabla.Columns.Add("id_cuenta", typeof(int));
             tabla.Columns.Add("Usuario", typeof(string));
             tabla.Columns.Add("Correo", typeof(string));
 
@@ -50,6 +51,7 @@ namespace Controlador
             foreach (ModeloCuenta c in cuenta.ObtenerCuentas())
             {
                 DataRow fila = tabla.NewRow();
+                fila["id_cuenta"] = c.id_cuenta;
                 fila["Usuario"] = c.nombre_usuario;
                 fila["Correo"] = c.email;
                 tabla.Rows.Add(fila);

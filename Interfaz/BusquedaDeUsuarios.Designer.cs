@@ -29,7 +29,7 @@ namespace Interfaz
         /// </summary>
         private void InitializeComponent()
         {
-            this.DgridPublicaciones = new System.Windows.Forms.DataGridView();
+            this.DgridUsuarios = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -38,21 +38,21 @@ namespace Interfaz
             this.ChBoxReportados = new System.Windows.Forms.CheckBox();
             this.ChBoxTutores = new System.Windows.Forms.CheckBox();
             this.ChBoxSuspendidos = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.DgridPublicaciones)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgridUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
-            // DgridPublicaciones
+            // DgridUsuarios
             // 
-            this.DgridPublicaciones.AllowUserToAddRows = false;
-            this.DgridPublicaciones.AllowUserToDeleteRows = false;
-            this.DgridPublicaciones.AllowUserToResizeColumns = false;
-            this.DgridPublicaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DgridPublicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgridPublicaciones.Location = new System.Drawing.Point(27, 99);
-            this.DgridPublicaciones.MultiSelect = false;
-            this.DgridPublicaciones.Name = "DgridPublicaciones";
-            this.DgridPublicaciones.Size = new System.Drawing.Size(363, 528);
-            this.DgridPublicaciones.TabIndex = 36;
+            this.DgridUsuarios.AllowUserToAddRows = false;
+            this.DgridUsuarios.AllowUserToDeleteRows = false;
+            this.DgridUsuarios.AllowUserToResizeColumns = false;
+            this.DgridUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgridUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgridUsuarios.Location = new System.Drawing.Point(27, 99);
+            this.DgridUsuarios.MultiSelect = false;
+            this.DgridUsuarios.Name = "DgridUsuarios";
+            this.DgridUsuarios.Size = new System.Drawing.Size(363, 528);
+            this.DgridUsuarios.TabIndex = 36;
             // 
             // textBox1
             // 
@@ -142,10 +142,11 @@ namespace Interfaz
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.DgridPublicaciones);
+            this.Controls.Add(this.DgridUsuarios);
             this.Name = "BusquedaDeUsuarios";
             this.Size = new System.Drawing.Size(1012, 648);
-            ((System.ComponentModel.ISupportInitialize)(this.DgridPublicaciones)).EndInit();
+            this.Load += new System.EventHandler(this.BusquedaDeUsuarios_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DgridUsuarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,7 +154,7 @@ namespace Interfaz
 
         #endregion
 
-        private System.Windows.Forms.DataGridView DgridPublicaciones;
+        private System.Windows.Forms.DataGridView DgridUsuarios;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;

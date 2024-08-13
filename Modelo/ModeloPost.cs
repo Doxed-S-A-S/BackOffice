@@ -23,8 +23,10 @@ namespace Modelos
         private void InsertarPost()
         {
             string sql = $"insert into posts (contenido,url_contenido,tipo_contenido) values('{this.Contenido}','{this.url_contenido}','{this.tipo_contenido}')";
+            PrintDesktop(sql);
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
+            
         }
 
         public void AcutalizarPost()
