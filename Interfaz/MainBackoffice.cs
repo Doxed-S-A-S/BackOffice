@@ -21,8 +21,9 @@ namespace Interfaz
 
         private void BtnContUsuarios_Click(object sender, EventArgs e)
         {
-            controlUsuario1.Show();
-            controlUsuario1.BringToFront();
+            BusquedaDeUsuarios.Hide();
+            AdministracionDeUsuarios.Show();
+            AdministracionDeUsuarios.BringToFront();
         }
 
         private void TestingBtnPub_Click(object sender, EventArgs e)
@@ -34,6 +35,14 @@ namespace Interfaz
         private void TestingBtnPuliComentario_Click(object sender, EventArgs e)
         {
             ControlComentarios.CrearComentario(TestingTboxIdPub.Text, TestingTboxComentario.Text, TestingTboxComReacciones.Text);
+        }
+
+        private void BtnBusquedaUsuarios_Click(object sender, EventArgs e)
+        {
+            AdministracionDeUsuarios.Hide();
+            BusquedaDeUsuarios.Show();
+            BusquedaDeUsuarios.BringToFront();
+            
         }
     }
 }

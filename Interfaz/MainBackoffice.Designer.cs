@@ -51,8 +51,9 @@ namespace Interfaz
             this.TestingTboxPub = new System.Windows.Forms.TextBox();
             this.TestingBtnPub = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnBusquedaUsuarios = new System.Windows.Forms.Button();
             this.BtnContUsuarios = new System.Windows.Forms.Button();
-            this.controlUsuario1 = new Interfaz.AdminUsuario();
+            this.AdministracionDeUsuarios = new Interfaz.AdminUsuario();
             this.TestingTboxReacciones = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -63,7 +64,7 @@ namespace Interfaz
             this.TestingTboxComentario = new System.Windows.Forms.TextBox();
             this.TestingTboxIdPub = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BusquedaDeUsuarios = new Interfaz.BusquedaDeUsuarios();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -122,19 +123,19 @@ namespace Interfaz
             // buscarUsuarioToolStripMenuItem
             // 
             this.buscarUsuarioToolStripMenuItem.Name = "buscarUsuarioToolStripMenuItem";
-            this.buscarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.buscarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.buscarUsuarioToolStripMenuItem.Text = "Buscar Usuario";
             // 
             // buscarGrupoToolStripMenuItem
             // 
             this.buscarGrupoToolStripMenuItem.Name = "buscarGrupoToolStripMenuItem";
-            this.buscarGrupoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.buscarGrupoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.buscarGrupoToolStripMenuItem.Text = "Buscar Grupo";
             // 
             // buscarEventoToolStripMenuItem
             // 
             this.buscarEventoToolStripMenuItem.Name = "buscarEventoToolStripMenuItem";
-            this.buscarEventoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.buscarEventoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.buscarEventoToolStripMenuItem.Text = "Buscar Evento";
             // 
             // reportesToolStripMenuItem
@@ -229,7 +230,7 @@ namespace Interfaz
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.BtnBusquedaUsuarios);
             this.panel1.Controls.Add(this.BtnContUsuarios);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 24);
@@ -237,9 +238,19 @@ namespace Interfaz
             this.panel1.Size = new System.Drawing.Size(200, 679);
             this.panel1.TabIndex = 19;
             // 
+            // BtnBusquedaUsuarios
+            // 
+            this.BtnBusquedaUsuarios.Location = new System.Drawing.Point(32, 35);
+            this.BtnBusquedaUsuarios.Name = "BtnBusquedaUsuarios";
+            this.BtnBusquedaUsuarios.Size = new System.Drawing.Size(131, 36);
+            this.BtnBusquedaUsuarios.TabIndex = 1;
+            this.BtnBusquedaUsuarios.Text = "Buscar usuarios";
+            this.BtnBusquedaUsuarios.UseVisualStyleBackColor = true;
+            this.BtnBusquedaUsuarios.Click += new System.EventHandler(this.BtnBusquedaUsuarios_Click);
+            // 
             // BtnContUsuarios
             // 
-            this.BtnContUsuarios.Location = new System.Drawing.Point(32, 315);
+            this.BtnContUsuarios.Location = new System.Drawing.Point(32, 174);
             this.BtnContUsuarios.Name = "BtnContUsuarios";
             this.BtnContUsuarios.Size = new System.Drawing.Size(131, 36);
             this.BtnContUsuarios.TabIndex = 0;
@@ -247,13 +258,13 @@ namespace Interfaz
             this.BtnContUsuarios.UseVisualStyleBackColor = true;
             this.BtnContUsuarios.Click += new System.EventHandler(this.BtnContUsuarios_Click);
             // 
-            // controlUsuario1
+            // AdministracionDeUsuarios
             // 
-            this.controlUsuario1.Location = new System.Drawing.Point(198, 24);
-            this.controlUsuario1.Name = "controlUsuario1";
-            this.controlUsuario1.Size = new System.Drawing.Size(982, 648);
-            this.controlUsuario1.TabIndex = 20;
-            this.controlUsuario1.Visible = false;
+            this.AdministracionDeUsuarios.Location = new System.Drawing.Point(198, 24);
+            this.AdministracionDeUsuarios.Name = "AdministracionDeUsuarios";
+            this.AdministracionDeUsuarios.Size = new System.Drawing.Size(982, 648);
+            this.AdministracionDeUsuarios.TabIndex = 20;
+            this.AdministracionDeUsuarios.Visible = false;
             // 
             // TestingTboxReacciones
             // 
@@ -339,20 +350,20 @@ namespace Interfaz
             this.label6.TabIndex = 30;
             this.label6.Text = "ID de la publicacion";
             // 
-            // button1
+            // BusquedaDeUsuarios
             // 
-            this.button1.Location = new System.Drawing.Point(32, 35);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(131, 36);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Control de usuarios";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BusquedaDeUsuarios.Location = new System.Drawing.Point(198, 24);
+            this.BusquedaDeUsuarios.Name = "BusquedaDeUsuarios";
+            this.BusquedaDeUsuarios.Size = new System.Drawing.Size(1012, 648);
+            this.BusquedaDeUsuarios.TabIndex = 31;
+            this.BusquedaDeUsuarios.Visible = false;
             // 
             // MainBackoffice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 703);
+            this.Controls.Add(this.BusquedaDeUsuarios);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.TestingTboxIdPub);
             this.Controls.Add(this.label4);
@@ -363,7 +374,7 @@ namespace Interfaz
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TestingTboxReacciones);
-            this.Controls.Add(this.controlUsuario1);
+            this.Controls.Add(this.AdministracionDeUsuarios);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.TestingBtnPub);
             this.Controls.Add(this.TestingTboxPub);
@@ -404,7 +415,7 @@ namespace Interfaz
         private System.Windows.Forms.TextBox TestingTboxPub;
         private System.Windows.Forms.Button TestingBtnPub;
         private System.Windows.Forms.Panel panel1;
-        private AdminUsuario controlUsuario1;
+        private AdminUsuario AdministracionDeUsuarios;
         private System.Windows.Forms.Button BtnContUsuarios;
         private System.Windows.Forms.TextBox TestingTboxReacciones;
         private System.Windows.Forms.Label label2;
@@ -416,6 +427,7 @@ namespace Interfaz
         private System.Windows.Forms.TextBox TestingTboxComentario;
         private System.Windows.Forms.TextBox TestingTboxIdPub;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnBusquedaUsuarios;
+        private BusquedaDeUsuarios BusquedaDeUsuarios;
     }
 }

@@ -58,8 +58,8 @@ namespace Modelos
             {
                 ModeloCuenta cuenta = new ModeloCuenta();
                 cuenta.id_cuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
-                cuenta.nombre_usuario = this.Lector["nombre_usuario"].ToString());
-                cuenta.email = this.Lector["email"].ToString());
+                cuenta.nombre_usuario = this.Lector["nombre_usuario"].ToString();
+                cuenta.email = this.Lector["email"].ToString();
                 cuentas.Add(cuenta);
             }
             this.Lector.Close();

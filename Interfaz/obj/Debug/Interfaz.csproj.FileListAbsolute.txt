@@ -43,3 +43,4 @@ C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\bin\Deb
 C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\obj\Debug\Interfaz.csproj.CopyComplete
 C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\obj\Debug\Interfaz.AdminUsuario.resources
+C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\obj\Debug\Interfaz.BusquedaDeUsuarios.resources
