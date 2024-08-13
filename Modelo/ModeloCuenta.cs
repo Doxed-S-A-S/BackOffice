@@ -17,7 +17,7 @@ namespace Modelos
         public int id_preferencia = 1; //placeholder
 
 
-        private void CrearCuenta()
+        public void CrearCuenta()
         {
             string sql = $"insert into cuenta (nombre_usuario,email,contraseña,imagen_perfil,id_muro,id_preferencia)" +
                 $" values('{this.nombre_usuario}','{this.email}','{this.contraseña}','{this.imagen_perfil}',{this.id_muro},{this.id_preferencia})";
