@@ -67,6 +67,49 @@ namespace Modelos
             return cuentas;
         }
 
-        /************************************* Modificaciones del usuario ********************************/
+        /************************************* Muro ********************************/
+
+        public string detalles = "";
+        public int pub_destacada = 0;
+        public string biografia = "";
+
+        /*    public void CrearMuro()  /
+            {
+                string sql = $"insert into muro (detalles,pub_destacada,biografia) values ('{this.detalles}',{this.pub_destacada},'{this.biografia}')" +
+                    $"select scope_identity()";
+                this.Comando.CommandText = sql;
+                this.Comando.ExecuteNonQuery();
+
+                object resultado = this.Comando.ExecuteScalar();
+                resultado = (resultado == DBNull.Value) ? null : resultado;
+                int id_muro = Convert.ToInt32(resultado);
+            }*/
+
+        public void ModificarMuro()
+        {
+            ModificarDetalles();
+            ModificarBiografia();
+        }
+        public void ModificarDetalles()
+        {
+            string sql = $"update muro set detalles ='{this.detalles}' where id_muro ='{this.id_muro}'";
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+        }
+
+        public void ModificarBiografia()
+        {
+            string sql = $"update muro set biografia ='{this.biografia}' where id_muro ='{this.id_muro}'";
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+        }
+
+        public void ModificarPublicacionDestacada()
+        {
+            string sql = $"update muro set pub_destacada ='{this.pub_destacada}' where id_muro ='{this.id_muro}'";
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+        }
+
     }
 }
