@@ -65,6 +65,11 @@ namespace Interfaz
             this.TestingTboxIdPub = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.BusquedaDeUsuarios = new Interfaz.BusquedaDeUsuarios();
+            this.TestingTboxUsername = new System.Windows.Forms.TextBox();
+            this.TestingTboxEmail = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.TestingButtonCrearUsr = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -212,7 +217,7 @@ namespace Interfaz
             // 
             // TestingTboxPub
             // 
-            this.TestingTboxPub.Location = new System.Drawing.Point(1186, 75);
+            this.TestingTboxPub.Location = new System.Drawing.Point(1186, 208);
             this.TestingTboxPub.Multiline = true;
             this.TestingTboxPub.Name = "TestingTboxPub";
             this.TestingTboxPub.Size = new System.Drawing.Size(172, 96);
@@ -220,7 +225,7 @@ namespace Interfaz
             // 
             // TestingBtnPub
             // 
-            this.TestingBtnPub.Location = new System.Drawing.Point(1283, 205);
+            this.TestingBtnPub.Location = new System.Drawing.Point(1283, 338);
             this.TestingBtnPub.Name = "TestingBtnPub";
             this.TestingBtnPub.Size = new System.Drawing.Size(75, 23);
             this.TestingBtnPub.TabIndex = 18;
@@ -268,7 +273,7 @@ namespace Interfaz
             // 
             // TestingTboxReacciones
             // 
-            this.TestingTboxReacciones.Location = new System.Drawing.Point(1258, 177);
+            this.TestingTboxReacciones.Location = new System.Drawing.Point(1258, 310);
             this.TestingTboxReacciones.Name = "TestingTboxReacciones";
             this.TestingTboxReacciones.Size = new System.Drawing.Size(100, 20);
             this.TestingTboxReacciones.TabIndex = 21;
@@ -276,7 +281,7 @@ namespace Interfaz
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1199, 59);
+            this.label2.Location = new System.Drawing.Point(1199, 192);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(147, 13);
             this.label2.TabIndex = 22;
@@ -285,7 +290,7 @@ namespace Interfaz
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1220, 180);
+            this.label3.Location = new System.Drawing.Point(1220, 313);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 23;
@@ -294,7 +299,7 @@ namespace Interfaz
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1220, 358);
+            this.label4.Location = new System.Drawing.Point(1220, 491);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(32, 13);
             this.label4.TabIndex = 28;
@@ -303,7 +308,7 @@ namespace Interfaz
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1199, 237);
+            this.label5.Location = new System.Drawing.Point(1199, 370);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(144, 13);
             this.label5.TabIndex = 27;
@@ -311,14 +316,14 @@ namespace Interfaz
             // 
             // TestingTboxComReacciones
             // 
-            this.TestingTboxComReacciones.Location = new System.Drawing.Point(1258, 355);
+            this.TestingTboxComReacciones.Location = new System.Drawing.Point(1258, 488);
             this.TestingTboxComReacciones.Name = "TestingTboxComReacciones";
             this.TestingTboxComReacciones.Size = new System.Drawing.Size(100, 20);
             this.TestingTboxComReacciones.TabIndex = 26;
             // 
             // TestingBtnPuliComentario
             // 
-            this.TestingBtnPuliComentario.Location = new System.Drawing.Point(1283, 416);
+            this.TestingBtnPuliComentario.Location = new System.Drawing.Point(1283, 549);
             this.TestingBtnPuliComentario.Name = "TestingBtnPuliComentario";
             this.TestingBtnPuliComentario.Size = new System.Drawing.Size(75, 23);
             this.TestingBtnPuliComentario.TabIndex = 25;
@@ -328,7 +333,7 @@ namespace Interfaz
             // 
             // TestingTboxComentario
             // 
-            this.TestingTboxComentario.Location = new System.Drawing.Point(1186, 253);
+            this.TestingTboxComentario.Location = new System.Drawing.Point(1186, 386);
             this.TestingTboxComentario.Multiline = true;
             this.TestingTboxComentario.Name = "TestingTboxComentario";
             this.TestingTboxComentario.Size = new System.Drawing.Size(172, 96);
@@ -336,7 +341,7 @@ namespace Interfaz
             // 
             // TestingTboxIdPub
             // 
-            this.TestingTboxIdPub.Location = new System.Drawing.Point(1312, 381);
+            this.TestingTboxIdPub.Location = new System.Drawing.Point(1312, 514);
             this.TestingTboxIdPub.Name = "TestingTboxIdPub";
             this.TestingTboxIdPub.Size = new System.Drawing.Size(46, 20);
             this.TestingTboxIdPub.TabIndex = 29;
@@ -344,7 +349,7 @@ namespace Interfaz
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1205, 384);
+            this.label6.Location = new System.Drawing.Point(1205, 517);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(101, 13);
             this.label6.TabIndex = 30;
@@ -352,17 +357,64 @@ namespace Interfaz
             // 
             // BusquedaDeUsuarios
             // 
-            this.BusquedaDeUsuarios.Location = new System.Drawing.Point(198, 24);
+            this.BusquedaDeUsuarios.Location = new System.Drawing.Point(169, 24);
             this.BusquedaDeUsuarios.Name = "BusquedaDeUsuarios";
             this.BusquedaDeUsuarios.Size = new System.Drawing.Size(1012, 648);
             this.BusquedaDeUsuarios.TabIndex = 31;
             this.BusquedaDeUsuarios.Visible = false;
+            // 
+            // TestingTboxUsername
+            // 
+            this.TestingTboxUsername.Location = new System.Drawing.Point(1186, 68);
+            this.TestingTboxUsername.Name = "TestingTboxUsername";
+            this.TestingTboxUsername.Size = new System.Drawing.Size(172, 20);
+            this.TestingTboxUsername.TabIndex = 32;
+            // 
+            // TestingTboxEmail
+            // 
+            this.TestingTboxEmail.Location = new System.Drawing.Point(1186, 110);
+            this.TestingTboxEmail.Name = "TestingTboxEmail";
+            this.TestingTboxEmail.Size = new System.Drawing.Size(172, 20);
+            this.TestingTboxEmail.TabIndex = 33;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(1187, 52);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(55, 13);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "Username";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(1187, 94);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 35;
+            this.label8.Text = "E-mail";
+            // 
+            // TestingButtonCrearUsr
+            // 
+            this.TestingButtonCrearUsr.Location = new System.Drawing.Point(1283, 136);
+            this.TestingButtonCrearUsr.Name = "TestingButtonCrearUsr";
+            this.TestingButtonCrearUsr.Size = new System.Drawing.Size(75, 23);
+            this.TestingButtonCrearUsr.TabIndex = 36;
+            this.TestingButtonCrearUsr.Text = "Crear usuario";
+            this.TestingButtonCrearUsr.UseVisualStyleBackColor = true;
+            this.TestingButtonCrearUsr.Click += new System.EventHandler(this.TestingButtonCrearUsr_Click);
             // 
             // MainBackoffice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 703);
+            this.Controls.Add(this.TestingButtonCrearUsr);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.TestingTboxEmail);
+            this.Controls.Add(this.TestingTboxUsername);
             this.Controls.Add(this.BusquedaDeUsuarios);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.TestingTboxIdPub);
@@ -384,6 +436,7 @@ namespace Interfaz
             this.Name = "MainBackoffice";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MainBackoffice_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -429,5 +482,10 @@ namespace Interfaz
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button BtnBusquedaUsuarios;
         private BusquedaDeUsuarios BusquedaDeUsuarios;
+        private System.Windows.Forms.TextBox TestingTboxUsername;
+        private System.Windows.Forms.TextBox TestingTboxEmail;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button TestingButtonCrearUsr;
     }
 }

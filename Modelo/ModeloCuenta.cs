@@ -19,10 +19,11 @@ namespace Modelos
 
         public void CrearCuenta()
         {
-            string sql = $"insert into cuenta (nombre_usuario,email,contraseña,imagen_perfil,id_muro,id_preferencia)" +
+            string sql = $"insert into cuenta (nombre_usuario,email,contrasena,imagen_perfil,id_muro,id_preferencia)" +
                 $" values('{this.nombre_usuario}','{this.email}','{this.contraseña}','{this.imagen_perfil}',{this.id_muro},{this.id_preferencia})";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
+            PrintDesktop(sql);
         }
 
         public void ModificarContraseña()

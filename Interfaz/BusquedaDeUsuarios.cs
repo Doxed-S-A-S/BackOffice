@@ -21,7 +21,7 @@ namespace Interfaz
 
         private void BusquedaDeUsuarios_Load(object sender, EventArgs e)
         {
-
+            refrescarTablaDeUsuarios();
         }
 
         private void refrescarTablaDeUsuarios()
@@ -29,6 +29,11 @@ namespace Interfaz
             DgridUsuarios.Refresh();
             DgridUsuarios.DataSource = ControlCuenta.ListarCuentas();
             DgridUsuarios.Columns["id_cuenta"].Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -44,5 +44,15 @@ namespace Interfaz
             BusquedaDeUsuarios.BringToFront();
             
         }
+
+        private void MainBackoffice_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TestingButtonCrearUsr_Click(object sender, EventArgs e)
+        {
+            ControlCuenta.CrearCuenta(TestingTboxUsername.Text, TestingTboxEmail.Text);
+        }
     }
 }

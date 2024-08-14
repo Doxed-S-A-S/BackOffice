@@ -80,6 +80,7 @@ namespace Interfaz
             this.button1.TabIndex = 39;
             this.button1.Text = "Seleccionar usuario";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -144,7 +145,7 @@ namespace Interfaz
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.DgridUsuarios);
             this.Name = "BusquedaDeUsuarios";
-            this.Size = new System.Drawing.Size(1012, 648);
+            this.Size = new System.Drawing.Size(969, 648);
             this.Load += new System.EventHandler(this.BusquedaDeUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgridUsuarios)).EndInit();
             this.ResumeLayout(false);
