@@ -13,19 +13,19 @@ namespace Modelos
         public string email;
         public string contraseña = "123"; //placeholder
         public string imagen_perfil = "pic"; //placeholder
-        public int id_muro = 1; //placeholder
-        public int id_preferencia = 1; //placeholder
+        public long id_muro;
+        public long id_preferencia;
 
 
         public void CrearCuenta()
         {
             CrearMuro();
-            string sql = $"insert into cuenta (nombre_usuario,email,contrasena,imagen_perfil)" +
-                $" values('{this.nombre_usuario}','{this.email}','{this.contraseña}','{this.imagen_perfil}')";
+            CrearPreferencias();
+            string sql = $"insert into cuenta (nombre_usuario,email,contrasena,imagen_perfil,id_muro,id_preferencia)" +
+                $" values('{this.nombre_usuario}','{this.email}','{this.contraseña}','{this.imagen_perfil}',{this.id_muro},{this.id_preferencia})";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
             PrintDesktop(sql);
-            
         }
 
         public void ModificarContraseña()
@@ -89,16 +89,8 @@ namespace Modelos
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
             PrintDesktop(sql);
+            id_muro = this.Comando.LastInsertedId;
         }
-
-        public int SetMuroId(string username)
-        {
-            string sql = $"update cuenta set id_muro = last_insert_id() where nombre_usuario = '{username}'";
-            this.Comando.CommandText = sql;
-            this.Comando.ExecuteNonQuery();
-            return 1;
-        }
-        UPDATE sequence SET id = LAST_INSERT_ID
 
         public void ModificarMuro()
         {
@@ -126,5 +118,19 @@ namespace Modelos
             this.Comando.ExecuteNonQuery();
         }
 
+
+        /************************************* Preferencias ********************************/
+
+        string tema_de_apariencia = "claro"; // dejar elejir en el futuro
+
+        public void CrearPreferencias()
+        {
+            string sql = $"insert into set_preferencias (tema_de_apariencia) value('{this.tema_de_apariencia}')";
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+            PrintDesktop(sql);
+            id_preferencia = this.Comando.LastInsertedId;
+        }
+        
     }
 }
