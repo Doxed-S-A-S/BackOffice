@@ -19,11 +19,13 @@ namespace Modelos
 
         public void CrearCuenta()
         {
-            string sql = $"insert into cuenta (nombre_usuario,email,contrasena,imagen_perfil,id_muro,id_preferencia)" +
-                $" values('{this.nombre_usuario}','{this.email}','{this.contraseña}','{this.imagen_perfil}',{this.id_muro},{this.id_preferencia})";
+            CrearMuro();
+            string sql = $"insert into cuenta (nombre_usuario,email,contrasena,imagen_perfil)" +
+                $" values('{this.nombre_usuario}','{this.email}','{this.contraseña}','{this.imagen_perfil}')";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
             PrintDesktop(sql);
+            
         }
 
         public void ModificarContraseña()
@@ -45,6 +47,14 @@ namespace Modelos
             string sql = $"update cuenta set eliminado = true where id_cuenta ='{this.id_cuenta}'";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
+        }
+
+        public void ObtenerIdUsuario(string NombreUsuario)
+        {
+            string sql = $"select id_cuenta from cuenta where nombre_usuario = '{NombreUsuario}' and eliminado = false";
+            this.Comando.CommandText = sql;
+            string userId = this.Comando.ExecuteReader().ToString();
+            id_muro = Int32.Parse(userId);
         }
 
         public List<ModeloCuenta> ObtenerCuentas()
@@ -73,17 +83,22 @@ namespace Modelos
         public int pub_destacada = 0;
         public string biografia = "";
 
-        /*    public void CrearMuro()  /
-            {
-                string sql = $"insert into muro (detalles,pub_destacada,biografia) values ('{this.detalles}',{this.pub_destacada},'{this.biografia}')" +
-                    $"select scope_identity()";
-                this.Comando.CommandText = sql;
-                this.Comando.ExecuteNonQuery();
+        public void CrearMuro()
+        {
+            string sql = $"insert into muro (detalles,pub_destacada,biografia) values ('{this.detalles}',{this.pub_destacada},'{this.biografia}')";
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+            PrintDesktop(sql);
+        }
 
-                object resultado = this.Comando.ExecuteScalar();
-                resultado = (resultado == DBNull.Value) ? null : resultado;
-                int id_muro = Convert.ToInt32(resultado);
-            }*/
+        public int SetMuroId(string username)
+        {
+            string sql = $"update cuenta set id_muro = last_insert_id() where nombre_usuario = '{username}'";
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+            return 1;
+        }
+        UPDATE sequence SET id = LAST_INSERT_ID
 
         public void ModificarMuro()
         {
