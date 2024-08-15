@@ -38,6 +38,7 @@ namespace Interfaz
             this.ChBoxReportados = new System.Windows.Forms.CheckBox();
             this.ChBoxTutores = new System.Windows.Forms.CheckBox();
             this.ChBoxSuspendidos = new System.Windows.Forms.CheckBox();
+            this.BtnAcualtizarListaUsuarios = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgridUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,10 +132,20 @@ namespace Interfaz
             this.ChBoxSuspendidos.Text = "Suspendidos";
             this.ChBoxSuspendidos.UseVisualStyleBackColor = true;
             // 
+            // BtnAcualtizarListaUsuarios
+            // 
+            this.BtnAcualtizarListaUsuarios.Location = new System.Drawing.Point(304, 72);
+            this.BtnAcualtizarListaUsuarios.Name = "BtnAcualtizarListaUsuarios";
+            this.BtnAcualtizarListaUsuarios.Size = new System.Drawing.Size(86, 23);
+            this.BtnAcualtizarListaUsuarios.TabIndex = 45;
+            this.BtnAcualtizarListaUsuarios.Text = "Acutalizar lista";
+            this.BtnAcualtizarListaUsuarios.UseVisualStyleBackColor = true;
+            // 
             // BusquedaDeUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.BtnAcualtizarListaUsuarios);
             this.Controls.Add(this.ChBoxSuspendidos);
             this.Controls.Add(this.ChBoxTutores);
             this.Controls.Add(this.ChBoxReportados);
@@ -164,5 +175,6 @@ namespace Interfaz
         private System.Windows.Forms.CheckBox ChBoxReportados;
         private System.Windows.Forms.CheckBox ChBoxTutores;
         private System.Windows.Forms.CheckBox ChBoxSuspendidos;
+        private System.Windows.Forms.Button BtnAcualtizarListaUsuarios;
     }
 }

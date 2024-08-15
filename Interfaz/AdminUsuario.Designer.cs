@@ -34,7 +34,6 @@ namespace Interfaz
             this.StaticLbRolUsr = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.LbUsername = new System.Windows.Forms.Label();
-            this.LboxReportes = new System.Windows.Forms.ListBox();
             this.LboxGrupos = new System.Windows.Forms.ListBox();
             this.StaticLbReportes = new System.Windows.Forms.Label();
             this.StaticLbGrupos = new System.Windows.Forms.Label();
@@ -51,6 +50,14 @@ namespace Interfaz
             this.BtnActualizarComentarios = new System.Windows.Forms.Button();
             this.BtnEliminarComentario = new System.Windows.Forms.Button();
             this.BtnEditarComentario = new System.Windows.Forms.Button();
+            this.StaticLbComentarios = new System.Windows.Forms.Label();
+            this.LbNumReportes = new System.Windows.Forms.Label();
+            this.StaticLbCorreo = new System.Windows.Forms.Label();
+            this.TboxModificarCorreo = new System.Windows.Forms.TextBox();
+            this.BtnModificarCorreo = new System.Windows.Forms.Button();
+            this.BtnModificarBiografia = new System.Windows.Forms.Button();
+            this.TboxModificarBiografia = new System.Windows.Forms.TextBox();
+            this.StaticLbBiografia = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgridPublicaciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridComentarios)).BeginInit();
             this.SuspendLayout();
@@ -100,18 +107,10 @@ namespace Interfaz
             this.LbUsername.TabIndex = 23;
             this.LbUsername.Text = "(ejemplo)";
             // 
-            // LboxReportes
-            // 
-            this.LboxReportes.FormattingEnabled = true;
-            this.LboxReportes.Location = new System.Drawing.Point(12, 459);
-            this.LboxReportes.Name = "LboxReportes";
-            this.LboxReportes.Size = new System.Drawing.Size(201, 186);
-            this.LboxReportes.TabIndex = 22;
-            // 
             // LboxGrupos
             // 
             this.LboxGrupos.FormattingEnabled = true;
-            this.LboxGrupos.Location = new System.Drawing.Point(12, 235);
+            this.LboxGrupos.Location = new System.Drawing.Point(16, 459);
             this.LboxGrupos.Name = "LboxGrupos";
             this.LboxGrupos.Size = new System.Drawing.Size(201, 186);
             this.LboxGrupos.TabIndex = 21;
@@ -119,7 +118,7 @@ namespace Interfaz
             // StaticLbReportes
             // 
             this.StaticLbReportes.AutoSize = true;
-            this.StaticLbReportes.Location = new System.Drawing.Point(13, 443);
+            this.StaticLbReportes.Location = new System.Drawing.Point(13, 212);
             this.StaticLbReportes.Name = "StaticLbReportes";
             this.StaticLbReportes.Size = new System.Drawing.Size(53, 13);
             this.StaticLbReportes.TabIndex = 20;
@@ -128,7 +127,7 @@ namespace Interfaz
             // StaticLbGrupos
             // 
             this.StaticLbGrupos.AutoSize = true;
-            this.StaticLbGrupos.Location = new System.Drawing.Point(13, 219);
+            this.StaticLbGrupos.Location = new System.Drawing.Point(17, 443);
             this.StaticLbGrupos.Name = "StaticLbGrupos";
             this.StaticLbGrupos.Size = new System.Drawing.Size(44, 13);
             this.StaticLbGrupos.TabIndex = 19;
@@ -265,10 +264,87 @@ namespace Interfaz
             this.BtnEditarComentario.UseVisualStyleBackColor = true;
             this.BtnEditarComentario.Click += new System.EventHandler(this.BtnEditarComentario_Click);
             // 
+            // StaticLbComentarios
+            // 
+            this.StaticLbComentarios.AutoSize = true;
+            this.StaticLbComentarios.Location = new System.Drawing.Point(238, 443);
+            this.StaticLbComentarios.Name = "StaticLbComentarios";
+            this.StaticLbComentarios.Size = new System.Drawing.Size(68, 13);
+            this.StaticLbComentarios.TabIndex = 41;
+            this.StaticLbComentarios.Text = "Comentarios:";
+            // 
+            // LbNumReportes
+            // 
+            this.LbNumReportes.AutoSize = true;
+            this.LbNumReportes.Location = new System.Drawing.Point(62, 212);
+            this.LbNumReportes.Name = "LbNumReportes";
+            this.LbNumReportes.Size = new System.Drawing.Size(100, 13);
+            this.LbNumReportes.TabIndex = 42;
+            this.LbNumReportes.Text = "Numero de reportes";
+            // 
+            // StaticLbCorreo
+            // 
+            this.StaticLbCorreo.AutoSize = true;
+            this.StaticLbCorreo.Location = new System.Drawing.Point(13, 228);
+            this.StaticLbCorreo.Name = "StaticLbCorreo";
+            this.StaticLbCorreo.Size = new System.Drawing.Size(41, 13);
+            this.StaticLbCorreo.TabIndex = 43;
+            this.StaticLbCorreo.Text = "Correo:";
+            // 
+            // TboxModificarCorreo
+            // 
+            this.TboxModificarCorreo.Location = new System.Drawing.Point(16, 244);
+            this.TboxModificarCorreo.Name = "TboxModificarCorreo";
+            this.TboxModificarCorreo.Size = new System.Drawing.Size(201, 20);
+            this.TboxModificarCorreo.TabIndex = 44;
+            // 
+            // BtnModificarCorreo
+            // 
+            this.BtnModificarCorreo.Location = new System.Drawing.Point(16, 270);
+            this.BtnModificarCorreo.Name = "BtnModificarCorreo";
+            this.BtnModificarCorreo.Size = new System.Drawing.Size(103, 23);
+            this.BtnModificarCorreo.TabIndex = 45;
+            this.BtnModificarCorreo.Text = "Modificar correo";
+            this.BtnModificarCorreo.UseVisualStyleBackColor = true;
+            // 
+            // BtnModificarBiografia
+            // 
+            this.BtnModificarBiografia.Location = new System.Drawing.Point(16, 398);
+            this.BtnModificarBiografia.Name = "BtnModificarBiografia";
+            this.BtnModificarBiografia.Size = new System.Drawing.Size(103, 23);
+            this.BtnModificarBiografia.TabIndex = 48;
+            this.BtnModificarBiografia.Text = "Modificar biografia";
+            this.BtnModificarBiografia.UseVisualStyleBackColor = true;
+            // 
+            // TboxModificarBiografia
+            // 
+            this.TboxModificarBiografia.Location = new System.Drawing.Point(16, 315);
+            this.TboxModificarBiografia.Multiline = true;
+            this.TboxModificarBiografia.Name = "TboxModificarBiografia";
+            this.TboxModificarBiografia.Size = new System.Drawing.Size(201, 77);
+            this.TboxModificarBiografia.TabIndex = 47;
+            // 
+            // StaticLbBiografia
+            // 
+            this.StaticLbBiografia.AutoSize = true;
+            this.StaticLbBiografia.Location = new System.Drawing.Point(13, 299);
+            this.StaticLbBiografia.Name = "StaticLbBiografia";
+            this.StaticLbBiografia.Size = new System.Drawing.Size(51, 13);
+            this.StaticLbBiografia.TabIndex = 46;
+            this.StaticLbBiografia.Text = "Biografia:";
+            // 
             // AdminUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.BtnModificarBiografia);
+            this.Controls.Add(this.TboxModificarBiografia);
+            this.Controls.Add(this.StaticLbBiografia);
+            this.Controls.Add(this.BtnModificarCorreo);
+            this.Controls.Add(this.TboxModificarCorreo);
+            this.Controls.Add(this.StaticLbCorreo);
+            this.Controls.Add(this.LbNumReportes);
+            this.Controls.Add(this.StaticLbComentarios);
             this.Controls.Add(this.BtnEliminarComentario);
             this.Controls.Add(this.BtnEditarComentario);
             this.Controls.Add(this.BtnActualizarComentarios);
@@ -284,7 +360,6 @@ namespace Interfaz
             this.Controls.Add(this.StaticLbRolUsr);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.LbUsername);
-            this.Controls.Add(this.LboxReportes);
             this.Controls.Add(this.LboxGrupos);
             this.Controls.Add(this.StaticLbReportes);
             this.Controls.Add(this.StaticLbGrupos);
@@ -308,7 +383,6 @@ namespace Interfaz
         private System.Windows.Forms.Label StaticLbRolUsr;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label LbUsername;
-        private System.Windows.Forms.ListBox LboxReportes;
         private System.Windows.Forms.ListBox LboxGrupos;
         private System.Windows.Forms.Label StaticLbReportes;
         private System.Windows.Forms.Label StaticLbGrupos;
@@ -325,5 +399,13 @@ namespace Interfaz
         private System.Windows.Forms.Button BtnActualizarComentarios;
         private System.Windows.Forms.Button BtnEliminarComentario;
         private System.Windows.Forms.Button BtnEditarComentario;
+        private System.Windows.Forms.Label StaticLbComentarios;
+        private System.Windows.Forms.Label LbNumReportes;
+        private System.Windows.Forms.Label StaticLbCorreo;
+        private System.Windows.Forms.TextBox TboxModificarCorreo;
+        private System.Windows.Forms.Button BtnModificarCorreo;
+        private System.Windows.Forms.Button BtnModificarBiografia;
+        private System.Windows.Forms.TextBox TboxModificarBiografia;
+        private System.Windows.Forms.Label StaticLbBiografia;
     }
 }
