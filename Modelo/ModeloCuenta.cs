@@ -13,16 +13,19 @@ namespace Modelos
         public string email;
         public string contraseña = "123"; //placeholder
         public string imagen_perfil = "pic"; //placeholder
+        public int reports;
+        public long id_usuario;
         public long id_muro;
         public long id_preferencia;
 
 
         public void CrearCuenta()
         {
+            CrearUsuario();
             CrearMuro();
             CrearPreferencias();
-            string sql = $"insert into cuenta (nombre_usuario,email,contrasena,imagen_perfil,id_muro,id_preferencia)" +
-                $" values('{this.nombre_usuario}','{this.email}','{this.contraseña}','{this.imagen_perfil}',{this.id_muro},{this.id_preferencia})";
+            string sql = $"insert into cuenta (nombre_usuario,email,contrasena,imagen_perfil,id_usuario,id_muro,id_preferencia)" +
+                $" values('{this.nombre_usuario}','{this.email}','{this.contraseña}','{this.imagen_perfil}',{this.id_usuario},{this.id_muro},{this.id_preferencia})";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
             PrintDesktop(sql);
@@ -49,12 +52,38 @@ namespace Modelos
             this.Comando.ExecuteNonQuery();
         }
 
-        public void ObtenerIdUsuario(string NombreUsuario)
+        public bool ObtenerDatosUsuario(int id)
         {
-            string sql = $"select id_cuenta from cuenta where nombre_usuario = '{NombreUsuario}' and eliminado = false";
+            string sql = $"select * from cuenta where id_cuenta = {id} and eliminado = false";
             this.Comando.CommandText = sql;
-            string userId = this.Comando.ExecuteReader().ToString();
-            id_muro = Int32.Parse(userId);
+            this.Lector = this.Comando.ExecuteReader();
+
+            if (this.Lector.HasRows)
+            {
+                this.Lector.Read();
+                this.id_cuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
+                this.nombre_usuario = this.Lector["nombre_usuario"].ToString();
+                //this.imagen_perfil = this.Lector["imagen_perfil"].ToString();
+                this.reports = Int32.Parse(this.Lector["reports"].ToString());
+                this.id_usuario = Int32.Parse(this.Lector["id_usuario"].ToString());
+                this.Lector.Close();
+
+                sql = $"select * from usuario where nombre_usuario = '{this.id_usuario}'";
+                this.Comando.CommandText = sql;
+                this.Lector = this.Comando.ExecuteReader();
+
+                this.Lector.Read();
+                this.nombre = this.Lector["nombre"].ToString();
+                this.apellido1 = this.Lector["apellido1"].ToString();
+                this.apellido2 = this.Lector["apellido2"].ToString();
+                this.Lector.Close();
+
+                return true;
+
+            }
+            this.Lector.Close();
+            return false;
+
         }
 
         public List<ModeloCuenta> ObtenerCuentas()
@@ -75,6 +104,24 @@ namespace Modelos
             }
             this.Lector.Close();
             return cuentas;
+        }
+
+        /************************************* Usuario ********************************/
+
+        public string nombre;
+        public string apellido1;
+        public string apellido2;
+        public string pais = "SU";
+        public string idiomas_hablados = "spa";
+
+        public void CrearUsuario()
+        {
+            string sql = $"insert into usuario (nombre,apellido1,apellido2,pais,idiomas_hablados) " +
+                $"values ('{this.nombre}','{this.apellido1}','{this.apellido2}','{this.pais}','{this.idiomas_hablados}')";
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+            PrintDesktop(sql);
+            id_usuario = this.Comando.LastInsertedId;
         }
 
         /************************************* Muro ********************************/

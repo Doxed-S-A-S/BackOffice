@@ -58,6 +58,8 @@ namespace Interfaz
             this.BtnModificarBiografia = new System.Windows.Forms.Button();
             this.TboxModificarBiografia = new System.Windows.Forms.TextBox();
             this.StaticLbBiografia = new System.Windows.Forms.Label();
+            this.LbNombreCompelto = new System.Windows.Forms.Label();
+            this.LbIdUsuario = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgridPublicaciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridComentarios)).BeginInit();
             this.SuspendLayout();
@@ -74,7 +76,7 @@ namespace Interfaz
             // LbRolUsr
             // 
             this.LbRolUsr.AutoSize = true;
-            this.LbRolUsr.Location = new System.Drawing.Point(62, 197);
+            this.LbRolUsr.Location = new System.Drawing.Point(62, 212);
             this.LbRolUsr.Name = "LbRolUsr";
             this.LbRolUsr.Size = new System.Drawing.Size(127, 13);
             this.LbRolUsr.TabIndex = 26;
@@ -83,7 +85,7 @@ namespace Interfaz
             // StaticLbRolUsr
             // 
             this.StaticLbRolUsr.AutoSize = true;
-            this.StaticLbRolUsr.Location = new System.Drawing.Point(13, 197);
+            this.StaticLbRolUsr.Location = new System.Drawing.Point(13, 212);
             this.StaticLbRolUsr.Name = "StaticLbRolUsr";
             this.StaticLbRolUsr.Size = new System.Drawing.Size(26, 13);
             this.StaticLbRolUsr.TabIndex = 25;
@@ -92,7 +94,7 @@ namespace Interfaz
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(62, 181);
+            this.label2.Location = new System.Drawing.Point(62, 196);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 13);
             this.label2.TabIndex = 24;
@@ -118,7 +120,7 @@ namespace Interfaz
             // StaticLbReportes
             // 
             this.StaticLbReportes.AutoSize = true;
-            this.StaticLbReportes.Location = new System.Drawing.Point(13, 212);
+            this.StaticLbReportes.Location = new System.Drawing.Point(13, 227);
             this.StaticLbReportes.Name = "StaticLbReportes";
             this.StaticLbReportes.Size = new System.Drawing.Size(53, 13);
             this.StaticLbReportes.TabIndex = 20;
@@ -136,7 +138,7 @@ namespace Interfaz
             // StaticLbEstado
             // 
             this.StaticLbEstado.AutoSize = true;
-            this.StaticLbEstado.Location = new System.Drawing.Point(13, 181);
+            this.StaticLbEstado.Location = new System.Drawing.Point(13, 196);
             this.StaticLbEstado.Name = "StaticLbEstado";
             this.StaticLbEstado.Size = new System.Drawing.Size(43, 13);
             this.StaticLbEstado.TabIndex = 18;
@@ -154,7 +156,7 @@ namespace Interfaz
             // StaticLbImgProfile
             // 
             this.StaticLbImgProfile.AutoSize = true;
-            this.StaticLbImgProfile.Location = new System.Drawing.Point(62, 50);
+            this.StaticLbImgProfile.Location = new System.Drawing.Point(62, 74);
             this.StaticLbImgProfile.Name = "StaticLbImgProfile";
             this.StaticLbImgProfile.Size = new System.Drawing.Size(93, 13);
             this.StaticLbImgProfile.TabIndex = 16;
@@ -276,7 +278,7 @@ namespace Interfaz
             // LbNumReportes
             // 
             this.LbNumReportes.AutoSize = true;
-            this.LbNumReportes.Location = new System.Drawing.Point(62, 212);
+            this.LbNumReportes.Location = new System.Drawing.Point(62, 227);
             this.LbNumReportes.Name = "LbNumReportes";
             this.LbNumReportes.Size = new System.Drawing.Size(100, 13);
             this.LbNumReportes.TabIndex = 42;
@@ -285,7 +287,7 @@ namespace Interfaz
             // StaticLbCorreo
             // 
             this.StaticLbCorreo.AutoSize = true;
-            this.StaticLbCorreo.Location = new System.Drawing.Point(13, 228);
+            this.StaticLbCorreo.Location = new System.Drawing.Point(13, 243);
             this.StaticLbCorreo.Name = "StaticLbCorreo";
             this.StaticLbCorreo.Size = new System.Drawing.Size(41, 13);
             this.StaticLbCorreo.TabIndex = 43;
@@ -293,14 +295,14 @@ namespace Interfaz
             // 
             // TboxModificarCorreo
             // 
-            this.TboxModificarCorreo.Location = new System.Drawing.Point(16, 244);
+            this.TboxModificarCorreo.Location = new System.Drawing.Point(16, 259);
             this.TboxModificarCorreo.Name = "TboxModificarCorreo";
             this.TboxModificarCorreo.Size = new System.Drawing.Size(201, 20);
             this.TboxModificarCorreo.TabIndex = 44;
             // 
             // BtnModificarCorreo
             // 
-            this.BtnModificarCorreo.Location = new System.Drawing.Point(16, 270);
+            this.BtnModificarCorreo.Location = new System.Drawing.Point(16, 285);
             this.BtnModificarCorreo.Name = "BtnModificarCorreo";
             this.BtnModificarCorreo.Size = new System.Drawing.Size(103, 23);
             this.BtnModificarCorreo.TabIndex = 45;
@@ -309,7 +311,7 @@ namespace Interfaz
             // 
             // BtnModificarBiografia
             // 
-            this.BtnModificarBiografia.Location = new System.Drawing.Point(16, 398);
+            this.BtnModificarBiografia.Location = new System.Drawing.Point(16, 413);
             this.BtnModificarBiografia.Name = "BtnModificarBiografia";
             this.BtnModificarBiografia.Size = new System.Drawing.Size(103, 23);
             this.BtnModificarBiografia.TabIndex = 48;
@@ -318,7 +320,7 @@ namespace Interfaz
             // 
             // TboxModificarBiografia
             // 
-            this.TboxModificarBiografia.Location = new System.Drawing.Point(16, 315);
+            this.TboxModificarBiografia.Location = new System.Drawing.Point(16, 330);
             this.TboxModificarBiografia.Multiline = true;
             this.TboxModificarBiografia.Name = "TboxModificarBiografia";
             this.TboxModificarBiografia.Size = new System.Drawing.Size(201, 77);
@@ -327,16 +329,36 @@ namespace Interfaz
             // StaticLbBiografia
             // 
             this.StaticLbBiografia.AutoSize = true;
-            this.StaticLbBiografia.Location = new System.Drawing.Point(13, 299);
+            this.StaticLbBiografia.Location = new System.Drawing.Point(13, 314);
             this.StaticLbBiografia.Name = "StaticLbBiografia";
             this.StaticLbBiografia.Size = new System.Drawing.Size(51, 13);
             this.StaticLbBiografia.TabIndex = 46;
             this.StaticLbBiografia.Text = "Biografia:";
             // 
+            // LbNombreCompelto
+            // 
+            this.LbNombreCompelto.AutoSize = true;
+            this.LbNombreCompelto.Location = new System.Drawing.Point(62, 181);
+            this.LbNombreCompelto.Name = "LbNombreCompelto";
+            this.LbNombreCompelto.Size = new System.Drawing.Size(84, 13);
+            this.LbNombreCompelto.TabIndex = 49;
+            this.LbNombreCompelto.Text = "Nombre,Apellido";
+            // 
+            // LbIdUsuario
+            // 
+            this.LbIdUsuario.AutoSize = true;
+            this.LbIdUsuario.Location = new System.Drawing.Point(13, 0);
+            this.LbIdUsuario.Name = "LbIdUsuario";
+            this.LbIdUsuario.Size = new System.Drawing.Size(13, 13);
+            this.LbIdUsuario.TabIndex = 50;
+            this.LbIdUsuario.Text = "0";
+            // 
             // AdminUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.LbIdUsuario);
+            this.Controls.Add(this.LbNombreCompelto);
             this.Controls.Add(this.BtnModificarBiografia);
             this.Controls.Add(this.TboxModificarBiografia);
             this.Controls.Add(this.StaticLbBiografia);
@@ -407,5 +429,7 @@ namespace Interfaz
         private System.Windows.Forms.Button BtnModificarBiografia;
         private System.Windows.Forms.TextBox TboxModificarBiografia;
         private System.Windows.Forms.Label StaticLbBiografia;
+        private System.Windows.Forms.Label LbNombreCompelto;
+        private System.Windows.Forms.Label LbIdUsuario;
     }
 }

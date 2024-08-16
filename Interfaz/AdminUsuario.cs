@@ -21,10 +21,14 @@ namespace Interfaz
 
         private void AdminUsuario_Load(object sender, EventArgs e)
         {
+            
             refrescarTablaDePublicaciones();
         }
 
+        public void CargarUsuario()
+        {
 
+        }
         /********************************************Publicaciones***************************************************************/
         private int IndexPublicacion()
         {
