@@ -65,10 +65,10 @@ namespace Modelos
                 this.nombre_usuario = this.Lector["nombre_usuario"].ToString();
                 //this.imagen_perfil = this.Lector["imagen_perfil"].ToString();
                 this.reports = Int32.Parse(this.Lector["reports"].ToString());
-                this.id_usuario = Int32.Parse(this.Lector["id_usuario"].ToString());
+                //this.id_usuario = Int32.Parse(this.Lector["id_usuario"].ToString());
                 this.Lector.Close();
 
-                sql = $"select * from usuario where nombre_usuario = '{this.id_usuario}'";
+                /*sql = $"select * from usuario where nombre_usuario = '{this.id_usuario}'";
                 this.Comando.CommandText = sql;
                 this.Lector = this.Comando.ExecuteReader();
 
@@ -76,7 +76,7 @@ namespace Modelos
                 this.nombre = this.Lector["nombre"].ToString();
                 this.apellido1 = this.Lector["apellido1"].ToString();
                 this.apellido2 = this.Lector["apellido2"].ToString();
-                this.Lector.Close();
+                this.Lector.Close();*/
 
                 return true;
 

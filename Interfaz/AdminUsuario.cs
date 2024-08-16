@@ -21,13 +21,15 @@ namespace Interfaz
 
         private void AdminUsuario_Load(object sender, EventArgs e)
         {
-            
+            CargarUsuario();
             refrescarTablaDePublicaciones();
         }
 
         public void CargarUsuario()
         {
-
+            string id = "6";
+            LbIdUsuario.Text = ControlCuenta.BuscarUsuario(id)["id_usuario"].ToString();
+            LbUsername.Text = ControlCuenta.BuscarUsuario(id)["nombre_usuario"].ToString();
         }
         /********************************************Publicaciones***************************************************************/
         private int IndexPublicacion()
