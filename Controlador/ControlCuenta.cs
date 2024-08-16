@@ -54,7 +54,8 @@ namespace Controlador
                 usuario.Add("apellido1", u.apellido1);
                 usuario.Add("apellido2", u.apellido2);
                 usuario.Add("email", u.email);
-                // biografia ( falta en modelo )
+                usuario.Add("biografia", u.biografia);
+                usuario.Add("reports", u.reports.ToString());
                 return usuario;
             }
             usuario.Add("resultado", "false");

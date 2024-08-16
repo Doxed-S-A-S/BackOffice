@@ -40,7 +40,7 @@ namespace Modelos
 
         public void ModificarCorreo()
         {
-            string sql = $"update cuetna set email ='{this.email}'where id_cuenta ='{this.id_cuenta}'";
+            string sql = $"update cuenta set email ='{this.email}'where id_cuenta ='{this.id_cuenta}'";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
@@ -64,11 +64,13 @@ namespace Modelos
                 this.id_cuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
                 this.nombre_usuario = this.Lector["nombre_usuario"].ToString();
                 //this.imagen_perfil = this.Lector["imagen_perfil"].ToString();
+                this.email = this.Lector["email"].ToString();
                 this.reports = Int32.Parse(this.Lector["reports"].ToString());
-                //this.id_usuario = Int32.Parse(this.Lector["id_usuario"].ToString());
+                this.id_usuario = Int32.Parse(this.Lector["id_usuario"].ToString());
+                this.id_muro = Int32.Parse(this.Lector["id_muro"].ToString());
                 this.Lector.Close();
 
-                /*sql = $"select * from usuario where nombre_usuario = '{this.id_usuario}'";
+                sql = $"select * from usuario where id_usuario = '{this.id_usuario}'";
                 this.Comando.CommandText = sql;
                 this.Lector = this.Comando.ExecuteReader();
 
@@ -76,7 +78,15 @@ namespace Modelos
                 this.nombre = this.Lector["nombre"].ToString();
                 this.apellido1 = this.Lector["apellido1"].ToString();
                 this.apellido2 = this.Lector["apellido2"].ToString();
-                this.Lector.Close();*/
+                this.Lector.Close();
+
+                sql = $"select biografia from muro where id_muro = {this.id_muro}";
+                this.Comando.CommandText = sql;
+                this.Lector = this.Comando.ExecuteReader();
+
+                this.Lector.Read();
+                this.biografia = this.Lector["biografia"].ToString();
+                this.Lector.Close();
 
                 return true;
 

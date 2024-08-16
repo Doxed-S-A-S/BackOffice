@@ -24,13 +24,31 @@ namespace Interfaz
             CargarUsuario();
             refrescarTablaDePublicaciones();
         }
-
+        string id = "2";
         public void CargarUsuario()
         {
-            string id = "6";
             LbIdUsuario.Text = ControlCuenta.BuscarUsuario(id)["id_usuario"].ToString();
             LbUsername.Text = ControlCuenta.BuscarUsuario(id)["nombre_usuario"].ToString();
+            LbNombreCompelto.Text = GenerarNombreCompleto();
+            // estado
+            LbNumReportes.Text = ControlCuenta.BuscarUsuario(id)["reports"].ToString();
+            TboxModificarCorreo.Text = ControlCuenta.BuscarUsuario(id)["email"].ToString();
+            TboxModificarBiografia.Text = ControlCuenta.BuscarUsuario(id)["biografia"].ToString();
         }
+
+        public string GenerarNombreCompleto()
+        {
+            string nombreCompleto = ControlCuenta.BuscarUsuario(id)["nombre"].ToString();
+            nombreCompleto += " ";
+            nombreCompleto += ControlCuenta.BuscarUsuario(id)["apellido1"].ToString();
+            nombreCompleto += " ";
+            nombreCompleto += ControlCuenta.BuscarUsuario(id)["apellido2"].ToString();
+
+            return nombreCompleto;
+        }
+
+
+
         /********************************************Publicaciones***************************************************************/
         private int IndexPublicacion()
         {
@@ -77,6 +95,20 @@ namespace Interfaz
                 ControlPosts.ElimiarPost(id_post);
                 refrescarTablaDePublicaciones();
                 MessageBox.Show("Post eliminado");
+            }
+        }
+
+        private void BtnModificarCorreo_Click(object sender, EventArgs e)
+        {
+            DialogResult seguro = MessageBox.Show(
+                $"Esta seguro que desea modificar el Email del usuario {LbUsername.Text}?",
+                "Esta seguro?",
+                MessageBoxButtons.YesNo);
+
+            if (seguro.ToString()== "Yes")
+            {
+                ControlCuenta.ModificarCorreo(LbIdUsuario.Text, TboxModificarCorreo.Text);
+                TboxModificarCorreo.Text = ControlCuenta.BuscarUsuario(id)["email"].ToString();
             }
         }
 

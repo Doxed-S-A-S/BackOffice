@@ -308,6 +308,7 @@ namespace Interfaz
             this.BtnModificarCorreo.TabIndex = 45;
             this.BtnModificarCorreo.Text = "Modificar correo";
             this.BtnModificarCorreo.UseVisualStyleBackColor = true;
+            this.BtnModificarCorreo.Click += new System.EventHandler(this.BtnModificarCorreo_Click);
             // 
             // BtnModificarBiografia
             // 
