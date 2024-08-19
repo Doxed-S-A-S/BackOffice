@@ -19,9 +19,21 @@ namespace Interfaz
             InitializeComponent();
         }
 
-        private void BtnContUsuarios_Click(object sender, EventArgs e)
+        private void OcultarUserControll()
         {
             BusquedaDeUsuarios.Hide();
+            AdministracionDeUsuarios.Hide();
+        }
+        private void CerrarChildren()
+        {
+            while (ActiveMdiChild != null)
+                ActiveMdiChild.Close();
+        }
+
+
+        private void BtnContUsuarios_Click(object sender, EventArgs e)
+        {
+            OcultarUserControll();
             AdministracionDeUsuarios.Show();
             AdministracionDeUsuarios.BringToFront();
         }
@@ -29,7 +41,7 @@ namespace Interfaz
 
         private void BtnBusquedaUsuarios_Click(object sender, EventArgs e)
         {
-            AdministracionDeUsuarios.Hide();
+            OcultarUserControll();
             BusquedaDeUsuarios.Show();
             BusquedaDeUsuarios.BringToFront();
             
@@ -47,6 +59,34 @@ namespace Interfaz
             TestingWindow Twin = new TestingWindow();
             Twin.Show();
             Twin.BringToFront();
+        }
+
+        private void BtnBuscarPublicaciones_Click(object sender, EventArgs e)
+        {
+            OcultarUserControll();
+            AdministracionPost AdminPost = new AdministracionPost();
+            AdminPost.MdiParent = this;
+            AdminPost.Show();
+        }
+
+        private void TestingBtnCerrar_Click(object sender, EventArgs e)
+        {
+            OcultarUserControll();
+            CerrarChildren();
+        }
+
+        private void DgridListarPulicaciones_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            int i = DgridListarPulicaciones.CurrentCell.RowIndex;
+            string idPost = DgridListarPulicaciones.Rows[i].Cells["Contenido"].Value.ToString();
+        }
+
+        private void refrescarTablaDePublicacion()
+        {
+            DgridListarPulicaciones.Refresh();
+            DgridListarPulicaciones.DataSource = ControlPosts.Listar() // hacer funcion y traer todos los reportados
+                // ocultar o no
         }
     }
 }

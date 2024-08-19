@@ -38,6 +38,7 @@ namespace Interfaz
             this.buscarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarGrupoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarEventoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abrirVentanaDeTestingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historialDeAccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verUsuariosBloqueadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,14 +48,21 @@ namespace Interfaz
             this.deProfesoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deDesbloqueosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarLosDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.MainPanelBotones = new System.Windows.Forms.Panel();
             this.BtnBusquedaUsuarios = new System.Windows.Forms.Button();
             this.BtnContUsuarios = new System.Windows.Forms.Button();
-            this.abrirVentanaDeTestingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BtnBuscarPublicaciones = new System.Windows.Forms.Button();
+            this.PanelAdministracionPost = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.DgridListarPulicaciones = new System.Windows.Forms.DataGridView();
+            this.TestingBtnCerrar = new System.Windows.Forms.Button();
             this.BusquedaDeUsuarios = new Interfaz.BusquedaDeUsuarios();
             this.AdministracionDeUsuarios = new Interfaz.AdminUsuario();
+            this.StaticLbBuscarPub = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.MainPanelBotones.SuspendLayout();
+            this.PanelAdministracionPost.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgridListarPulicaciones)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -127,6 +135,13 @@ namespace Interfaz
             this.buscarEventoToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.buscarEventoToolStripMenuItem.Text = "Buscar Evento";
             // 
+            // abrirVentanaDeTestingToolStripMenuItem
+            // 
+            this.abrirVentanaDeTestingToolStripMenuItem.Name = "abrirVentanaDeTestingToolStripMenuItem";
+            this.abrirVentanaDeTestingToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.abrirVentanaDeTestingToolStripMenuItem.Text = "Abrir ventana de testing";
+            this.abrirVentanaDeTestingToolStripMenuItem.Click += new System.EventHandler(this.abrirVentanaDeTestingToolStripMenuItem_Click);
+            // 
             // reportesToolStripMenuItem
             // 
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -190,15 +205,17 @@ namespace Interfaz
             this.eliminarLosDatosToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.eliminarLosDatosToolStripMenuItem.Text = "Eliminar datos de usuario";
             // 
-            // panel1
+            // MainPanelBotones
             // 
-            this.panel1.Controls.Add(this.BtnBusquedaUsuarios);
-            this.panel1.Controls.Add(this.BtnContUsuarios);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 24);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 679);
-            this.panel1.TabIndex = 19;
+            this.MainPanelBotones.Controls.Add(this.TestingBtnCerrar);
+            this.MainPanelBotones.Controls.Add(this.BtnBuscarPublicaciones);
+            this.MainPanelBotones.Controls.Add(this.BtnBusquedaUsuarios);
+            this.MainPanelBotones.Controls.Add(this.BtnContUsuarios);
+            this.MainPanelBotones.Dock = System.Windows.Forms.DockStyle.Left;
+            this.MainPanelBotones.Location = new System.Drawing.Point(0, 24);
+            this.MainPanelBotones.Name = "MainPanelBotones";
+            this.MainPanelBotones.Size = new System.Drawing.Size(200, 679);
+            this.MainPanelBotones.TabIndex = 19;
             // 
             // BtnBusquedaUsuarios
             // 
@@ -212,7 +229,7 @@ namespace Interfaz
             // 
             // BtnContUsuarios
             // 
-            this.BtnContUsuarios.Location = new System.Drawing.Point(32, 174);
+            this.BtnContUsuarios.Location = new System.Drawing.Point(32, 171);
             this.BtnContUsuarios.Name = "BtnContUsuarios";
             this.BtnContUsuarios.Size = new System.Drawing.Size(131, 36);
             this.BtnContUsuarios.TabIndex = 0;
@@ -220,16 +237,57 @@ namespace Interfaz
             this.BtnContUsuarios.UseVisualStyleBackColor = true;
             this.BtnContUsuarios.Click += new System.EventHandler(this.BtnContUsuarios_Click);
             // 
-            // abrirVentanaDeTestingToolStripMenuItem
+            // BtnBuscarPublicaciones
             // 
-            this.abrirVentanaDeTestingToolStripMenuItem.Name = "abrirVentanaDeTestingToolStripMenuItem";
-            this.abrirVentanaDeTestingToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.abrirVentanaDeTestingToolStripMenuItem.Text = "Abrir ventana de testing";
-            this.abrirVentanaDeTestingToolStripMenuItem.Click += new System.EventHandler(this.abrirVentanaDeTestingToolStripMenuItem_Click);
+            this.BtnBuscarPublicaciones.Location = new System.Drawing.Point(32, 77);
+            this.BtnBuscarPublicaciones.Name = "BtnBuscarPublicaciones";
+            this.BtnBuscarPublicaciones.Size = new System.Drawing.Size(131, 36);
+            this.BtnBuscarPublicaciones.TabIndex = 2;
+            this.BtnBuscarPublicaciones.Text = "Buscar publicaciones";
+            this.BtnBuscarPublicaciones.UseVisualStyleBackColor = true;
+            this.BtnBuscarPublicaciones.Click += new System.EventHandler(this.BtnBuscarPublicaciones_Click);
+            // 
+            // PanelAdministracionPost
+            // 
+            this.PanelAdministracionPost.Controls.Add(this.StaticLbBuscarPub);
+            this.PanelAdministracionPost.Controls.Add(this.DgridListarPulicaciones);
+            this.PanelAdministracionPost.Controls.Add(this.textBox1);
+            this.PanelAdministracionPost.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PanelAdministracionPost.Location = new System.Drawing.Point(200, 24);
+            this.PanelAdministracionPost.Name = "PanelAdministracionPost";
+            this.PanelAdministracionPost.Size = new System.Drawing.Size(200, 679);
+            this.PanelAdministracionPost.TabIndex = 33;
+            this.PanelAdministracionPost.Visible = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(15, 44);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(170, 20);
+            this.textBox1.TabIndex = 0;
+            // 
+            // DgridListarPulicaciones
+            // 
+            this.DgridListarPulicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgridListarPulicaciones.Location = new System.Drawing.Point(15, 99);
+            this.DgridListarPulicaciones.Name = "DgridListarPulicaciones";
+            this.DgridListarPulicaciones.Size = new System.Drawing.Size(170, 235);
+            this.DgridListarPulicaciones.TabIndex = 1;
+            this.DgridListarPulicaciones.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgridListarPulicaciones_CellClick);
+            // 
+            // TestingBtnCerrar
+            // 
+            this.TestingBtnCerrar.Location = new System.Drawing.Point(32, 612);
+            this.TestingBtnCerrar.Name = "TestingBtnCerrar";
+            this.TestingBtnCerrar.Size = new System.Drawing.Size(131, 36);
+            this.TestingBtnCerrar.TabIndex = 3;
+            this.TestingBtnCerrar.Text = "Cerrar todo";
+            this.TestingBtnCerrar.UseVisualStyleBackColor = true;
+            this.TestingBtnCerrar.Click += new System.EventHandler(this.TestingBtnCerrar_Click);
             // 
             // BusquedaDeUsuarios
             // 
-            this.BusquedaDeUsuarios.Location = new System.Drawing.Point(169, 24);
+            this.BusquedaDeUsuarios.Location = new System.Drawing.Point(198, 24);
             this.BusquedaDeUsuarios.Name = "BusquedaDeUsuarios";
             this.BusquedaDeUsuarios.Size = new System.Drawing.Size(1012, 648);
             this.BusquedaDeUsuarios.TabIndex = 31;
@@ -243,15 +301,26 @@ namespace Interfaz
             this.AdministracionDeUsuarios.TabIndex = 20;
             this.AdministracionDeUsuarios.Visible = false;
             // 
+            // StaticLbBuscarPub
+            // 
+            this.StaticLbBuscarPub.AutoSize = true;
+            this.StaticLbBuscarPub.Location = new System.Drawing.Point(12, 28);
+            this.StaticLbBuscarPub.Name = "StaticLbBuscarPub";
+            this.StaticLbBuscarPub.Size = new System.Drawing.Size(129, 13);
+            this.StaticLbBuscarPub.TabIndex = 2;
+            this.StaticLbBuscarPub.Text = "Buscar ID de publicacion:";
+            // 
             // MainBackoffice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 703);
+            this.Controls.Add(this.PanelAdministracionPost);
+            this.Controls.Add(this.MainPanelBotones);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.BusquedaDeUsuarios);
             this.Controls.Add(this.AdministracionDeUsuarios);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainBackoffice";
             this.Text = "Form1";
@@ -259,7 +328,10 @@ namespace Interfaz
             this.Load += new System.EventHandler(this.MainBackoffice_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.MainPanelBotones.ResumeLayout(false);
+            this.PanelAdministracionPost.ResumeLayout(false);
+            this.PanelAdministracionPost.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgridListarPulicaciones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,11 +356,17 @@ namespace Interfaz
         private System.Windows.Forms.ToolStripMenuItem deProfesoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deDesbloqueosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarLosDatosToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel MainPanelBotones;
         private AdminUsuario AdministracionDeUsuarios;
         private System.Windows.Forms.Button BtnContUsuarios;
         private System.Windows.Forms.Button BtnBusquedaUsuarios;
         private BusquedaDeUsuarios BusquedaDeUsuarios;
         private System.Windows.Forms.ToolStripMenuItem abrirVentanaDeTestingToolStripMenuItem;
+        private System.Windows.Forms.Button BtnBuscarPublicaciones;
+        private System.Windows.Forms.Panel PanelAdministracionPost;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridView DgridListarPulicaciones;
+        private System.Windows.Forms.Button TestingBtnCerrar;
+        private System.Windows.Forms.Label StaticLbBuscarPub;
     }
 }
