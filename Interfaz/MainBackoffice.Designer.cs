@@ -47,29 +47,12 @@ namespace Interfaz
             this.deProfesoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deDesbloqueosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarLosDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Label1 = new System.Windows.Forms.Label();
-            this.TestingTboxPub = new System.Windows.Forms.TextBox();
-            this.TestingBtnPub = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnBusquedaUsuarios = new System.Windows.Forms.Button();
             this.BtnContUsuarios = new System.Windows.Forms.Button();
-            this.AdministracionDeUsuarios = new Interfaz.AdminUsuario();
-            this.TestingTboxReacciones = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.TestingTboxComReacciones = new System.Windows.Forms.TextBox();
-            this.TestingBtnPuliComentario = new System.Windows.Forms.Button();
-            this.TestingTboxComentario = new System.Windows.Forms.TextBox();
-            this.TestingTboxIdPub = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.abrirVentanaDeTestingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BusquedaDeUsuarios = new Interfaz.BusquedaDeUsuarios();
-            this.TestingTboxUsername = new System.Windows.Forms.TextBox();
-            this.TestingTboxEmail = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.TestingButtonCrearUsr = new System.Windows.Forms.Button();
+            this.AdministracionDeUsuarios = new Interfaz.AdminUsuario();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -120,7 +103,8 @@ namespace Interfaz
             this.herramientasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.buscarUsuarioToolStripMenuItem,
             this.buscarGrupoToolStripMenuItem,
-            this.buscarEventoToolStripMenuItem});
+            this.buscarEventoToolStripMenuItem,
+            this.abrirVentanaDeTestingToolStripMenuItem});
             this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
             this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.herramientasToolStripMenuItem.Text = "Herramientas";
@@ -128,19 +112,19 @@ namespace Interfaz
             // buscarUsuarioToolStripMenuItem
             // 
             this.buscarUsuarioToolStripMenuItem.Name = "buscarUsuarioToolStripMenuItem";
-            this.buscarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.buscarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.buscarUsuarioToolStripMenuItem.Text = "Buscar Usuario";
             // 
             // buscarGrupoToolStripMenuItem
             // 
             this.buscarGrupoToolStripMenuItem.Name = "buscarGrupoToolStripMenuItem";
-            this.buscarGrupoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.buscarGrupoToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.buscarGrupoToolStripMenuItem.Text = "Buscar Grupo";
             // 
             // buscarEventoToolStripMenuItem
             // 
             this.buscarEventoToolStripMenuItem.Name = "buscarEventoToolStripMenuItem";
-            this.buscarEventoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.buscarEventoToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.buscarEventoToolStripMenuItem.Text = "Buscar Evento";
             // 
             // reportesToolStripMenuItem
@@ -206,33 +190,6 @@ namespace Interfaz
             this.eliminarLosDatosToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.eliminarLosDatosToolStripMenuItem.Text = "Eliminar datos de usuario";
             // 
-            // Label1
-            // 
-            this.Label1.AutoSize = true;
-            this.Label1.Location = new System.Drawing.Point(1183, 24);
-            this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(78, 13);
-            this.Label1.TabIndex = 16;
-            this.Label1.Text = "AreaDeTesting";
-            // 
-            // TestingTboxPub
-            // 
-            this.TestingTboxPub.Location = new System.Drawing.Point(1186, 208);
-            this.TestingTboxPub.Multiline = true;
-            this.TestingTboxPub.Name = "TestingTboxPub";
-            this.TestingTboxPub.Size = new System.Drawing.Size(172, 96);
-            this.TestingTboxPub.TabIndex = 17;
-            // 
-            // TestingBtnPub
-            // 
-            this.TestingBtnPub.Location = new System.Drawing.Point(1283, 338);
-            this.TestingBtnPub.Name = "TestingBtnPub";
-            this.TestingBtnPub.Size = new System.Drawing.Size(75, 23);
-            this.TestingBtnPub.TabIndex = 18;
-            this.TestingBtnPub.Text = "Publicar";
-            this.TestingBtnPub.UseVisualStyleBackColor = true;
-            this.TestingBtnPub.Click += new System.EventHandler(this.TestingBtnPub_Click);
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.BtnBusquedaUsuarios);
@@ -263,97 +220,12 @@ namespace Interfaz
             this.BtnContUsuarios.UseVisualStyleBackColor = true;
             this.BtnContUsuarios.Click += new System.EventHandler(this.BtnContUsuarios_Click);
             // 
-            // AdministracionDeUsuarios
+            // abrirVentanaDeTestingToolStripMenuItem
             // 
-            this.AdministracionDeUsuarios.Location = new System.Drawing.Point(198, 24);
-            this.AdministracionDeUsuarios.Name = "AdministracionDeUsuarios";
-            this.AdministracionDeUsuarios.Size = new System.Drawing.Size(982, 648);
-            this.AdministracionDeUsuarios.TabIndex = 20;
-            this.AdministracionDeUsuarios.Visible = false;
-            // 
-            // TestingTboxReacciones
-            // 
-            this.TestingTboxReacciones.Location = new System.Drawing.Point(1258, 310);
-            this.TestingTboxReacciones.Name = "TestingTboxReacciones";
-            this.TestingTboxReacciones.Size = new System.Drawing.Size(100, 20);
-            this.TestingTboxReacciones.TabIndex = 21;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1199, 192);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(147, 13);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Publicacion ( Max 100 chars )";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1220, 313);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 13);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "Likes";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1220, 491);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 13);
-            this.label4.TabIndex = 28;
-            this.label4.Text = "Likes";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1199, 370);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(144, 13);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "Comentario ( max 255 chars )";
-            // 
-            // TestingTboxComReacciones
-            // 
-            this.TestingTboxComReacciones.Location = new System.Drawing.Point(1258, 488);
-            this.TestingTboxComReacciones.Name = "TestingTboxComReacciones";
-            this.TestingTboxComReacciones.Size = new System.Drawing.Size(100, 20);
-            this.TestingTboxComReacciones.TabIndex = 26;
-            // 
-            // TestingBtnPuliComentario
-            // 
-            this.TestingBtnPuliComentario.Location = new System.Drawing.Point(1283, 549);
-            this.TestingBtnPuliComentario.Name = "TestingBtnPuliComentario";
-            this.TestingBtnPuliComentario.Size = new System.Drawing.Size(75, 23);
-            this.TestingBtnPuliComentario.TabIndex = 25;
-            this.TestingBtnPuliComentario.Text = "PublicarCom";
-            this.TestingBtnPuliComentario.UseVisualStyleBackColor = true;
-            this.TestingBtnPuliComentario.Click += new System.EventHandler(this.TestingBtnPuliComentario_Click);
-            // 
-            // TestingTboxComentario
-            // 
-            this.TestingTboxComentario.Location = new System.Drawing.Point(1186, 386);
-            this.TestingTboxComentario.Multiline = true;
-            this.TestingTboxComentario.Name = "TestingTboxComentario";
-            this.TestingTboxComentario.Size = new System.Drawing.Size(172, 96);
-            this.TestingTboxComentario.TabIndex = 24;
-            // 
-            // TestingTboxIdPub
-            // 
-            this.TestingTboxIdPub.Location = new System.Drawing.Point(1312, 514);
-            this.TestingTboxIdPub.Name = "TestingTboxIdPub";
-            this.TestingTboxIdPub.Size = new System.Drawing.Size(46, 20);
-            this.TestingTboxIdPub.TabIndex = 29;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1205, 517);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(101, 13);
-            this.label6.TabIndex = 30;
-            this.label6.Text = "ID de la publicacion";
+            this.abrirVentanaDeTestingToolStripMenuItem.Name = "abrirVentanaDeTestingToolStripMenuItem";
+            this.abrirVentanaDeTestingToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.abrirVentanaDeTestingToolStripMenuItem.Text = "Abrir ventana de testing";
+            this.abrirVentanaDeTestingToolStripMenuItem.Click += new System.EventHandler(this.abrirVentanaDeTestingToolStripMenuItem_Click);
             // 
             // BusquedaDeUsuarios
             // 
@@ -363,74 +235,22 @@ namespace Interfaz
             this.BusquedaDeUsuarios.TabIndex = 31;
             this.BusquedaDeUsuarios.Visible = false;
             // 
-            // TestingTboxUsername
+            // AdministracionDeUsuarios
             // 
-            this.TestingTboxUsername.Location = new System.Drawing.Point(1186, 68);
-            this.TestingTboxUsername.Name = "TestingTboxUsername";
-            this.TestingTboxUsername.Size = new System.Drawing.Size(172, 20);
-            this.TestingTboxUsername.TabIndex = 32;
-            // 
-            // TestingTboxEmail
-            // 
-            this.TestingTboxEmail.Location = new System.Drawing.Point(1186, 110);
-            this.TestingTboxEmail.Name = "TestingTboxEmail";
-            this.TestingTboxEmail.Size = new System.Drawing.Size(172, 20);
-            this.TestingTboxEmail.TabIndex = 33;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1187, 52);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 13);
-            this.label7.TabIndex = 34;
-            this.label7.Text = "Username";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(1187, 94);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 35;
-            this.label8.Text = "E-mail";
-            // 
-            // TestingButtonCrearUsr
-            // 
-            this.TestingButtonCrearUsr.Location = new System.Drawing.Point(1283, 136);
-            this.TestingButtonCrearUsr.Name = "TestingButtonCrearUsr";
-            this.TestingButtonCrearUsr.Size = new System.Drawing.Size(75, 23);
-            this.TestingButtonCrearUsr.TabIndex = 36;
-            this.TestingButtonCrearUsr.Text = "Crear usuario";
-            this.TestingButtonCrearUsr.UseVisualStyleBackColor = true;
-            this.TestingButtonCrearUsr.Click += new System.EventHandler(this.TestingButtonCrearUsr_Click);
+            this.AdministracionDeUsuarios.Location = new System.Drawing.Point(198, 24);
+            this.AdministracionDeUsuarios.Name = "AdministracionDeUsuarios";
+            this.AdministracionDeUsuarios.Size = new System.Drawing.Size(982, 648);
+            this.AdministracionDeUsuarios.TabIndex = 20;
+            this.AdministracionDeUsuarios.Visible = false;
             // 
             // MainBackoffice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 703);
-            this.Controls.Add(this.TestingButtonCrearUsr);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.TestingTboxEmail);
-            this.Controls.Add(this.TestingTboxUsername);
             this.Controls.Add(this.BusquedaDeUsuarios);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.TestingTboxIdPub);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.TestingTboxComReacciones);
-            this.Controls.Add(this.TestingBtnPuliComentario);
-            this.Controls.Add(this.TestingTboxComentario);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.TestingTboxReacciones);
             this.Controls.Add(this.AdministracionDeUsuarios);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.TestingBtnPub);
-            this.Controls.Add(this.TestingTboxPub);
-            this.Controls.Add(this.Label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainBackoffice";
@@ -464,28 +284,11 @@ namespace Interfaz
         private System.Windows.Forms.ToolStripMenuItem deProfesoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deDesbloqueosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarLosDatosToolStripMenuItem;
-        private System.Windows.Forms.Label Label1;
-        private System.Windows.Forms.TextBox TestingTboxPub;
-        private System.Windows.Forms.Button TestingBtnPub;
         private System.Windows.Forms.Panel panel1;
         private AdminUsuario AdministracionDeUsuarios;
         private System.Windows.Forms.Button BtnContUsuarios;
-        private System.Windows.Forms.TextBox TestingTboxReacciones;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox TestingTboxComReacciones;
-        private System.Windows.Forms.Button TestingBtnPuliComentario;
-        private System.Windows.Forms.TextBox TestingTboxComentario;
-        private System.Windows.Forms.TextBox TestingTboxIdPub;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button BtnBusquedaUsuarios;
         private BusquedaDeUsuarios BusquedaDeUsuarios;
-        private System.Windows.Forms.TextBox TestingTboxUsername;
-        private System.Windows.Forms.TextBox TestingTboxEmail;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button TestingButtonCrearUsr;
+        private System.Windows.Forms.ToolStripMenuItem abrirVentanaDeTestingToolStripMenuItem;
     }
 }

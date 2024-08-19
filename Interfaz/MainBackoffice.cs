@@ -26,16 +26,6 @@ namespace Interfaz
             AdministracionDeUsuarios.BringToFront();
         }
 
-        private void TestingBtnPub_Click(object sender, EventArgs e)
-        {
-            ControlPosts.CrearPost(TestingTboxPub.Text, TestingTboxReacciones.Text);
-
-        }
-
-        private void TestingBtnPuliComentario_Click(object sender, EventArgs e)
-        {
-            ControlComentarios.CrearComentario(TestingTboxIdPub.Text, TestingTboxComentario.Text, TestingTboxComReacciones.Text);
-        }
 
         private void BtnBusquedaUsuarios_Click(object sender, EventArgs e)
         {
@@ -50,9 +40,13 @@ namespace Interfaz
 
         }
 
-        private void TestingButtonCrearUsr_Click(object sender, EventArgs e)
+
+
+        private void abrirVentanaDeTestingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ControlCuenta.CrearCuenta(TestingTboxUsername.Text, TestingTboxEmail.Text);
+            TestingWindow Twin = new TestingWindow();
+            Twin.Show();
+            Twin.BringToFront();
         }
     }
 }

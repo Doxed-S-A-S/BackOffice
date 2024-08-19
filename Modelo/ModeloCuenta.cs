@@ -223,7 +223,7 @@ namespace Modelos
 
         public bool BuscarPreferencias()
         {
-            string sql = $"select * from set_preferencias where if_preferencia = {this.id_preferencia}";
+            string sql = $"select * from set_preferencias where id_preferencia = {this.id_preferencia}";
             this.Comando.CommandText = sql;
             this.Lector = this.Comando.ExecuteReader();
 
@@ -237,6 +237,7 @@ namespace Modelos
                 this.notificaciones_push = Boolean.Parse(this.Lector["notificaciones_push"].ToString());
                 this.muro_privado = Boolean.Parse(this.Lector["muro_privado"].ToString());
                 this.tema_de_apariencia = this.Lector["tema_de_apariencia"].ToString();
+                this.Lector.Close();
                 return true;
             }
             return false;
