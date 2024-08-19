@@ -38,17 +38,19 @@ namespace Interfaz
             this.TestingTboxIdPub = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.TestingTboxComReacciones = new System.Windows.Forms.TextBox();
             this.TestingBtnPuliComentario = new System.Windows.Forms.Button();
             this.TestingTboxComentario = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.TestingTboxReacciones = new System.Windows.Forms.TextBox();
             this.TestingBtnPub = new System.Windows.Forms.Button();
             this.TestingTboxPub = new System.Windows.Forms.TextBox();
             this.Label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.TestingTboxIdUser = new System.Windows.Forms.TextBox();
+            this.LabelLikesDePost = new System.Windows.Forms.Label();
+            this.LabelLikesDeComentario = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.TestingTboxIdUserComent = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // TestingButtonCrearUsr
@@ -96,7 +98,7 @@ namespace Interfaz
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(413, 184);
+            this.label6.Location = new System.Drawing.Point(413, 210);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(101, 13);
             this.label6.TabIndex = 49;
@@ -104,7 +106,7 @@ namespace Interfaz
             // 
             // TestingTboxIdPub
             // 
-            this.TestingTboxIdPub.Location = new System.Drawing.Point(520, 181);
+            this.TestingTboxIdPub.Location = new System.Drawing.Point(520, 207);
             this.TestingTboxIdPub.Name = "TestingTboxIdPub";
             this.TestingTboxIdPub.Size = new System.Drawing.Size(46, 20);
             this.TestingTboxIdPub.TabIndex = 48;
@@ -112,7 +114,7 @@ namespace Interfaz
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(428, 158);
+            this.label4.Location = new System.Drawing.Point(482, 158);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(32, 13);
             this.label4.TabIndex = 47;
@@ -127,16 +129,9 @@ namespace Interfaz
             this.label5.TabIndex = 46;
             this.label5.Text = "Comentario ( max 255 chars )";
             // 
-            // TestingTboxComReacciones
-            // 
-            this.TestingTboxComReacciones.Location = new System.Drawing.Point(466, 155);
-            this.TestingTboxComReacciones.Name = "TestingTboxComReacciones";
-            this.TestingTboxComReacciones.Size = new System.Drawing.Size(100, 20);
-            this.TestingTboxComReacciones.TabIndex = 45;
-            // 
             // TestingBtnPuliComentario
             // 
-            this.TestingBtnPuliComentario.Location = new System.Drawing.Point(491, 216);
+            this.TestingBtnPuliComentario.Location = new System.Drawing.Point(491, 233);
             this.TestingBtnPuliComentario.Name = "TestingBtnPuliComentario";
             this.TestingBtnPuliComentario.Size = new System.Drawing.Size(75, 23);
             this.TestingBtnPuliComentario.TabIndex = 44;
@@ -155,7 +150,7 @@ namespace Interfaz
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(238, 158);
+            this.label3.Location = new System.Drawing.Point(292, 158);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 42;
@@ -169,13 +164,6 @@ namespace Interfaz
             this.label2.Size = new System.Drawing.Size(147, 13);
             this.label2.TabIndex = 41;
             this.label2.Text = "Publicacion ( Max 100 chars )";
-            // 
-            // TestingTboxReacciones
-            // 
-            this.TestingTboxReacciones.Location = new System.Drawing.Point(276, 155);
-            this.TestingTboxReacciones.Name = "TestingTboxReacciones";
-            this.TestingTboxReacciones.Size = new System.Drawing.Size(100, 20);
-            this.TestingTboxReacciones.TabIndex = 40;
             // 
             // TestingBtnPub
             // 
@@ -220,11 +208,49 @@ namespace Interfaz
             this.TestingTboxIdUser.Size = new System.Drawing.Size(46, 20);
             this.TestingTboxIdUser.TabIndex = 55;
             // 
+            // LabelLikesDePost
+            // 
+            this.LabelLikesDePost.AutoSize = true;
+            this.LabelLikesDePost.Location = new System.Drawing.Point(344, 158);
+            this.LabelLikesDePost.Name = "LabelLikesDePost";
+            this.LabelLikesDePost.Size = new System.Drawing.Size(17, 13);
+            this.LabelLikesDePost.TabIndex = 57;
+            this.LabelLikesDePost.Text = "n°";
+            // 
+            // LabelLikesDeComentario
+            // 
+            this.LabelLikesDeComentario.AutoSize = true;
+            this.LabelLikesDeComentario.Location = new System.Drawing.Point(534, 158);
+            this.LabelLikesDeComentario.Name = "LabelLikesDeComentario";
+            this.LabelLikesDeComentario.Size = new System.Drawing.Size(17, 13);
+            this.LabelLikesDeComentario.TabIndex = 58;
+            this.LabelLikesDeComentario.Text = "n°";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(442, 184);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(72, 13);
+            this.label10.TabIndex = 60;
+            this.label10.Text = "ID del usuario";
+            // 
+            // TestingTboxIdUserComent
+            // 
+            this.TestingTboxIdUserComent.Location = new System.Drawing.Point(520, 181);
+            this.TestingTboxIdUserComent.Name = "TestingTboxIdUserComent";
+            this.TestingTboxIdUserComent.Size = new System.Drawing.Size(46, 20);
+            this.TestingTboxIdUserComent.TabIndex = 59;
+            // 
             // TestingWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 545);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.TestingTboxIdUserComent);
+            this.Controls.Add(this.LabelLikesDeComentario);
+            this.Controls.Add(this.LabelLikesDePost);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.TestingTboxIdUser);
             this.Controls.Add(this.TestingButtonCrearUsr);
@@ -236,12 +262,10 @@ namespace Interfaz
             this.Controls.Add(this.TestingTboxIdPub);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.TestingTboxComReacciones);
             this.Controls.Add(this.TestingBtnPuliComentario);
             this.Controls.Add(this.TestingTboxComentario);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.TestingTboxReacciones);
             this.Controls.Add(this.TestingBtnPub);
             this.Controls.Add(this.TestingTboxPub);
             this.Controls.Add(this.Label1);
@@ -263,16 +287,18 @@ namespace Interfaz
         private System.Windows.Forms.TextBox TestingTboxIdPub;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox TestingTboxComReacciones;
         private System.Windows.Forms.Button TestingBtnPuliComentario;
         private System.Windows.Forms.TextBox TestingTboxComentario;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox TestingTboxReacciones;
         private System.Windows.Forms.Button TestingBtnPub;
         private System.Windows.Forms.TextBox TestingTboxPub;
         private System.Windows.Forms.Label Label1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox TestingTboxIdUser;
+        private System.Windows.Forms.Label LabelLikesDePost;
+        private System.Windows.Forms.Label LabelLikesDeComentario;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox TestingTboxIdUserComent;
     }
 }

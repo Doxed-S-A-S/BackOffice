@@ -26,12 +26,12 @@ namespace Interfaz
 
         private void TestingBtnPub_Click(object sender, EventArgs e)
         {
-            ControlPosts.CrearPost(TestingTboxPub.Text, TestingTboxReacciones.Text); // agregar id del usr que la crea
+            ControlPosts.CrearPost(TestingTboxPub.Text,TestingTboxIdUser.Text);
         }
 
         private void TestingBtnPuliComentario_Click(object sender, EventArgs e)
         {
-            ControlComentarios.CrearComentario(TestingTboxIdPub.Text, TestingTboxComentario.Text, TestingTboxComReacciones.Text);
+            ControlComentarios.CrearComentario(TestingTboxIdUserComent.Text,TestingTboxIdPub.Text, TestingTboxComentario.Text);
         }
     }
 }

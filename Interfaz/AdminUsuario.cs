@@ -59,7 +59,7 @@ namespace Interfaz
         private void refrescarTablaDePublicaciones()
         {
             DgridPublicaciones.Refresh();
-            DgridPublicaciones.DataSource = ControlPosts.Listar();
+            DgridPublicaciones.DataSource = ControlPosts.Listar(LbIdUsuario.Text);
             DgridPublicaciones.Columns["Id_post"].Visible = false;
         }
 
