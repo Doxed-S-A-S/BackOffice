@@ -42,7 +42,11 @@ namespace Interfaz
         private void button1_Click(object sender, EventArgs e)
         {
             string idCuenta = DgridUsuarios.Rows[IndexUsuario()].Cells["id_cuenta"].Value.ToString();
-
+            this.Hide();
+            AdminUsuario AU = new AdminUsuario();
+            AU.AbrirUsuarioSeleccionado(idCuenta);
+            MainBackoffice MB = new MainBackoffice();
+            MB.CambioDeVentana();
         }
     }
 }

@@ -44,7 +44,6 @@ namespace Interfaz
             OcultarUserControll();
             BusquedaDeUsuarios.Show();
             BusquedaDeUsuarios.BringToFront();
-            
         }
 
         private void MainBackoffice_Load(object sender, EventArgs e)
@@ -52,7 +51,13 @@ namespace Interfaz
 
         }
 
-
+        public void CambioDeVentana()
+        {
+            OcultarUserControll();
+            CerrarChildren();
+            AdministracionDeUsuarios.Show();
+            AdministracionDeUsuarios.BringToFront();
+        }
 
         private void abrirVentanaDeTestingToolStripMenuItem_Click(object sender, EventArgs e)
         {

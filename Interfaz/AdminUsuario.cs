@@ -19,16 +19,17 @@ namespace Interfaz
             InitializeComponent();
         }
 
-        public string idCuenta;
+        private string idCuenta;
 
-        public void SetIdCuenta(string id)
-        {
-            this.idCuenta = id;
-        }
         private void AdminUsuario_Load(object sender, EventArgs e)
         {
             CargarUsuario();
             refrescarTablaDePublicaciones();
+        }
+
+        public void AbrirUsuarioSeleccionado(string id)
+        {
+            this.idCuenta = id;
         }
         public void CargarUsuario()
         {
