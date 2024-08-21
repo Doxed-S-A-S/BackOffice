@@ -61,6 +61,25 @@ namespace Modelos
             this.Lector.Close();
             return posts;
         }
+
+        public List<ModeloPost> ObtenerPostsReportados() //ExBack
+        {
+            List<ModeloPost> posts = new List<ModeloPost>();
+
+            string sql = $"select * from posts where eliminado = false and reports > 4";
+            this.Comando.CommandText = sql;
+            this.Lector = this.Comando.ExecuteReader();
+
+            while (this.Lector.Read())
+            {
+                ModeloPost post = new ModeloPost();
+                post.Id_Post = Int32.Parse(this.Lector["Id_post"].ToString());
+                post.Contenido = this.Lector["Contenido"].ToString();
+                posts.Add(post);
+            }
+            this.Lector.Close();
+            return posts;
+        }
     }
 
 }

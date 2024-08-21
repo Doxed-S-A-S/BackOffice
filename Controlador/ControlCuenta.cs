@@ -19,7 +19,16 @@ namespace Controlador
             cuenta.email = email;
 
             cuenta.CrearCuenta();
+        }
 
+        public static void EliminarCuenta(string id,string username,string email)
+        {
+            ModeloCuenta cuenta = new ModeloCuenta();
+            cuenta.id_cuenta = Int32.Parse(id);
+            cuenta.nombre_usuario = username;
+            cuenta.email = email;
+
+            cuenta.EliminarCuenta();
         }
 
         public static void ModificarContraseña(string id, string contraseña)

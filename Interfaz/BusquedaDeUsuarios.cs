@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Controlador;
+using Interfaz;
 
 namespace Interfaz
 {
@@ -24,6 +25,13 @@ namespace Interfaz
             refrescarTablaDeUsuarios();
         }
 
+        public string idSeleccionada;
+        private int IndexUsuario()
+        {
+            int i = DgridUsuarios.CurrentCell.RowIndex;
+            return i;
+        }
+
         private void refrescarTablaDeUsuarios()
         {
             DgridUsuarios.Refresh();
@@ -33,6 +41,7 @@ namespace Interfaz
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string idCuenta = DgridUsuarios.Rows[IndexUsuario()].Cells["id_cuenta"].Value.ToString();
 
         }
     }

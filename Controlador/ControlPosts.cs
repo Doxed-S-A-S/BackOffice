@@ -55,5 +55,25 @@ namespace Controlador
 
         }
 
+        public static DataTable ListarReportados() //ExBackO
+        {
+            DataTable tabla = new DataTable();
+            tabla.Columns.Add("Id_Post", typeof(int));
+            tabla.Columns.Add("Contenido", typeof(string));
+
+
+            ModeloPost pizza = new ModeloPost();
+            foreach (ModeloPost p in pizza.ObtenerPostsReportados())
+            {
+                DataRow fila = tabla.NewRow();
+                fila["Id_post"] = p.Id_Post;
+                fila["Contenido"] = p.Contenido;
+                tabla.Rows.Add(fila);
+            }
+
+            return tabla;
+
+        }
+
     }
 }

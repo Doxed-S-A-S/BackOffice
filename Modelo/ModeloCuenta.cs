@@ -47,7 +47,8 @@ namespace Modelos
 
         public void EliminarCuenta()
         {
-            string sql = $"update cuenta set eliminado = true where id_cuenta ='{this.id_cuenta}'";
+            string sql = $"update cuenta set eliminado = true where id_cuenta = {this.id_cuenta} and nombre_usuario = '{this.nombre_usuario}'" +
+                $" and email = '{this.email}'";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }

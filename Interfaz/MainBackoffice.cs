@@ -82,11 +82,10 @@ namespace Interfaz
             string idPost = DgridListarPulicaciones.Rows[i].Cells["Contenido"].Value.ToString();
         }
 
-        private void refrescarTablaDePublicacion()
+        private void refrescarTablaDePublicacionReportada()
         {
             DgridListarPulicaciones.Refresh();
-            DgridListarPulicaciones.DataSource = ControlPosts.Listar() // hacer funcion y traer todos los reportados
-                // ocultar o no
+            DgridListarPulicaciones.DataSource = ControlPosts.ListarReportados();
         }
     }
 }

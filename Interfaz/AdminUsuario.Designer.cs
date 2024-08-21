@@ -43,11 +43,9 @@ namespace Interfaz
             this.TboxContenido = new System.Windows.Forms.TextBox();
             this.BtnEditarPost = new System.Windows.Forms.Button();
             this.BtnEliminarPost = new System.Windows.Forms.Button();
-            this.BtnActualizarPub = new System.Windows.Forms.Button();
             this.DgridPublicaciones = new System.Windows.Forms.DataGridView();
             this.DgridComentarios = new System.Windows.Forms.DataGridView();
             this.TboxComentarios = new System.Windows.Forms.TextBox();
-            this.BtnActualizarComentarios = new System.Windows.Forms.Button();
             this.BtnEliminarComentario = new System.Windows.Forms.Button();
             this.BtnEditarComentario = new System.Windows.Forms.Button();
             this.StaticLbComentarios = new System.Windows.Forms.Label();
@@ -60,6 +58,9 @@ namespace Interfaz
             this.StaticLbBiografia = new System.Windows.Forms.Label();
             this.LbNombreCompelto = new System.Windows.Forms.Label();
             this.LbIdUsuario = new System.Windows.Forms.Label();
+            this.BtnActualizarDatosCuenta = new System.Windows.Forms.Button();
+            this.BtnEliminarCuenta = new System.Windows.Forms.Button();
+            this.TboxVerificarUsername = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgridPublicaciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridComentarios)).BeginInit();
             this.SuspendLayout();
@@ -114,7 +115,7 @@ namespace Interfaz
             this.LboxGrupos.FormattingEnabled = true;
             this.LboxGrupos.Location = new System.Drawing.Point(16, 459);
             this.LboxGrupos.Name = "LboxGrupos";
-            this.LboxGrupos.Size = new System.Drawing.Size(201, 186);
+            this.LboxGrupos.Size = new System.Drawing.Size(201, 147);
             this.LboxGrupos.TabIndex = 21;
             // 
             // StaticLbReportes
@@ -164,7 +165,7 @@ namespace Interfaz
             // 
             // TboxContenido
             // 
-            this.TboxContenido.Location = new System.Drawing.Point(610, 59);
+            this.TboxContenido.Location = new System.Drawing.Point(610, 30);
             this.TboxContenido.Multiline = true;
             this.TboxContenido.Name = "TboxContenido";
             this.TboxContenido.Size = new System.Drawing.Size(169, 112);
@@ -172,7 +173,7 @@ namespace Interfaz
             // 
             // BtnEditarPost
             // 
-            this.BtnEditarPost.Location = new System.Drawing.Point(610, 177);
+            this.BtnEditarPost.Location = new System.Drawing.Point(610, 148);
             this.BtnEditarPost.Name = "BtnEditarPost";
             this.BtnEditarPost.Size = new System.Drawing.Size(75, 23);
             this.BtnEditarPost.TabIndex = 30;
@@ -182,23 +183,13 @@ namespace Interfaz
             // 
             // BtnEliminarPost
             // 
-            this.BtnEliminarPost.Location = new System.Drawing.Point(704, 177);
+            this.BtnEliminarPost.Location = new System.Drawing.Point(704, 148);
             this.BtnEliminarPost.Name = "BtnEliminarPost";
             this.BtnEliminarPost.Size = new System.Drawing.Size(75, 23);
             this.BtnEliminarPost.TabIndex = 31;
             this.BtnEliminarPost.Text = "Eliminar";
             this.BtnEliminarPost.UseVisualStyleBackColor = true;
             this.BtnEliminarPost.Click += new System.EventHandler(this.BtnEliminarPost_Click);
-            // 
-            // BtnActualizarPub
-            // 
-            this.BtnActualizarPub.Location = new System.Drawing.Point(610, 30);
-            this.BtnActualizarPub.Name = "BtnActualizarPub";
-            this.BtnActualizarPub.Size = new System.Drawing.Size(169, 23);
-            this.BtnActualizarPub.TabIndex = 34;
-            this.BtnActualizarPub.Text = "Actualizar lista de post";
-            this.BtnActualizarPub.UseVisualStyleBackColor = true;
-            this.BtnActualizarPub.Click += new System.EventHandler(this.BtnActualizarPub_Click);
             // 
             // DgridPublicaciones
             // 
@@ -230,25 +221,15 @@ namespace Interfaz
             // 
             // TboxComentarios
             // 
-            this.TboxComentarios.Location = new System.Drawing.Point(610, 488);
+            this.TboxComentarios.Location = new System.Drawing.Point(610, 459);
             this.TboxComentarios.Multiline = true;
             this.TboxComentarios.Name = "TboxComentarios";
             this.TboxComentarios.Size = new System.Drawing.Size(169, 112);
             this.TboxComentarios.TabIndex = 37;
             // 
-            // BtnActualizarComentarios
-            // 
-            this.BtnActualizarComentarios.Location = new System.Drawing.Point(610, 459);
-            this.BtnActualizarComentarios.Name = "BtnActualizarComentarios";
-            this.BtnActualizarComentarios.Size = new System.Drawing.Size(169, 23);
-            this.BtnActualizarComentarios.TabIndex = 38;
-            this.BtnActualizarComentarios.Text = "Actualizar lista de comentarios";
-            this.BtnActualizarComentarios.UseVisualStyleBackColor = true;
-            this.BtnActualizarComentarios.Click += new System.EventHandler(this.BtnActualizarComentarios_Click);
-            // 
             // BtnEliminarComentario
             // 
-            this.BtnEliminarComentario.Location = new System.Drawing.Point(704, 606);
+            this.BtnEliminarComentario.Location = new System.Drawing.Point(704, 577);
             this.BtnEliminarComentario.Name = "BtnEliminarComentario";
             this.BtnEliminarComentario.Size = new System.Drawing.Size(75, 23);
             this.BtnEliminarComentario.TabIndex = 40;
@@ -258,7 +239,7 @@ namespace Interfaz
             // 
             // BtnEditarComentario
             // 
-            this.BtnEditarComentario.Location = new System.Drawing.Point(610, 606);
+            this.BtnEditarComentario.Location = new System.Drawing.Point(610, 577);
             this.BtnEditarComentario.Name = "BtnEditarComentario";
             this.BtnEditarComentario.Size = new System.Drawing.Size(75, 23);
             this.BtnEditarComentario.TabIndex = 39;
@@ -354,10 +335,43 @@ namespace Interfaz
             this.LbIdUsuario.TabIndex = 50;
             this.LbIdUsuario.Text = "0";
             // 
+            // BtnActualizarDatosCuenta
+            // 
+            this.BtnActualizarDatosCuenta.Location = new System.Drawing.Point(54, 612);
+            this.BtnActualizarDatosCuenta.Name = "BtnActualizarDatosCuenta";
+            this.BtnActualizarDatosCuenta.Size = new System.Drawing.Size(117, 33);
+            this.BtnActualizarDatosCuenta.TabIndex = 51;
+            this.BtnActualizarDatosCuenta.Text = "Actualizar datos";
+            this.BtnActualizarDatosCuenta.UseVisualStyleBackColor = true;
+            this.BtnActualizarDatosCuenta.Click += new System.EventHandler(this.BtnActualizarDatosCuenta_Click);
+            // 
+            // BtnEliminarCuenta
+            // 
+            this.BtnEliminarCuenta.BackColor = System.Drawing.Color.Red;
+            this.BtnEliminarCuenta.ForeColor = System.Drawing.Color.White;
+            this.BtnEliminarCuenta.Location = new System.Drawing.Point(892, 586);
+            this.BtnEliminarCuenta.Name = "BtnEliminarCuenta";
+            this.BtnEliminarCuenta.Size = new System.Drawing.Size(117, 33);
+            this.BtnEliminarCuenta.TabIndex = 52;
+            this.BtnEliminarCuenta.Text = "Eliminar esta cuenta";
+            this.BtnEliminarCuenta.UseVisualStyleBackColor = false;
+            this.BtnEliminarCuenta.Click += new System.EventHandler(this.BtnEliminarCuenta_Click);
+            // 
+            // TboxVerificarUsername
+            // 
+            this.TboxVerificarUsername.Location = new System.Drawing.Point(892, 625);
+            this.TboxVerificarUsername.Name = "TboxVerificarUsername";
+            this.TboxVerificarUsername.Size = new System.Drawing.Size(117, 20);
+            this.TboxVerificarUsername.TabIndex = 53;
+            this.TboxVerificarUsername.Visible = false;
+            // 
             // AdminUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.TboxVerificarUsername);
+            this.Controls.Add(this.BtnEliminarCuenta);
+            this.Controls.Add(this.BtnActualizarDatosCuenta);
             this.Controls.Add(this.LbIdUsuario);
             this.Controls.Add(this.LbNombreCompelto);
             this.Controls.Add(this.BtnModificarBiografia);
@@ -370,11 +384,9 @@ namespace Interfaz
             this.Controls.Add(this.StaticLbComentarios);
             this.Controls.Add(this.BtnEliminarComentario);
             this.Controls.Add(this.BtnEditarComentario);
-            this.Controls.Add(this.BtnActualizarComentarios);
             this.Controls.Add(this.TboxComentarios);
             this.Controls.Add(this.DgridComentarios);
             this.Controls.Add(this.DgridPublicaciones);
-            this.Controls.Add(this.BtnActualizarPub);
             this.Controls.Add(this.BtnEliminarPost);
             this.Controls.Add(this.BtnEditarPost);
             this.Controls.Add(this.TboxContenido);
@@ -415,11 +427,9 @@ namespace Interfaz
         private System.Windows.Forms.TextBox TboxContenido;
         private System.Windows.Forms.Button BtnEditarPost;
         private System.Windows.Forms.Button BtnEliminarPost;
-        private System.Windows.Forms.Button BtnActualizarPub;
         private System.Windows.Forms.DataGridView DgridPublicaciones;
         private System.Windows.Forms.DataGridView DgridComentarios;
         private System.Windows.Forms.TextBox TboxComentarios;
-        private System.Windows.Forms.Button BtnActualizarComentarios;
         private System.Windows.Forms.Button BtnEliminarComentario;
         private System.Windows.Forms.Button BtnEditarComentario;
         private System.Windows.Forms.Label StaticLbComentarios;
@@ -432,5 +442,8 @@ namespace Interfaz
         private System.Windows.Forms.Label StaticLbBiografia;
         private System.Windows.Forms.Label LbNombreCompelto;
         private System.Windows.Forms.Label LbIdUsuario;
+        private System.Windows.Forms.Button BtnActualizarDatosCuenta;
+        private System.Windows.Forms.Button BtnEliminarCuenta;
+        private System.Windows.Forms.TextBox TboxVerificarUsername;
     }
 }

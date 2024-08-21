@@ -49,16 +49,16 @@ namespace Interfaz
             this.deDesbloqueosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarLosDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainPanelBotones = new System.Windows.Forms.Panel();
+            this.TestingBtnCerrar = new System.Windows.Forms.Button();
+            this.BtnBuscarPublicaciones = new System.Windows.Forms.Button();
             this.BtnBusquedaUsuarios = new System.Windows.Forms.Button();
             this.BtnContUsuarios = new System.Windows.Forms.Button();
-            this.BtnBuscarPublicaciones = new System.Windows.Forms.Button();
             this.PanelAdministracionPost = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.StaticLbBuscarPub = new System.Windows.Forms.Label();
             this.DgridListarPulicaciones = new System.Windows.Forms.DataGridView();
-            this.TestingBtnCerrar = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.BusquedaDeUsuarios = new Interfaz.BusquedaDeUsuarios();
             this.AdministracionDeUsuarios = new Interfaz.AdminUsuario();
-            this.StaticLbBuscarPub = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.MainPanelBotones.SuspendLayout();
             this.PanelAdministracionPost.SuspendLayout();
@@ -217,6 +217,26 @@ namespace Interfaz
             this.MainPanelBotones.Size = new System.Drawing.Size(200, 679);
             this.MainPanelBotones.TabIndex = 19;
             // 
+            // TestingBtnCerrar
+            // 
+            this.TestingBtnCerrar.Location = new System.Drawing.Point(32, 612);
+            this.TestingBtnCerrar.Name = "TestingBtnCerrar";
+            this.TestingBtnCerrar.Size = new System.Drawing.Size(131, 36);
+            this.TestingBtnCerrar.TabIndex = 3;
+            this.TestingBtnCerrar.Text = "Cerrar todo";
+            this.TestingBtnCerrar.UseVisualStyleBackColor = true;
+            this.TestingBtnCerrar.Click += new System.EventHandler(this.TestingBtnCerrar_Click);
+            // 
+            // BtnBuscarPublicaciones
+            // 
+            this.BtnBuscarPublicaciones.Location = new System.Drawing.Point(32, 77);
+            this.BtnBuscarPublicaciones.Name = "BtnBuscarPublicaciones";
+            this.BtnBuscarPublicaciones.Size = new System.Drawing.Size(131, 36);
+            this.BtnBuscarPublicaciones.TabIndex = 2;
+            this.BtnBuscarPublicaciones.Text = "Buscar publicaciones";
+            this.BtnBuscarPublicaciones.UseVisualStyleBackColor = true;
+            this.BtnBuscarPublicaciones.Click += new System.EventHandler(this.BtnBuscarPublicaciones_Click);
+            // 
             // BtnBusquedaUsuarios
             // 
             this.BtnBusquedaUsuarios.Location = new System.Drawing.Point(32, 35);
@@ -237,16 +257,6 @@ namespace Interfaz
             this.BtnContUsuarios.UseVisualStyleBackColor = true;
             this.BtnContUsuarios.Click += new System.EventHandler(this.BtnContUsuarios_Click);
             // 
-            // BtnBuscarPublicaciones
-            // 
-            this.BtnBuscarPublicaciones.Location = new System.Drawing.Point(32, 77);
-            this.BtnBuscarPublicaciones.Name = "BtnBuscarPublicaciones";
-            this.BtnBuscarPublicaciones.Size = new System.Drawing.Size(131, 36);
-            this.BtnBuscarPublicaciones.TabIndex = 2;
-            this.BtnBuscarPublicaciones.Text = "Buscar publicaciones";
-            this.BtnBuscarPublicaciones.UseVisualStyleBackColor = true;
-            this.BtnBuscarPublicaciones.Click += new System.EventHandler(this.BtnBuscarPublicaciones_Click);
-            // 
             // PanelAdministracionPost
             // 
             this.PanelAdministracionPost.Controls.Add(this.StaticLbBuscarPub);
@@ -259,12 +269,14 @@ namespace Interfaz
             this.PanelAdministracionPost.TabIndex = 33;
             this.PanelAdministracionPost.Visible = false;
             // 
-            // textBox1
+            // StaticLbBuscarPub
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(170, 20);
-            this.textBox1.TabIndex = 0;
+            this.StaticLbBuscarPub.AutoSize = true;
+            this.StaticLbBuscarPub.Location = new System.Drawing.Point(12, 28);
+            this.StaticLbBuscarPub.Name = "StaticLbBuscarPub";
+            this.StaticLbBuscarPub.Size = new System.Drawing.Size(129, 13);
+            this.StaticLbBuscarPub.TabIndex = 2;
+            this.StaticLbBuscarPub.Text = "Buscar ID de publicacion:";
             // 
             // DgridListarPulicaciones
             // 
@@ -275,15 +287,12 @@ namespace Interfaz
             this.DgridListarPulicaciones.TabIndex = 1;
             this.DgridListarPulicaciones.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgridListarPulicaciones_CellClick);
             // 
-            // TestingBtnCerrar
+            // textBox1
             // 
-            this.TestingBtnCerrar.Location = new System.Drawing.Point(32, 612);
-            this.TestingBtnCerrar.Name = "TestingBtnCerrar";
-            this.TestingBtnCerrar.Size = new System.Drawing.Size(131, 36);
-            this.TestingBtnCerrar.TabIndex = 3;
-            this.TestingBtnCerrar.Text = "Cerrar todo";
-            this.TestingBtnCerrar.UseVisualStyleBackColor = true;
-            this.TestingBtnCerrar.Click += new System.EventHandler(this.TestingBtnCerrar_Click);
+            this.textBox1.Location = new System.Drawing.Point(15, 44);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(170, 20);
+            this.textBox1.TabIndex = 0;
             // 
             // BusquedaDeUsuarios
             // 
@@ -297,18 +306,9 @@ namespace Interfaz
             // 
             this.AdministracionDeUsuarios.Location = new System.Drawing.Point(198, 24);
             this.AdministracionDeUsuarios.Name = "AdministracionDeUsuarios";
-            this.AdministracionDeUsuarios.Size = new System.Drawing.Size(982, 648);
+            this.AdministracionDeUsuarios.Size = new System.Drawing.Size(1012, 648);
             this.AdministracionDeUsuarios.TabIndex = 20;
             this.AdministracionDeUsuarios.Visible = false;
-            // 
-            // StaticLbBuscarPub
-            // 
-            this.StaticLbBuscarPub.AutoSize = true;
-            this.StaticLbBuscarPub.Location = new System.Drawing.Point(12, 28);
-            this.StaticLbBuscarPub.Name = "StaticLbBuscarPub";
-            this.StaticLbBuscarPub.Size = new System.Drawing.Size(129, 13);
-            this.StaticLbBuscarPub.TabIndex = 2;
-            this.StaticLbBuscarPub.Text = "Buscar ID de publicacion:";
             // 
             // MainBackoffice
             // 
