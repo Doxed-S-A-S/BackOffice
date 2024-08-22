@@ -58,12 +58,6 @@
     <Compile Include="AdminUsuario.Designer.cs">
       <DependentUpon>AdminUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="BusquedaDeUsuarios.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="BusquedaDeUsuarios.Designer.cs">
-      <DependentUpon>BusquedaDeUsuarios.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainBackoffice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,9 +83,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminUsuario.resx">
       <DependentUpon>AdminUsuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BusquedaDeUsuarios.resx">
-      <DependentUpon>BusquedaDeUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>

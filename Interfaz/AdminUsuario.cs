@@ -19,20 +19,19 @@ namespace Interfaz
             InitializeComponent();
         }
 
-        private string idCuenta;
-
         private void AdminUsuario_Load(object sender, EventArgs e)
         {
-            CargarUsuario();
+            //CargarUsuario();
             refrescarTablaDePublicaciones();
         }
 
-        public void AbrirUsuarioSeleccionado(string id)
+        string idCuenta = "1";
+
+        
+
+        public void CargarUsuario(string id)
         {
             this.idCuenta = id;
-        }
-        public void CargarUsuario()
-        {
             LbIdUsuario.Text = ControlCuenta.BuscarUsuario(idCuenta)["id_usuario"].ToString();
             LbUsername.Text = ControlCuenta.BuscarUsuario(idCuenta)["nombre_usuario"].ToString();
             LbNombreCompelto.Text = GenerarNombreCompleto();

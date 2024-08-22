@@ -21,7 +21,7 @@ namespace Interfaz
 
         private void OcultarUserControll()
         {
-            BusquedaDeUsuarios.Hide();
+
             AdministracionDeUsuarios.Hide();
         }
         private void CerrarChildren()
@@ -42,8 +42,9 @@ namespace Interfaz
         private void BtnBusquedaUsuarios_Click(object sender, EventArgs e)
         {
             OcultarUserControll();
-            BusquedaDeUsuarios.Show();
-            BusquedaDeUsuarios.BringToFront();
+            CerrarChildren();
+            PanelBusquedaUsuario.Show();
+            refrescarTablaDeUsuarios();
         }
 
         private void MainBackoffice_Load(object sender, EventArgs e)
@@ -78,6 +79,13 @@ namespace Interfaz
         {
             OcultarUserControll();
             CerrarChildren();
+            CerrarPaneles();
+        }
+
+        private void CerrarPaneles()
+        {
+            PanelAdministracionPost.Hide();
+            PanelBusquedaUsuario.Hide();
         }
 
         private void DgridListarPulicaciones_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -91,6 +99,32 @@ namespace Interfaz
         {
             DgridListarPulicaciones.Refresh();
             DgridListarPulicaciones.DataSource = ControlPosts.ListarReportados();
+        }
+
+        // Busqueda de usuarios
+
+        private int IndexUsuario()
+        {
+            int i = DgridUsuarios.CurrentCell.RowIndex;
+            return i;
+        }
+
+        private void refrescarTablaDeUsuarios()
+        {
+            DgridUsuarios.Refresh();
+            DgridUsuarios.DataSource = ControlCuenta.ListarCuentas();
+            DgridUsuarios.Columns["id_cuenta"].Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string idCuenta = DgridUsuarios.Rows[IndexUsuario()].Cells["id_cuenta"].Value.ToString();
+            CerrarChildren();
+            CerrarPaneles();
+            OcultarUserControll();
+            AdministracionDeUsuarios.CargarUsuario(idCuenta);
+            AdministracionDeUsuarios.Show();
+            AdministracionDeUsuarios.BringToFront();
         }
     }
 }

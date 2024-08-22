@@ -57,12 +57,24 @@ namespace Interfaz
             this.StaticLbBuscarPub = new System.Windows.Forms.Label();
             this.DgridListarPulicaciones = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.BusquedaDeUsuarios = new Interfaz.BusquedaDeUsuarios();
             this.AdministracionDeUsuarios = new Interfaz.AdminUsuario();
+            this.PanelBusquedaUsuario = new System.Windows.Forms.Panel();
+            this.BtnAcualtizarListaUsuarios = new System.Windows.Forms.Button();
+            this.ChBoxSuspendidos = new System.Windows.Forms.CheckBox();
+            this.ChBoxTutores = new System.Windows.Forms.CheckBox();
+            this.ChBoxReportados = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.DgridUsuarios = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             this.MainPanelBotones.SuspendLayout();
             this.PanelAdministracionPost.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgridListarPulicaciones)).BeginInit();
+            this.PanelBusquedaUsuario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgridUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -294,14 +306,6 @@ namespace Interfaz
             this.textBox1.Size = new System.Drawing.Size(170, 20);
             this.textBox1.TabIndex = 0;
             // 
-            // BusquedaDeUsuarios
-            // 
-            this.BusquedaDeUsuarios.Location = new System.Drawing.Point(198, 24);
-            this.BusquedaDeUsuarios.Name = "BusquedaDeUsuarios";
-            this.BusquedaDeUsuarios.Size = new System.Drawing.Size(1012, 648);
-            this.BusquedaDeUsuarios.TabIndex = 31;
-            this.BusquedaDeUsuarios.Visible = false;
-            // 
             // AdministracionDeUsuarios
             // 
             this.AdministracionDeUsuarios.Location = new System.Drawing.Point(198, 24);
@@ -310,15 +314,132 @@ namespace Interfaz
             this.AdministracionDeUsuarios.TabIndex = 20;
             this.AdministracionDeUsuarios.Visible = false;
             // 
+            // PanelBusquedaUsuario
+            // 
+            this.PanelBusquedaUsuario.Controls.Add(this.BtnAcualtizarListaUsuarios);
+            this.PanelBusquedaUsuario.Controls.Add(this.ChBoxSuspendidos);
+            this.PanelBusquedaUsuario.Controls.Add(this.ChBoxTutores);
+            this.PanelBusquedaUsuario.Controls.Add(this.ChBoxReportados);
+            this.PanelBusquedaUsuario.Controls.Add(this.label2);
+            this.PanelBusquedaUsuario.Controls.Add(this.button2);
+            this.PanelBusquedaUsuario.Controls.Add(this.button1);
+            this.PanelBusquedaUsuario.Controls.Add(this.label1);
+            this.PanelBusquedaUsuario.Controls.Add(this.textBox2);
+            this.PanelBusquedaUsuario.Controls.Add(this.DgridUsuarios);
+            this.PanelBusquedaUsuario.Location = new System.Drawing.Point(200, 24);
+            this.PanelBusquedaUsuario.Name = "PanelBusquedaUsuario";
+            this.PanelBusquedaUsuario.Size = new System.Drawing.Size(784, 679);
+            this.PanelBusquedaUsuario.TabIndex = 35;
+            this.PanelBusquedaUsuario.Visible = false;
+            // 
+            // BtnAcualtizarListaUsuarios
+            // 
+            this.BtnAcualtizarListaUsuarios.Location = new System.Drawing.Point(292, 70);
+            this.BtnAcualtizarListaUsuarios.Name = "BtnAcualtizarListaUsuarios";
+            this.BtnAcualtizarListaUsuarios.Size = new System.Drawing.Size(86, 23);
+            this.BtnAcualtizarListaUsuarios.TabIndex = 55;
+            this.BtnAcualtizarListaUsuarios.Text = "Acutalizar lista";
+            this.BtnAcualtizarListaUsuarios.UseVisualStyleBackColor = true;
+            // 
+            // ChBoxSuspendidos
+            // 
+            this.ChBoxSuspendidos.AutoSize = true;
+            this.ChBoxSuspendidos.Location = new System.Drawing.Point(170, 74);
+            this.ChBoxSuspendidos.Name = "ChBoxSuspendidos";
+            this.ChBoxSuspendidos.Size = new System.Drawing.Size(87, 17);
+            this.ChBoxSuspendidos.TabIndex = 54;
+            this.ChBoxSuspendidos.Text = "Suspendidos";
+            this.ChBoxSuspendidos.UseVisualStyleBackColor = true;
+            // 
+            // ChBoxTutores
+            // 
+            this.ChBoxTutores.AutoSize = true;
+            this.ChBoxTutores.Location = new System.Drawing.Point(15, 74);
+            this.ChBoxTutores.Name = "ChBoxTutores";
+            this.ChBoxTutores.Size = new System.Drawing.Size(62, 17);
+            this.ChBoxTutores.TabIndex = 53;
+            this.ChBoxTutores.Text = "Tutores";
+            this.ChBoxTutores.UseVisualStyleBackColor = true;
+            // 
+            // ChBoxReportados
+            // 
+            this.ChBoxReportados.AutoSize = true;
+            this.ChBoxReportados.Location = new System.Drawing.Point(83, 74);
+            this.ChBoxReportados.Name = "ChBoxReportados";
+            this.ChBoxReportados.Size = new System.Drawing.Size(81, 17);
+            this.ChBoxReportados.TabIndex = 52;
+            this.ChBoxReportados.Text = "Reportados";
+            this.ChBoxReportados.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 58);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.TabIndex = 51;
+            this.label2.Text = "Filtros:";
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.3F);
+            this.button2.Location = new System.Drawing.Point(414, 148);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(135, 43);
+            this.button2.TabIndex = 50;
+            this.button2.Text = " Seleccionar usuario  (Ventana emergente)";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.3F);
+            this.button1.Location = new System.Drawing.Point(414, 97);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(135, 43);
+            this.button1.TabIndex = 49;
+            this.button1.Text = "Seleccionar usuario";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 13);
+            this.label1.TabIndex = 48;
+            this.label1.Text = "Buscar usuario:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(15, 35);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(188, 20);
+            this.textBox2.TabIndex = 47;
+            // 
+            // DgridUsuarios
+            // 
+            this.DgridUsuarios.AllowUserToAddRows = false;
+            this.DgridUsuarios.AllowUserToDeleteRows = false;
+            this.DgridUsuarios.AllowUserToResizeColumns = false;
+            this.DgridUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgridUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgridUsuarios.Location = new System.Drawing.Point(15, 97);
+            this.DgridUsuarios.MultiSelect = false;
+            this.DgridUsuarios.Name = "DgridUsuarios";
+            this.DgridUsuarios.Size = new System.Drawing.Size(363, 528);
+            this.DgridUsuarios.TabIndex = 46;
+            // 
             // MainBackoffice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 703);
+            this.Controls.Add(this.PanelBusquedaUsuario);
             this.Controls.Add(this.PanelAdministracionPost);
             this.Controls.Add(this.MainPanelBotones);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.BusquedaDeUsuarios);
             this.Controls.Add(this.AdministracionDeUsuarios);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -332,6 +453,9 @@ namespace Interfaz
             this.PanelAdministracionPost.ResumeLayout(false);
             this.PanelAdministracionPost.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgridListarPulicaciones)).EndInit();
+            this.PanelBusquedaUsuario.ResumeLayout(false);
+            this.PanelBusquedaUsuario.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgridUsuarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -360,7 +484,6 @@ namespace Interfaz
         private AdminUsuario AdministracionDeUsuarios;
         private System.Windows.Forms.Button BtnContUsuarios;
         private System.Windows.Forms.Button BtnBusquedaUsuarios;
-        private BusquedaDeUsuarios BusquedaDeUsuarios;
         private System.Windows.Forms.ToolStripMenuItem abrirVentanaDeTestingToolStripMenuItem;
         private System.Windows.Forms.Button BtnBuscarPublicaciones;
         private System.Windows.Forms.Panel PanelAdministracionPost;
@@ -368,5 +491,16 @@ namespace Interfaz
         private System.Windows.Forms.DataGridView DgridListarPulicaciones;
         private System.Windows.Forms.Button TestingBtnCerrar;
         private System.Windows.Forms.Label StaticLbBuscarPub;
+        private System.Windows.Forms.Panel PanelBusquedaUsuario;
+        private System.Windows.Forms.Button BtnAcualtizarListaUsuarios;
+        private System.Windows.Forms.CheckBox ChBoxSuspendidos;
+        private System.Windows.Forms.CheckBox ChBoxTutores;
+        private System.Windows.Forms.CheckBox ChBoxReportados;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.DataGridView DgridUsuarios;
     }
 }
