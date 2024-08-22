@@ -21,33 +21,27 @@ namespace Interfaz
 
         private void AdminUsuario_Load(object sender, EventArgs e)
         {
-            //CargarUsuario();
             refrescarTablaDePublicaciones();
         }
 
-        string idCuenta = "1";
-
-        
-
         public void CargarUsuario(string id)
         {
-            this.idCuenta = id;
-            LbIdUsuario.Text = ControlCuenta.BuscarUsuario(idCuenta)["id_usuario"].ToString();
-            LbUsername.Text = ControlCuenta.BuscarUsuario(idCuenta)["nombre_usuario"].ToString();
-            LbNombreCompelto.Text = GenerarNombreCompleto();
+            LbIdUsuario.Text = ControlCuenta.BuscarUsuario(id)["id_usuario"].ToString();
+            LbUsername.Text = ControlCuenta.BuscarUsuario(id)["nombre_usuario"].ToString();
+            LbNombreCompelto.Text = GenerarNombreCompleto(id);
             // estado
-            LbNumReportes.Text = ControlCuenta.BuscarUsuario(idCuenta)["reports"].ToString();
-            TboxModificarCorreo.Text = ControlCuenta.BuscarUsuario(idCuenta)["email"].ToString();
-            TboxModificarBiografia.Text = ControlCuenta.BuscarUsuario(idCuenta)["biografia"].ToString();
+            LbNumReportes.Text = ControlCuenta.BuscarUsuario(id)["reports"].ToString();
+            TboxModificarCorreo.Text = ControlCuenta.BuscarUsuario(id)["email"].ToString();
+            TboxModificarBiografia.Text = ControlCuenta.BuscarUsuario(id)["biografia"].ToString();
         }
 
-        public string GenerarNombreCompleto()
+        public string GenerarNombreCompleto(string id)
         {
-            string nombreCompleto = ControlCuenta.BuscarUsuario(idCuenta)["nombre"].ToString();
+            string nombreCompleto = ControlCuenta.BuscarUsuario(id)["nombre"].ToString();
             nombreCompleto += " ";
-            nombreCompleto += ControlCuenta.BuscarUsuario(idCuenta)["apellido1"].ToString();
+            nombreCompleto += ControlCuenta.BuscarUsuario(id)["apellido1"].ToString();
             nombreCompleto += " ";
-            nombreCompleto += ControlCuenta.BuscarUsuario(idCuenta)["apellido2"].ToString();
+            nombreCompleto += ControlCuenta.BuscarUsuario(id)["apellido2"].ToString();
 
             return nombreCompleto;
         }
@@ -108,7 +102,6 @@ namespace Interfaz
             if (seguro.ToString()== "Yes")
             {
                 ControlCuenta.ModificarCorreo(LbIdUsuario.Text, TboxModificarCorreo.Text);
-                TboxModificarCorreo.Text = ControlCuenta.BuscarUsuario(idCuenta)["email"].ToString();
             }
         }
 

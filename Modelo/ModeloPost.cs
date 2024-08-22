@@ -12,6 +12,8 @@ namespace Modelos
         public string url_contenido = "url"; //placeholder
         public string tipo_contenido = "tag"; //placeholder
         public string Contenido;
+        public string fecha;
+        public int reports;
         public int Id_Cuenta ;
 
         public void GuardarPost()
@@ -43,6 +45,27 @@ namespace Modelos
             this.Comando.ExecuteNonQuery();
         }
 
+        public bool ObtenerPost(int idPost)
+        {
+            string sql = $"select * from posts where id_post = {idPost}";
+            this.Comando.CommandText = sql;
+            this.Lector = this.Comando.ExecuteReader();
+
+            if (Lector.HasRows)
+            {
+                this.Lector.Read();
+                this.Id_Post = Int32.Parse(this.Lector["id_post"].ToString());
+                this.fecha = this.Lector["fecha_creacion"].ToString();
+                this.url_contenido = this.Lector["url_contenido"].ToString();
+                this.tipo_contenido = this.Lector["tipo_contenido"].ToString();
+                this.Contenido = this.Lector["contenido"].ToString();
+                this.reports = Int32.Parse(this.Lector["reports"].ToString());
+                this.Id_Cuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
+                this.Lector.Close();
+                return true;
+            }
+            return false;
+        }
         public List<ModeloPost> ObtenerPosts(int id_cuenta)
         {
             List<ModeloPost> posts = new List<ModeloPost>();

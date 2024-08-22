@@ -53,18 +53,18 @@ namespace Controlador
         {
 
             Dictionary<string, string> usuario = new Dictionary<string, string>();
-            ModeloCuenta u = new ModeloCuenta();
-            if (u.ObtenerDatosDeCuenta(Int32.Parse(id)))
+            ModeloCuenta cuenta = new ModeloCuenta();
+            if (cuenta.ObtenerDatosDeCuenta(Int32.Parse(id)))
             {
                 usuario.Add("resultado", "true");
-                usuario.Add("id_usuario", u.id_cuenta.ToString());
-                usuario.Add("nombre_usuario", u.nombre_usuario);
-                usuario.Add("nombre", u.nombre);
-                usuario.Add("apellido1", u.apellido1);
-                usuario.Add("apellido2", u.apellido2);
-                usuario.Add("email", u.email);
-                usuario.Add("biografia", u.biografia);
-                usuario.Add("reports", u.reports.ToString());
+                usuario.Add("id_usuario", cuenta.id_cuenta.ToString());
+                usuario.Add("nombre_usuario", cuenta.nombre_usuario);
+                usuario.Add("nombre", cuenta.nombre);
+                usuario.Add("apellido1", cuenta.apellido1);
+                usuario.Add("apellido2", cuenta.apellido2);
+                usuario.Add("email", cuenta.email);
+                usuario.Add("biografia", cuenta.biografia);
+                usuario.Add("reports", cuenta.reports.ToString());
                 return usuario;
             }
             usuario.Add("resultado", "false");

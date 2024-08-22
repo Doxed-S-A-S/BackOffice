@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Controlador;
+
 namespace Interfaz
 {
     public partial class AdministracionPost : Form
@@ -15,6 +17,15 @@ namespace Interfaz
         public AdministracionPost()
         {
             InitializeComponent();
+        }
+
+        private void CargarDatosDePublicacion(string idPost)
+        {
+            TboxPublicacion.Text = ControlPosts.ObtenerPost(idPost)["contenido"];
+            //fecha
+            //n°reports
+            //urlContenido
+            //idCuenta
         }
     }
 }

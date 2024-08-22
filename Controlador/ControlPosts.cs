@@ -55,6 +55,24 @@ namespace Controlador
 
         }
 
+        public static Dictionary<string,string> ObtenerPost(string idPost)
+        {
+            Dictionary<string, string> post = new Dictionary<string, string>();
+            ModeloPost p = new ModeloPost();
+            if (p.ObtenerPost(Int32.Parse(idPost)))
+            {
+                post.Add("resultado", "true");
+                post.Add("contenido", p.Contenido);
+                post.Add("fecha", p.fecha);
+                post.Add("url_contenido", p.url_contenido);
+                post.Add("reports", p.reports.ToString());
+                post.Add("id_cuenta", p.Id_Cuenta.ToString());
+                return post;
+            }
+            post.Add("resultado", "false");
+            return post;
+        }
+
         public static DataTable ListarReportados() //ExBackO
         {
             DataTable tabla = new DataTable();
