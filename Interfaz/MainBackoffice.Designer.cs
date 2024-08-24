@@ -53,11 +53,10 @@ namespace Interfaz
             this.BtnBuscarPublicaciones = new System.Windows.Forms.Button();
             this.BtnBusquedaUsuarios = new System.Windows.Forms.Button();
             this.BtnContUsuarios = new System.Windows.Forms.Button();
-            this.PanelAdministracionPost = new System.Windows.Forms.Panel();
+            this.PanelBusquedaPost = new System.Windows.Forms.Panel();
             this.StaticLbBuscarPub = new System.Windows.Forms.Label();
             this.DgridListarPulicaciones = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.AdministracionDeUsuarios = new Interfaz.AdminUsuario();
             this.PanelBusquedaUsuario = new System.Windows.Forms.Panel();
             this.BtnAcualtizarListaUsuarios = new System.Windows.Forms.Button();
             this.ChBoxSuspendidos = new System.Windows.Forms.CheckBox();
@@ -69,9 +68,11 @@ namespace Interfaz
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.DgridUsuarios = new System.Windows.Forms.DataGridView();
+            this.AdministracionDeUsuarios = new Interfaz.AdminUsuario();
+            this.BtnSeleccionar = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.MainPanelBotones.SuspendLayout();
-            this.PanelAdministracionPost.SuspendLayout();
+            this.PanelBusquedaPost.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgridListarPulicaciones)).BeginInit();
             this.PanelBusquedaUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgridUsuarios)).BeginInit();
@@ -269,26 +270,27 @@ namespace Interfaz
             this.BtnContUsuarios.UseVisualStyleBackColor = true;
             this.BtnContUsuarios.Click += new System.EventHandler(this.BtnContUsuarios_Click);
             // 
-            // PanelAdministracionPost
+            // PanelBusquedaPost
             // 
-            this.PanelAdministracionPost.Controls.Add(this.StaticLbBuscarPub);
-            this.PanelAdministracionPost.Controls.Add(this.DgridListarPulicaciones);
-            this.PanelAdministracionPost.Controls.Add(this.textBox1);
-            this.PanelAdministracionPost.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PanelAdministracionPost.Location = new System.Drawing.Point(200, 24);
-            this.PanelAdministracionPost.Name = "PanelAdministracionPost";
-            this.PanelAdministracionPost.Size = new System.Drawing.Size(200, 679);
-            this.PanelAdministracionPost.TabIndex = 33;
-            this.PanelAdministracionPost.Visible = false;
+            this.PanelBusquedaPost.Controls.Add(this.BtnSeleccionar);
+            this.PanelBusquedaPost.Controls.Add(this.StaticLbBuscarPub);
+            this.PanelBusquedaPost.Controls.Add(this.DgridListarPulicaciones);
+            this.PanelBusquedaPost.Controls.Add(this.textBox1);
+            this.PanelBusquedaPost.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PanelBusquedaPost.Location = new System.Drawing.Point(200, 24);
+            this.PanelBusquedaPost.Name = "PanelBusquedaPost";
+            this.PanelBusquedaPost.Size = new System.Drawing.Size(200, 679);
+            this.PanelBusquedaPost.TabIndex = 33;
+            this.PanelBusquedaPost.Visible = false;
             // 
             // StaticLbBuscarPub
             // 
             this.StaticLbBuscarPub.AutoSize = true;
             this.StaticLbBuscarPub.Location = new System.Drawing.Point(12, 28);
             this.StaticLbBuscarPub.Name = "StaticLbBuscarPub";
-            this.StaticLbBuscarPub.Size = new System.Drawing.Size(129, 13);
+            this.StaticLbBuscarPub.Size = new System.Drawing.Size(126, 13);
             this.StaticLbBuscarPub.TabIndex = 2;
-            this.StaticLbBuscarPub.Text = "Buscar ID de publicacion:";
+            this.StaticLbBuscarPub.Text = "Buscar ID de publicacion";
             // 
             // DgridListarPulicaciones
             // 
@@ -305,14 +307,6 @@ namespace Interfaz
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(170, 20);
             this.textBox1.TabIndex = 0;
-            // 
-            // AdministracionDeUsuarios
-            // 
-            this.AdministracionDeUsuarios.Location = new System.Drawing.Point(198, 24);
-            this.AdministracionDeUsuarios.Name = "AdministracionDeUsuarios";
-            this.AdministracionDeUsuarios.Size = new System.Drawing.Size(1012, 648);
-            this.AdministracionDeUsuarios.TabIndex = 20;
-            this.AdministracionDeUsuarios.Visible = false;
             // 
             // PanelBusquedaUsuario
             // 
@@ -431,12 +425,30 @@ namespace Interfaz
             this.DgridUsuarios.Size = new System.Drawing.Size(363, 528);
             this.DgridUsuarios.TabIndex = 46;
             // 
+            // AdministracionDeUsuarios
+            // 
+            this.AdministracionDeUsuarios.Location = new System.Drawing.Point(198, 24);
+            this.AdministracionDeUsuarios.Name = "AdministracionDeUsuarios";
+            this.AdministracionDeUsuarios.Size = new System.Drawing.Size(1012, 648);
+            this.AdministracionDeUsuarios.TabIndex = 20;
+            this.AdministracionDeUsuarios.Visible = false;
+            // 
+            // BtnSeleccionar
+            // 
+            this.BtnSeleccionar.Location = new System.Drawing.Point(50, 340);
+            this.BtnSeleccionar.Name = "BtnSeleccionar";
+            this.BtnSeleccionar.Size = new System.Drawing.Size(101, 23);
+            this.BtnSeleccionar.TabIndex = 3;
+            this.BtnSeleccionar.Text = "Seleccionar post";
+            this.BtnSeleccionar.UseVisualStyleBackColor = true;
+            this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click);
+            // 
             // MainBackoffice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 703);
-            this.Controls.Add(this.PanelAdministracionPost);
+            this.Controls.Add(this.PanelBusquedaPost);
             this.Controls.Add(this.MainPanelBotones);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.AdministracionDeUsuarios);
@@ -450,8 +462,8 @@ namespace Interfaz
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.MainPanelBotones.ResumeLayout(false);
-            this.PanelAdministracionPost.ResumeLayout(false);
-            this.PanelAdministracionPost.PerformLayout();
+            this.PanelBusquedaPost.ResumeLayout(false);
+            this.PanelBusquedaPost.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgridListarPulicaciones)).EndInit();
             this.PanelBusquedaUsuario.ResumeLayout(false);
             this.PanelBusquedaUsuario.PerformLayout();
@@ -486,7 +498,7 @@ namespace Interfaz
         private System.Windows.Forms.Button BtnBusquedaUsuarios;
         private System.Windows.Forms.ToolStripMenuItem abrirVentanaDeTestingToolStripMenuItem;
         private System.Windows.Forms.Button BtnBuscarPublicaciones;
-        private System.Windows.Forms.Panel PanelAdministracionPost;
+        private System.Windows.Forms.Panel PanelBusquedaPost;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridView DgridListarPulicaciones;
         private System.Windows.Forms.Button TestingBtnCerrar;
@@ -502,5 +514,6 @@ namespace Interfaz
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.DataGridView DgridUsuarios;
+        private System.Windows.Forms.Button BtnSeleccionar;
     }
 }

@@ -70,9 +70,7 @@ namespace Interfaz
         private void BtnBuscarPublicaciones_Click(object sender, EventArgs e)
         {
             OcultarUserControll();
-            AdministracionPost AdminPost = new AdministracionPost();
-            AdminPost.MdiParent = this;
-            AdminPost.Show();
+            PanelBusquedaPost.Show();
         }
 
         private void TestingBtnCerrar_Click(object sender, EventArgs e)
@@ -84,7 +82,7 @@ namespace Interfaz
 
         private void CerrarPaneles()
         {
-            PanelAdministracionPost.Hide();
+            PanelBusquedaPost.Hide();
             PanelBusquedaUsuario.Hide();
         }
 
@@ -125,6 +123,13 @@ namespace Interfaz
             AdministracionDeUsuarios.CargarUsuario(idCuenta);
             AdministracionDeUsuarios.Show();
             AdministracionDeUsuarios.BringToFront();
+        }
+
+        private void BtnSeleccionar_Click(object sender, EventArgs e)
+        {
+            AdministracionPost AdminPost = new AdministracionPost();
+            AdminPost.MdiParent = this;
+            AdminPost.Show();
         }
     }
 }

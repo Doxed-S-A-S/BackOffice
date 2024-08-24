@@ -26,13 +26,16 @@ namespace Interfaz
 
         public void CargarUsuario(string id)
         {
-            LbIdUsuario.Text = ControlCuenta.BuscarUsuario(id)["id_usuario"].ToString();
-            LbUsername.Text = ControlCuenta.BuscarUsuario(id)["nombre_usuario"].ToString();
-            LbNombreCompelto.Text = GenerarNombreCompleto(id);
-            // estado
-            LbNumReportes.Text = ControlCuenta.BuscarUsuario(id)["reports"].ToString();
-            TboxModificarCorreo.Text = ControlCuenta.BuscarUsuario(id)["email"].ToString();
-            TboxModificarBiografia.Text = ControlCuenta.BuscarUsuario(id)["biografia"].ToString();
+            if (id != null)
+            {
+                LbIdUsuario.Text = ControlCuenta.BuscarUsuario(id)["id_usuario"].ToString();
+                LbUsername.Text = ControlCuenta.BuscarUsuario(id)["nombre_usuario"].ToString();
+                LbNombreCompelto.Text = GenerarNombreCompleto(id);
+                // estado
+                LbNumReportes.Text = ControlCuenta.BuscarUsuario(id)["reports"].ToString();
+                TboxModificarCorreo.Text = ControlCuenta.BuscarUsuario(id)["email"].ToString();
+                TboxModificarBiografia.Text = ControlCuenta.BuscarUsuario(id)["biografia"].ToString();
+            }
         }
 
         public string GenerarNombreCompleto(string id)
