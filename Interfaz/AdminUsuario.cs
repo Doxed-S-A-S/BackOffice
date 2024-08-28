@@ -176,7 +176,7 @@ namespace Interfaz
                 
             if (resultado.ToString() == "Yes")
             {
-                ControlCuenta.EliminarCuenta(LbIdUsuario.Text,TboxVerificarUsername.Text,TboxModificarCorreo.Text);
+                ControlCuenta.EliminarCuenta(LbIdUsuario.Text,TboxVerificarUsername.Text);
                 refrescarTablaDeComentarios();
                 MessageBox.Show("Comentario eliminado");
             }

@@ -21,7 +21,7 @@ namespace Interfaz
 
         private void TestingButtonCrearUsr_Click(object sender, EventArgs e)
         {
-            ControlCuenta.CrearCuenta(TestingTboxUsername.Text, TestingTboxEmail.Text);
+            ControlCuenta.CrearCuenta(TestingTboxUsername.Text, TestingTboxEmail.Text, TestingTboxContraseña.Text);
         }
 
         private void TestingBtnPub_Click(object sender, EventArgs e)

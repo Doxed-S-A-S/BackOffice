@@ -12,21 +12,22 @@ namespace Controlador
 {
     public class ControlCuenta
     {
-        public static void CrearCuenta(string nombreUsuario, string email)
+        public static void CrearCuenta(string nombreUsuario, string email , string contraseña)
         {
             ModeloCuenta cuenta = new ModeloCuenta();
             cuenta.nombre_usuario = nombreUsuario;
             cuenta.email = email;
+            cuenta.contraseña = contraseña;
 
-            cuenta.CrearCuenta();
+            cuenta.Registro();
         }
 
-        public static void EliminarCuenta(string id,string username,string email)
+
+        public static void EliminarCuenta(string id,string username)
         {
             ModeloCuenta cuenta = new ModeloCuenta();
             cuenta.id_cuenta = Int32.Parse(id);
             cuenta.nombre_usuario = username;
-            cuenta.email = email;
 
             cuenta.EliminarCuenta();
         }
@@ -49,11 +50,20 @@ namespace Controlador
             cuenta.ModificarCorreo();
         }
 
+        public static string ObtenerCorreo(string idCuenta)
+        {
+            ModeloCuenta cuenta = new ModeloCuenta();
+            cuenta.id_cuenta = Int32.Parse(idCuenta);
+            cuenta.ObtenerCorreo();
+            return cuenta.email;
+        }
+
         public static Dictionary<string, string> BuscarUsuario(string id)
         {
 
             Dictionary<string, string> usuario = new Dictionary<string, string>();
             ModeloCuenta cuenta = new ModeloCuenta();
+            
             if (cuenta.ObtenerDatosDeCuenta(Int32.Parse(id)))
             {
                 usuario.Add("resultado", "true");
@@ -62,7 +72,7 @@ namespace Controlador
                 usuario.Add("nombre", cuenta.nombre);
                 usuario.Add("apellido1", cuenta.apellido1);
                 usuario.Add("apellido2", cuenta.apellido2);
-                usuario.Add("email", cuenta.email);
+                usuario.Add("email", ObtenerCorreo(id));
                 usuario.Add("biografia", cuenta.biografia);
                 usuario.Add("reports", cuenta.reports.ToString());
                 return usuario;
@@ -76,7 +86,7 @@ namespace Controlador
             DataTable tabla = new DataTable();
             tabla.Columns.Add("id_cuenta", typeof(int));
             tabla.Columns.Add("Usuario", typeof(string));
-            tabla.Columns.Add("Correo", typeof(string));
+            //tabla.Columns.Add("Correo", typeof(string));
 
             ModeloCuenta cuenta = new ModeloCuenta();
             foreach (ModeloCuenta c in cuenta.ObtenerCuentas())
@@ -84,7 +94,7 @@ namespace Controlador
                 DataRow fila = tabla.NewRow();
                 fila["id_cuenta"] = c.id_cuenta;
                 fila["Usuario"] = c.nombre_usuario;
-                fila["Correo"] = c.email;
+                //fila["Correo"] = c.email;
                 tabla.Rows.Add(fila);
             }
             return tabla;

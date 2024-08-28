@@ -51,11 +51,13 @@ namespace Interfaz
             this.LabelLikesDeComentario = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.TestingTboxIdUserComent = new System.Windows.Forms.TextBox();
+            this.TestingTboxContraseña = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TestingButtonCrearUsr
             // 
-            this.TestingButtonCrearUsr.Location = new System.Drawing.Point(112, 121);
+            this.TestingButtonCrearUsr.Location = new System.Drawing.Point(112, 174);
             this.TestingButtonCrearUsr.Name = "TestingButtonCrearUsr";
             this.TestingButtonCrearUsr.Size = new System.Drawing.Size(75, 23);
             this.TestingButtonCrearUsr.TabIndex = 54;
@@ -242,11 +244,29 @@ namespace Interfaz
             this.TestingTboxIdUserComent.Size = new System.Drawing.Size(46, 20);
             this.TestingTboxIdUserComent.TabIndex = 59;
             // 
+            // TestingTboxContraseña
+            // 
+            this.TestingTboxContraseña.Location = new System.Drawing.Point(15, 139);
+            this.TestingTboxContraseña.Name = "TestingTboxContraseña";
+            this.TestingTboxContraseña.Size = new System.Drawing.Size(172, 20);
+            this.TestingTboxContraseña.TabIndex = 61;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(16, 123);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(61, 13);
+            this.label11.TabIndex = 62;
+            this.label11.Text = "Contraseña";
+            // 
             // TestingWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 545);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.TestingTboxContraseña);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.TestingTboxIdUserComent);
             this.Controls.Add(this.LabelLikesDeComentario);
@@ -300,5 +320,7 @@ namespace Interfaz
         private System.Windows.Forms.Label LabelLikesDeComentario;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox TestingTboxIdUserComent;
+        private System.Windows.Forms.TextBox TestingTboxContraseña;
+        private System.Windows.Forms.Label label11;
     }
 }

@@ -8,7 +8,7 @@ namespace Modelos
 {
     public class ModeloCuenta : Modelo
     {
-        public int id_cuenta;
+        public long id_cuenta;
         public string nombre_usuario;
         public string email;
         public string contraseña = "123"; //placeholder
@@ -18,16 +18,32 @@ namespace Modelos
         public long id_muro;
         public long id_preferencia;
 
-
+        public void Registro()
+        {
+            CrearCuenta();
+            string sql = $"insert into registro (nombre_usuario,email,contrasena,id_cuenta) values(@username,@email,@contrasena,@id_cuenta)";
+            this.Comando.CommandText = sql;
+            this.Comando.Parameters.AddWithValue("@username", this.nombre_usuario);
+            this.Comando.Parameters.AddWithValue("@email", this.email);
+            this.Comando.Parameters.AddWithValue("@contrasena", this.contraseña);
+            this.Comando.Parameters.AddWithValue("@id_cuenta", this.id_cuenta);
+            this.Comando.Prepare();
+            this.Comando.ExecuteNonQuery();
+            PrintDesktop(sql);
+            
+        }
         public void CrearCuenta()
         {
             CrearUsuario();
             CrearMuro();
             CrearPreferencias();
-            string sql = $"insert into cuenta (nombre_usuario,email,contrasena,imagen_perfil,id_usuario,id_muro,id_preferencia)" +
-                $" values('{this.nombre_usuario}','{this.email}','{this.contraseña}','{this.imagen_perfil}',{this.id_usuario},{this.id_muro},{this.id_preferencia})";
+            string sql = $"insert into cuenta (nombre_usuario,imagen_perfil,id_usuario,id_muro,id_preferencia)" +
+                $" values(@nombre_usuario,'{this.imagen_perfil}',{this.id_usuario},{this.id_muro},{this.id_preferencia})";
             this.Comando.CommandText = sql;
+            this.Comando.Parameters.AddWithValue("@nombre_usuario", this.nombre_usuario);
+            this.Comando.Prepare();
             this.Comando.ExecuteNonQuery();
+            this.id_cuenta = this.Comando.LastInsertedId;
             PrintDesktop(sql);
         }
 
@@ -38,17 +54,23 @@ namespace Modelos
             this.Comando.ExecuteNonQuery();
         }
 
+        public void ObtenerCorreo()
+        {
+            string sql = $"select email from registro where id_cuenta={this.id_cuenta}";
+            this.Comando.CommandText = sql;
+            this.email = this.Comando.ExecuteScalar().ToString();
+        }
+
         public void ModificarCorreo()
         {
-            string sql = $"update cuenta set email ='{this.email}'where id_cuenta ='{this.id_cuenta}'";
+            string sql = $"update registro set email ='{this.email}'where id_cuenta ='{this.id_cuenta}'";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
 
         public void EliminarCuenta()
         {
-            string sql = $"update cuenta set eliminado = true where id_cuenta = {this.id_cuenta} and nombre_usuario = '{this.nombre_usuario}'" +
-                $" and email = '{this.email}'";
+            string sql = $"update cuenta set eliminado = true where id_cuenta = {this.id_cuenta} and nombre_usuario = '{this.nombre_usuario}'";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
@@ -77,7 +99,6 @@ namespace Modelos
                 this.id_cuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
                 this.nombre_usuario = this.Lector["nombre_usuario"].ToString();
                 //this.imagen_perfil = this.Lector["imagen_perfil"].ToString();
-                this.email = this.Lector["email"].ToString();
                 this.reports = Int32.Parse(this.Lector["reports"].ToString());
                 this.id_usuario = Int32.Parse(this.Lector["id_usuario"].ToString());
                 this.id_muro = Int32.Parse(this.Lector["id_muro"].ToString());
@@ -101,7 +122,6 @@ namespace Modelos
                 ModeloCuenta cuenta = new ModeloCuenta();
                 cuenta.id_cuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
                 cuenta.nombre_usuario = this.Lector["nombre_usuario"].ToString();
-                cuenta.email = this.Lector["email"].ToString();
                 cuentas.Add(cuenta);
             }
             this.Lector.Close();
