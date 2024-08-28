@@ -43,6 +43,7 @@ namespace Interfaz
         {
             OcultarUserControll();
             CerrarChildren();
+            CerrarPaneles();
             PanelBusquedaUsuario.Show();
             refrescarTablaDeUsuarios();
         }
@@ -70,6 +71,8 @@ namespace Interfaz
         private void BtnBuscarPublicaciones_Click(object sender, EventArgs e)
         {
             OcultarUserControll();
+            CerrarPaneles();
+            CerrarChildren();
             PanelBusquedaPost.Show();
         }
 
