@@ -54,6 +54,7 @@ namespace Interfaz
             this.BtnBusquedaUsuarios = new System.Windows.Forms.Button();
             this.BtnContUsuarios = new System.Windows.Forms.Button();
             this.PanelBusquedaPost = new System.Windows.Forms.Panel();
+            this.BtnSeleccionar = new System.Windows.Forms.Button();
             this.StaticLbBuscarPub = new System.Windows.Forms.Label();
             this.DgridListarPulicaciones = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -69,13 +70,20 @@ namespace Interfaz
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.DgridUsuarios = new System.Windows.Forms.DataGridView();
             this.AdministracionDeUsuarios = new Interfaz.AdminUsuario();
-            this.BtnSeleccionar = new System.Windows.Forms.Button();
+            this.BtnBuscarGrupo = new System.Windows.Forms.Button();
+            this.PanelBusquedaGrupo = new System.Windows.Forms.Panel();
+            this.BtnSeleccionarGrupo = new System.Windows.Forms.Button();
+            this.StaticLbBusquedaGrupo = new System.Windows.Forms.Label();
+            this.DgridBuscarGrupo = new System.Windows.Forms.DataGridView();
+            this.TboxBuscarGrupo = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.MainPanelBotones.SuspendLayout();
             this.PanelBusquedaPost.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgridListarPulicaciones)).BeginInit();
             this.PanelBusquedaUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgridUsuarios)).BeginInit();
+            this.PanelBusquedaGrupo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgridBuscarGrupo)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -220,6 +228,7 @@ namespace Interfaz
             // 
             // MainPanelBotones
             // 
+            this.MainPanelBotones.Controls.Add(this.BtnBuscarGrupo);
             this.MainPanelBotones.Controls.Add(this.TestingBtnCerrar);
             this.MainPanelBotones.Controls.Add(this.BtnBuscarPublicaciones);
             this.MainPanelBotones.Controls.Add(this.BtnBusquedaUsuarios);
@@ -262,7 +271,7 @@ namespace Interfaz
             // 
             // BtnContUsuarios
             // 
-            this.BtnContUsuarios.Location = new System.Drawing.Point(32, 171);
+            this.BtnContUsuarios.Location = new System.Drawing.Point(32, 255);
             this.BtnContUsuarios.Name = "BtnContUsuarios";
             this.BtnContUsuarios.Size = new System.Drawing.Size(131, 36);
             this.BtnContUsuarios.TabIndex = 0;
@@ -272,6 +281,7 @@ namespace Interfaz
             // 
             // PanelBusquedaPost
             // 
+            this.PanelBusquedaPost.Controls.Add(this.PanelBusquedaGrupo);
             this.PanelBusquedaPost.Controls.Add(this.BtnSeleccionar);
             this.PanelBusquedaPost.Controls.Add(this.StaticLbBuscarPub);
             this.PanelBusquedaPost.Controls.Add(this.DgridListarPulicaciones);
@@ -282,6 +292,16 @@ namespace Interfaz
             this.PanelBusquedaPost.Size = new System.Drawing.Size(200, 679);
             this.PanelBusquedaPost.TabIndex = 33;
             this.PanelBusquedaPost.Visible = false;
+            // 
+            // BtnSeleccionar
+            // 
+            this.BtnSeleccionar.Location = new System.Drawing.Point(50, 340);
+            this.BtnSeleccionar.Name = "BtnSeleccionar";
+            this.BtnSeleccionar.Size = new System.Drawing.Size(101, 23);
+            this.BtnSeleccionar.TabIndex = 3;
+            this.BtnSeleccionar.Text = "Seleccionar post";
+            this.BtnSeleccionar.UseVisualStyleBackColor = true;
+            this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click);
             // 
             // StaticLbBuscarPub
             // 
@@ -433,15 +453,59 @@ namespace Interfaz
             this.AdministracionDeUsuarios.TabIndex = 20;
             this.AdministracionDeUsuarios.Visible = false;
             // 
-            // BtnSeleccionar
+            // BtnBuscarGrupo
             // 
-            this.BtnSeleccionar.Location = new System.Drawing.Point(50, 340);
-            this.BtnSeleccionar.Name = "BtnSeleccionar";
-            this.BtnSeleccionar.Size = new System.Drawing.Size(101, 23);
-            this.BtnSeleccionar.TabIndex = 3;
-            this.BtnSeleccionar.Text = "Seleccionar post";
-            this.BtnSeleccionar.UseVisualStyleBackColor = true;
-            this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click);
+            this.BtnBuscarGrupo.Location = new System.Drawing.Point(32, 119);
+            this.BtnBuscarGrupo.Name = "BtnBuscarGrupo";
+            this.BtnBuscarGrupo.Size = new System.Drawing.Size(131, 36);
+            this.BtnBuscarGrupo.TabIndex = 4;
+            this.BtnBuscarGrupo.Text = "Buscar grupos";
+            this.BtnBuscarGrupo.UseVisualStyleBackColor = true;
+            // 
+            // PanelBusquedaGrupo
+            // 
+            this.PanelBusquedaGrupo.Controls.Add(this.BtnSeleccionarGrupo);
+            this.PanelBusquedaGrupo.Controls.Add(this.StaticLbBusquedaGrupo);
+            this.PanelBusquedaGrupo.Controls.Add(this.DgridBuscarGrupo);
+            this.PanelBusquedaGrupo.Controls.Add(this.TboxBuscarGrupo);
+            this.PanelBusquedaGrupo.Location = new System.Drawing.Point(0, 0);
+            this.PanelBusquedaGrupo.Name = "PanelBusquedaGrupo";
+            this.PanelBusquedaGrupo.Size = new System.Drawing.Size(200, 679);
+            this.PanelBusquedaGrupo.TabIndex = 37;
+            this.PanelBusquedaGrupo.Visible = false;
+            // 
+            // BtnSeleccionarGrupo
+            // 
+            this.BtnSeleccionarGrupo.Location = new System.Drawing.Point(50, 340);
+            this.BtnSeleccionarGrupo.Name = "BtnSeleccionarGrupo";
+            this.BtnSeleccionarGrupo.Size = new System.Drawing.Size(101, 23);
+            this.BtnSeleccionarGrupo.TabIndex = 3;
+            this.BtnSeleccionarGrupo.Text = "Seleccionar grupo";
+            this.BtnSeleccionarGrupo.UseVisualStyleBackColor = true;
+            // 
+            // StaticLbBusquedaGrupo
+            // 
+            this.StaticLbBusquedaGrupo.AutoSize = true;
+            this.StaticLbBusquedaGrupo.Location = new System.Drawing.Point(12, 28);
+            this.StaticLbBusquedaGrupo.Name = "StaticLbBusquedaGrupo";
+            this.StaticLbBusquedaGrupo.Size = new System.Drawing.Size(73, 13);
+            this.StaticLbBusquedaGrupo.TabIndex = 2;
+            this.StaticLbBusquedaGrupo.Text = "Buscar grupo:";
+            // 
+            // DgridBuscarGrupo
+            // 
+            this.DgridBuscarGrupo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgridBuscarGrupo.Location = new System.Drawing.Point(15, 99);
+            this.DgridBuscarGrupo.Name = "DgridBuscarGrupo";
+            this.DgridBuscarGrupo.Size = new System.Drawing.Size(170, 235);
+            this.DgridBuscarGrupo.TabIndex = 1;
+            // 
+            // TboxBuscarGrupo
+            // 
+            this.TboxBuscarGrupo.Location = new System.Drawing.Point(15, 44);
+            this.TboxBuscarGrupo.Name = "TboxBuscarGrupo";
+            this.TboxBuscarGrupo.Size = new System.Drawing.Size(170, 20);
+            this.TboxBuscarGrupo.TabIndex = 0;
             // 
             // MainBackoffice
             // 
@@ -468,6 +532,9 @@ namespace Interfaz
             this.PanelBusquedaUsuario.ResumeLayout(false);
             this.PanelBusquedaUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgridUsuarios)).EndInit();
+            this.PanelBusquedaGrupo.ResumeLayout(false);
+            this.PanelBusquedaGrupo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgridBuscarGrupo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -515,5 +582,11 @@ namespace Interfaz
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.DataGridView DgridUsuarios;
         private System.Windows.Forms.Button BtnSeleccionar;
+        private System.Windows.Forms.Button BtnBuscarGrupo;
+        private System.Windows.Forms.Panel PanelBusquedaGrupo;
+        private System.Windows.Forms.Button BtnSeleccionarGrupo;
+        private System.Windows.Forms.Label StaticLbBusquedaGrupo;
+        private System.Windows.Forms.DataGridView DgridBuscarGrupo;
+        private System.Windows.Forms.TextBox TboxBuscarGrupo;
     }
 }
