@@ -10,12 +10,11 @@ namespace Controlador
 {
     public class ControlGrupo
     {
-        public static void CrearGrupo(string nombreGrupo, string descripcion, string banner)
+        public static void CrearGrupo(string nombreGrupo, string descripcion)
         {
             ModeloGrupo grupo = new ModeloGrupo();
             grupo.nombre_grupo = nombreGrupo;
             grupo.descripcion = descripcion;
-            grupo.banner = banner;
 
             grupo.CrearGrupo();
         }
@@ -82,6 +81,7 @@ namespace Controlador
             DataTable tabla = new DataTable();
             tabla.Columns.Add("id_grupo", typeof(int));
             tabla.Columns.Add("nombre_grupo", typeof(string));
+            tabla.Columns.Add("descripcion", typeof(string));
 
 
             ModeloGrupo grupo = new ModeloGrupo();
@@ -90,6 +90,7 @@ namespace Controlador
                 DataRow fila = tabla.NewRow();
                 fila["id_grupo"] = p.id_grupo;
                 fila["nombre_grupo"] = p.nombre_grupo;
+                fila["descripcion"] = p.descripcion;
                 tabla.Rows.Add(fila);
             }
 
@@ -134,6 +135,13 @@ namespace Controlador
             }
             resultado.Add("resultado", "false");
             return resultado;
+        }
+        public static void AgregarCuentaEnGrupo (string id_grupo, string id_cuenta)
+        {
+            ModeloGrupo grupo = new ModeloGrupo();
+            grupo.id_cuenta = Int32.Parse(id_cuenta);
+            grupo.id_grupo = Int32.Parse(id_grupo);
+            grupo.AgregarCuentaEnGrupo();
         }
     }
 }

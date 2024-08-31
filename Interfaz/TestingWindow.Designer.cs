@@ -53,6 +53,17 @@ namespace Interfaz
             this.TestingTboxIdUserComent = new System.Windows.Forms.TextBox();
             this.TestingTboxContraseña = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.TestingTboxNombreGrupo = new System.Windows.Forms.TextBox();
+            this.TestingTboxDescripcion = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.TestingBtnCrearGrupo = new System.Windows.Forms.Button();
+            this.TestingTboxAddGrupoID = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.TestingTboxAddUserID = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.TestingBtnAgregarGrupo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TestingButtonCrearUsr
@@ -260,11 +271,117 @@ namespace Interfaz
             this.label11.TabIndex = 62;
             this.label11.Text = "Contraseña";
             // 
+            // TestingTboxNombreGrupo
+            // 
+            this.TestingTboxNombreGrupo.Location = new System.Drawing.Point(583, 53);
+            this.TestingTboxNombreGrupo.Name = "TestingTboxNombreGrupo";
+            this.TestingTboxNombreGrupo.Size = new System.Drawing.Size(172, 20);
+            this.TestingTboxNombreGrupo.TabIndex = 63;
+            // 
+            // TestingTboxDescripcion
+            // 
+            this.TestingTboxDescripcion.Location = new System.Drawing.Point(583, 95);
+            this.TestingTboxDescripcion.Multiline = true;
+            this.TestingTboxDescripcion.Name = "TestingTboxDescripcion";
+            this.TestingTboxDescripcion.Size = new System.Drawing.Size(172, 132);
+            this.TestingTboxDescripcion.TabIndex = 64;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(580, 37);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(94, 13);
+            this.label12.TabIndex = 66;
+            this.label12.Text = "Nombre del grupo:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(580, 79);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(66, 13);
+            this.label13.TabIndex = 67;
+            this.label13.Text = "Descripcion:";
+            // 
+            // TestingBtnCrearGrupo
+            // 
+            this.TestingBtnCrearGrupo.Location = new System.Drawing.Point(680, 233);
+            this.TestingBtnCrearGrupo.Name = "TestingBtnCrearGrupo";
+            this.TestingBtnCrearGrupo.Size = new System.Drawing.Size(75, 23);
+            this.TestingBtnCrearGrupo.TabIndex = 68;
+            this.TestingBtnCrearGrupo.Text = "Crear grupo";
+            this.TestingBtnCrearGrupo.UseVisualStyleBackColor = true;
+            this.TestingBtnCrearGrupo.Click += new System.EventHandler(this.TestingBtnCrearGrupo_Click);
+            // 
+            // TestingTboxAddGrupoID
+            // 
+            this.TestingTboxAddGrupoID.Location = new System.Drawing.Point(650, 303);
+            this.TestingTboxAddGrupoID.Name = "TestingTboxAddGrupoID";
+            this.TestingTboxAddGrupoID.Size = new System.Drawing.Size(38, 20);
+            this.TestingTboxAddGrupoID.TabIndex = 69;
+            this.TestingTboxAddGrupoID.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(580, 258);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(123, 13);
+            this.label14.TabIndex = 70;
+            this.label14.Text = "Agregar usuario a grupo:";
+            // 
+            // TestingTboxAddUserID
+            // 
+            this.TestingTboxAddUserID.Location = new System.Drawing.Point(650, 277);
+            this.TestingTboxAddUserID.Name = "TestingTboxAddUserID";
+            this.TestingTboxAddUserID.Size = new System.Drawing.Size(38, 20);
+            this.TestingTboxAddUserID.TabIndex = 71;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(584, 306);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(53, 13);
+            this.label15.TabIndex = 72;
+            this.label15.Text = "Grupo ID:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(584, 280);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(60, 13);
+            this.label16.TabIndex = 73;
+            this.label16.Text = "Usuario ID:";
+            // 
+            // TestingBtnAgregarGrupo
+            // 
+            this.TestingBtnAgregarGrupo.Location = new System.Drawing.Point(694, 289);
+            this.TestingBtnAgregarGrupo.Name = "TestingBtnAgregarGrupo";
+            this.TestingBtnAgregarGrupo.Size = new System.Drawing.Size(75, 23);
+            this.TestingBtnAgregarGrupo.TabIndex = 74;
+            this.TestingBtnAgregarGrupo.Text = "Agregar";
+            this.TestingBtnAgregarGrupo.UseVisualStyleBackColor = true;
+            this.TestingBtnAgregarGrupo.Click += new System.EventHandler(this.TestingBtnAgregarGrupo_Click);
+            // 
             // TestingWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 545);
+            this.Controls.Add(this.TestingBtnAgregarGrupo);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.TestingTboxAddUserID);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.TestingTboxAddGrupoID);
+            this.Controls.Add(this.TestingBtnCrearGrupo);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.TestingTboxDescripcion);
+            this.Controls.Add(this.TestingTboxNombreGrupo);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.TestingTboxContraseña);
             this.Controls.Add(this.label10);
@@ -322,5 +439,16 @@ namespace Interfaz
         private System.Windows.Forms.TextBox TestingTboxIdUserComent;
         private System.Windows.Forms.TextBox TestingTboxContraseña;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox TestingTboxNombreGrupo;
+        private System.Windows.Forms.TextBox TestingTboxDescripcion;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button TestingBtnCrearGrupo;
+        private System.Windows.Forms.TextBox TestingTboxAddGrupoID;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox TestingTboxAddUserID;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button TestingBtnAgregarGrupo;
     }
 }

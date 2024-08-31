@@ -75,12 +75,12 @@ namespace Interfaz
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.DgridUsuarios = new System.Windows.Forms.DataGridView();
             this.BtnBuscarGrupo = new System.Windows.Forms.Button();
-            this.AdministracionDeUsuarios = new Interfaz.AdminUsuario();
             this.ChBoxGrupoEliminado = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.LbGrupoNumUsuarios = new System.Windows.Forms.Label();
             this.TboxGrupoDescripcion = new System.Windows.Forms.TextBox();
+            this.AdministracionDeUsuarios = new Interfaz.AdminUsuario();
             this.menuStrip1.SuspendLayout();
             this.MainPanelBotones.SuspendLayout();
             this.PanelBusquedaPost.SuspendLayout();
@@ -339,6 +339,7 @@ namespace Interfaz
             this.DgridBuscarGrupo.Name = "DgridBuscarGrupo";
             this.DgridBuscarGrupo.Size = new System.Drawing.Size(363, 549);
             this.DgridBuscarGrupo.TabIndex = 1;
+            this.DgridBuscarGrupo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgridBuscarGrupo_CellClick);
             // 
             // TboxBuscarGrupo
             // 
@@ -510,14 +511,6 @@ namespace Interfaz
             this.BtnBuscarGrupo.UseVisualStyleBackColor = true;
             this.BtnBuscarGrupo.Click += new System.EventHandler(this.BtnBuscarGrupo_Click);
             // 
-            // AdministracionDeUsuarios
-            // 
-            this.AdministracionDeUsuarios.Location = new System.Drawing.Point(0, 0);
-            this.AdministracionDeUsuarios.Name = "AdministracionDeUsuarios";
-            this.AdministracionDeUsuarios.Size = new System.Drawing.Size(1012, 648);
-            this.AdministracionDeUsuarios.TabIndex = 20;
-            this.AdministracionDeUsuarios.Visible = false;
-            // 
             // ChBoxGrupoEliminado
             // 
             this.ChBoxGrupoEliminado.AutoSize = true;
@@ -563,6 +556,14 @@ namespace Interfaz
             this.TboxGrupoDescripcion.ReadOnly = true;
             this.TboxGrupoDescripcion.Size = new System.Drawing.Size(129, 205);
             this.TboxGrupoDescripcion.TabIndex = 8;
+            // 
+            // AdministracionDeUsuarios
+            // 
+            this.AdministracionDeUsuarios.Location = new System.Drawing.Point(0, 0);
+            this.AdministracionDeUsuarios.Name = "AdministracionDeUsuarios";
+            this.AdministracionDeUsuarios.Size = new System.Drawing.Size(1012, 648);
+            this.AdministracionDeUsuarios.TabIndex = 20;
+            this.AdministracionDeUsuarios.Visible = false;
             // 
             // MainBackoffice
             // 

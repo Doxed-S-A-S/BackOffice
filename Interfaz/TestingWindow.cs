@@ -33,5 +33,20 @@ namespace Interfaz
         {
             ControlComentarios.CrearComentario(TestingTboxIdUserComent.Text,TestingTboxIdPub.Text, TestingTboxComentario.Text);
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TestingBtnCrearGrupo_Click(object sender, EventArgs e)
+        {
+            ControlGrupo.CrearGrupo(TestingTboxNombreGrupo.Text, TestingTboxDescripcion.Text);
+        }
+
+        private void TestingBtnAgregarGrupo_Click(object sender, EventArgs e)
+        {
+            ControlGrupo.AgregarCuentaEnGrupo(TestingTboxAddGrupoID.Text, TestingTboxAddUserID.Text);
+        }
     }
 }

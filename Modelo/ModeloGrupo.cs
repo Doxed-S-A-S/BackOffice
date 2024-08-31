@@ -12,8 +12,8 @@ namespace Modelos
         public int id_grupo;
         public string nombre_grupo;
         public string descripcion;
-        public string banner; //placeholder
-        public string rol;
+        public string banner = "banenr"; //placeholder
+        public string rol = "participante";
         public int id_cuenta;
         public string nombre_usuario;
         public void Guardar()
@@ -72,6 +72,7 @@ namespace Modelos
                 ModeloGrupo grupo = new ModeloGrupo();
                 grupo.id_grupo = Int32.Parse(this.Lector["id_grupo"].ToString());
                 grupo.nombre_grupo = this.Lector["nombre_grupo"].ToString();
+                grupo.descripcion = this.Lector["descripcion"].ToString();
                 grupos.Add(grupo);
             }
             this.Lector.Close();
@@ -122,7 +123,12 @@ namespace Modelos
             }
             this.Lector.Close();
             return false;
-
+        }
+        public void AgregarCuentaEnGrupo()
+        {
+            string sql = $"insert into conforma (id_cuenta,id_grupo,rol) values('{this.id_cuenta}','{this.id_grupo}','{this.rol}')";
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
         }
     }
 }

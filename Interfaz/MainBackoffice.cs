@@ -155,5 +155,15 @@ namespace Interfaz
         {
 
         }
+        private int IndexGrupo()
+        {
+            int i = DgridBuscarGrupo.CurrentCell.RowIndex;
+            return i;
+        }
+
+        private void DgridBuscarGrupo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            TboxGrupoDescripcion.Text = DgridBuscarGrupo.Rows[IndexGrupo()].Cells["descripcion"].Value.ToString();
+        }
     }
 }
