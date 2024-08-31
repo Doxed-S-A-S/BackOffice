@@ -60,7 +60,7 @@ namespace Interfaz
             this.TestingButtonCrearUsr.Location = new System.Drawing.Point(112, 174);
             this.TestingButtonCrearUsr.Name = "TestingButtonCrearUsr";
             this.TestingButtonCrearUsr.Size = new System.Drawing.Size(75, 23);
-            this.TestingButtonCrearUsr.TabIndex = 54;
+            this.TestingButtonCrearUsr.TabIndex = 53;
             this.TestingButtonCrearUsr.Text = "Crear usuario";
             this.TestingButtonCrearUsr.UseVisualStyleBackColor = true;
             this.TestingButtonCrearUsr.Click += new System.EventHandler(this.TestingButtonCrearUsr_Click);
@@ -111,7 +111,7 @@ namespace Interfaz
             this.TestingTboxIdPub.Location = new System.Drawing.Point(520, 207);
             this.TestingTboxIdPub.Name = "TestingTboxIdPub";
             this.TestingTboxIdPub.Size = new System.Drawing.Size(46, 20);
-            this.TestingTboxIdPub.TabIndex = 48;
+            this.TestingTboxIdPub.TabIndex = 45;
             // 
             // label4
             // 
@@ -136,7 +136,7 @@ namespace Interfaz
             this.TestingBtnPuliComentario.Location = new System.Drawing.Point(491, 233);
             this.TestingBtnPuliComentario.Name = "TestingBtnPuliComentario";
             this.TestingBtnPuliComentario.Size = new System.Drawing.Size(75, 23);
-            this.TestingBtnPuliComentario.TabIndex = 44;
+            this.TestingBtnPuliComentario.TabIndex = 46;
             this.TestingBtnPuliComentario.Text = "PublicarCom";
             this.TestingBtnPuliComentario.UseVisualStyleBackColor = true;
             this.TestingBtnPuliComentario.Click += new System.EventHandler(this.TestingBtnPuliComentario_Click);
@@ -172,7 +172,7 @@ namespace Interfaz
             this.TestingBtnPub.Location = new System.Drawing.Point(301, 216);
             this.TestingBtnPub.Name = "TestingBtnPub";
             this.TestingBtnPub.Size = new System.Drawing.Size(75, 23);
-            this.TestingBtnPub.TabIndex = 39;
+            this.TestingBtnPub.TabIndex = 40;
             this.TestingBtnPub.Text = "Publicar";
             this.TestingBtnPub.UseVisualStyleBackColor = true;
             this.TestingBtnPub.Click += new System.EventHandler(this.TestingBtnPub_Click);
@@ -208,7 +208,7 @@ namespace Interfaz
             this.TestingTboxIdUser.Location = new System.Drawing.Point(330, 181);
             this.TestingTboxIdUser.Name = "TestingTboxIdUser";
             this.TestingTboxIdUser.Size = new System.Drawing.Size(46, 20);
-            this.TestingTboxIdUser.TabIndex = 55;
+            this.TestingTboxIdUser.TabIndex = 39;
             // 
             // LabelLikesDePost
             // 
@@ -242,14 +242,14 @@ namespace Interfaz
             this.TestingTboxIdUserComent.Location = new System.Drawing.Point(520, 181);
             this.TestingTboxIdUserComent.Name = "TestingTboxIdUserComent";
             this.TestingTboxIdUserComent.Size = new System.Drawing.Size(46, 20);
-            this.TestingTboxIdUserComent.TabIndex = 59;
+            this.TestingTboxIdUserComent.TabIndex = 44;
             // 
             // TestingTboxContraseña
             // 
             this.TestingTboxContraseña.Location = new System.Drawing.Point(15, 139);
             this.TestingTboxContraseña.Name = "TestingTboxContraseña";
             this.TestingTboxContraseña.Size = new System.Drawing.Size(172, 20);
-            this.TestingTboxContraseña.TabIndex = 61;
+            this.TestingTboxContraseña.TabIndex = 52;
             // 
             // label11
             // 

@@ -143,6 +143,17 @@ namespace Interfaz
             OcultarUserControll();
             PanelBusquedaGrupo.Show();
             PanelBusquedaGrupo.BringToFront();
+            ActualizarListaDeGrupos();
+        }
+
+        private void ActualizarListaDeGrupos()
+        {
+            DgridBuscarGrupo.Refresh();
+            DgridBuscarGrupo.DataSource = ControlGrupo.ObtenerGrupos();
+        }
+        private void BtnSeleccionarGrupo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
