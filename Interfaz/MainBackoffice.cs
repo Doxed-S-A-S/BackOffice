@@ -87,6 +87,7 @@ namespace Interfaz
         {
             PanelBusquedaPost.Hide();
             PanelBusquedaUsuario.Hide();
+            PanelBusquedaGrupo.Hide();
         }
 
         private void DgridListarPulicaciones_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -133,6 +134,15 @@ namespace Interfaz
             AdministracionPost AdminPost = new AdministracionPost();
             AdminPost.MdiParent = this;
             AdminPost.Show();
+        }
+
+        private void BtnBuscarGrupo_Click(object sender, EventArgs e)
+        {
+            CerrarChildren();
+            CerrarPaneles();
+            OcultarUserControll();
+            PanelBusquedaGrupo.Show();
+            PanelBusquedaGrupo.BringToFront();
         }
     }
 }

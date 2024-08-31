@@ -45,3 +45,4 @@ C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\obj\Deb
 C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\obj\Debug\Interfaz.AdminUsuario.resources
 C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\obj\Debug\Interfaz.TestingWindow.resources
 C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\obj\Debug\Interfaz.AdministracionPost.resources
+C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\obj\Debug\Interfaz.AdminGrupo.resources
