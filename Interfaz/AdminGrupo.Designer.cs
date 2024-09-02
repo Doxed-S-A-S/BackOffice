@@ -361,7 +361,7 @@ namespace Interfaz
             this.Controls.Add(this.StaticLbUsername);
             this.Controls.Add(this.StaticLbImgProfile);
             this.Name = "AdminGrupo";
-            this.Size = new System.Drawing.Size(1076, 648);
+            this.Size = new System.Drawing.Size(1133, 648);
             this.Load += new System.EventHandler(this.AdminGrupo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgridComentarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridPublicaciones)).EndInit();

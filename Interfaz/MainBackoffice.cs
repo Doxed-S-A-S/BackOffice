@@ -21,7 +21,7 @@ namespace Interfaz
 
         private void OcultarUserControll()
         {
-
+            adminGrupo1.Hide();
             AdministracionDeUsuarios.Hide();
         }
         private void CerrarChildren()

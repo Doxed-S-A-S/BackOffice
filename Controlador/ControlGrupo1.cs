@@ -128,7 +128,7 @@ namespace Controlador
             foreach (ModeloGrupo g in grupo.ObtenerResponsablesDeGrupo(Int32.Parse(id_grupo)))
             {
                 DataRow fila = tabla.NewRow();
-                fila["id cuenta"] = g.id_cuenta;
+                fila["id_cuenta"] = g.id_cuenta;
                 fila["nombre_usuario"] = g.nombre_usuario;
                 fila["rol"] = g.rol;
                 tabla.Rows.Add(fila);

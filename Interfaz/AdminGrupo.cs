@@ -32,7 +32,16 @@ namespace Interfaz
                 TboxModificarDescripcion.Text = ControlGrupo.BuscarGrupo(id)["descripcion"];
                 LbNumReportes.Text = ControlGrupo.BuscarGrupo(id)["reports"];
                 // privado
+                RefrescarTodo();
             }
+        }
+
+        private void RefrescarTodo()
+        {
+            refrescarTablaDeIntegrantes();
+            refrescarTablaDePublicacionesGrupo();
+            refrescarTablaDeResponsables();
+
         }
         private void refrescarTablaDePublicacionesGrupo()
         {
@@ -50,6 +59,7 @@ namespace Interfaz
         {
             DgridResponsables.Refresh();
             DgridResponsables.DataSource = ControlGrupo.ObtenerResponsablesDeGrupo(LbIdGrupo.Text);
+            DgridResponsables.Columns["id_cuenta"].Visible = false;
         }
     }
 }
