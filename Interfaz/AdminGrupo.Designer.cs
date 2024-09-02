@@ -30,7 +30,7 @@ namespace Interfaz
         private void InitializeComponent()
         {
             this.BtnActualizarDatosCuenta = new System.Windows.Forms.Button();
-            this.LbIdUsuario = new System.Windows.Forms.Label();
+            this.LbIdGrupo = new System.Windows.Forms.Label();
             this.BtnModificarDescripcion = new System.Windows.Forms.Button();
             this.TboxModificarDescripcion = new System.Windows.Forms.TextBox();
             this.StaticLbBiografia = new System.Windows.Forms.Label();
@@ -49,17 +49,18 @@ namespace Interfaz
             this.StaticLbRolUsr = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.LbNombreGrupo = new System.Windows.Forms.Label();
-            this.LboxResponsablesGrupo = new System.Windows.Forms.ListBox();
             this.StaticLbReportes = new System.Windows.Forms.Label();
             this.StaticLbResponsables = new System.Windows.Forms.Label();
             this.StaticLbEstado = new System.Windows.Forms.Label();
             this.StaticLbUsername = new System.Windows.Forms.Label();
             this.StaticLbImgProfile = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DgridUsuariosDeGrupo = new System.Windows.Forms.DataGridView();
             this.StaticLbUsuariosGrupo = new System.Windows.Forms.Label();
+            this.DgridResponsables = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.DgridComentarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridPublicaciones)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgridUsuariosDeGrupo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgridResponsables)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnActualizarDatosCuenta
@@ -71,14 +72,14 @@ namespace Interfaz
             this.BtnActualizarDatosCuenta.Text = "Actualizar datos";
             this.BtnActualizarDatosCuenta.UseVisualStyleBackColor = true;
             // 
-            // LbIdUsuario
+            // LbIdGrupo
             // 
-            this.LbIdUsuario.AutoSize = true;
-            this.LbIdUsuario.Location = new System.Drawing.Point(13, 0);
-            this.LbIdUsuario.Name = "LbIdUsuario";
-            this.LbIdUsuario.Size = new System.Drawing.Size(13, 13);
-            this.LbIdUsuario.TabIndex = 80;
-            this.LbIdUsuario.Text = "0";
+            this.LbIdGrupo.AutoSize = true;
+            this.LbIdGrupo.Location = new System.Drawing.Point(13, 0);
+            this.LbIdGrupo.Name = "LbIdGrupo";
+            this.LbIdGrupo.Size = new System.Drawing.Size(13, 13);
+            this.LbIdGrupo.TabIndex = 80;
+            this.LbIdGrupo.Text = "0";
             // 
             // BtnModificarDescripcion
             // 
@@ -247,14 +248,6 @@ namespace Interfaz
             this.LbNombreGrupo.TabIndex = 58;
             this.LbNombreGrupo.Text = "(ejemplo)";
             // 
-            // LboxResponsablesGrupo
-            // 
-            this.LboxResponsablesGrupo.FormattingEnabled = true;
-            this.LboxResponsablesGrupo.Location = new System.Drawing.Point(16, 459);
-            this.LboxResponsablesGrupo.Name = "LboxResponsablesGrupo";
-            this.LboxResponsablesGrupo.Size = new System.Drawing.Size(201, 147);
-            this.LboxResponsablesGrupo.TabIndex = 57;
-            // 
             // StaticLbReportes
             // 
             this.StaticLbReportes.AutoSize = true;
@@ -300,36 +293,50 @@ namespace Interfaz
             this.StaticLbImgProfile.TabIndex = 52;
             this.StaticLbImgProfile.Text = "( imagen de perfil )";
             // 
-            // dataGridView1
+            // DgridUsuariosDeGrupo
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(803, 30);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(257, 615);
-            this.dataGridView1.TabIndex = 82;
+            this.DgridUsuariosDeGrupo.AllowUserToAddRows = false;
+            this.DgridUsuariosDeGrupo.AllowUserToDeleteRows = false;
+            this.DgridUsuariosDeGrupo.AllowUserToResizeColumns = false;
+            this.DgridUsuariosDeGrupo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgridUsuariosDeGrupo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgridUsuariosDeGrupo.Location = new System.Drawing.Point(803, 30);
+            this.DgridUsuariosDeGrupo.MultiSelect = false;
+            this.DgridUsuariosDeGrupo.Name = "DgridUsuariosDeGrupo";
+            this.DgridUsuariosDeGrupo.Size = new System.Drawing.Size(257, 615);
+            this.DgridUsuariosDeGrupo.TabIndex = 82;
             // 
             // StaticLbUsuariosGrupo
             // 
             this.StaticLbUsuariosGrupo.AutoSize = true;
             this.StaticLbUsuariosGrupo.Location = new System.Drawing.Point(800, 14);
             this.StaticLbUsuariosGrupo.Name = "StaticLbUsuariosGrupo";
-            this.StaticLbUsuariosGrupo.Size = new System.Drawing.Size(51, 13);
+            this.StaticLbUsuariosGrupo.Size = new System.Drawing.Size(119, 13);
             this.StaticLbUsuariosGrupo.TabIndex = 83;
-            this.StaticLbUsuariosGrupo.Text = "Usuarios:";
+            this.StaticLbUsuariosGrupo.Text = "Usuarios en este grupo:";
+            // 
+            // DgridResponsables
+            // 
+            this.DgridResponsables.AllowUserToAddRows = false;
+            this.DgridResponsables.AllowUserToDeleteRows = false;
+            this.DgridResponsables.AllowUserToResizeColumns = false;
+            this.DgridResponsables.AllowUserToResizeRows = false;
+            this.DgridResponsables.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgridResponsables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgridResponsables.Location = new System.Drawing.Point(16, 462);
+            this.DgridResponsables.Name = "DgridResponsables";
+            this.DgridResponsables.Size = new System.Drawing.Size(201, 144);
+            this.DgridResponsables.TabIndex = 84;
             // 
             // AdminGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.DgridResponsables);
             this.Controls.Add(this.StaticLbUsuariosGrupo);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DgridUsuariosDeGrupo);
             this.Controls.Add(this.BtnActualizarDatosCuenta);
-            this.Controls.Add(this.LbIdUsuario);
+            this.Controls.Add(this.LbIdGrupo);
             this.Controls.Add(this.BtnModificarDescripcion);
             this.Controls.Add(this.TboxModificarDescripcion);
             this.Controls.Add(this.StaticLbBiografia);
@@ -348,7 +355,6 @@ namespace Interfaz
             this.Controls.Add(this.StaticLbRolUsr);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.LbNombreGrupo);
-            this.Controls.Add(this.LboxResponsablesGrupo);
             this.Controls.Add(this.StaticLbReportes);
             this.Controls.Add(this.StaticLbResponsables);
             this.Controls.Add(this.StaticLbEstado);
@@ -356,9 +362,11 @@ namespace Interfaz
             this.Controls.Add(this.StaticLbImgProfile);
             this.Name = "AdminGrupo";
             this.Size = new System.Drawing.Size(1076, 648);
+            this.Load += new System.EventHandler(this.AdminGrupo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgridComentarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridPublicaciones)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgridUsuariosDeGrupo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgridResponsables)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,7 +375,7 @@ namespace Interfaz
         #endregion
 
         private System.Windows.Forms.Button BtnActualizarDatosCuenta;
-        private System.Windows.Forms.Label LbIdUsuario;
+        private System.Windows.Forms.Label LbIdGrupo;
         private System.Windows.Forms.Button BtnModificarDescripcion;
         private System.Windows.Forms.TextBox TboxModificarDescripcion;
         private System.Windows.Forms.Label StaticLbBiografia;
@@ -386,13 +394,13 @@ namespace Interfaz
         private System.Windows.Forms.Label StaticLbRolUsr;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label LbNombreGrupo;
-        private System.Windows.Forms.ListBox LboxResponsablesGrupo;
         private System.Windows.Forms.Label StaticLbReportes;
         private System.Windows.Forms.Label StaticLbResponsables;
         private System.Windows.Forms.Label StaticLbEstado;
         private System.Windows.Forms.Label StaticLbUsername;
         private System.Windows.Forms.Label StaticLbImgProfile;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DgridUsuariosDeGrupo;
         private System.Windows.Forms.Label StaticLbUsuariosGrupo;
+        private System.Windows.Forms.DataGridView DgridResponsables;
     }
 }

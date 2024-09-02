@@ -24,7 +24,7 @@ namespace Modelos
 
         private void InsertarPost()
         {
-            string sql = $"insert into posts (contenido,url_contenido,tipo_contenido,id_cuenta) values('{this.Contenido}','{this.url_contenido}','{this.tipo_contenido}',{this.Id_Cuenta})";
+            string sql = $"insert into posts (contenido,url_contenido,tags,id_cuenta) values('{this.Contenido}','{this.url_contenido}','{this.tipo_contenido}',{this.Id_Cuenta})";
             PrintDesktop(sql);
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();

@@ -153,7 +153,13 @@ namespace Interfaz
         }
         private void BtnSeleccionarGrupo_Click(object sender, EventArgs e)
         {
-
+            string idGrupo = DgridBuscarGrupo.Rows[IndexGrupo()].Cells["id_grupo"].Value.ToString();
+            CerrarChildren();
+            CerrarPaneles();
+            OcultarUserControll();
+            adminGrupo1.CargarGrupo(idGrupo);
+            adminGrupo1.Show();
+            adminGrupo1.BringToFront();
         }
         private int IndexGrupo()
         {

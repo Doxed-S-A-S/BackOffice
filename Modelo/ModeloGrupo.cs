@@ -14,8 +14,14 @@ namespace Modelos
         public string descripcion;
         public string banner = "banenr"; //placeholder
         public string rol = "participante";
+        public int reports;
+
         public int id_cuenta;
         public string nombre_usuario;
+
+        public int id_post;
+        public string PostContenido;
+
         public void Guardar()
         {
             if (this.id_grupo == 0) CrearGrupo();
@@ -104,6 +110,30 @@ namespace Modelos
             return grupos;
         }
 
+        public List<ModeloGrupo> ObtenerResponsablesDeGrupo(int id)
+        {
+            List<ModeloGrupo> grupos = new List<ModeloGrupo>();
+
+            string sql = $"SELECT cuenta.id_cuenta,cuenta.nombre_usuario,conforma.rol " +
+                $"FROM cuenta JOIN conforma ON cuenta.id_cuenta = conforma.id_cuenta " +
+                $"JOIN grupos ON conforma.id_grupo = grupos.id_grupo " +
+                $"WHERE grupos.id_grupo = {id}";
+            this.Comando.CommandText = sql;
+            this.Lector = this.Comando.ExecuteReader();
+
+            while (this.Lector.Read())
+            {
+                ModeloGrupo grupo = new ModeloGrupo();
+                grupo.id_cuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
+                grupo.nombre_usuario = this.Lector["nombre_usuario"].ToString();
+                grupo.rol = this.Lector["rol"].ToString();
+                grupos.Add(grupo);
+            }
+            this.Lector.Close();
+
+            return grupos;
+        }
+
         public bool BuscarGrupo(int id)
         {
             string sql = $"select * from grupos where eliminado = false and id_grupo = {id}";
@@ -117,6 +147,7 @@ namespace Modelos
                 this.nombre_grupo = this.Lector["nombre_grupo"].ToString();
                 this.descripcion = this.Lector["descripcion"].ToString();
                 this.banner = this.Lector["banner"].ToString();
+                this.reports = Int32.Parse(this.Lector["reports"].ToString());
                 this.Lector.Close();
                 return true;
 
@@ -129,6 +160,30 @@ namespace Modelos
             string sql = $"insert into conforma (id_cuenta,id_grupo,rol) values('{this.id_cuenta}','{this.id_grupo}','{this.rol}')";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
+        }
+        public List<ModeloGrupo> ObtenerPostsDeGrupo(int id_grupo)
+        {
+            List<ModeloGrupo> posts = new List<ModeloGrupo>();
+
+            string sql = $"select grupos.id_grupo,posts.id_post,posts.contenido,posts.id_cuenta,cuenta.nombre_usuario " +
+                $"from grupos join postea_grupos on grupos.id_grupo = postea_grupos.id_grupo " +
+                $"join posts on postea_grupos.id_post = posts.id_post " +
+                $"join cuenta on posts.id_cuenta = cuenta.id_cuenta " +
+                $"where grupos.id_grupo = {id_grupo}";
+            this.Comando.CommandText = sql;
+            this.Lector = this.Comando.ExecuteReader();
+
+            while (this.Lector.Read())
+            {
+                ModeloGrupo grupo = new ModeloGrupo();
+                grupo.id_post = Int32.Parse(this.Lector["id_post"].ToString());
+                grupo.PostContenido = this.Lector["contenido"].ToString();
+                grupo.nombre_usuario = this.Lector["nombre_usuario"].ToString();
+
+                posts.Add(grupo);
+            }
+            this.Lector.Close();
+            return posts;
         }
     }
 }
