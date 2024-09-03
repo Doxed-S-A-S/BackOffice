@@ -353,7 +353,7 @@ namespace Interfaz
             this.PanelBusquedaGrupo.Controls.Add(this.BtnSeleccionarGrupo);
             this.PanelBusquedaGrupo.Controls.Add(this.DgridBuscarGrupo);
             this.PanelBusquedaGrupo.Controls.Add(this.TboxBuscarGrupo);
-            this.PanelBusquedaGrupo.Location = new System.Drawing.Point(200, 24);
+            this.PanelBusquedaGrupo.Location = new System.Drawing.Point(197, 24);
             this.PanelBusquedaGrupo.Name = "PanelBusquedaGrupo";
             this.PanelBusquedaGrupo.Size = new System.Drawing.Size(586, 679);
             this.PanelBusquedaGrupo.TabIndex = 37;
@@ -445,7 +445,6 @@ namespace Interfaz
             this.PanelBusquedaUsuario.Controls.Add(this.BtnAcualtizarListaUsuarios);
             this.PanelBusquedaUsuario.Controls.Add(this.ChBoxUsuarioSuspendidos);
             this.PanelBusquedaUsuario.Controls.Add(this.ChBoxUsuarioTutores);
-            this.PanelBusquedaUsuario.Controls.Add(this.AdministracionDeUsuarios);
             this.PanelBusquedaUsuario.Controls.Add(this.ChBoxUsuarioReportados);
             this.PanelBusquedaUsuario.Controls.Add(this.label2);
             this.PanelBusquedaUsuario.Controls.Add(this.button2);
@@ -490,9 +489,9 @@ namespace Interfaz
             // 
             // AdministracionDeUsuarios
             // 
-            this.AdministracionDeUsuarios.Location = new System.Drawing.Point(0, 0);
+            this.AdministracionDeUsuarios.Location = new System.Drawing.Point(199, 24);
             this.AdministracionDeUsuarios.Name = "AdministracionDeUsuarios";
-            this.AdministracionDeUsuarios.Size = new System.Drawing.Size(1012, 648);
+            this.AdministracionDeUsuarios.Size = new System.Drawing.Size(1104, 648);
             this.AdministracionDeUsuarios.TabIndex = 20;
             this.AdministracionDeUsuarios.Visible = false;
             // 
@@ -568,7 +567,7 @@ namespace Interfaz
             // 
             // adminGrupo1
             // 
-            this.adminGrupo1.Location = new System.Drawing.Point(198, 24);
+            this.adminGrupo1.Location = new System.Drawing.Point(197, 24);
             this.adminGrupo1.Name = "adminGrupo1";
             this.adminGrupo1.Size = new System.Drawing.Size(1172, 679);
             this.adminGrupo1.TabIndex = 39;
@@ -585,6 +584,7 @@ namespace Interfaz
             this.Controls.Add(this.MainPanelBotones);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.PanelBusquedaUsuario);
+            this.Controls.Add(this.AdministracionDeUsuarios);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainBackoffice";

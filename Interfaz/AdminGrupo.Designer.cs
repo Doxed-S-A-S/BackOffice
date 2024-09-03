@@ -370,6 +370,7 @@ namespace Interfaz
             this.BtnSeleccionarUsuario.TabIndex = 87;
             this.BtnSeleccionarUsuario.Text = "Seleccionar usuario";
             this.BtnSeleccionarUsuario.UseVisualStyleBackColor = true;
+            this.BtnSeleccionarUsuario.Click += new System.EventHandler(this.BtnSeleccionarUsuario_Click);
             // 
             // StaticLbEvetnos
             // 

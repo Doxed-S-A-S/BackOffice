@@ -148,5 +148,15 @@ namespace Interfaz
                 MessageBox.Show("Comentario eliminado");
             }
         }
+        private int IndexUsuario()
+        {
+            int i = DgridUsuariosDeGrupo.CurrentCell.RowIndex;
+            return i;
+        }
+
+        private void BtnSeleccionarUsuario_Click(object sender, EventArgs e)
+        {
+            string id = DgridComentarios.Rows[IndexComentario()].Cells["IdComentario"].Value.ToString();
+        }
     }
 }
