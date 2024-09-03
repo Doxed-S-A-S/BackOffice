@@ -48,8 +48,12 @@ namespace Interfaz
             DgridPublicaciones.Refresh();
             DgridPublicaciones.DataSource = ControlGrupo.PostDeGrupo(LbIdGrupo.Text);
         }
-
-        // tabla de comentarios por grupo
+        private void refrescarTablaDeComentariosGrupo()
+        {
+            DgridComentarios.Refresh();
+            string id = DgridPublicaciones.Rows[IndexPublicacion()].Cells["Id_post"].Value.ToString();
+            DgridComentarios.DataSource = ControlComentarios.ListarComentarios(id);
+        }
         private void refrescarTablaDeIntegrantes()
         {
             DgridUsuariosDeGrupo.Refresh();
@@ -60,6 +64,89 @@ namespace Interfaz
             DgridResponsables.Refresh();
             DgridResponsables.DataSource = ControlGrupo.ObtenerResponsablesDeGrupo(LbIdGrupo.Text);
             DgridResponsables.Columns["id_cuenta"].Visible = false;
+        }
+
+        private void BtnModificarDescripcion_Click(object sender, EventArgs e)
+        {
+            DialogResult check = MessageBox.Show(
+                $"Esta seguro que desea modificar la Descripcion del grupo {LbNombreGrupo.Text}?",
+                "Esta seguro?",
+                MessageBoxButtons.YesNo);
+
+            if (check.ToString() == "Yes")
+            {
+                ControlGrupo.ModificarDescripcionGrupo(LbIdGrupo.Text, TboxModificarDescripcion.Text);
+            }
+
+            
+        }
+        private int IndexPublicacion()
+        {
+            int i = DgridPublicaciones.CurrentCell.RowIndex;
+            return i;
+        }
+        private void DgridPublicaciones_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            TboxContenido.Text = DgridPublicaciones.Rows[IndexPublicacion()].Cells["Contenido"].Value.ToString();
+            refrescarTablaDeComentariosGrupo();
+        }
+
+        private void BtnEditarPost_Click(object sender, EventArgs e)
+        {
+            string id = DgridPublicaciones.Rows[IndexPublicacion()].Cells["Id_post"].Value.ToString();
+            ControlPosts.ModificarPost(id, TboxContenido.Text);
+            MessageBox.Show("Se modifico el contenido");
+            refrescarTablaDePublicacionesGrupo();
+        }
+
+        private void BtnEliminarPost_Click(object sender, EventArgs e)
+        {
+            string id_post = DgridPublicaciones.Rows[IndexPublicacion()].Cells["Id_Post"].Value.ToString();
+            DialogResult resultado = MessageBox.Show(
+                $"Esta seguro que quiere eliminar el post {id_post}?",
+                "Esta seguro?",
+                MessageBoxButtons.YesNo);
+
+            if (resultado.ToString() == "Yes")
+            {
+                ControlPosts.ElimiarPost(id_post);
+                refrescarTablaDePublicacionesGrupo();
+                MessageBox.Show("Post eliminado");
+            }
+        }
+
+        private void BtnEditarComentario_Click(object sender, EventArgs e)
+        {
+            string id = DgridComentarios.Rows[IndexComentario()].Cells["IdComentario"].Value.ToString();
+            ControlComentarios.ModificarComentario(id, TboxComentarios.Text);
+            MessageBox.Show("Se modifico el comentario");
+            refrescarTablaDeComentariosGrupo();
+        }
+        private int IndexComentario()
+        {
+            int i = DgridComentarios.CurrentCell.RowIndex;
+            return i;
+        }
+
+        private void DgridComentarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            TboxComentarios.Text = DgridComentarios.Rows[IndexComentario()].Cells["Comentario"].Value.ToString();
+        }
+
+        private void BtnEliminarComentario_Click(object sender, EventArgs e)
+        {
+            string id = DgridComentarios.Rows[IndexComentario()].Cells["IdComentario"].Value.ToString();
+            DialogResult resultado = MessageBox.Show(
+                $"Esta seguro que quiere eliminar el comentario selecionado?",
+                "Esta seguro?",
+                MessageBoxButtons.YesNo);
+
+            if (resultado.ToString() == "Yes")
+            {
+                ControlComentarios.EliminarComentario(id);
+                refrescarTablaDeComentariosGrupo();
+                MessageBox.Show("Comentario eliminado");
+            }
         }
     }
 }

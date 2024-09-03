@@ -49,7 +49,7 @@ namespace Controlador
         {
             ModeloGrupo grupo = new Modelos.ModeloGrupo();
             grupo.id_grupo = Int32.Parse(id);
-            grupo.nombre_grupo = descripcion;
+            grupo.descripcion = descripcion;
 
             grupo.ModificarDescripcionGrupo();
 

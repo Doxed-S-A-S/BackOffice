@@ -169,7 +169,7 @@ namespace Modelos
                 $"from grupos join postea_grupos on grupos.id_grupo = postea_grupos.id_grupo " +
                 $"join posts on postea_grupos.id_post = posts.id_post " +
                 $"join cuenta on posts.id_cuenta = cuenta.id_cuenta " +
-                $"where grupos.id_grupo = {id_grupo}";
+                $"where grupos.id_grupo = {id_grupo} and posts.eliminado = false";
             this.Comando.CommandText = sql;
             this.Lector = this.Comando.ExecuteReader();
 

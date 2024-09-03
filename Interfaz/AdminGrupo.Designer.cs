@@ -57,10 +57,15 @@ namespace Interfaz
             this.DgridUsuariosDeGrupo = new System.Windows.Forms.DataGridView();
             this.StaticLbUsuariosGrupo = new System.Windows.Forms.Label();
             this.DgridResponsables = new System.Windows.Forms.DataGridView();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.BtnSeleccionarEvento = new System.Windows.Forms.Button();
+            this.BtnSeleccionarUsuario = new System.Windows.Forms.Button();
+            this.StaticLbEvetnos = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgridComentarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridPublicaciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridUsuariosDeGrupo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridResponsables)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnActualizarDatosCuenta
@@ -89,6 +94,7 @@ namespace Interfaz
             this.BtnModificarDescripcion.TabIndex = 78;
             this.BtnModificarDescripcion.Text = "Modificar descripcion";
             this.BtnModificarDescripcion.UseVisualStyleBackColor = true;
+            this.BtnModificarDescripcion.Click += new System.EventHandler(this.BtnModificarDescripcion_Click);
             // 
             // TboxModificarDescripcion
             // 
@@ -133,6 +139,7 @@ namespace Interfaz
             this.BtnEliminarComentario.TabIndex = 70;
             this.BtnEliminarComentario.Text = "Eliminar";
             this.BtnEliminarComentario.UseVisualStyleBackColor = true;
+            this.BtnEliminarComentario.Click += new System.EventHandler(this.BtnEliminarComentario_Click);
             // 
             // BtnEditarComentario
             // 
@@ -142,6 +149,7 @@ namespace Interfaz
             this.BtnEditarComentario.TabIndex = 69;
             this.BtnEditarComentario.Text = "Editar";
             this.BtnEditarComentario.UseVisualStyleBackColor = true;
+            this.BtnEditarComentario.Click += new System.EventHandler(this.BtnEditarComentario_Click);
             // 
             // TboxComentarios
             // 
@@ -163,6 +171,7 @@ namespace Interfaz
             this.DgridComentarios.Name = "DgridComentarios";
             this.DgridComentarios.Size = new System.Drawing.Size(363, 186);
             this.DgridComentarios.TabIndex = 67;
+            this.DgridComentarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgridComentarios_CellClick);
             // 
             // DgridPublicaciones
             // 
@@ -176,6 +185,7 @@ namespace Interfaz
             this.DgridPublicaciones.Name = "DgridPublicaciones";
             this.DgridPublicaciones.Size = new System.Drawing.Size(363, 391);
             this.DgridPublicaciones.TabIndex = 66;
+            this.DgridPublicaciones.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgridPublicaciones_CellClick);
             // 
             // BtnEliminarPost
             // 
@@ -185,6 +195,7 @@ namespace Interfaz
             this.BtnEliminarPost.TabIndex = 65;
             this.BtnEliminarPost.Text = "Eliminar";
             this.BtnEliminarPost.UseVisualStyleBackColor = true;
+            this.BtnEliminarPost.Click += new System.EventHandler(this.BtnEliminarPost_Click);
             // 
             // BtnEditarPost
             // 
@@ -194,6 +205,7 @@ namespace Interfaz
             this.BtnEditarPost.TabIndex = 64;
             this.BtnEditarPost.Text = "Editar";
             this.BtnEditarPost.UseVisualStyleBackColor = true;
+            this.BtnEditarPost.Click += new System.EventHandler(this.BtnEditarPost_Click);
             // 
             // TboxContenido
             // 
@@ -303,7 +315,7 @@ namespace Interfaz
             this.DgridUsuariosDeGrupo.Location = new System.Drawing.Point(803, 30);
             this.DgridUsuariosDeGrupo.MultiSelect = false;
             this.DgridUsuariosDeGrupo.Name = "DgridUsuariosDeGrupo";
-            this.DgridUsuariosDeGrupo.Size = new System.Drawing.Size(257, 615);
+            this.DgridUsuariosDeGrupo.Size = new System.Drawing.Size(257, 391);
             this.DgridUsuariosDeGrupo.TabIndex = 82;
             // 
             // StaticLbUsuariosGrupo
@@ -328,10 +340,54 @@ namespace Interfaz
             this.DgridResponsables.Size = new System.Drawing.Size(201, 144);
             this.DgridResponsables.TabIndex = 84;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(803, 459);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(257, 186);
+            this.dataGridView1.TabIndex = 85;
+            // 
+            // BtnSeleccionarEvento
+            // 
+            this.BtnSeleccionarEvento.Location = new System.Drawing.Point(1066, 462);
+            this.BtnSeleccionarEvento.Name = "BtnSeleccionarEvento";
+            this.BtnSeleccionarEvento.Size = new System.Drawing.Size(108, 23);
+            this.BtnSeleccionarEvento.TabIndex = 86;
+            this.BtnSeleccionarEvento.Text = "Seleccionar evento";
+            this.BtnSeleccionarEvento.UseVisualStyleBackColor = true;
+            // 
+            // BtnSeleccionarUsuario
+            // 
+            this.BtnSeleccionarUsuario.Location = new System.Drawing.Point(1066, 30);
+            this.BtnSeleccionarUsuario.Name = "BtnSeleccionarUsuario";
+            this.BtnSeleccionarUsuario.Size = new System.Drawing.Size(108, 23);
+            this.BtnSeleccionarUsuario.TabIndex = 87;
+            this.BtnSeleccionarUsuario.Text = "Seleccionar usuario";
+            this.BtnSeleccionarUsuario.UseVisualStyleBackColor = true;
+            // 
+            // StaticLbEvetnos
+            // 
+            this.StaticLbEvetnos.AutoSize = true;
+            this.StaticLbEvetnos.Location = new System.Drawing.Point(800, 443);
+            this.StaticLbEvetnos.Name = "StaticLbEvetnos";
+            this.StaticLbEvetnos.Size = new System.Drawing.Size(49, 13);
+            this.StaticLbEvetnos.TabIndex = 88;
+            this.StaticLbEvetnos.Text = "Eventos:";
+            // 
             // AdminGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.StaticLbEvetnos);
+            this.Controls.Add(this.BtnSeleccionarUsuario);
+            this.Controls.Add(this.BtnSeleccionarEvento);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.DgridResponsables);
             this.Controls.Add(this.StaticLbUsuariosGrupo);
             this.Controls.Add(this.DgridUsuariosDeGrupo);
@@ -361,12 +417,13 @@ namespace Interfaz
             this.Controls.Add(this.StaticLbUsername);
             this.Controls.Add(this.StaticLbImgProfile);
             this.Name = "AdminGrupo";
-            this.Size = new System.Drawing.Size(1133, 648);
+            this.Size = new System.Drawing.Size(1206, 648);
             this.Load += new System.EventHandler(this.AdminGrupo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgridComentarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridPublicaciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridUsuariosDeGrupo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridResponsables)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -402,5 +459,9 @@ namespace Interfaz
         private System.Windows.Forms.DataGridView DgridUsuariosDeGrupo;
         private System.Windows.Forms.Label StaticLbUsuariosGrupo;
         private System.Windows.Forms.DataGridView DgridResponsables;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button BtnSeleccionarEvento;
+        private System.Windows.Forms.Button BtnSeleccionarUsuario;
+        private System.Windows.Forms.Label StaticLbEvetnos;
     }
 }

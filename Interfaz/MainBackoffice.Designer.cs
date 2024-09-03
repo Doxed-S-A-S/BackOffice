@@ -570,7 +570,7 @@ namespace Interfaz
             // 
             this.adminGrupo1.Location = new System.Drawing.Point(198, 24);
             this.adminGrupo1.Name = "adminGrupo1";
-            this.adminGrupo1.Size = new System.Drawing.Size(1076, 648);
+            this.adminGrupo1.Size = new System.Drawing.Size(1172, 679);
             this.adminGrupo1.TabIndex = 39;
             this.adminGrupo1.Visible = false;
             // 
