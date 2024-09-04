@@ -178,8 +178,9 @@ namespace Interfaz
             {
                 ControlCuenta.EliminarCuenta(LbIdUsuario.Text,TboxVerificarUsername.Text);
                 refrescarTablaDeComentarios();
-                MessageBox.Show("Comentario eliminado");
+                MessageBox.Show("Usuario eliminado");
             }
+            TboxVerificarUsername.Clear();
             TboxVerificarUsername.Hide();
         }
     }

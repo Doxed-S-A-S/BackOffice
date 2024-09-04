@@ -61,6 +61,8 @@ namespace Interfaz
             this.BtnSeleccionarEvento = new System.Windows.Forms.Button();
             this.BtnSeleccionarUsuario = new System.Windows.Forms.Button();
             this.StaticLbEvetnos = new System.Windows.Forms.Label();
+            this.TboxVerificarNombreGrupo = new System.Windows.Forms.TextBox();
+            this.BtnEliminarGrupo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgridComentarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridPublicaciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridUsuariosDeGrupo)).BeginInit();
@@ -312,7 +314,7 @@ namespace Interfaz
             this.DgridUsuariosDeGrupo.AllowUserToResizeColumns = false;
             this.DgridUsuariosDeGrupo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgridUsuariosDeGrupo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgridUsuariosDeGrupo.Location = new System.Drawing.Point(803, 30);
+            this.DgridUsuariosDeGrupo.Location = new System.Drawing.Point(787, 30);
             this.DgridUsuariosDeGrupo.MultiSelect = false;
             this.DgridUsuariosDeGrupo.Name = "DgridUsuariosDeGrupo";
             this.DgridUsuariosDeGrupo.Size = new System.Drawing.Size(257, 391);
@@ -321,7 +323,7 @@ namespace Interfaz
             // StaticLbUsuariosGrupo
             // 
             this.StaticLbUsuariosGrupo.AutoSize = true;
-            this.StaticLbUsuariosGrupo.Location = new System.Drawing.Point(800, 14);
+            this.StaticLbUsuariosGrupo.Location = new System.Drawing.Point(784, 14);
             this.StaticLbUsuariosGrupo.Name = "StaticLbUsuariosGrupo";
             this.StaticLbUsuariosGrupo.Size = new System.Drawing.Size(119, 13);
             this.StaticLbUsuariosGrupo.TabIndex = 83;
@@ -348,14 +350,14 @@ namespace Interfaz
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(803, 459);
+            this.dataGridView1.Location = new System.Drawing.Point(787, 459);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(257, 186);
             this.dataGridView1.TabIndex = 85;
             // 
             // BtnSeleccionarEvento
             // 
-            this.BtnSeleccionarEvento.Location = new System.Drawing.Point(1066, 462);
+            this.BtnSeleccionarEvento.Location = new System.Drawing.Point(1050, 462);
             this.BtnSeleccionarEvento.Name = "BtnSeleccionarEvento";
             this.BtnSeleccionarEvento.Size = new System.Drawing.Size(108, 23);
             this.BtnSeleccionarEvento.TabIndex = 86;
@@ -364,7 +366,7 @@ namespace Interfaz
             // 
             // BtnSeleccionarUsuario
             // 
-            this.BtnSeleccionarUsuario.Location = new System.Drawing.Point(1066, 30);
+            this.BtnSeleccionarUsuario.Location = new System.Drawing.Point(1050, 30);
             this.BtnSeleccionarUsuario.Name = "BtnSeleccionarUsuario";
             this.BtnSeleccionarUsuario.Size = new System.Drawing.Size(108, 23);
             this.BtnSeleccionarUsuario.TabIndex = 87;
@@ -375,16 +377,38 @@ namespace Interfaz
             // StaticLbEvetnos
             // 
             this.StaticLbEvetnos.AutoSize = true;
-            this.StaticLbEvetnos.Location = new System.Drawing.Point(800, 443);
+            this.StaticLbEvetnos.Location = new System.Drawing.Point(784, 443);
             this.StaticLbEvetnos.Name = "StaticLbEvetnos";
             this.StaticLbEvetnos.Size = new System.Drawing.Size(49, 13);
             this.StaticLbEvetnos.TabIndex = 88;
             this.StaticLbEvetnos.Text = "Eventos:";
             // 
+            // TboxVerificarNombreGrupo
+            // 
+            this.TboxVerificarNombreGrupo.Location = new System.Drawing.Point(1050, 625);
+            this.TboxVerificarNombreGrupo.Name = "TboxVerificarNombreGrupo";
+            this.TboxVerificarNombreGrupo.Size = new System.Drawing.Size(117, 20);
+            this.TboxVerificarNombreGrupo.TabIndex = 90;
+            this.TboxVerificarNombreGrupo.Visible = false;
+            // 
+            // BtnEliminarGrupo
+            // 
+            this.BtnEliminarGrupo.BackColor = System.Drawing.Color.Red;
+            this.BtnEliminarGrupo.ForeColor = System.Drawing.Color.White;
+            this.BtnEliminarGrupo.Location = new System.Drawing.Point(1050, 586);
+            this.BtnEliminarGrupo.Name = "BtnEliminarGrupo";
+            this.BtnEliminarGrupo.Size = new System.Drawing.Size(117, 33);
+            this.BtnEliminarGrupo.TabIndex = 89;
+            this.BtnEliminarGrupo.Text = "Eliminar este grupo";
+            this.BtnEliminarGrupo.UseVisualStyleBackColor = false;
+            this.BtnEliminarGrupo.Click += new System.EventHandler(this.BtnEliminarGrupo_Click);
+            // 
             // AdminGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.TboxVerificarNombreGrupo);
+            this.Controls.Add(this.BtnEliminarGrupo);
             this.Controls.Add(this.StaticLbEvetnos);
             this.Controls.Add(this.BtnSeleccionarUsuario);
             this.Controls.Add(this.BtnSeleccionarEvento);
@@ -464,5 +488,7 @@ namespace Interfaz
         private System.Windows.Forms.Button BtnSeleccionarEvento;
         private System.Windows.Forms.Button BtnSeleccionarUsuario;
         private System.Windows.Forms.Label StaticLbEvetnos;
+        private System.Windows.Forms.TextBox TboxVerificarNombreGrupo;
+        private System.Windows.Forms.Button BtnEliminarGrupo;
     }
 }

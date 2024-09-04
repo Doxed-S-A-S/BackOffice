@@ -158,5 +158,29 @@ namespace Interfaz
         {
             string id = DgridComentarios.Rows[IndexComentario()].Cells["IdComentario"].Value.ToString();
         }
+
+        private void BtnEliminarGrupo_Click(object sender, EventArgs e)
+        {
+            if (TboxVerificarNombreGrupo.Text.Length == 0)
+            {
+                MessageBox.Show("Introduzca debajo del boton el nombre del grupo para verificar");
+                TboxVerificarNombreGrupo.Show();
+                return;
+            }
+
+            DialogResult resultado = MessageBox.Show(
+                $"Esta seguro que quiere eliminar el grupo {LbNombreGrupo.Text}?",
+                "Esta seguro?",
+                MessageBoxButtons.YesNo);
+
+            if (resultado.ToString() == "Yes")
+            {
+                ControlGrupo.EliminarGrupo(LbIdGrupo.Text);
+                RefrescarTodo();
+                MessageBox.Show("Grupo eliminado");
+            }
+            TboxVerificarNombreGrupo.Clear();
+            TboxVerificarNombreGrupo.Hide();
+        }
     }
 }
