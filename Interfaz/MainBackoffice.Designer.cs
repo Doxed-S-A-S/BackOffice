@@ -64,7 +64,6 @@ namespace Interfaz
             this.LbGrupoNumUsuarios = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.ChBoxGrupoEliminado = new System.Windows.Forms.CheckBox();
             this.StaticLbBusquedaGrupo = new System.Windows.Forms.Label();
             this.BtnSeleccionarGrupo = new System.Windows.Forms.Button();
             this.DgridBuscarGrupo = new System.Windows.Forms.DataGridView();
@@ -73,7 +72,6 @@ namespace Interfaz
             this.BtnAcualtizarListaUsuarios = new System.Windows.Forms.Button();
             this.ChBoxUsuarioSuspendidos = new System.Windows.Forms.CheckBox();
             this.ChBoxUsuarioTutores = new System.Windows.Forms.CheckBox();
-            this.AdministracionDeUsuarios = new Interfaz.AdminUsuario();
             this.ChBoxUsuarioReportados = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -81,7 +79,12 @@ namespace Interfaz
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.DgridUsuarios = new System.Windows.Forms.DataGridView();
+            this.AdministracionDeUsuarios = new Interfaz.AdminUsuario();
             this.adminGrupo1 = new Interfaz.AdminGrupo();
+            this.TboxBuscarIdGrupo = new System.Windows.Forms.TextBox();
+            this.BtnGrupoLimpiarFiltro = new System.Windows.Forms.Button();
+            this.LbGrupoIdMensaje = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.MainPanelBotones.SuspendLayout();
             this.PanelBusquedaPost.SuspendLayout();
@@ -344,11 +347,14 @@ namespace Interfaz
             // 
             // PanelBusquedaGrupo
             // 
+            this.PanelBusquedaGrupo.Controls.Add(this.label5);
+            this.PanelBusquedaGrupo.Controls.Add(this.LbGrupoIdMensaje);
+            this.PanelBusquedaGrupo.Controls.Add(this.BtnGrupoLimpiarFiltro);
+            this.PanelBusquedaGrupo.Controls.Add(this.TboxBuscarIdGrupo);
             this.PanelBusquedaGrupo.Controls.Add(this.TboxGrupoDescripcion);
             this.PanelBusquedaGrupo.Controls.Add(this.LbGrupoNumUsuarios);
             this.PanelBusquedaGrupo.Controls.Add(this.label4);
             this.PanelBusquedaGrupo.Controls.Add(this.label3);
-            this.PanelBusquedaGrupo.Controls.Add(this.ChBoxGrupoEliminado);
             this.PanelBusquedaGrupo.Controls.Add(this.StaticLbBusquedaGrupo);
             this.PanelBusquedaGrupo.Controls.Add(this.BtnSeleccionarGrupo);
             this.PanelBusquedaGrupo.Controls.Add(this.DgridBuscarGrupo);
@@ -395,24 +401,14 @@ namespace Interfaz
             this.label3.TabIndex = 5;
             this.label3.Text = "Descripcion del grupo:";
             // 
-            // ChBoxGrupoEliminado
-            // 
-            this.ChBoxGrupoEliminado.AutoSize = true;
-            this.ChBoxGrupoEliminado.Location = new System.Drawing.Point(15, 70);
-            this.ChBoxGrupoEliminado.Name = "ChBoxGrupoEliminado";
-            this.ChBoxGrupoEliminado.Size = new System.Drawing.Size(112, 17);
-            this.ChBoxGrupoEliminado.TabIndex = 4;
-            this.ChBoxGrupoEliminado.Text = "Grupos eliminados";
-            this.ChBoxGrupoEliminado.UseVisualStyleBackColor = true;
-            // 
             // StaticLbBusquedaGrupo
             // 
             this.StaticLbBusquedaGrupo.AutoSize = true;
-            this.StaticLbBusquedaGrupo.Location = new System.Drawing.Point(12, 28);
+            this.StaticLbBusquedaGrupo.Location = new System.Drawing.Point(12, 54);
             this.StaticLbBusquedaGrupo.Name = "StaticLbBusquedaGrupo";
-            this.StaticLbBusquedaGrupo.Size = new System.Drawing.Size(73, 13);
+            this.StaticLbBusquedaGrupo.Size = new System.Drawing.Size(128, 13);
             this.StaticLbBusquedaGrupo.TabIndex = 2;
-            this.StaticLbBusquedaGrupo.Text = "Buscar grupo:";
+            this.StaticLbBusquedaGrupo.Text = "Buscar nombre del grupo:";
             // 
             // BtnSeleccionarGrupo
             // 
@@ -426,6 +422,8 @@ namespace Interfaz
             // 
             // DgridBuscarGrupo
             // 
+            this.DgridBuscarGrupo.AllowUserToAddRows = false;
+            this.DgridBuscarGrupo.AllowUserToDeleteRows = false;
             this.DgridBuscarGrupo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgridBuscarGrupo.Location = new System.Drawing.Point(15, 99);
             this.DgridBuscarGrupo.Name = "DgridBuscarGrupo";
@@ -435,10 +433,12 @@ namespace Interfaz
             // 
             // TboxBuscarGrupo
             // 
-            this.TboxBuscarGrupo.Location = new System.Drawing.Point(15, 44);
+            this.TboxBuscarGrupo.Location = new System.Drawing.Point(15, 70);
             this.TboxBuscarGrupo.Name = "TboxBuscarGrupo";
             this.TboxBuscarGrupo.Size = new System.Drawing.Size(188, 20);
             this.TboxBuscarGrupo.TabIndex = 0;
+            this.TboxBuscarGrupo.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TboxBuscarGrupo_MouseClick);
+            this.TboxBuscarGrupo.TextChanged += new System.EventHandler(this.TboxBuscarGrupo_TextChanged);
             // 
             // PanelBusquedaUsuario
             // 
@@ -486,14 +486,6 @@ namespace Interfaz
             this.ChBoxUsuarioTutores.TabIndex = 53;
             this.ChBoxUsuarioTutores.Text = "Tutores";
             this.ChBoxUsuarioTutores.UseVisualStyleBackColor = true;
-            // 
-            // AdministracionDeUsuarios
-            // 
-            this.AdministracionDeUsuarios.Location = new System.Drawing.Point(199, 24);
-            this.AdministracionDeUsuarios.Name = "AdministracionDeUsuarios";
-            this.AdministracionDeUsuarios.Size = new System.Drawing.Size(1104, 648);
-            this.AdministracionDeUsuarios.TabIndex = 20;
-            this.AdministracionDeUsuarios.Visible = false;
             // 
             // ChBoxUsuarioReportados
             // 
@@ -565,6 +557,14 @@ namespace Interfaz
             this.DgridUsuarios.Size = new System.Drawing.Size(363, 528);
             this.DgridUsuarios.TabIndex = 46;
             // 
+            // AdministracionDeUsuarios
+            // 
+            this.AdministracionDeUsuarios.Location = new System.Drawing.Point(199, 24);
+            this.AdministracionDeUsuarios.Name = "AdministracionDeUsuarios";
+            this.AdministracionDeUsuarios.Size = new System.Drawing.Size(1104, 648);
+            this.AdministracionDeUsuarios.TabIndex = 20;
+            this.AdministracionDeUsuarios.Visible = false;
+            // 
             // adminGrupo1
             // 
             this.adminGrupo1.Location = new System.Drawing.Point(197, 24);
@@ -573,18 +573,54 @@ namespace Interfaz
             this.adminGrupo1.TabIndex = 39;
             this.adminGrupo1.Visible = false;
             // 
+            // TboxBuscarIdGrupo
+            // 
+            this.TboxBuscarIdGrupo.Location = new System.Drawing.Point(15, 29);
+            this.TboxBuscarIdGrupo.Name = "TboxBuscarIdGrupo";
+            this.TboxBuscarIdGrupo.Size = new System.Drawing.Size(104, 20);
+            this.TboxBuscarIdGrupo.TabIndex = 9;
+            this.TboxBuscarIdGrupo.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TboxBuscarIdGrupo_MouseClick);
+            this.TboxBuscarIdGrupo.TextChanged += new System.EventHandler(this.TboxBuscarIdGrupo_TextChanged);
+            // 
+            // BtnGrupoLimpiarFiltro
+            // 
+            this.BtnGrupoLimpiarFiltro.Location = new System.Drawing.Point(306, 67);
+            this.BtnGrupoLimpiarFiltro.Name = "BtnGrupoLimpiarFiltro";
+            this.BtnGrupoLimpiarFiltro.Size = new System.Drawing.Size(75, 23);
+            this.BtnGrupoLimpiarFiltro.TabIndex = 11;
+            this.BtnGrupoLimpiarFiltro.Text = "Borrar filtros";
+            this.BtnGrupoLimpiarFiltro.UseVisualStyleBackColor = true;
+            this.BtnGrupoLimpiarFiltro.Click += new System.EventHandler(this.BtnGrupoLimpiarFiltro_Click);
+            // 
+            // LbGrupoIdMensaje
+            // 
+            this.LbGrupoIdMensaje.AutoSize = true;
+            this.LbGrupoIdMensaje.Location = new System.Drawing.Point(120, 32);
+            this.LbGrupoIdMensaje.Name = "LbGrupoIdMensaje";
+            this.LbGrupoIdMensaje.Size = new System.Drawing.Size(0, 13);
+            this.LbGrupoIdMensaje.TabIndex = 12;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 13);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(104, 13);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Buscar ID del grupo:";
+            // 
             // MainBackoffice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 703);
-            this.Controls.Add(this.adminGrupo1);
             this.Controls.Add(this.PanelBusquedaGrupo);
             this.Controls.Add(this.PanelBusquedaPost);
             this.Controls.Add(this.MainPanelBotones);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.PanelBusquedaUsuario);
             this.Controls.Add(this.AdministracionDeUsuarios);
+            this.Controls.Add(this.adminGrupo1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainBackoffice";
@@ -656,11 +692,14 @@ namespace Interfaz
         private System.Windows.Forms.DataGridView DgridBuscarGrupo;
         private System.Windows.Forms.TextBox TboxBuscarGrupo;
         private System.Windows.Forms.Button BtnBuscarGrupo;
-        private System.Windows.Forms.CheckBox ChBoxGrupoEliminado;
         private System.Windows.Forms.TextBox TboxGrupoDescripcion;
         private System.Windows.Forms.Label LbGrupoNumUsuarios;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private AdminGrupo adminGrupo1;
+        private System.Windows.Forms.TextBox TboxBuscarIdGrupo;
+        private System.Windows.Forms.Label LbGrupoIdMensaje;
+        private System.Windows.Forms.Button BtnGrupoLimpiarFiltro;
+        private System.Windows.Forms.Label label5;
     }
 }

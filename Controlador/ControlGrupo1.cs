@@ -79,8 +79,8 @@ namespace Controlador
         public static DataTable ObtenerGrupos()
         {
             DataTable tabla = new DataTable();
-            tabla.Columns.Add("id_grupo", typeof(int));
-            tabla.Columns.Add("nombre_grupo", typeof(string));
+            tabla.Columns.Add("ID del grupo", typeof(int));
+            tabla.Columns.Add("Nombre del grupo", typeof(string));
             tabla.Columns.Add("descripcion", typeof(string));
 
 
@@ -88,8 +88,8 @@ namespace Controlador
             foreach (ModeloGrupo p in grupo.ObtenerGrupos())
             {
                 DataRow fila = tabla.NewRow();
-                fila["id_grupo"] = p.id_grupo;
-                fila["nombre_grupo"] = p.nombre_grupo;
+                fila["ID del grupo"] = p.id_grupo;
+                fila["Nombre del grupo"] = p.nombre_grupo;
                 fila["descripcion"] = p.descripcion;
                 tabla.Rows.Add(fila);
             }

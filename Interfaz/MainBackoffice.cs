@@ -103,7 +103,6 @@ namespace Interfaz
             DgridListarPulicaciones.DataSource = ControlPosts.ListarReportados();
         }
 
-        // Busqueda de usuarios
 
         private int IndexUsuario()
         {
@@ -150,6 +149,9 @@ namespace Interfaz
         {
             DgridBuscarGrupo.Refresh();
             DgridBuscarGrupo.DataSource = ControlGrupo.ObtenerGrupos();
+            DgridBuscarGrupo.Columns["descripcion"].Visible = false;
+            this.DgridBuscarGrupo.Columns["ID del grupo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.DgridBuscarGrupo.Columns["Nombre del grupo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
         private void BtnSeleccionarGrupo_Click(object sender, EventArgs e)
         {
@@ -170,6 +172,40 @@ namespace Interfaz
         private void DgridBuscarGrupo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             TboxGrupoDescripcion.Text = DgridBuscarGrupo.Rows[IndexGrupo()].Cells["descripcion"].Value.ToString();
+        }
+
+        private void TboxBuscarGrupo_TextChanged(object sender, EventArgs e)
+        {
+            TboxBuscarIdGrupo.Clear();
+            (DgridBuscarGrupo.DataSource as DataTable).DefaultView.RowFilter = string.Format("[Nombre del grupo] LIKE '{0}%'", TboxBuscarGrupo.Text);
+        }
+
+        private void TboxBuscarIdGrupo_TextChanged(object sender, EventArgs e)
+        {
+            if (TboxBuscarIdGrupo.Text.Length == 0 || int.TryParse(TboxBuscarIdGrupo.Text, out int parse))
+            {
+                (DgridBuscarGrupo.DataSource as DataTable).DefaultView.RowFilter = string.Format("CONVERT([ID del grupo], 'System.String') LIKE '{0}%'", TboxBuscarIdGrupo.Text);
+                LbGrupoIdMensaje.Text = "";
+                return;
+            }
+            LbGrupoIdMensaje.Text = "Solo se permiten numeros sin espacios en este filtro";
+            return;
+        }
+
+        private void BtnGrupoLimpiarFiltro_Click(object sender, EventArgs e)
+        {
+            TboxBuscarGrupo.Clear();
+            TboxBuscarIdGrupo.Clear();
+        }
+
+        private void TboxBuscarIdGrupo_MouseClick(object sender, MouseEventArgs e)
+        {
+            TboxBuscarGrupo.Clear();
+        }
+
+        private void TboxBuscarGrupo_MouseClick(object sender, MouseEventArgs e)
+        {
+            TboxBuscarIdGrupo.Clear();
         }
     }
 }
