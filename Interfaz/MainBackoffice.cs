@@ -176,7 +176,6 @@ namespace Interfaz
 
         private void TboxBuscarGrupo_TextChanged(object sender, EventArgs e)
         {
-            TboxBuscarIdGrupo.Clear();
             (DgridBuscarGrupo.DataSource as DataTable).DefaultView.RowFilter = string.Format("[Nombre del grupo] LIKE '{0}%'", TboxBuscarGrupo.Text);
         }
 
@@ -206,6 +205,27 @@ namespace Interfaz
         private void TboxBuscarGrupo_MouseClick(object sender, MouseEventArgs e)
         {
             TboxBuscarIdGrupo.Clear();
+        }
+
+        private void BtnBuscarPost_Click(object sender, EventArgs e)
+        {
+            if(TboxFiltroPublicacion.Text.Length > 0 && int.TryParse(TboxFiltroPublicacion.Text, out int parse))
+            {
+                LbPostMensaje.Text = "";
+                refrescarTablaDePost(TboxFiltroPublicacion.Text);
+                return;
+            }
+            LbPostMensaje.Text = "Solo se permiten numeros sin espacios en este filtro";
+            return;
+        }
+
+        private void refrescarTablaDePost(string idPost)
+        {
+            DgridListarPulicaciones.Refresh();
+            DgridListarPulicaciones.DataSource = ControlPosts.ListarPostEspecificos(idPost);
+            DgridListarPulicaciones.Columns["ID de cuenta"].Visible = false;
+            this.DgridListarPulicaciones.Columns["ID del post"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.DgridListarPulicaciones.Columns["Contenido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
     }
 }

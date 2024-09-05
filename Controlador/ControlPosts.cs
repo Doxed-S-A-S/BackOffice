@@ -42,8 +42,8 @@ namespace Controlador
             tabla.Columns.Add("Contenido", typeof(string));
 
 
-            ModeloPost pizza = new ModeloPost();
-            foreach (ModeloPost p in pizza.ObtenerPosts(Int32.Parse(idCuenta))) 
+            ModeloPost post = new ModeloPost();
+            foreach (ModeloPost p in post.ObtenerPosts(Int32.Parse(idCuenta))) 
             {
                 DataRow fila = tabla.NewRow();
                 fila["Id_post"] = p.Id_Post;
@@ -80,17 +80,35 @@ namespace Controlador
             tabla.Columns.Add("Contenido", typeof(string));
 
 
-            ModeloPost pizza = new ModeloPost();
-            foreach (ModeloPost p in pizza.ObtenerPostsReportados())
+            ModeloPost post = new ModeloPost();
+            foreach (ModeloPost p in post.ObtenerPostsReportados())
             {
                 DataRow fila = tabla.NewRow();
                 fila["Id_post"] = p.Id_Post;
                 fila["Contenido"] = p.Contenido;
                 tabla.Rows.Add(fila);
             }
-
             return tabla;
+        }
 
+        public static DataTable ListarPostEspecificos(string idPost)
+        {
+            DataTable tabla = new DataTable();
+            tabla.Columns.Add("ID del post", typeof(int));
+            tabla.Columns.Add("Contenido", typeof(string));
+            tabla.Columns.Add("ID de cuenta", typeof(int));
+
+
+            ModeloPost post = new ModeloPost();
+            foreach (ModeloPost p in post.ObtenerPostsEspecificos(Int32.Parse(idPost)))
+            {
+                DataRow fila = tabla.NewRow();
+                fila["ID del post"] = p.Id_Post;
+                fila["Contenido"] = p.Contenido;
+                fila["ID de cuenta"] = p.Id_Cuenta;
+                tabla.Rows.Add(fila);
+            }
+            return tabla;
         }
 
     }
