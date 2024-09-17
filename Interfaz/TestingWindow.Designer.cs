@@ -64,6 +64,9 @@ namespace Interfaz
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.TestingBtnAgregarGrupo = new System.Windows.Forms.Button();
+            this.TestingChBoxGrupoPrivado = new System.Windows.Forms.CheckBox();
+            this.TestingComboBxRolGrupo = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TestingButtonCrearUsr
@@ -283,7 +286,7 @@ namespace Interfaz
             this.TestingTboxDescripcion.Location = new System.Drawing.Point(583, 95);
             this.TestingTboxDescripcion.Multiline = true;
             this.TestingTboxDescripcion.Name = "TestingTboxDescripcion";
-            this.TestingTboxDescripcion.Size = new System.Drawing.Size(172, 132);
+            this.TestingTboxDescripcion.Size = new System.Drawing.Size(172, 106);
             this.TestingTboxDescripcion.TabIndex = 64;
             // 
             // label12
@@ -366,11 +369,45 @@ namespace Interfaz
             this.TestingBtnAgregarGrupo.UseVisualStyleBackColor = true;
             this.TestingBtnAgregarGrupo.Click += new System.EventHandler(this.TestingBtnAgregarGrupo_Click);
             // 
+            // TestingChBoxGrupoPrivado
+            // 
+            this.TestingChBoxGrupoPrivado.AutoSize = true;
+            this.TestingChBoxGrupoPrivado.Location = new System.Drawing.Point(656, 206);
+            this.TestingChBoxGrupoPrivado.Name = "TestingChBoxGrupoPrivado";
+            this.TestingChBoxGrupoPrivado.Size = new System.Drawing.Size(99, 17);
+            this.TestingChBoxGrupoPrivado.TabIndex = 75;
+            this.TestingChBoxGrupoPrivado.Text = "Grupo privado?";
+            this.TestingChBoxGrupoPrivado.UseVisualStyleBackColor = true;
+            // 
+            // TestingComboBxRolGrupo
+            // 
+            this.TestingComboBxRolGrupo.FormattingEnabled = true;
+            this.TestingComboBxRolGrupo.Items.AddRange(new object[] {
+            "owner",
+            "administrador",
+            "participante"});
+            this.TestingComboBxRolGrupo.Location = new System.Drawing.Point(650, 329);
+            this.TestingComboBxRolGrupo.Name = "TestingComboBxRolGrupo";
+            this.TestingComboBxRolGrupo.Size = new System.Drawing.Size(119, 21);
+            this.TestingComboBxRolGrupo.TabIndex = 76;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(584, 332);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(26, 13);
+            this.label17.TabIndex = 77;
+            this.label17.Text = "Rol:";
+            // 
             // TestingWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 545);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.TestingComboBxRolGrupo);
+            this.Controls.Add(this.TestingChBoxGrupoPrivado);
             this.Controls.Add(this.TestingBtnAgregarGrupo);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
@@ -450,5 +487,8 @@ namespace Interfaz
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button TestingBtnAgregarGrupo;
+        private System.Windows.Forms.CheckBox TestingChBoxGrupoPrivado;
+        private System.Windows.Forms.ComboBox TestingComboBxRolGrupo;
+        private System.Windows.Forms.Label label17;
     }
 }

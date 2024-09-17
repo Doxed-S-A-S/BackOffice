@@ -114,7 +114,7 @@ namespace Interfaz
         {
             DgridUsuarios.Refresh();
             DgridUsuarios.DataSource = ControlCuenta.ListarCuentas();
-            DgridUsuarios.Columns["id_cuenta"].Visible = false;
+            DgridUsuarios.Columns["ID"].Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -149,13 +149,13 @@ namespace Interfaz
         {
             DgridBuscarGrupo.Refresh();
             DgridBuscarGrupo.DataSource = ControlGrupo.ObtenerGrupos();
-            DgridBuscarGrupo.Columns["descripcion"].Visible = false;
+            DgridBuscarGrupo.Columns["Descripcion"].Visible = false;
             this.DgridBuscarGrupo.Columns["ID del grupo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.DgridBuscarGrupo.Columns["Nombre del grupo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            this.DgridBuscarGrupo.Columns["Nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
         private void BtnSeleccionarGrupo_Click(object sender, EventArgs e)
         {
-            string idGrupo = DgridBuscarGrupo.Rows[IndexGrupo()].Cells["id_grupo"].Value.ToString();
+            string idGrupo = DgridBuscarGrupo.Rows[IndexGrupo()].Cells["ID del grupo"].Value.ToString();
             CerrarChildren();
             CerrarPaneles();
             OcultarUserControll();
@@ -171,12 +171,12 @@ namespace Interfaz
 
         private void DgridBuscarGrupo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            TboxGrupoDescripcion.Text = DgridBuscarGrupo.Rows[IndexGrupo()].Cells["descripcion"].Value.ToString();
+            TboxGrupoDescripcion.Text = DgridBuscarGrupo.Rows[IndexGrupo()].Cells["Descripcion"].Value.ToString();
         }
 
         private void TboxBuscarGrupo_TextChanged(object sender, EventArgs e)
         {
-            (DgridBuscarGrupo.DataSource as DataTable).DefaultView.RowFilter = string.Format("[Nombre del grupo] LIKE '{0}%'", TboxBuscarGrupo.Text);
+            (DgridBuscarGrupo.DataSource as DataTable).DefaultView.RowFilter = string.Format("[Nombre] LIKE '{0}%'", TboxBuscarGrupo.Text);
         }
 
         private void TboxBuscarIdGrupo_TextChanged(object sender, EventArgs e)
