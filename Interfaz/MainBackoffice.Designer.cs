@@ -691,11 +691,11 @@ namespace Interfaz
             this.ClientSize = new System.Drawing.Size(1370, 703);
             this.Controls.Add(this.MainPanelBotones);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.adminGrupo1);
+            this.Controls.Add(this.AdministracionDeUsuarios);
             this.Controls.Add(this.PanelBusquedaGrupo);
             this.Controls.Add(this.PanelBusquedaUsuario);
             this.Controls.Add(this.PanelBusquedaPost);
-            this.Controls.Add(this.AdministracionDeUsuarios);
-            this.Controls.Add(this.adminGrupo1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainBackoffice";
