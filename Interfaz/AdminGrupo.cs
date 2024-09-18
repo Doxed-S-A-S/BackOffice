@@ -31,7 +31,8 @@ namespace Interfaz
                 LbNombreGrupo.Text = ControlGrupo.BuscarGrupo(id)["nombre_grupo"];
                 TboxModificarDescripcion.Text = ControlGrupo.BuscarGrupo(id)["descripcion"];
                 LbNumReportes.Text = ControlGrupo.BuscarGrupo(id)["reports"];
-                // privado
+                LbGrupoPrivado.Text = ControlGrupo.BuscarGrupo(id)["privacidad"];
+                LbNumReportes.Text = ControlGrupo.BuscarGrupo(id)["reports"];
                 RefrescarTodo();
             }
         }

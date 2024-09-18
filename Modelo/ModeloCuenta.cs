@@ -362,14 +362,14 @@ namespace Modelos
         {
             try
             {
-                string sql = $"select * from usuario where id_usuario = '{this.id_usuario}'";
+                string sql = $"select * from usuario where id_usuario = {this.id_usuario}";
                 this.Comando.CommandText = sql;
                 this.Lector = this.Comando.ExecuteReader();
 
                 if (Lector.HasRows)
                 {
                     this.Lector.Read();
-                    this.nombre = this.Lector["nombre_grupo"].ToString();
+                    this.nombre = this.Lector["nombre"].ToString();
                     this.apellido1 = this.Lector["apellido1"].ToString();
                     this.apellido2 = this.Lector["apellido2"].ToString();
                     this.Lector.Close();

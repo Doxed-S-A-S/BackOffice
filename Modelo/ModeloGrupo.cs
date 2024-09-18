@@ -15,6 +15,7 @@ namespace Modelos
         public string descripcion;
         public string banner;
         public Boolean privacidad;
+        public int reports;
 
         public string rol;
         public int id_cuenta;
@@ -327,6 +328,8 @@ namespace Modelos
                     this.nombre_grupo = this.Lector["nombre_grupo"].ToString();
                     this.descripcion = this.Lector["descripcion"].ToString();
                     this.banner = this.Lector["banner"].ToString();
+                    this.reports = Int32.Parse(this.Lector["reports"].ToString());
+                    this.privacidad = bool.Parse(this.Lector["privacidad"].ToString());
                     this.Lector.Close();
                     return true;
 

@@ -235,6 +235,8 @@ namespace Controlador
                     resultado.Add("id", grupo.id_grupo.ToString());
                     resultado.Add("nombre_grupo", grupo.nombre_grupo);
                     resultado.Add("descripcion", grupo.descripcion);
+                    resultado.Add("reports", grupo.reports.ToString());
+                    resultado.Add("privacidad", grupo.privacidad.ToString());
                     resultado.Add("banner", grupo.banner);
                     return resultado;
                 }

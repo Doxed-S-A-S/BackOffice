@@ -162,10 +162,10 @@ namespace Controlador
                     usuario.Add("resultado", "true");
                     usuario.Add("id_usuario", u.id_cuenta.ToString());
                     usuario.Add("nombre_usuario", u.nombre_usuario);
-                    usuario.Add("nombre_grupo", u.nombre);
+                    usuario.Add("nombre", u.nombre);
                     usuario.Add("apellido1", u.apellido1);
                     usuario.Add("apellido2", u.apellido2);
-                    usuario.Add("email", u.email);
+                    usuario.Add("email", ObtenerCorreo(id));
                     usuario.Add("biografia", u.biografia);
                     usuario.Add("reports", u.reports.ToString());
                     return usuario;
