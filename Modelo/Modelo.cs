@@ -32,11 +32,17 @@ namespace Modelos
                 $"database={this.NombreBase};"
             );
 
-            this.Conexion.Open();
+            try
+            {
+                this.Conexion.Open();
 
-            this.Comando = new MySqlCommand();
-            this.Comando.Connection = this.Conexion;
-
+                this.Comando = new MySqlCommand();
+                this.Comando.Connection = this.Conexion;
+            }
+            catch (Exception)
+            {
+                throw new Exception("CANNOT_CONNECT_TO_DB");
+            }
         }
 
 

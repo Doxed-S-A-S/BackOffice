@@ -103,7 +103,6 @@ namespace Interfaz
             DgridListarPulicaciones.DataSource = ControlPosts.ListarReportados();
         }
 
-        // Busqueda de usuarios
 
         private int IndexUsuario()
         {
@@ -115,12 +114,12 @@ namespace Interfaz
         {
             DgridUsuarios.Refresh();
             DgridUsuarios.DataSource = ControlCuenta.ListarCuentas();
-            DgridUsuarios.Columns["id_cuenta"].Visible = false;
+            DgridUsuarios.Columns["ID"].Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string idCuenta = DgridUsuarios.Rows[IndexUsuario()].Cells["id_cuenta"].Value.ToString();
+            string idCuenta = DgridUsuarios.Rows[IndexUsuario()].Cells["ID"].Value.ToString();
             CerrarChildren();
             CerrarPaneles();
             OcultarUserControll();
@@ -150,10 +149,13 @@ namespace Interfaz
         {
             DgridBuscarGrupo.Refresh();
             DgridBuscarGrupo.DataSource = ControlGrupo.ObtenerGrupos();
+            DgridBuscarGrupo.Columns["Descripcion"].Visible = false;
+            this.DgridBuscarGrupo.Columns["ID del grupo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.DgridBuscarGrupo.Columns["Nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
         private void BtnSeleccionarGrupo_Click(object sender, EventArgs e)
         {
-            string idGrupo = DgridBuscarGrupo.Rows[IndexGrupo()].Cells["id_grupo"].Value.ToString();
+            string idGrupo = DgridBuscarGrupo.Rows[IndexGrupo()].Cells["ID del grupo"].Value.ToString();
             CerrarChildren();
             CerrarPaneles();
             OcultarUserControll();
@@ -169,7 +171,61 @@ namespace Interfaz
 
         private void DgridBuscarGrupo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            TboxGrupoDescripcion.Text = DgridBuscarGrupo.Rows[IndexGrupo()].Cells["descripcion"].Value.ToString();
+            TboxGrupoDescripcion.Text = DgridBuscarGrupo.Rows[IndexGrupo()].Cells["Descripcion"].Value.ToString();
+        }
+
+        private void TboxBuscarGrupo_TextChanged(object sender, EventArgs e)
+        {
+            (DgridBuscarGrupo.DataSource as DataTable).DefaultView.RowFilter = string.Format("[Nombre] LIKE '{0}%'", TboxBuscarGrupo.Text);
+        }
+
+        private void TboxBuscarIdGrupo_TextChanged(object sender, EventArgs e)
+        {
+            if (TboxBuscarIdGrupo.Text.Length == 0 || int.TryParse(TboxBuscarIdGrupo.Text, out int parse))
+            {
+                (DgridBuscarGrupo.DataSource as DataTable).DefaultView.RowFilter = string.Format("CONVERT([ID del grupo], 'System.String') LIKE '{0}%'", TboxBuscarIdGrupo.Text);
+                LbGrupoIdMensaje.Text = "";
+                return;
+            }
+            LbGrupoIdMensaje.Text = "Solo se permiten numeros sin espacios en este filtro";
+            return;
+        }
+
+        private void BtnGrupoLimpiarFiltro_Click(object sender, EventArgs e)
+        {
+            TboxBuscarGrupo.Clear();
+            TboxBuscarIdGrupo.Clear();
+        }
+
+        private void TboxBuscarIdGrupo_MouseClick(object sender, MouseEventArgs e)
+        {
+            TboxBuscarGrupo.Clear();
+        }
+
+        private void TboxBuscarGrupo_MouseClick(object sender, MouseEventArgs e)
+        {
+            TboxBuscarIdGrupo.Clear();
+        }
+
+        private void BtnBuscarPost_Click(object sender, EventArgs e)
+        {
+            if(TboxFiltroPublicacion.Text.Length > 0 && int.TryParse(TboxFiltroPublicacion.Text, out int parse))
+            {
+                LbPostMensaje.Text = "";
+                refrescarTablaDePost(TboxFiltroPublicacion.Text);
+                return;
+            }
+            LbPostMensaje.Text = "Solo se permiten numeros sin espacios en este filtro";
+            return;
+        }
+
+        private void refrescarTablaDePost(string idPost)
+        {
+            DgridListarPulicaciones.Refresh();
+            DgridListarPulicaciones.DataSource = ControlPosts.ListarPostEspecificos(idPost);
+            DgridListarPulicaciones.Columns["ID de cuenta"].Visible = false;
+            this.DgridListarPulicaciones.Columns["ID del post"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.DgridListarPulicaciones.Columns["Contenido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
     }
 }

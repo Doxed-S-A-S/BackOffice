@@ -24,7 +24,8 @@ namespace Modelos
 
         private void InsertarPost()
         {
-            string sql = $"insert into posts (contenido,url_contenido,tags,id_cuenta) values('{this.Contenido}','{this.url_contenido}','{this.tipo_contenido}',{this.Id_Cuenta})";
+            string sql = $"insert into posts (contenido,url_contenido,tipo_contenido,id_cuenta) " +
+                $"values('{this.Contenido}','{this.url_contenido}','{this.tipo_contenido}',{this.Id_Cuenta})";
             PrintDesktop(sql);
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
@@ -70,7 +71,7 @@ namespace Modelos
         {
             List<ModeloPost> posts = new List<ModeloPost>();
 
-            string sql = $"select * from posts where eliminado = false and id_cuenta = {id_cuenta}";
+            string sql = $"select * from posts where eliminado = false and id_cuenta = {id_cuenta} and reports <= 4";
             this.Comando.CommandText = sql;
             this.Lector = this.Comando.ExecuteReader();
 
@@ -98,6 +99,26 @@ namespace Modelos
                 ModeloPost post = new ModeloPost();
                 post.Id_Post = Int32.Parse(this.Lector["Id_post"].ToString());
                 post.Contenido = this.Lector["Contenido"].ToString();
+                posts.Add(post);
+            }
+            this.Lector.Close();
+            return posts;
+        }
+
+        public List<ModeloPost> ObtenerPostsEspecificos(int idPost)
+        {
+            List<ModeloPost> posts = new List<ModeloPost>();
+
+            string sql = $"select * from posts where id_post like '{idPost}%' and eliminado = false and reports <= 4";
+            this.Comando.CommandText = sql;
+            this.Lector = this.Comando.ExecuteReader();
+
+            while (this.Lector.Read())
+            {
+                ModeloPost post = new ModeloPost();
+                post.Id_Post = Int32.Parse(this.Lector["Id_post"].ToString());
+                post.Contenido = this.Lector["Contenido"].ToString();
+                post.Id_Cuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
                 posts.Add(post);
             }
             this.Lector.Close();

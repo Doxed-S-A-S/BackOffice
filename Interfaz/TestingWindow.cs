@@ -22,6 +22,17 @@ namespace Interfaz
         private void TestingButtonCrearUsr_Click(object sender, EventArgs e)
         {
             ControlCuenta.CrearCuenta(TestingTboxUsername.Text, TestingTboxEmail.Text, TestingTboxContraseña.Text);
+            DialogResult Hecho = MessageBox.Show(
+    $"Usuario creado, quiere limipar las cajas de texto?",
+    "",
+    MessageBoxButtons.YesNo);
+
+            if (Hecho.ToString() == "Yes")
+            {
+                TestingTboxUsername.Clear();
+                TestingTboxEmail.Clear();
+                TestingTboxContraseña.Clear();
+            }
         }
 
         private void TestingBtnPub_Click(object sender, EventArgs e)
@@ -41,12 +52,13 @@ namespace Interfaz
 
         private void TestingBtnCrearGrupo_Click(object sender, EventArgs e)
         {
-            ControlGrupo.CrearGrupo(TestingTboxNombreGrupo.Text, TestingTboxDescripcion.Text);
+            string banner = "Banner";
+            ControlGrupo.CrearGrupo(TestingTboxAddUserID.Text,TestingTboxNombreGrupo.Text,TestingTboxDescripcion.Text,TestingChBoxGrupoPrivado.Checked.ToString(),banner);
         }
 
         private void TestingBtnAgregarGrupo_Click(object sender, EventArgs e)
         {
-            ControlGrupo.AgregarCuentaEnGrupo(TestingTboxAddGrupoID.Text, TestingTboxAddUserID.Text);
+            ControlGrupo.AgregarCuentaEnGrupo(TestingComboBxRolGrupo.ToString(),TestingTboxAddGrupoID.Text, TestingTboxAddUserID.Text);
         }
     }
 }
