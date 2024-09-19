@@ -24,6 +24,32 @@ namespace Interfaz
             refrescarTablaDePublicaciones();
         }
 
+        public void CargarUsuario(string id)
+        {
+            if (id != null)
+            {
+                LbIdUsuario.Text = ControlCuenta.BuscarUsuario(id)["id_usuario"].ToString();
+                LbUsername.Text = ControlCuenta.BuscarUsuario(id)["nombre_usuario"].ToString();
+                LbNombreCompelto.Text = GenerarNombreCompleto(id);
+                // estado
+                LbNumReportes.Text = ControlCuenta.BuscarUsuario(id)["reports"].ToString();
+                TboxModificarCorreo.Text = ControlCuenta.BuscarUsuario(id)["email"].ToString();
+                TboxModificarBiografia.Text = ControlCuenta.BuscarUsuario(id)["biografia"].ToString();
+            }
+        }
+
+        public string GenerarNombreCompleto(string id)
+        {
+            string nombreCompleto = ControlCuenta.BuscarUsuario(id)["nombre"].ToString();
+            nombreCompleto += " ";
+            nombreCompleto += ControlCuenta.BuscarUsuario(id)["apellido1"].ToString();
+            nombreCompleto += " ";
+            nombreCompleto += ControlCuenta.BuscarUsuario(id)["apellido2"].ToString();
+
+            return nombreCompleto;
+        }
+
+
 
         /********************************************Publicaciones***************************************************************/
         private int IndexPublicacion()
@@ -35,13 +61,8 @@ namespace Interfaz
         private void refrescarTablaDePublicaciones()
         {
             DgridPublicaciones.Refresh();
-            DgridPublicaciones.DataSource = ControlPosts.Listar();
+            DgridPublicaciones.DataSource = ControlPosts.Listar(LbIdUsuario.Text);
             DgridPublicaciones.Columns["Id_post"].Visible = false;
-        }
-
-        private void BtnActualizarPub_Click(object sender, EventArgs e)
-        {
-            refrescarTablaDePublicaciones();
         }
 
         private void DgridPublicaciones_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -74,6 +95,19 @@ namespace Interfaz
             }
         }
 
+        private void BtnModificarCorreo_Click(object sender, EventArgs e)
+        {
+            DialogResult seguro = MessageBox.Show(
+                $"Esta seguro que desea modificar el Email del usuario {LbUsername.Text}?",
+                "Esta seguro?",
+                MessageBoxButtons.YesNo);
+
+            if (seguro.ToString()== "Yes")
+            {
+                ControlCuenta.ModificarCorreo(LbIdUsuario.Text, TboxModificarCorreo.Text);
+            }
+        }
+
         /********************************************Comentarios***************************************************************/
         private int IndexComentario()
         {
@@ -87,11 +121,6 @@ namespace Interfaz
             DgridComentarios.DataSource = ControlComentarios.ListarComentarios(DgridPublicaciones.Rows[IndexPublicacion()].Cells["Id_post"].Value.ToString());
             DgridComentarios.Columns["IdComentario"].Visible = false;
             DgridComentarios.Columns["idPost"].Visible = false;
-        }
-
-        private void BtnActualizarComentarios_Click(object sender, EventArgs e)
-        {
-            refrescarTablaDeComentarios();
         }
 
 
@@ -124,6 +153,35 @@ namespace Interfaz
             }
         }
 
+        private void BtnActualizarDatosCuenta_Click(object sender, EventArgs e)
+        {
+            refrescarTablaDePublicaciones();
+            DgridComentarios.Refresh();
+            refrescarTablaDeComentarios();
+        }
 
+        private void BtnEliminarCuenta_Click(object sender, EventArgs e)
+        {
+            if(TboxVerificarUsername.Text.Length == 0)
+            {
+                MessageBox.Show("Introduzca debajo del boton el nombre de usuario para verificar");
+                TboxVerificarUsername.Show();
+                return;
+            }
+
+            DialogResult resultado = MessageBox.Show(
+                $"Esta seguro que quiere eliminar el usuario {LbUsername.Text}?",
+                "Esta seguro?",
+                MessageBoxButtons.YesNo);
+                
+            if (resultado.ToString() == "Yes")
+            {
+                ControlCuenta.EliminarCuenta(LbIdUsuario.Text,TboxVerificarUsername.Text);
+                refrescarTablaDeComentarios();
+                MessageBox.Show("Usuario eliminado");
+            }
+            TboxVerificarUsername.Clear();
+            TboxVerificarUsername.Hide();
+        }
     }
 }

@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminGrupo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminGrupo.Designer.cs">
+      <DependentUpon>AdminGrupo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdministracionPost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdministracionPost.Designer.cs">
+      <DependentUpon>AdministracionPost.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminUsuario.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -66,6 +78,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestingWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestingWindow.Designer.cs">
+      <DependentUpon>TestingWindow.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AdminGrupo.resx">
+      <DependentUpon>AdminGrupo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdministracionPost.resx">
+      <DependentUpon>AdministracionPost.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminUsuario.resx">
       <DependentUpon>AdminUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -84,6 +108,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TestingWindow.resx">
+      <DependentUpon>TestingWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
