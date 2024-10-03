@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace Modelos
 {
@@ -28,16 +29,11 @@ namespace Modelos
         public int id_muro;
         public int id_grupo;
 
-        const int MYSQL_DUPLICATE_ENTRY = 1062;
-        const int MYSQL_ACCESS_DENIED = 1045;
-        const int MYSQL_UNKNOWN_COLUMN = 1054;
-        const int MYSQL_ERROR_CHILD_ROW = 1452;
-
 
         public void GuardarPost()
         {
             if (this.Id_Post == 0) InsertarPost();
-            if (this.Id_Post > 0) AcutalizarPost();
+            if (this.Id_Post > 0) ActualizarPost();
         }
 
         public void GuardarEvento()
@@ -56,7 +52,7 @@ namespace Modelos
             
         }
 
-        public void AcutalizarPost()
+        public void ActualizarPost()
         {
             string sql = $"update posts set contenido ='{this.Contenido}'where id_post ='{this.Id_Post}'";
             this.Comando.CommandText = sql;
@@ -149,6 +145,30 @@ namespace Modelos
             return posts;
         }
 
+        public bool ObtenerEvento()
+        {
+            string sql = $"select * from evento where id_evento = {this.id_evento}";
+            this.Comando.CommandText = sql;
+            this.Lector = this.Comando.ExecuteReader();
+
+            if (Lector.HasRows)
+            {
+                this.Id_Cuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
+                this.Id_Post = Int32.Parse(this.Lector["Id_post"].ToString());
+                this.Contenido = this.Lector["contenido"].ToString();
+                this.url_contenido = this.Lector["url_contenido"].ToString();
+                this.tipo_contenido = this.Lector["tipo_contenido"].ToString();
+                this.id_evento = Int32.Parse(this.Lector["id_evento"].ToString());
+                this.nombre_evento = this.Lector["nombre_evento"].ToString();
+                this.imagen = this.Lector["imagen"].ToString();
+                this.fecha_evento = this.Lector["fecha_evento"].ToString();
+                this.descripcion_evento = this.Lector["descripcion_evento"].ToString();
+                this.Lector.Close();
+                return true;
+            }
+            return false;
+        }
+
         private void VerificarEventoEnBD()
         {
             string verificarEventoSql = "SELECT COUNT(*) FROM evento WHERE nombre_evento = @nombre_evento";
@@ -181,11 +201,57 @@ namespace Modelos
                 this.Comando.Prepare();
                 this.Comando.ExecuteNonQuery();
             }
-            catch (MySqlException e)
+            catch (MySqlException sqlx)
             {
-                if (e.Number == MYSQL_DUPLICATE_ENTRY)
-                    throw new Exception("DUPLICATE_ENTRY");
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
+        }
+
+        public List<ModeloPost> ListarEventosDeGrupo()
+        {
+            List<ModeloPost> eventos = new List<ModeloPost>();
+
+            string sql = $"select * from evento join organiza on evento.id_evento = organiza = id_evento" +
+                $"where grganiza.id_grupo = {this.id_grupo} and evento.eliminado = false";
+            this.Comando.CommandText = sql;
+            this.Lector = this.Comando.ExecuteReader();
+
+            while (this.Lector.Read())
+            {
+                ModeloPost ev = new ModeloPost();
+                ev.Id_Cuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
+                ev.Id_Post = Int32.Parse(this.Lector["Id_post"].ToString());
+                ev.Contenido = this.Lector["contenido"].ToString();
+                ev.id_evento = Int32.Parse(this.Lector["id_evento"].ToString());
+                ev.nombre_evento = this.Lector["nombre_evento"].ToString();
+                ev.fecha_evento = this.Lector["fecha_evento"].ToString();
+                eventos.Add(ev);
+            }
+            this.Lector.Close();
+            return eventos;
+        }
+
+        public List<ModeloPost> ListarTodosEventos()
+        {
+            List<ModeloPost> eventos = new List<ModeloPost>();
+
+            string sql = $"select * from evento where eliminado = false and fecha_evento > sysdate()";
+            this.Comando.CommandText = sql;
+            this.Lector = this.Comando.ExecuteReader();
+
+            while (this.Lector.Read())
+            {
+                ModeloPost ev = new ModeloPost();
+                ev.Id_Cuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
+                ev.Id_Post = Int32.Parse(this.Lector["Id_post"].ToString());
+                ev.Contenido = this.Lector["contenido"].ToString();
+                ev.id_evento = Int32.Parse(this.Lector["id_evento"].ToString());
+                ev.nombre_evento = this.Lector["nombre_evento"].ToString();
+                ev.fecha_evento = this.Lector["fecha_evento"].ToString();
+                eventos.Add(ev);
+            }
+            this.Lector.Close();
+            return eventos;
         }
 
         public void EliminarEvento()
@@ -198,7 +264,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
             catch (Exception)
             {
@@ -217,8 +283,26 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
                 return 0;
+            }
+            catch (Exception)
+            {
+                throw new Exception("UNKNOWN_ERROR");
+            }
+        }
+        public void ActualizarEvento()
+        {
+            ActualizarPost();
+            try
+            {
+                string sql = $"update evento set nombre_evento='{this.nombre_evento}',imagen='{this.imagen}',descripcion_evento='{this.descripcion_evento}' where id_evento ={this.id_evento}";
+                this.Comando.CommandText = sql;
+                this.Comando.ExecuteNonQuery();
+            }
+            catch (MySqlException sqlx)
+            {
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
             catch (Exception)
             {
