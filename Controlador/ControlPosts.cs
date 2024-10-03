@@ -120,9 +120,9 @@ namespace Controlador
                 evento.id_evento = Int32.Parse(id_evento);
                 evento.EliminarEvento();
             }
-            catch (Exception e)
+            catch (Exception sqlx)
             {
-                ErrorHandle(e);
+                
             }
         }
 
@@ -145,7 +145,7 @@ namespace Controlador
             }
             catch (Exception e)
             {
-                ErrorHandle(e);
+
             }
         }
 
