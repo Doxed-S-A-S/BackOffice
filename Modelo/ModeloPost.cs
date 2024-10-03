@@ -14,12 +14,36 @@ namespace Modelos
         public string Contenido;
         public string fecha;
         public int reports;
-        public int Id_Cuenta ;
+        public int Id_Cuenta;
+
+        public long id_upvote;
+        public int likes;
+
+        public int id_evento;
+        public string nombre_evento;
+        public string imagen = "url imagen";
+        public string descripcion_evento;
+        public string fecha_evento = "2022-04-22 10:34:53";
+
+        public int id_muro;
+        public int id_grupo;
+
+        const int MYSQL_DUPLICATE_ENTRY = 1062;
+        const int MYSQL_ACCESS_DENIED = 1045;
+        const int MYSQL_UNKNOWN_COLUMN = 1054;
+        const int MYSQL_ERROR_CHILD_ROW = 1452;
+
 
         public void GuardarPost()
         {
             if (this.Id_Post == 0) InsertarPost();
             if (this.Id_Post > 0) AcutalizarPost();
+        }
+
+        public void GuardarEvento()
+        {
+            if (this.id_evento == 0) InsertarEvento();
+            if (this.id_evento > 0) ActualizarEvento();
         }
 
         private void InsertarPost()
@@ -123,6 +147,83 @@ namespace Modelos
             }
             this.Lector.Close();
             return posts;
+        }
+
+        private void VerificarEventoEnBD()
+        {
+            string verificarEventoSql = "SELECT COUNT(*) FROM evento WHERE nombre_evento = @nombre_evento";
+            this.Comando.CommandText = verificarEventoSql;
+            this.Comando.Parameters.Clear(); // Limpia los parámetros antes de agregar los nuevos
+            this.Comando.Parameters.AddWithValue("@nombre_evento", this.nombre_evento);
+
+            long count = (long)this.Comando.ExecuteScalar();
+
+            if (count > 0)
+            {
+                throw new Exception("DUPLICATE_ENTRY");
+            }
+        }
+        public void InsertarEvento()
+        {
+            InsertarPost();
+            this.Id_Post = this.Comando.LastInsertedId;
+            try
+            {
+                VerificarEventoEnBD();
+                this.Comando.Parameters.Clear();
+                string sql = $"INSERT INTO evento (id_post, nombre_evento,imagen,fecha_evento, descripcion_evento) " +
+                    $"VALUES('{this.Id_Post}',@nombre_evento,'{this.imagen}','{this.fecha_evento}',@descripcion_evento)";
+                this.Comando.CommandText = sql;
+                PrintDesktop(sql);
+                this.Comando.Parameters.AddWithValue("@nombre_evento", this.nombre_evento);
+                //this.Comando.Parameters.AddWithValue("@imagen", this.imagen);
+                this.Comando.Parameters.AddWithValue("@descripcion_evento", this.descripcion_evento);
+                this.Comando.Prepare();
+                this.Comando.ExecuteNonQuery();
+            }
+            catch (MySqlException e)
+            {
+                if (e.Number == MYSQL_DUPLICATE_ENTRY)
+                    throw new Exception("DUPLICATE_ENTRY");
+            }
+        }
+
+        public void EliminarEvento()
+        {
+            try
+            {
+                string sql = $"update evento set eliminado = true where id_evento ='{this.id_evento}'";
+                this.Comando.CommandText = sql;
+                this.Comando.ExecuteNonQuery();
+            }
+            catch (MySqlException sqlx)
+            {
+                MySqlErrorCatch(sqlx);
+            }
+            catch (Exception)
+            {
+                throw new Exception("UNKNOWN_ERROR");
+            }
+        }
+
+        public int NumeroDeLikes(long idPost)
+        {
+            try
+            {
+                string sql = $"select count(*) from upvote where id_post = {idPost}";
+                this.Comando.CommandText = sql;
+                string likes = this.Comando.ExecuteScalar().ToString();
+                return Int32.Parse(likes);
+            }
+            catch (MySqlException sqlx)
+            {
+                MySqlErrorCatch(sqlx);
+                return 0;
+            }
+            catch (Exception)
+            {
+                throw new Exception("UNKNOWN_ERROR");
+            }
         }
     }
 

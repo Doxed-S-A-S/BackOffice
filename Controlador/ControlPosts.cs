@@ -111,5 +111,43 @@ namespace Controlador
             return tabla;
         }
 
+        public static void ElimiarEvento(string id_post, string id_evento)
+        {
+            try
+            {
+                ElimiarPost(id_post);
+                ModeloPost evento = new ModeloPost();
+                evento.id_evento = Int32.Parse(id_evento);
+                evento.EliminarEvento();
+            }
+            catch (Exception e)
+            {
+                ErrorHandle(e);
+            }
+        }
+
+        public static void ModificarEvento(string Id_Post, string id_evento, string url_contenido, string tipo_contenido, string contenido, string nombre_evento, string imagen, string descripcion_evento, string id_cuenta)
+        {
+            try
+            {
+                ModeloPost evento = new ModeloPost();
+                evento.id_post = Int32.Parse(Id_Post);
+                evento.id_evento = Int32.Parse(id_evento);
+                evento.url_contenido = url_contenido;
+                evento.tipo_contenido = tipo_contenido;
+                evento.contenido = contenido;
+                evento.nombre_evento = nombre_evento;
+                evento.imagen = imagen;
+                evento.descripcion_evento = descripcion_evento;
+                evento.id_cuenta = Int32.Parse(id_cuenta);
+
+                evento.ActualizarEvento();
+            }
+            catch (Exception e)
+            {
+                ErrorHandle(e);
+            }
+        }
+
     }
 }
