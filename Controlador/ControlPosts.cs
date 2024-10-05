@@ -149,5 +149,28 @@ namespace Controlador
             }
         }
 
+        public static DataTable ListarEventosDeGrupo(string idGrupo)
+        {
+            DataTable tabla = new DataTable();
+            tabla.Columns.Add("Id_Post", typeof(int));
+            tabla.Columns.Add("Id_Evento", typeof(int));
+            tabla.Columns.Add("Nombre del evento", typeof(string));
+            tabla.Columns.Add("Descripcion del evento", typeof(string));
+            tabla.Columns.Add("Fecha evento", typeof(string));
+
+            ModeloPost evento = new ModeloPost();
+            foreach (ModeloPost e in evento.ListarEventosDeGrupo(Int32.Parse(idGrupo)))
+            {
+                DataRow fila = tabla.NewRow();
+                fila["Id_post"] = e.Id_Post;
+                fila["Id_Evento"] = e.id_evento;
+                fila["Nombre del evento"] = e.nombre_evento;
+                fila["Descripcion del evento"] = e.descripcion_evento;
+                fila["Fecha evento"] = e.fecha_evento;
+                tabla.Rows.Add(fila);
+            }
+            return tabla;
+        }
+
     }
 }

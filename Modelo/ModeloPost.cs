@@ -207,23 +207,22 @@ namespace Modelos
             }
         }
 
-        public List<ModeloPost> ListarEventosDeGrupo()
+        public List<ModeloPost> ListarEventosDeGrupo(int idGrupo)
         {
             List<ModeloPost> eventos = new List<ModeloPost>();
 
-            string sql = $"select * from evento join organiza on evento.id_evento = organiza = id_evento" +
-                $"where grganiza.id_grupo = {this.id_grupo} and evento.eliminado = false";
+            string sql = $"select * from evento join organiza on evento.id_evento = organiza.id_evento " +
+                $"where organiza.id_grupo = {idGrupo} and evento.eliminado = false;";
             this.Comando.CommandText = sql;
             this.Lector = this.Comando.ExecuteReader();
 
             while (this.Lector.Read())
             {
                 ModeloPost ev = new ModeloPost();
-                ev.Id_Cuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
-                ev.Id_Post = Int32.Parse(this.Lector["Id_post"].ToString());
-                ev.Contenido = this.Lector["contenido"].ToString();
+                ev.Id_Post = Int32.Parse(this.Lector["id_post"].ToString());
                 ev.id_evento = Int32.Parse(this.Lector["id_evento"].ToString());
                 ev.nombre_evento = this.Lector["nombre_evento"].ToString();
+                ev.descripcion_evento = this.Lector["descripcion_evento"].ToString();
                 ev.fecha_evento = this.Lector["fecha_evento"].ToString();
                 eventos.Add(ev);
             }

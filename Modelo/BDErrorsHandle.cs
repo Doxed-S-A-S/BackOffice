@@ -14,6 +14,7 @@ namespace Modelos
         const int MYSQL_UNKNOWN_COLUMN = 1054;
         const int MYSQL_ERROR_CHILD_ROW = 1452;
         const int MYSQL_TABLE_NOT_EXIST = 1146;
+        const int MYSQL_INCORRECT_DATE = 1292;
 
 
         public static void MySqlErrorCatch(MySqlException sqlx)

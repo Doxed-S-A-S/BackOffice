@@ -57,7 +57,7 @@ namespace Interfaz
             this.DgridUsuariosDeGrupo = new System.Windows.Forms.DataGridView();
             this.StaticLbUsuariosGrupo = new System.Windows.Forms.Label();
             this.DgridResponsables = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DgridEventosGrupo = new System.Windows.Forms.DataGridView();
             this.BtnSeleccionarEvento = new System.Windows.Forms.Button();
             this.BtnSeleccionarUsuario = new System.Windows.Forms.Button();
             this.StaticLbEvetnos = new System.Windows.Forms.Label();
@@ -67,7 +67,7 @@ namespace Interfaz
             ((System.ComponentModel.ISupportInitialize)(this.DgridPublicaciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridUsuariosDeGrupo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridResponsables)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgridEventosGrupo)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnActualizarDatosCuenta
@@ -342,18 +342,18 @@ namespace Interfaz
             this.DgridResponsables.Size = new System.Drawing.Size(201, 144);
             this.DgridResponsables.TabIndex = 84;
             // 
-            // dataGridView1
+            // DgridEventosGrupo
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(787, 459);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(257, 186);
-            this.dataGridView1.TabIndex = 85;
+            this.DgridEventosGrupo.AllowUserToAddRows = false;
+            this.DgridEventosGrupo.AllowUserToDeleteRows = false;
+            this.DgridEventosGrupo.AllowUserToResizeColumns = false;
+            this.DgridEventosGrupo.AllowUserToResizeRows = false;
+            this.DgridEventosGrupo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgridEventosGrupo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgridEventosGrupo.Location = new System.Drawing.Point(787, 459);
+            this.DgridEventosGrupo.Name = "DgridEventosGrupo";
+            this.DgridEventosGrupo.Size = new System.Drawing.Size(257, 186);
+            this.DgridEventosGrupo.TabIndex = 85;
             // 
             // BtnSeleccionarEvento
             // 
@@ -412,7 +412,7 @@ namespace Interfaz
             this.Controls.Add(this.StaticLbEvetnos);
             this.Controls.Add(this.BtnSeleccionarUsuario);
             this.Controls.Add(this.BtnSeleccionarEvento);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DgridEventosGrupo);
             this.Controls.Add(this.DgridResponsables);
             this.Controls.Add(this.StaticLbUsuariosGrupo);
             this.Controls.Add(this.DgridUsuariosDeGrupo);
@@ -448,7 +448,7 @@ namespace Interfaz
             ((System.ComponentModel.ISupportInitialize)(this.DgridPublicaciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridUsuariosDeGrupo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridResponsables)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgridEventosGrupo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -484,7 +484,7 @@ namespace Interfaz
         private System.Windows.Forms.DataGridView DgridUsuariosDeGrupo;
         private System.Windows.Forms.Label StaticLbUsuariosGrupo;
         private System.Windows.Forms.DataGridView DgridResponsables;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DgridEventosGrupo;
         private System.Windows.Forms.Button BtnSeleccionarEvento;
         private System.Windows.Forms.Button BtnSeleccionarUsuario;
         private System.Windows.Forms.Label StaticLbEvetnos;

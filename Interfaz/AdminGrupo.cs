@@ -42,6 +42,7 @@ namespace Interfaz
             refrescarTablaDeIntegrantes();
             refrescarTablaDePublicacionesGrupo();
             refrescarTablaDeResponsables();
+            refrescarTablaDeEventosDelGrupo();
 
         }
         private void refrescarTablaDePublicacionesGrupo()
@@ -65,6 +66,11 @@ namespace Interfaz
             DgridResponsables.Refresh();
             DgridResponsables.DataSource = ControlGrupo.ObtenerResponsablesDeGrupo(LbIdGrupo.Text);
             DgridResponsables.Columns["id_cuenta"].Visible = false;
+        }
+        private void refrescarTablaDeEventosDelGrupo()
+        {
+            DgridEventosGrupo.Refresh();
+            DgridEventosGrupo.DataSource = ControlPosts.ListarEventosDeGrupo(LbIdGrupo.Text);
         }
 
         private void BtnModificarDescripcion_Click(object sender, EventArgs e)
