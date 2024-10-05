@@ -257,7 +257,7 @@ namespace Modelos
         {
             try
             {
-                string sql = $"update evento set eliminado = true where id_evento ='{this.id_evento}'";
+                string sql = $"update evento set eliminado = true where id_evento = {this.id_evento}";
                 this.Comando.CommandText = sql;
                 this.Comando.ExecuteNonQuery();
             }
