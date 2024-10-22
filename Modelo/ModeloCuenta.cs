@@ -127,6 +127,17 @@ namespace Modelos
             }
         }
 
+        public void ModificarBio()
+        {
+            string sql = $"select id_muro from cuenta where id_cuenta = {this.id_cuenta}";
+            this.Comando.CommandText = sql;
+            this.id_muro = Int32.Parse(this.Comando.ExecuteScalar().ToString());
+
+            sql = $"update muro set biografia = '{this.biografia}' where id_muro = {this.id_muro}";
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+        }
+
         public void EliminarCuenta()
         {
             try

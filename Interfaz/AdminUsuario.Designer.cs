@@ -52,7 +52,6 @@ namespace Interfaz
             this.LbNumReportes = new System.Windows.Forms.Label();
             this.StaticLbCorreo = new System.Windows.Forms.Label();
             this.TboxModificarCorreo = new System.Windows.Forms.TextBox();
-            this.BtnModificarCorreo = new System.Windows.Forms.Button();
             this.BtnModificarBiografia = new System.Windows.Forms.Button();
             this.TboxModificarBiografia = new System.Windows.Forms.TextBox();
             this.StaticLbBiografia = new System.Windows.Forms.Label();
@@ -61,6 +60,9 @@ namespace Interfaz
             this.BtnActualizarDatosCuenta = new System.Windows.Forms.Button();
             this.BtnEliminarCuenta = new System.Windows.Forms.Button();
             this.TboxVerificarUsername = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.BtnModificarCorreo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgridPublicaciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridComentarios)).BeginInit();
             this.SuspendLayout();
@@ -165,7 +167,7 @@ namespace Interfaz
             // 
             // TboxContenido
             // 
-            this.TboxContenido.Location = new System.Drawing.Point(610, 30);
+            this.TboxContenido.Location = new System.Drawing.Point(610, 51);
             this.TboxContenido.Multiline = true;
             this.TboxContenido.Name = "TboxContenido";
             this.TboxContenido.Size = new System.Drawing.Size(169, 112);
@@ -173,7 +175,7 @@ namespace Interfaz
             // 
             // BtnEditarPost
             // 
-            this.BtnEditarPost.Location = new System.Drawing.Point(610, 148);
+            this.BtnEditarPost.Location = new System.Drawing.Point(610, 169);
             this.BtnEditarPost.Name = "BtnEditarPost";
             this.BtnEditarPost.Size = new System.Drawing.Size(75, 23);
             this.BtnEditarPost.TabIndex = 30;
@@ -183,7 +185,7 @@ namespace Interfaz
             // 
             // BtnEliminarPost
             // 
-            this.BtnEliminarPost.Location = new System.Drawing.Point(704, 148);
+            this.BtnEliminarPost.Location = new System.Drawing.Point(704, 169);
             this.BtnEliminarPost.Name = "BtnEliminarPost";
             this.BtnEliminarPost.Size = new System.Drawing.Size(75, 23);
             this.BtnEliminarPost.TabIndex = 31;
@@ -221,15 +223,16 @@ namespace Interfaz
             // 
             // TboxComentarios
             // 
-            this.TboxComentarios.Location = new System.Drawing.Point(610, 459);
+            this.TboxComentarios.Location = new System.Drawing.Point(610, 482);
             this.TboxComentarios.Multiline = true;
             this.TboxComentarios.Name = "TboxComentarios";
             this.TboxComentarios.Size = new System.Drawing.Size(169, 112);
             this.TboxComentarios.TabIndex = 37;
+            this.TboxComentarios.TextChanged += new System.EventHandler(this.TboxComentarios_TextChanged);
             // 
             // BtnEliminarComentario
             // 
-            this.BtnEliminarComentario.Location = new System.Drawing.Point(704, 577);
+            this.BtnEliminarComentario.Location = new System.Drawing.Point(704, 600);
             this.BtnEliminarComentario.Name = "BtnEliminarComentario";
             this.BtnEliminarComentario.Size = new System.Drawing.Size(75, 23);
             this.BtnEliminarComentario.TabIndex = 40;
@@ -239,7 +242,7 @@ namespace Interfaz
             // 
             // BtnEditarComentario
             // 
-            this.BtnEditarComentario.Location = new System.Drawing.Point(610, 577);
+            this.BtnEditarComentario.Location = new System.Drawing.Point(610, 600);
             this.BtnEditarComentario.Name = "BtnEditarComentario";
             this.BtnEditarComentario.Size = new System.Drawing.Size(75, 23);
             this.BtnEditarComentario.TabIndex = 39;
@@ -281,16 +284,6 @@ namespace Interfaz
             this.TboxModificarCorreo.Size = new System.Drawing.Size(201, 20);
             this.TboxModificarCorreo.TabIndex = 44;
             // 
-            // BtnModificarCorreo
-            // 
-            this.BtnModificarCorreo.Location = new System.Drawing.Point(16, 285);
-            this.BtnModificarCorreo.Name = "BtnModificarCorreo";
-            this.BtnModificarCorreo.Size = new System.Drawing.Size(103, 23);
-            this.BtnModificarCorreo.TabIndex = 45;
-            this.BtnModificarCorreo.Text = "Modificar correo";
-            this.BtnModificarCorreo.UseVisualStyleBackColor = true;
-            this.BtnModificarCorreo.Click += new System.EventHandler(this.BtnModificarCorreo_Click);
-            // 
             // BtnModificarBiografia
             // 
             this.BtnModificarBiografia.Location = new System.Drawing.Point(16, 413);
@@ -299,6 +292,7 @@ namespace Interfaz
             this.BtnModificarBiografia.TabIndex = 48;
             this.BtnModificarBiografia.Text = "Modificar biografia";
             this.BtnModificarBiografia.UseVisualStyleBackColor = true;
+            this.BtnModificarBiografia.Click += new System.EventHandler(this.BtnModificarBiografia_Click);
             // 
             // TboxModificarBiografia
             // 
@@ -365,10 +359,40 @@ namespace Interfaz
             this.TboxVerificarUsername.TabIndex = 53;
             this.TboxVerificarUsername.Visible = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(610, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 13);
+            this.label1.TabIndex = 92;
+            this.label1.Text = "Editar publicacion:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(607, 459);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 13);
+            this.label3.TabIndex = 93;
+            this.label3.Text = "Editar comentario:";
+            // 
+            // BtnModificarCorreo
+            // 
+            this.BtnModificarCorreo.Location = new System.Drawing.Point(16, 285);
+            this.BtnModificarCorreo.Name = "BtnModificarCorreo";
+            this.BtnModificarCorreo.Size = new System.Drawing.Size(103, 23);
+            this.BtnModificarCorreo.TabIndex = 45;
+            this.BtnModificarCorreo.Text = "Modificar correo";
+            this.BtnModificarCorreo.UseVisualStyleBackColor = true;
+            this.BtnModificarCorreo.Click += new System.EventHandler(this.BtnModificarCorreo_Click);
+            // 
             // AdminUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.TboxVerificarUsername);
             this.Controls.Add(this.BtnEliminarCuenta);
             this.Controls.Add(this.BtnActualizarDatosCuenta);
@@ -436,7 +460,6 @@ namespace Interfaz
         private System.Windows.Forms.Label LbNumReportes;
         private System.Windows.Forms.Label StaticLbCorreo;
         private System.Windows.Forms.TextBox TboxModificarCorreo;
-        private System.Windows.Forms.Button BtnModificarCorreo;
         private System.Windows.Forms.Button BtnModificarBiografia;
         private System.Windows.Forms.TextBox TboxModificarBiografia;
         private System.Windows.Forms.Label StaticLbBiografia;
@@ -445,5 +468,8 @@ namespace Interfaz
         private System.Windows.Forms.Button BtnActualizarDatosCuenta;
         private System.Windows.Forms.Button BtnEliminarCuenta;
         private System.Windows.Forms.TextBox TboxVerificarUsername;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button BtnModificarCorreo;
     }
 }

@@ -29,6 +29,7 @@ namespace Interfaz
             {
                 LbIdGrupo.Text = ControlGrupo.BuscarGrupo(id)["id"].ToString();
                 TboxNombreGrupo.Text = ControlGrupo.BuscarGrupo(id)["nombre_grupo"];
+                LbNombreGrupo.Text = ControlGrupo.BuscarGrupo(id)["nombre_grupo"];
                 TboxModificarDescripcion.Text = ControlGrupo.BuscarGrupo(id)["descripcion"];
                 LbNumReportes.Text = ControlGrupo.BuscarGrupo(id)["reports"];
                 LbGrupoPrivado.Text = ControlGrupo.BuscarGrupo(id)["privacidad"];
@@ -163,7 +164,7 @@ namespace Interfaz
             }
 
             DialogResult resultado = MessageBox.Show(
-                $"Esta seguro que quiere eliminar el grupo {LbNombreGrupo.Text}?",
+                $"Esta seguro que quiere eliminar el grupo {TboxNombreGrupo.Text}?",
                 "Esta seguro?",
                 MessageBoxButtons.YesNo);
 
@@ -187,6 +188,7 @@ namespace Interfaz
             if (check.ToString() == "Yes")
             {
                 ControlGrupo.ModificarGrupo(LbIdGrupo.Text, TboxNombreGrupo.Text, TboxModificarDescripcion.Text);
+                LbNombreGrupo.Text = TboxNombreGrupo.Text;
             }
 
 

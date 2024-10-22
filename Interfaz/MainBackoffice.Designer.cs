@@ -424,7 +424,6 @@ namespace Interfaz
             // 
             this.PanelBusquedaGrupo.Controls.Add(this.label5);
             this.PanelBusquedaGrupo.Controls.Add(this.LbGrupoIdMensaje);
-            this.PanelBusquedaGrupo.Controls.Add(this.adminGrupo1);
             this.PanelBusquedaGrupo.Controls.Add(this.BtnGrupoLimpiarFiltro);
             this.PanelBusquedaGrupo.Controls.Add(this.TboxBuscarIdGrupo);
             this.PanelBusquedaGrupo.Controls.Add(this.TboxGrupoDescripcion);
@@ -460,9 +459,9 @@ namespace Interfaz
             // 
             // adminGrupo1
             // 
-            this.adminGrupo1.Location = new System.Drawing.Point(0, 0);
+            this.adminGrupo1.Location = new System.Drawing.Point(200, 24);
             this.adminGrupo1.Name = "adminGrupo1";
-            this.adminGrupo1.Size = new System.Drawing.Size(1172, 679);
+            this.adminGrupo1.Size = new System.Drawing.Size(1173, 667);
             this.adminGrupo1.TabIndex = 39;
             this.adminGrupo1.Visible = false;
             // 
@@ -679,7 +678,7 @@ namespace Interfaz
             // 
             // AdministracionDeUsuarios
             // 
-            this.AdministracionDeUsuarios.Location = new System.Drawing.Point(913, 120);
+            this.AdministracionDeUsuarios.Location = new System.Drawing.Point(201, 24);
             this.AdministracionDeUsuarios.Name = "AdministracionDeUsuarios";
             this.AdministracionDeUsuarios.Size = new System.Drawing.Size(1104, 648);
             this.AdministracionDeUsuarios.TabIndex = 20;
@@ -690,6 +689,7 @@ namespace Interfaz
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 703);
+            this.Controls.Add(this.adminGrupo1);
             this.Controls.Add(this.MainPanelBotones);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.AdministracionDeUsuarios);

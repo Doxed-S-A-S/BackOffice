@@ -11,7 +11,7 @@ namespace Controlador
 {
     public class ControlGrupo
     {
-        public static void CrearGrupo(string id_cuenta, string nombreGrupo, string descripcion, string privacidad, string banner)
+        public static void CrearGrupo(string id_cuenta, string nombreGrupo, string descripcion, string privacidad, string url_imagen)
         {
             try
             {
@@ -19,7 +19,7 @@ namespace Controlador
                 grupo.nombre_grupo = nombreGrupo;
                 grupo.descripcion = descripcion;
                 grupo.privacidad = bool.Parse(privacidad);
-                grupo.banner = banner;
+                grupo.url_imagen = url_imagen;
                 grupo.id_cuenta = Int32.Parse(id_cuenta);
 
                 grupo.CrearGrupo();
@@ -69,21 +69,7 @@ namespace Controlador
             }
         }
 
-        public static void ModificarBannerGrupo(string id, string banner)
-        {
-            try
-            {
-                ModeloGrupo grupo = new Modelos.ModeloGrupo();
-                grupo.id_grupo = Int32.Parse(id);
-                grupo.nombre_grupo = banner;
 
-                grupo.ModificarBannerGrupo();
-            }
-            catch (Exception e)
-            {
-                ErrorHandle(e);
-            }
-        }
 
         public static bool EliminarGrupo(string id)
         {
@@ -205,7 +191,7 @@ namespace Controlador
                     resultado.Add("descripcion", grupo.descripcion);
                     resultado.Add("reports", grupo.reports.ToString());
                     resultado.Add("privacidad", grupo.privacidad.ToString());
-                    resultado.Add("banner", grupo.banner);
+                    resultado.Add("url_imagen", grupo.url_imagen);
                     return resultado;
                 }
                 resultado.Add("resultado", "false");

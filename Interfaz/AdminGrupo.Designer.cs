@@ -65,6 +65,7 @@ namespace Interfaz
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.TboxNombreGrupo = new System.Windows.Forms.TextBox();
+            this.LbNombreGrupo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgridComentarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridPublicaciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridUsuariosDeGrupo)).BeginInit();
@@ -378,7 +379,7 @@ namespace Interfaz
             // 
             // TboxVerificarNombreGrupo
             // 
-            this.TboxVerificarNombreGrupo.Location = new System.Drawing.Point(1086, 626);
+            this.TboxVerificarNombreGrupo.Location = new System.Drawing.Point(1050, 625);
             this.TboxVerificarNombreGrupo.Name = "TboxVerificarNombreGrupo";
             this.TboxVerificarNombreGrupo.Size = new System.Drawing.Size(117, 20);
             this.TboxVerificarNombreGrupo.TabIndex = 90;
@@ -388,7 +389,7 @@ namespace Interfaz
             // 
             this.BtnEliminarGrupo.BackColor = System.Drawing.Color.Red;
             this.BtnEliminarGrupo.ForeColor = System.Drawing.Color.White;
-            this.BtnEliminarGrupo.Location = new System.Drawing.Point(1086, 587);
+            this.BtnEliminarGrupo.Location = new System.Drawing.Point(1050, 586);
             this.BtnEliminarGrupo.Name = "BtnEliminarGrupo";
             this.BtnEliminarGrupo.Size = new System.Drawing.Size(117, 33);
             this.BtnEliminarGrupo.TabIndex = 89;
@@ -421,10 +422,20 @@ namespace Interfaz
             this.TboxNombreGrupo.Size = new System.Drawing.Size(144, 20);
             this.TboxNombreGrupo.TabIndex = 93;
             // 
+            // LbNombreGrupo
+            // 
+            this.LbNombreGrupo.AutoSize = true;
+            this.LbNombreGrupo.Location = new System.Drawing.Point(32, 0);
+            this.LbNombreGrupo.Name = "LbNombreGrupo";
+            this.LbNombreGrupo.Size = new System.Drawing.Size(0, 13);
+            this.LbNombreGrupo.TabIndex = 94;
+            this.LbNombreGrupo.Visible = false;
+            // 
             // AdminGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.LbNombreGrupo);
             this.Controls.Add(this.TboxNombreGrupo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -512,5 +523,6 @@ namespace Interfaz
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TboxNombreGrupo;
+        private System.Windows.Forms.Label LbNombreGrupo;
     }
 }
