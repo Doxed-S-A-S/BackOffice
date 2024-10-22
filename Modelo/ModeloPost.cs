@@ -196,7 +196,7 @@ namespace Modelos
                 this.Comando.CommandText = sql;
                 PrintDesktop(sql);
                 this.Comando.Parameters.AddWithValue("@nombre_evento", this.nombre_evento);
-                //this.Comando.Parameters.AddWithValue("@imagen", this.imagen);
+                this.Comando.Parameters.AddWithValue("@imagen", this.imagen);
                 this.Comando.Parameters.AddWithValue("@descripcion_evento", this.descripcion_evento);
                 this.Comando.Prepare();
                 this.Comando.ExecuteNonQuery();

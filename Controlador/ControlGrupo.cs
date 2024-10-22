@@ -30,7 +30,7 @@ namespace Controlador
             }
         }
 
-        public static bool ModificarGrupo(string id, string nombre, string descripcion, string banner)
+        public static bool ModificarGrupo(string id, string nombre, string descripcion)
         {
             try
             {
@@ -39,7 +39,6 @@ namespace Controlador
                 {
                     grupo.nombre_grupo = nombre;
                     grupo.descripcion = descripcion;
-                    grupo.banner = banner;
 
                     grupo.Guardar();
                     return true;
@@ -53,37 +52,6 @@ namespace Controlador
             }
         }
 
-        public static void ModificarNombreGrupo(string id, string nombre)
-        {
-            try
-            {
-                ModeloGrupo grupo = new Modelos.ModeloGrupo();
-                grupo.id_grupo = Int32.Parse(id);
-                grupo.nombre_grupo = nombre;
-
-                grupo.ModificarNombreGrupo();
-            }
-            catch (Exception e)
-            {
-                ErrorHandle(e);
-            }
-        }
-
-        public static void ModificarDescripcionGrupo(string id, string descripcion)
-        {
-            try
-            {
-                ModeloGrupo grupo = new Modelos.ModeloGrupo();
-                grupo.id_grupo = Int32.Parse(id);
-                grupo.nombre_grupo = descripcion;
-
-                grupo.ModificarDescripcionGrupo();
-            }
-            catch (Exception e)
-            {
-                ErrorHandle(e);
-            }
-        }
 
         public static void ModificarPrivacidadGrupo(string id_grupo, string privacidad)
         {

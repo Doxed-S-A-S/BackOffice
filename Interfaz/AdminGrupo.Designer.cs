@@ -31,7 +31,7 @@ namespace Interfaz
         {
             this.BtnActualizarDatosCuenta = new System.Windows.Forms.Button();
             this.LbIdGrupo = new System.Windows.Forms.Label();
-            this.BtnModificarDescripcion = new System.Windows.Forms.Button();
+            this.BtnModificarDatos = new System.Windows.Forms.Button();
             this.TboxModificarDescripcion = new System.Windows.Forms.TextBox();
             this.StaticLbBiografia = new System.Windows.Forms.Label();
             this.LbNumReportes = new System.Windows.Forms.Label();
@@ -48,7 +48,6 @@ namespace Interfaz
             this.LbGrupoPrivado = new System.Windows.Forms.Label();
             this.StaticLbRolUsr = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.LbNombreGrupo = new System.Windows.Forms.Label();
             this.StaticLbReportes = new System.Windows.Forms.Label();
             this.StaticLbResponsables = new System.Windows.Forms.Label();
             this.StaticLbEstado = new System.Windows.Forms.Label();
@@ -63,6 +62,9 @@ namespace Interfaz
             this.StaticLbEvetnos = new System.Windows.Forms.Label();
             this.TboxVerificarNombreGrupo = new System.Windows.Forms.TextBox();
             this.BtnEliminarGrupo = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.TboxNombreGrupo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgridComentarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridPublicaciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridUsuariosDeGrupo)).BeginInit();
@@ -88,15 +90,15 @@ namespace Interfaz
             this.LbIdGrupo.TabIndex = 80;
             this.LbIdGrupo.Text = "0";
             // 
-            // BtnModificarDescripcion
+            // BtnModificarDatos
             // 
-            this.BtnModificarDescripcion.Location = new System.Drawing.Point(16, 413);
-            this.BtnModificarDescripcion.Name = "BtnModificarDescripcion";
-            this.BtnModificarDescripcion.Size = new System.Drawing.Size(116, 23);
-            this.BtnModificarDescripcion.TabIndex = 78;
-            this.BtnModificarDescripcion.Text = "Modificar descripcion";
-            this.BtnModificarDescripcion.UseVisualStyleBackColor = true;
-            this.BtnModificarDescripcion.Click += new System.EventHandler(this.BtnModificarDescripcion_Click);
+            this.BtnModificarDatos.Location = new System.Drawing.Point(16, 413);
+            this.BtnModificarDatos.Name = "BtnModificarDatos";
+            this.BtnModificarDatos.Size = new System.Drawing.Size(201, 23);
+            this.BtnModificarDatos.TabIndex = 78;
+            this.BtnModificarDatos.Text = "Modificar datos del grupo";
+            this.BtnModificarDatos.UseVisualStyleBackColor = true;
+            this.BtnModificarDatos.Click += new System.EventHandler(this.BtnModificarDescripcion_Click);
             // 
             // TboxModificarDescripcion
             // 
@@ -118,7 +120,7 @@ namespace Interfaz
             // LbNumReportes
             // 
             this.LbNumReportes.AutoSize = true;
-            this.LbNumReportes.Location = new System.Drawing.Point(70, 210);
+            this.LbNumReportes.Location = new System.Drawing.Point(70, 218);
             this.LbNumReportes.Name = "LbNumReportes";
             this.LbNumReportes.Size = new System.Drawing.Size(100, 13);
             this.LbNumReportes.TabIndex = 72;
@@ -135,7 +137,7 @@ namespace Interfaz
             // 
             // BtnEliminarComentario
             // 
-            this.BtnEliminarComentario.Location = new System.Drawing.Point(704, 577);
+            this.BtnEliminarComentario.Location = new System.Drawing.Point(704, 597);
             this.BtnEliminarComentario.Name = "BtnEliminarComentario";
             this.BtnEliminarComentario.Size = new System.Drawing.Size(75, 23);
             this.BtnEliminarComentario.TabIndex = 70;
@@ -145,7 +147,7 @@ namespace Interfaz
             // 
             // BtnEditarComentario
             // 
-            this.BtnEditarComentario.Location = new System.Drawing.Point(610, 577);
+            this.BtnEditarComentario.Location = new System.Drawing.Point(610, 597);
             this.BtnEditarComentario.Name = "BtnEditarComentario";
             this.BtnEditarComentario.Size = new System.Drawing.Size(75, 23);
             this.BtnEditarComentario.TabIndex = 69;
@@ -155,7 +157,7 @@ namespace Interfaz
             // 
             // TboxComentarios
             // 
-            this.TboxComentarios.Location = new System.Drawing.Point(610, 459);
+            this.TboxComentarios.Location = new System.Drawing.Point(610, 479);
             this.TboxComentarios.Multiline = true;
             this.TboxComentarios.Name = "TboxComentarios";
             this.TboxComentarios.Size = new System.Drawing.Size(169, 112);
@@ -191,7 +193,7 @@ namespace Interfaz
             // 
             // BtnEliminarPost
             // 
-            this.BtnEliminarPost.Location = new System.Drawing.Point(704, 148);
+            this.BtnEliminarPost.Location = new System.Drawing.Point(704, 167);
             this.BtnEliminarPost.Name = "BtnEliminarPost";
             this.BtnEliminarPost.Size = new System.Drawing.Size(75, 23);
             this.BtnEliminarPost.TabIndex = 65;
@@ -201,7 +203,7 @@ namespace Interfaz
             // 
             // BtnEditarPost
             // 
-            this.BtnEditarPost.Location = new System.Drawing.Point(610, 148);
+            this.BtnEditarPost.Location = new System.Drawing.Point(610, 167);
             this.BtnEditarPost.Name = "BtnEditarPost";
             this.BtnEditarPost.Size = new System.Drawing.Size(75, 23);
             this.BtnEditarPost.TabIndex = 64;
@@ -211,7 +213,7 @@ namespace Interfaz
             // 
             // TboxContenido
             // 
-            this.TboxContenido.Location = new System.Drawing.Point(610, 30);
+            this.TboxContenido.Location = new System.Drawing.Point(610, 49);
             this.TboxContenido.Multiline = true;
             this.TboxContenido.Name = "TboxContenido";
             this.TboxContenido.Size = new System.Drawing.Size(169, 112);
@@ -229,7 +231,7 @@ namespace Interfaz
             // LbGrupoPrivado
             // 
             this.LbGrupoPrivado.AutoSize = true;
-            this.LbGrupoPrivado.Location = new System.Drawing.Point(70, 195);
+            this.LbGrupoPrivado.Location = new System.Drawing.Point(70, 203);
             this.LbGrupoPrivado.Name = "LbGrupoPrivado";
             this.LbGrupoPrivado.Size = new System.Drawing.Size(81, 13);
             this.LbGrupoPrivado.TabIndex = 61;
@@ -238,7 +240,7 @@ namespace Interfaz
             // StaticLbRolUsr
             // 
             this.StaticLbRolUsr.AutoSize = true;
-            this.StaticLbRolUsr.Location = new System.Drawing.Point(13, 195);
+            this.StaticLbRolUsr.Location = new System.Drawing.Point(13, 203);
             this.StaticLbRolUsr.Name = "StaticLbRolUsr";
             this.StaticLbRolUsr.Size = new System.Drawing.Size(60, 13);
             this.StaticLbRolUsr.TabIndex = 60;
@@ -247,25 +249,16 @@ namespace Interfaz
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(70, 179);
+            this.label2.Location = new System.Drawing.Point(70, 187);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 13);
             this.label2.TabIndex = 59;
             this.label2.Text = "Activo/Bloqueado";
             // 
-            // LbNombreGrupo
-            // 
-            this.LbNombreGrupo.AutoSize = true;
-            this.LbNombreGrupo.Location = new System.Drawing.Point(70, 164);
-            this.LbNombreGrupo.Name = "LbNombreGrupo";
-            this.LbNombreGrupo.Size = new System.Drawing.Size(49, 13);
-            this.LbNombreGrupo.TabIndex = 58;
-            this.LbNombreGrupo.Text = "(ejemplo)";
-            // 
             // StaticLbReportes
             // 
             this.StaticLbReportes.AutoSize = true;
-            this.StaticLbReportes.Location = new System.Drawing.Point(13, 210);
+            this.StaticLbReportes.Location = new System.Drawing.Point(13, 218);
             this.StaticLbReportes.Name = "StaticLbReportes";
             this.StaticLbReportes.Size = new System.Drawing.Size(53, 13);
             this.StaticLbReportes.TabIndex = 56;
@@ -283,7 +276,7 @@ namespace Interfaz
             // StaticLbEstado
             // 
             this.StaticLbEstado.AutoSize = true;
-            this.StaticLbEstado.Location = new System.Drawing.Point(13, 179);
+            this.StaticLbEstado.Location = new System.Drawing.Point(13, 187);
             this.StaticLbEstado.Name = "StaticLbEstado";
             this.StaticLbEstado.Size = new System.Drawing.Size(43, 13);
             this.StaticLbEstado.TabIndex = 54;
@@ -385,7 +378,7 @@ namespace Interfaz
             // 
             // TboxVerificarNombreGrupo
             // 
-            this.TboxVerificarNombreGrupo.Location = new System.Drawing.Point(1050, 625);
+            this.TboxVerificarNombreGrupo.Location = new System.Drawing.Point(1086, 626);
             this.TboxVerificarNombreGrupo.Name = "TboxVerificarNombreGrupo";
             this.TboxVerificarNombreGrupo.Size = new System.Drawing.Size(117, 20);
             this.TboxVerificarNombreGrupo.TabIndex = 90;
@@ -395,7 +388,7 @@ namespace Interfaz
             // 
             this.BtnEliminarGrupo.BackColor = System.Drawing.Color.Red;
             this.BtnEliminarGrupo.ForeColor = System.Drawing.Color.White;
-            this.BtnEliminarGrupo.Location = new System.Drawing.Point(1050, 586);
+            this.BtnEliminarGrupo.Location = new System.Drawing.Point(1086, 587);
             this.BtnEliminarGrupo.Name = "BtnEliminarGrupo";
             this.BtnEliminarGrupo.Size = new System.Drawing.Size(117, 33);
             this.BtnEliminarGrupo.TabIndex = 89;
@@ -403,10 +396,38 @@ namespace Interfaz
             this.BtnEliminarGrupo.UseVisualStyleBackColor = false;
             this.BtnEliminarGrupo.Click += new System.EventHandler(this.BtnEliminarGrupo_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(610, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 13);
+            this.label1.TabIndex = 91;
+            this.label1.Text = "Editar publicacion:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(610, 459);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 13);
+            this.label3.TabIndex = 92;
+            this.label3.Text = "Editar comentario:";
+            // 
+            // TboxNombreGrupo
+            // 
+            this.TboxNombreGrupo.Location = new System.Drawing.Point(73, 161);
+            this.TboxNombreGrupo.Name = "TboxNombreGrupo";
+            this.TboxNombreGrupo.Size = new System.Drawing.Size(144, 20);
+            this.TboxNombreGrupo.TabIndex = 93;
+            // 
             // AdminGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.TboxNombreGrupo);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.TboxVerificarNombreGrupo);
             this.Controls.Add(this.BtnEliminarGrupo);
             this.Controls.Add(this.StaticLbEvetnos);
@@ -418,7 +439,7 @@ namespace Interfaz
             this.Controls.Add(this.DgridUsuariosDeGrupo);
             this.Controls.Add(this.BtnActualizarDatosCuenta);
             this.Controls.Add(this.LbIdGrupo);
-            this.Controls.Add(this.BtnModificarDescripcion);
+            this.Controls.Add(this.BtnModificarDatos);
             this.Controls.Add(this.TboxModificarDescripcion);
             this.Controls.Add(this.StaticLbBiografia);
             this.Controls.Add(this.LbNumReportes);
@@ -435,7 +456,6 @@ namespace Interfaz
             this.Controls.Add(this.LbGrupoPrivado);
             this.Controls.Add(this.StaticLbRolUsr);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.LbNombreGrupo);
             this.Controls.Add(this.StaticLbReportes);
             this.Controls.Add(this.StaticLbResponsables);
             this.Controls.Add(this.StaticLbEstado);
@@ -458,7 +478,7 @@ namespace Interfaz
 
         private System.Windows.Forms.Button BtnActualizarDatosCuenta;
         private System.Windows.Forms.Label LbIdGrupo;
-        private System.Windows.Forms.Button BtnModificarDescripcion;
+        private System.Windows.Forms.Button BtnModificarDatos;
         private System.Windows.Forms.TextBox TboxModificarDescripcion;
         private System.Windows.Forms.Label StaticLbBiografia;
         private System.Windows.Forms.Label LbNumReportes;
@@ -475,7 +495,6 @@ namespace Interfaz
         private System.Windows.Forms.Label LbGrupoPrivado;
         private System.Windows.Forms.Label StaticLbRolUsr;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label LbNombreGrupo;
         private System.Windows.Forms.Label StaticLbReportes;
         private System.Windows.Forms.Label StaticLbResponsables;
         private System.Windows.Forms.Label StaticLbEstado;
@@ -490,5 +509,8 @@ namespace Interfaz
         private System.Windows.Forms.Label StaticLbEvetnos;
         private System.Windows.Forms.TextBox TboxVerificarNombreGrupo;
         private System.Windows.Forms.Button BtnEliminarGrupo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox TboxNombreGrupo;
     }
 }

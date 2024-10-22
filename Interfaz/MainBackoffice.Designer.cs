@@ -69,6 +69,7 @@ namespace Interfaz
             this.PanelBusquedaGrupo = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.LbGrupoIdMensaje = new System.Windows.Forms.Label();
+            this.adminGrupo1 = new Interfaz.AdminGrupo();
             this.BtnGrupoLimpiarFiltro = new System.Windows.Forms.Button();
             this.TboxBuscarIdGrupo = new System.Windows.Forms.TextBox();
             this.TboxGrupoDescripcion = new System.Windows.Forms.TextBox();
@@ -91,7 +92,6 @@ namespace Interfaz
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.DgridUsuarios = new System.Windows.Forms.DataGridView();
             this.AdministracionDeUsuarios = new Interfaz.AdminUsuario();
-            this.adminGrupo1 = new Interfaz.AdminGrupo();
             this.menuStrip1.SuspendLayout();
             this.MainPanelBotones.SuspendLayout();
             this.PanelBusquedaPost.SuspendLayout();
@@ -424,6 +424,7 @@ namespace Interfaz
             // 
             this.PanelBusquedaGrupo.Controls.Add(this.label5);
             this.PanelBusquedaGrupo.Controls.Add(this.LbGrupoIdMensaje);
+            this.PanelBusquedaGrupo.Controls.Add(this.adminGrupo1);
             this.PanelBusquedaGrupo.Controls.Add(this.BtnGrupoLimpiarFiltro);
             this.PanelBusquedaGrupo.Controls.Add(this.TboxBuscarIdGrupo);
             this.PanelBusquedaGrupo.Controls.Add(this.TboxGrupoDescripcion);
@@ -456,6 +457,14 @@ namespace Interfaz
             this.LbGrupoIdMensaje.Name = "LbGrupoIdMensaje";
             this.LbGrupoIdMensaje.Size = new System.Drawing.Size(0, 13);
             this.LbGrupoIdMensaje.TabIndex = 12;
+            // 
+            // adminGrupo1
+            // 
+            this.adminGrupo1.Location = new System.Drawing.Point(0, 0);
+            this.adminGrupo1.Name = "adminGrupo1";
+            this.adminGrupo1.Size = new System.Drawing.Size(1172, 679);
+            this.adminGrupo1.TabIndex = 39;
+            this.adminGrupo1.Visible = false;
             // 
             // BtnGrupoLimpiarFiltro
             // 
@@ -670,19 +679,11 @@ namespace Interfaz
             // 
             // AdministracionDeUsuarios
             // 
-            this.AdministracionDeUsuarios.Location = new System.Drawing.Point(199, 24);
+            this.AdministracionDeUsuarios.Location = new System.Drawing.Point(913, 120);
             this.AdministracionDeUsuarios.Name = "AdministracionDeUsuarios";
             this.AdministracionDeUsuarios.Size = new System.Drawing.Size(1104, 648);
             this.AdministracionDeUsuarios.TabIndex = 20;
             this.AdministracionDeUsuarios.Visible = false;
-            // 
-            // adminGrupo1
-            // 
-            this.adminGrupo1.Location = new System.Drawing.Point(197, 24);
-            this.adminGrupo1.Name = "adminGrupo1";
-            this.adminGrupo1.Size = new System.Drawing.Size(1172, 679);
-            this.adminGrupo1.TabIndex = 39;
-            this.adminGrupo1.Visible = false;
             // 
             // MainBackoffice
             // 
@@ -691,7 +692,6 @@ namespace Interfaz
             this.ClientSize = new System.Drawing.Size(1370, 703);
             this.Controls.Add(this.MainPanelBotones);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.adminGrupo1);
             this.Controls.Add(this.AdministracionDeUsuarios);
             this.Controls.Add(this.PanelBusquedaGrupo);
             this.Controls.Add(this.PanelBusquedaUsuario);

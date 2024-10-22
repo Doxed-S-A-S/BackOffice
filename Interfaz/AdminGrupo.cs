@@ -28,7 +28,7 @@ namespace Interfaz
             if (id != null)
             {
                 LbIdGrupo.Text = ControlGrupo.BuscarGrupo(id)["id"].ToString();
-                LbNombreGrupo.Text = ControlGrupo.BuscarGrupo(id)["nombre_grupo"];
+                TboxNombreGrupo.Text = ControlGrupo.BuscarGrupo(id)["nombre_grupo"];
                 TboxModificarDescripcion.Text = ControlGrupo.BuscarGrupo(id)["descripcion"];
                 LbNumReportes.Text = ControlGrupo.BuscarGrupo(id)["reports"];
                 LbGrupoPrivado.Text = ControlGrupo.BuscarGrupo(id)["privacidad"];
@@ -73,20 +73,7 @@ namespace Interfaz
             DgridEventosGrupo.DataSource = ControlPosts.ListarEventosDeGrupo(LbIdGrupo.Text);
         }
 
-        private void BtnModificarDescripcion_Click(object sender, EventArgs e)
-        {
-            DialogResult check = MessageBox.Show(
-                $"Esta seguro que desea modificar la Descripcion del grupo {LbNombreGrupo.Text}?",
-                "Esta seguro?",
-                MessageBoxButtons.YesNo);
 
-            if (check.ToString() == "Yes")
-            {
-                ControlGrupo.ModificarDescripcionGrupo(LbIdGrupo.Text, TboxModificarDescripcion.Text);
-            }
-
-            
-        }
         private int IndexPublicacion()
         {
             int i = DgridPublicaciones.CurrentCell.RowIndex;
@@ -188,6 +175,21 @@ namespace Interfaz
             }
             TboxVerificarNombreGrupo.Clear();
             TboxVerificarNombreGrupo.Hide();
+        }
+
+        private void BtnModificarDescripcion_Click(object sender, EventArgs e)
+        {
+            DialogResult check = MessageBox.Show(
+                $"Esta seguro que desea modificar los datos generales del grupo {TboxNombreGrupo.Text}?",
+                "Esta seguro?",
+                MessageBoxButtons.YesNo);
+
+            if (check.ToString() == "Yes")
+            {
+                ControlGrupo.ModificarGrupo(LbIdGrupo.Text, TboxNombreGrupo.Text, TboxModificarDescripcion.Text);
+            }
+
+
         }
     }
 }

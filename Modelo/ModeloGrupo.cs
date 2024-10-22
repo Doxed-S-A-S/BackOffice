@@ -61,11 +61,10 @@ namespace Modelos
         {
             try
             {
-                string sql = $"UPDATE grupos set nombre_grupo =@nombre_grupo, descripcion = @descripcion, banner = @banner WHERE id_grupo = {this.id_grupo}";
+                string sql = $"UPDATE grupos set nombre_grupo =@nombre_grupo, descripcion = @descripcion WHERE id_grupo = {this.id_grupo}";
                 this.Comando.CommandText = sql;
                 this.Comando.Parameters.AddWithValue("@nombre_grupo", this.nombre_grupo);
                 this.Comando.Parameters.AddWithValue("@descripcion", this.descripcion);
-                this.Comando.Parameters.AddWithValue("@banner", this.banner);
                 this.Comando.Prepare();
                 this.Comando.ExecuteNonQuery();
             }
