@@ -126,8 +126,8 @@ namespace Controlador
             {
                 DataTable tabla = new DataTable();
                 tabla.Columns.Add("nombre_grupo", typeof(string));
-                tabla.Columns.Add("nombre_usuario", typeof(string));
-                tabla.Columns.Add("rol", typeof(string));
+                tabla.Columns.Add("Username", typeof(string));
+                tabla.Columns.Add("Rol", typeof(string));
 
 
                 ModeloGrupo grupo = new ModeloGrupo();
@@ -135,8 +135,8 @@ namespace Controlador
                 {
                     DataRow fila = tabla.NewRow();
                     fila["nombre_grupo"] = p.nombre_grupo;
-                    fila["nombre_usuario"] = p.nombre_usuario;
-                    fila["rol"] = p.rol;
+                    fila["Username"] = p.nombre_usuario;
+                    fila["Rol"] = p.rol;
                     tabla.Rows.Add(fila);
                 }
 
@@ -155,7 +155,7 @@ namespace Controlador
             {
                 DataTable tabla = new DataTable();
                 tabla.Columns.Add("id_cuenta", typeof(int));
-                tabla.Columns.Add("nombre_usuario", typeof(string));
+                tabla.Columns.Add("Username", typeof(string));
                 tabla.Columns.Add("rol", typeof(string));
 
 
@@ -164,7 +164,7 @@ namespace Controlador
                 {
                     DataRow fila = tabla.NewRow();
                     fila["id_cuenta"] = g.id_cuenta;
-                    fila["nombre_usuario"] = g.nombre_usuario;
+                    fila["Username"] = g.nombre_usuario;
                     fila["rol"] = g.rol;
                     tabla.Rows.Add(fila);
                 }
@@ -302,7 +302,7 @@ namespace Controlador
         {
             DataTable tabla = new DataTable();
             tabla.Columns.Add("Username", typeof(string));
-            tabla.Columns.Add("Id_Post", typeof(int));
+            tabla.Columns.Add("ID", typeof(int));
             tabla.Columns.Add("Contenido", typeof(string));
 
 
@@ -311,7 +311,7 @@ namespace Controlador
             {
                 DataRow fila = tabla.NewRow();
                 fila["Username"] = g.nombre_usuario;
-                fila["Id_post"] = g.id_post;
+                fila["ID"] = g.id_post;
                 fila["Contenido"] = g.postContenido;
                 tabla.Rows.Add(fila);
             }

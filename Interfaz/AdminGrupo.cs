@@ -43,13 +43,14 @@ namespace Interfaz
             refrescarTablaDeIntegrantes();
             refrescarTablaDePublicacionesGrupo();
             refrescarTablaDeResponsables();
-            refrescarTablaDeEventosDelGrupo();
 
         }
         private void refrescarTablaDePublicacionesGrupo()
         {
             DgridPublicaciones.Refresh();
             DgridPublicaciones.DataSource = ControlGrupo.PostDeGrupo(LbIdGrupo.Text);
+            DgridPublicaciones.Columns["ID"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            DgridPublicaciones.Columns["Username"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
         private void refrescarTablaDeComentariosGrupo()
         {
@@ -61,6 +62,7 @@ namespace Interfaz
         {
             DgridUsuariosDeGrupo.Refresh();
             DgridUsuariosDeGrupo.DataSource = ControlGrupo.ObtenerIntegrantesDeGrupo(LbIdGrupo.Text);
+            DgridUsuariosDeGrupo.Columns["nombre_grupo"].Visible = false;
         }
         private void refrescarTablaDeResponsables()
         {
@@ -68,11 +70,7 @@ namespace Interfaz
             DgridResponsables.DataSource = ControlGrupo.ObtenerResponsablesDeGrupo(LbIdGrupo.Text);
             DgridResponsables.Columns["id_cuenta"].Visible = false;
         }
-        private void refrescarTablaDeEventosDelGrupo()
-        {
-            DgridEventosGrupo.Refresh();
-            DgridEventosGrupo.DataSource = ControlPosts.ListarEventosDeGrupo(LbIdGrupo.Text);
-        }
+
 
 
         private int IndexPublicacion()
@@ -192,6 +190,13 @@ namespace Interfaz
             }
 
 
+        }
+
+        private void BtnVerEventos_Click(object sender, EventArgs e)
+        {
+            PanelDeEventos Ev = new PanelDeEventos();
+            Ev.CargarEventoDeGrupo(LbIdGrupo.Text,LbNombreGrupo.Text);
+            Ev.Show();
         }
     }
 }

@@ -46,3 +46,4 @@ C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\obj\Deb
 C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\obj\Debug\Interfaz.csproj.CopyComplete
 C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\obj\Debug\Interfaz.exe
 C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\obj\Debug\Interfaz.pdb
+C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\obj\Debug\Interfaz.PanelDeEventos.resources
