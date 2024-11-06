@@ -74,6 +74,7 @@ namespace Interfaz
             this.DgridEventosGrupo.Name = "DgridEventosGrupo";
             this.DgridEventosGrupo.Size = new System.Drawing.Size(338, 561);
             this.DgridEventosGrupo.TabIndex = 89;
+            this.DgridEventosGrupo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgridEventosGrupo_CellClick);
             // 
             // LbNombreGrupo
             // 
@@ -196,7 +197,6 @@ namespace Interfaz
             this.LbEventoPostId.Size = new System.Drawing.Size(40, 13);
             this.LbEventoPostId.TabIndex = 105;
             this.LbEventoPostId.Text = "Id Post";
-            this.LbEventoPostId.Visible = false;
             // 
             // ChBoxEliminarImg
             // 
@@ -222,9 +222,9 @@ namespace Interfaz
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(353, 72);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(73, 13);
+            this.label7.Size = new System.Drawing.Size(75, 13);
             this.label7.TabIndex = 108;
-            this.label7.Text = "Id del usuario:";
+            this.label7.Text = "Id del creador:";
             // 
             // LbEventoUsuarioCreador
             // 
@@ -234,7 +234,6 @@ namespace Interfaz
             this.LbEventoUsuarioCreador.Size = new System.Drawing.Size(53, 13);
             this.LbEventoUsuarioCreador.TabIndex = 109;
             this.LbEventoUsuarioCreador.Text = "Id Cuenta";
-            this.LbEventoUsuarioCreador.Visible = false;
             // 
             // LbIdGrupo
             // 

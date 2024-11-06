@@ -28,6 +28,12 @@ namespace Interfaz
             }
         }
 
+        private int IndexEvento()
+        {
+            int i = DgridEventosGrupo.CurrentCell.RowIndex;
+            return i;
+        }
+
         private void refrescarTablaDeEventosDelGrupo(string idGrupo)
         {
             DgridEventosGrupo.Refresh();
@@ -40,9 +46,10 @@ namespace Interfaz
 
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
-            string imagenUrl = "abc";
+            string imagenUrl = "urlTest";
 
             if (ChBoxEliminarImg.Checked == true)
                 imagenUrl = "null";
@@ -62,6 +69,19 @@ TboxEventoNombre.Text, imagenUrl, TboxEventoDescripcion.Text, LbEventoUsuarioCre
             }
 
 
+
+        }
+
+        private void DgridEventosGrupo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            LbEventoPostId.Text = DgridEventosGrupo.Rows[IndexEvento()].Cells["Id_Post"].Value.ToString();
+            LbEventoId.Text = DgridEventosGrupo.Rows[IndexEvento()].Cells["Id_Evento"].Value.ToString();
+            TboxEventoMultimedia.Text = DgridEventosGrupo.Rows[IndexEvento()].Cells["Url multimedia"].Value.ToString();
+            TboxEventoContenido.Text = DgridEventosGrupo.Rows[IndexEvento()].Cells["Contenido"].Value.ToString();
+            TboxEventoNombre.Text = DgridEventosGrupo.Rows[IndexEvento()].Cells["Nombre del evento"].Value.ToString();
+            // url imagen ( Url de la imagen )
+            TboxEventoDescripcion.Text = DgridEventosGrupo.Rows[IndexEvento()].Cells["Descripcion del evento"].Value.ToString();
+            LbEventoPostId.Text = DgridEventosGrupo.Rows[IndexEvento()].Cells["Id_Post"].Value.ToString();
 
         }
     }
