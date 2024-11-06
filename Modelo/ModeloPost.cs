@@ -211,8 +211,11 @@ namespace Modelos
         {
             List<ModeloPost> eventos = new List<ModeloPost>();
 
-            string sql = $"select * from evento join organiza on evento.id_evento = organiza.id_evento " +
-                $"where organiza.id_grupo = {idGrupo} and evento.eliminado = false;";
+            string sql = $"select evento.id_post,evento.id_evento,posts.url_contenido,posts.contenido,evento.nombre_evento," +
+                $"posts.url_imagen,evento.descripcion_evento,posts.id_cuenta,evento.fecha_evento " +
+                $"from evento join organiza on evento.id_evento = organiza.id_evento " +
+                $"join posts on evento.id_post = posts.id_post " +
+                $"where organiza.id_grupo = {idGrupo} and evento.eliminado = false; ";
             this.Comando.CommandText = sql;
             this.Lector = this.Comando.ExecuteReader();
 
@@ -221,7 +224,10 @@ namespace Modelos
                 ModeloPost ev = new ModeloPost();
                 ev.Id_Post = Int32.Parse(this.Lector["id_post"].ToString());
                 ev.id_evento = Int32.Parse(this.Lector["id_evento"].ToString());
+                ev.url_contenido = this.Lector["url_contenido"].ToString();
+                ev.Contenido = this.Lector["contenido"].ToString();
                 ev.nombre_evento = this.Lector["nombre_evento"].ToString();
+                ev.imagen = this.Lector["url_imagen"].ToString();
                 ev.descripcion_evento = this.Lector["descripcion_evento"].ToString();
                 ev.fecha_evento = this.Lector["fecha_evento"].ToString();
                 eventos.Add(ev);

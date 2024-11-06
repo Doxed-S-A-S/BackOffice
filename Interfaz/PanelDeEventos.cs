@@ -24,6 +24,7 @@ namespace Interfaz
             {
                 refrescarTablaDeEventosDelGrupo(idGrupo);
                 LbNombreGrupo.Text = nombreDelGrupo;
+                LbIdGrupo.Text = idGrupo;
             }
         }
 
@@ -33,8 +34,35 @@ namespace Interfaz
             DgridEventosGrupo.DataSource = ControlPosts.ListarEventosDeGrupo(idGrupo);
             DgridEventosGrupo.Columns["Id_Post"].Visible = false;
             DgridEventosGrupo.Columns["Id_Evento"].Visible = false;
+            DgridEventosGrupo.Columns["Url multimedia"].Visible = false;
+            DgridEventosGrupo.Columns["Url de la imagen"].Visible = false;
+            DgridEventosGrupo.Columns["Descripcion del evento"].Visible = false;
+
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string imagenUrl = "abc";
 
+            if (ChBoxEliminarImg.Checked == true)
+                imagenUrl = "null";
+
+
+            DialogResult resultado = MessageBox.Show(
+               $"Esta seguro que quiere modificar el contenido de este evento?",
+               "Esta seguro?",
+               MessageBoxButtons.YesNo);
+
+            if (resultado.ToString() == "Yes")
+            {
+                ControlPosts.ModificarEvento(LbEventoPostId.Text, LbEventoId.Text, TboxEventoMultimedia.Text, TboxEventoContenido.Text,
+TboxEventoNombre.Text, imagenUrl, TboxEventoDescripcion.Text, LbEventoUsuarioCreador.Text);
+                refrescarTablaDeEventosDelGrupo(LbIdGrupo.Text);
+                MessageBox.Show("Evento modificado");
+            }
+
+
+
+        }
     }
 }

@@ -126,7 +126,7 @@ namespace Controlador
             }
         }
 
-        public static void ModificarEvento(string Id_Post, string id_evento, string url_contenido, string tipo_contenido, string contenido, string nombre_evento, string imagen, string descripcion_evento, string id_cuenta)
+        public static void ModificarEvento(string Id_Post, string id_evento, string url_contenido, string contenido, string nombre_evento, string imagen, string descripcion_evento, string id_cuenta)
         {
             try
             {
@@ -134,7 +134,7 @@ namespace Controlador
                 evento.Id_Post = Int32.Parse(Id_Post);
                 evento.id_evento = Int32.Parse(id_evento);
                 evento.url_contenido = url_contenido;
-                evento.tipo_contenido = tipo_contenido;
+                //evento.tipo_contenido = tipo_contenido;
                 evento.Contenido = contenido;
                 evento.nombre_evento = nombre_evento;
                 evento.imagen = imagen;
@@ -154,7 +154,10 @@ namespace Controlador
             DataTable tabla = new DataTable();
             tabla.Columns.Add("Id_Post", typeof(int));
             tabla.Columns.Add("Id_Evento", typeof(int));
+            tabla.Columns.Add("Url multimedia", typeof(string));
+            tabla.Columns.Add("Contenido", typeof(string));
             tabla.Columns.Add("Nombre del evento", typeof(string));
+            tabla.Columns.Add("Url de la imagen", typeof(string));
             tabla.Columns.Add("Descripcion del evento", typeof(string));
             tabla.Columns.Add("Fecha evento", typeof(string));
 
@@ -164,7 +167,10 @@ namespace Controlador
                 DataRow fila = tabla.NewRow();
                 fila["Id_post"] = e.Id_Post;
                 fila["Id_Evento"] = e.id_evento;
+                fila["Url multimedia"] = e.url_contenido;
+                fila["Contenido"] = e.Contenido;
                 fila["Nombre del evento"] = e.nombre_evento;
+                fila["Url de la imagen"] = e.imagen;
                 fila["Descripcion del evento"] = e.descripcion_evento;
                 fila["Fecha evento"] = e.fecha_evento;
                 tabla.Rows.Add(fila);
