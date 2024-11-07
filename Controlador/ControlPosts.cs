@@ -160,6 +160,8 @@ namespace Controlador
             tabla.Columns.Add("Url de la imagen", typeof(string));
             tabla.Columns.Add("Descripcion del evento", typeof(string));
             tabla.Columns.Add("Fecha evento", typeof(string));
+            tabla.Columns.Add("Id_Cuenta", typeof(int));
+
 
             ModeloPost evento = new ModeloPost();
             foreach (ModeloPost e in evento.ListarEventosDeGrupo(Int32.Parse(idGrupo)))
@@ -173,6 +175,7 @@ namespace Controlador
                 fila["Url de la imagen"] = e.imagen;
                 fila["Descripcion del evento"] = e.descripcion_evento;
                 fila["Fecha evento"] = e.fecha_evento;
+                fila["Id_Cuenta"] = e.Id_Cuenta;
                 tabla.Rows.Add(fila);
             }
             return tabla;

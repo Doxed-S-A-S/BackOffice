@@ -82,6 +82,7 @@ TboxEventoNombre.Text, imagenUrl, TboxEventoDescripcion.Text, LbEventoUsuarioCre
             // url imagen ( Url de la imagen )
             TboxEventoDescripcion.Text = DgridEventosGrupo.Rows[IndexEvento()].Cells["Descripcion del evento"].Value.ToString();
             LbEventoPostId.Text = DgridEventosGrupo.Rows[IndexEvento()].Cells["Id_Post"].Value.ToString();
+            LbEventoUsuarioCreador.Text = DgridEventosGrupo.Rows[IndexEvento()].Cells["Id_Cuenta"].Value.ToString();
 
         }
     }

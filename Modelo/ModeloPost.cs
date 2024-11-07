@@ -54,7 +54,7 @@ namespace Modelos
 
         public void ActualizarPost()
         {
-            string sql = $"update posts set contenido ='{this.Contenido}'where id_post ='{this.Id_Post}'";
+            string sql = $"update posts set contenido ='{this.Contenido}', url_contenido = '{this.url_contenido}',url_imagen = '{this.imagen}' where id_post ='{this.Id_Post}'";
             this.Comando.CommandText = sql;
             this.Comando.ExecuteNonQuery();
         }
@@ -230,6 +230,7 @@ namespace Modelos
                 ev.imagen = this.Lector["url_imagen"].ToString();
                 ev.descripcion_evento = this.Lector["descripcion_evento"].ToString();
                 ev.fecha_evento = this.Lector["fecha_evento"].ToString();
+                ev.Id_Cuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
                 eventos.Add(ev);
             }
             this.Lector.Close();
@@ -301,7 +302,7 @@ namespace Modelos
             ActualizarPost();
             try
             {
-                string sql = $"update evento set nombre_evento='{this.nombre_evento}',imagen='{this.imagen}',descripcion_evento='{this.descripcion_evento}' where id_evento ={this.id_evento}";
+                string sql = $"update evento set nombre_evento='{this.nombre_evento}',descripcion_evento='{this.descripcion_evento}' where id_evento ={this.id_evento}";
                 this.Comando.CommandText = sql;
                 this.Comando.ExecuteNonQuery();
             }
