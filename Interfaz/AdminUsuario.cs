@@ -102,7 +102,7 @@ namespace Interfaz
                 "Esta seguro?",
                 MessageBoxButtons.YesNo);
 
-            if (seguro.ToString()== "Yes")
+           if (seguro.ToString()== "Yes")
             {
                 ControlCuenta.ModificarCorreo(LbIdUsuario.Text, TboxModificarCorreo.Text);
             }
@@ -182,6 +182,25 @@ namespace Interfaz
             }
             TboxVerificarUsername.Clear();
             TboxVerificarUsername.Hide();
+        }
+
+        private void TboxComentarios_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnModificarBiografia_Click(object sender, EventArgs e)
+        {
+            DialogResult seguro = MessageBox.Show(
+    $"Esta seguro que desea modificar la biografia del usuario {LbUsername.Text}?",
+    "Esta seguro?",
+    MessageBoxButtons.YesNo);
+
+            if (seguro.ToString() == "Yes")
+            {
+                ControlCuenta.ModificarBio(LbIdUsuario.Text, TboxModificarBiografia.Text);
+            }
+            
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Modelos
         public long id_grupo;
         public string nombre_grupo;
         public string descripcion;
-        public string banner;
+        public string url_imagen;
         public Boolean privacidad;
         public int reports;
 
@@ -38,11 +38,11 @@ namespace Modelos
         {
             try
             {
-                string sql = $"insert into grupos (nombre_grupo,descripcion,privacidad,banner) values(@nombre_grupo,@descripcion,{this.privacidad},@banner)";
+                string sql = $"insert into grupos (nombre_grupo,descripcion,privacidad,url_imagen) values(@nombre_grupo,@descripcion,{this.privacidad},@url_imagen)";
                 this.Comando.CommandText = sql;
                 this.Comando.Parameters.AddWithValue("@nombre_grupo", this.nombre_grupo);
                 this.Comando.Parameters.AddWithValue("@descripcion", this.descripcion);
-                this.Comando.Parameters.AddWithValue("@banner", this.banner);
+                this.Comando.Parameters.AddWithValue("@url_imagen", this.url_imagen);
                 this.Comando.Prepare();
                 this.Comando.ExecuteNonQuery();
                 this.id_grupo = this.Comando.LastInsertedId;
@@ -61,11 +61,10 @@ namespace Modelos
         {
             try
             {
-                string sql = $"UPDATE grupos set nombre_grupo =@nombre_grupo, descripcion = @descripcion, banner = @banner WHERE id_grupo = {this.id_grupo}";
+                string sql = $"UPDATE grupos set nombre_grupo =@nombre_grupo, descripcion = @descripcion WHERE id_grupo = {this.id_grupo}";
                 this.Comando.CommandText = sql;
                 this.Comando.Parameters.AddWithValue("@nombre_grupo", this.nombre_grupo);
                 this.Comando.Parameters.AddWithValue("@descripcion", this.descripcion);
-                this.Comando.Parameters.AddWithValue("@banner", this.banner);
                 this.Comando.Prepare();
                 this.Comando.ExecuteNonQuery();
             }
@@ -123,25 +122,6 @@ namespace Modelos
             {
                 string sql = $"update grupos set privacidad = {this.privacidad} where id_grupo = {this.id_grupo}";
                 this.Comando.CommandText = sql;
-                this.Comando.ExecuteNonQuery();
-            }
-            catch (MySqlException sqlx)
-            {
-                MySqlErrorCatch(sqlx);
-            }
-            catch (Exception)
-            {
-                throw new Exception("UNKNOWN_ERROR");
-            }
-        }
-        public void ModificarBannerGrupo()
-        {
-            try
-            {
-                string sql = $"update grupos set banner = @banner where id_grupo = '{this.id_grupo}'";
-                this.Comando.CommandText = sql;
-                this.Comando.Parameters.AddWithValue("@banner", this.banner);
-                this.Comando.Prepare();
                 this.Comando.ExecuteNonQuery();
             }
             catch (MySqlException sqlx)
@@ -327,7 +307,7 @@ namespace Modelos
                     this.id_grupo = Int32.Parse(this.Lector["id_grupo"].ToString());
                     this.nombre_grupo = this.Lector["nombre_grupo"].ToString();
                     this.descripcion = this.Lector["descripcion"].ToString();
-                    this.banner = this.Lector["banner"].ToString();
+                    this.url_imagen = this.Lector["url_imagen"].ToString();
                     this.reports = Int32.Parse(this.Lector["reports"].ToString());
                     this.privacidad = bool.Parse(this.Lector["privacidad"].ToString());
                     this.Lector.Close();

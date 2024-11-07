@@ -11,7 +11,7 @@ namespace Controlador
 {
     public class ControlGrupo
     {
-        public static void CrearGrupo(string id_cuenta, string nombreGrupo, string descripcion, string privacidad, string banner)
+        public static void CrearGrupo(string id_cuenta, string nombreGrupo, string descripcion, string privacidad, string url_imagen)
         {
             try
             {
@@ -19,7 +19,7 @@ namespace Controlador
                 grupo.nombre_grupo = nombreGrupo;
                 grupo.descripcion = descripcion;
                 grupo.privacidad = bool.Parse(privacidad);
-                grupo.banner = banner;
+                grupo.url_imagen = url_imagen;
                 grupo.id_cuenta = Int32.Parse(id_cuenta);
 
                 grupo.CrearGrupo();
@@ -30,7 +30,7 @@ namespace Controlador
             }
         }
 
-        public static bool ModificarGrupo(string id, string nombre, string descripcion, string banner)
+        public static bool ModificarGrupo(string id, string nombre, string descripcion)
         {
             try
             {
@@ -39,7 +39,6 @@ namespace Controlador
                 {
                     grupo.nombre_grupo = nombre;
                     grupo.descripcion = descripcion;
-                    grupo.banner = banner;
 
                     grupo.Guardar();
                     return true;
@@ -53,37 +52,6 @@ namespace Controlador
             }
         }
 
-        public static void ModificarNombreGrupo(string id, string nombre)
-        {
-            try
-            {
-                ModeloGrupo grupo = new Modelos.ModeloGrupo();
-                grupo.id_grupo = Int32.Parse(id);
-                grupo.nombre_grupo = nombre;
-
-                grupo.ModificarNombreGrupo();
-            }
-            catch (Exception e)
-            {
-                ErrorHandle(e);
-            }
-        }
-
-        public static void ModificarDescripcionGrupo(string id, string descripcion)
-        {
-            try
-            {
-                ModeloGrupo grupo = new Modelos.ModeloGrupo();
-                grupo.id_grupo = Int32.Parse(id);
-                grupo.nombre_grupo = descripcion;
-
-                grupo.ModificarDescripcionGrupo();
-            }
-            catch (Exception e)
-            {
-                ErrorHandle(e);
-            }
-        }
 
         public static void ModificarPrivacidadGrupo(string id_grupo, string privacidad)
         {
@@ -101,21 +69,7 @@ namespace Controlador
             }
         }
 
-        public static void ModificarBannerGrupo(string id, string banner)
-        {
-            try
-            {
-                ModeloGrupo grupo = new Modelos.ModeloGrupo();
-                grupo.id_grupo = Int32.Parse(id);
-                grupo.nombre_grupo = banner;
 
-                grupo.ModificarBannerGrupo();
-            }
-            catch (Exception e)
-            {
-                ErrorHandle(e);
-            }
-        }
 
         public static bool EliminarGrupo(string id)
         {
@@ -172,8 +126,8 @@ namespace Controlador
             {
                 DataTable tabla = new DataTable();
                 tabla.Columns.Add("nombre_grupo", typeof(string));
-                tabla.Columns.Add("nombre_usuario", typeof(string));
-                tabla.Columns.Add("rol", typeof(string));
+                tabla.Columns.Add("Username", typeof(string));
+                tabla.Columns.Add("Rol", typeof(string));
 
 
                 ModeloGrupo grupo = new ModeloGrupo();
@@ -181,8 +135,8 @@ namespace Controlador
                 {
                     DataRow fila = tabla.NewRow();
                     fila["nombre_grupo"] = p.nombre_grupo;
-                    fila["nombre_usuario"] = p.nombre_usuario;
-                    fila["rol"] = p.rol;
+                    fila["Username"] = p.nombre_usuario;
+                    fila["Rol"] = p.rol;
                     tabla.Rows.Add(fila);
                 }
 
@@ -201,7 +155,7 @@ namespace Controlador
             {
                 DataTable tabla = new DataTable();
                 tabla.Columns.Add("id_cuenta", typeof(int));
-                tabla.Columns.Add("nombre_usuario", typeof(string));
+                tabla.Columns.Add("Username", typeof(string));
                 tabla.Columns.Add("rol", typeof(string));
 
 
@@ -210,7 +164,7 @@ namespace Controlador
                 {
                     DataRow fila = tabla.NewRow();
                     fila["id_cuenta"] = g.id_cuenta;
-                    fila["nombre_usuario"] = g.nombre_usuario;
+                    fila["Username"] = g.nombre_usuario;
                     fila["rol"] = g.rol;
                     tabla.Rows.Add(fila);
                 }
@@ -237,7 +191,7 @@ namespace Controlador
                     resultado.Add("descripcion", grupo.descripcion);
                     resultado.Add("reports", grupo.reports.ToString());
                     resultado.Add("privacidad", grupo.privacidad.ToString());
-                    resultado.Add("banner", grupo.banner);
+                    resultado.Add("url_imagen", grupo.url_imagen);
                     return resultado;
                 }
                 resultado.Add("resultado", "false");
@@ -348,7 +302,7 @@ namespace Controlador
         {
             DataTable tabla = new DataTable();
             tabla.Columns.Add("Username", typeof(string));
-            tabla.Columns.Add("Id_Post", typeof(int));
+            tabla.Columns.Add("ID", typeof(int));
             tabla.Columns.Add("Contenido", typeof(string));
 
 
@@ -357,7 +311,7 @@ namespace Controlador
             {
                 DataRow fila = tabla.NewRow();
                 fila["Username"] = g.nombre_usuario;
-                fila["Id_post"] = g.id_post;
+                fila["ID"] = g.id_post;
                 fila["Contenido"] = g.postContenido;
                 tabla.Rows.Add(fila);
             }

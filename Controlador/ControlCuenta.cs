@@ -124,6 +124,15 @@ namespace Controlador
             }
         }
 
+        public static void ModificarBio(string id_cuenta, string bio)
+        {
+            ModeloCuenta cuenta = new ModeloCuenta();
+            cuenta.biografia = bio;
+            cuenta.id_cuenta = Int32.Parse(id_cuenta);
+
+            cuenta.ModificarBio();
+        }
+
         public static bool ModificarPreferencias(string idCuenta, string idioma, Boolean recordarContraseña, string preferenciaContenido,
     Boolean notificacionPush, Boolean privacidad, string apariencia)
         {
