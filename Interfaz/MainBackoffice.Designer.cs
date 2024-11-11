@@ -56,6 +56,7 @@ namespace Interfaz
             this.BtnBusquedaUsuarios = new System.Windows.Forms.Button();
             this.BtnContUsuarios = new System.Windows.Forms.Button();
             this.PanelBusquedaPost = new System.Windows.Forms.Panel();
+            this.BtnMostrarTodosLosPost = new System.Windows.Forms.Button();
             this.LbPostNombreDeUsuario = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.TboxMostrarContenidoPost = new System.Windows.Forms.TextBox();
@@ -69,7 +70,6 @@ namespace Interfaz
             this.PanelBusquedaGrupo = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.LbGrupoIdMensaje = new System.Windows.Forms.Label();
-            this.adminGrupo1 = new Interfaz.AdminGrupo();
             this.BtnGrupoLimpiarFiltro = new System.Windows.Forms.Button();
             this.TboxBuscarIdGrupo = new System.Windows.Forms.TextBox();
             this.TboxGrupoDescripcion = new System.Windows.Forms.TextBox();
@@ -91,7 +91,10 @@ namespace Interfaz
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.DgridUsuarios = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.adminGrupo1 = new Interfaz.AdminGrupo();
             this.AdministracionDeUsuarios = new Interfaz.AdminUsuario();
+            this.LbCuentaPostId = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.MainPanelBotones.SuspendLayout();
             this.PanelBusquedaPost.SuspendLayout();
@@ -307,6 +310,9 @@ namespace Interfaz
             // 
             // PanelBusquedaPost
             // 
+            this.PanelBusquedaPost.Controls.Add(this.LbCuentaPostId);
+            this.PanelBusquedaPost.Controls.Add(this.label7);
+            this.PanelBusquedaPost.Controls.Add(this.BtnMostrarTodosLosPost);
             this.PanelBusquedaPost.Controls.Add(this.LbPostNombreDeUsuario);
             this.PanelBusquedaPost.Controls.Add(this.label6);
             this.PanelBusquedaPost.Controls.Add(this.TboxMostrarContenidoPost);
@@ -323,6 +329,16 @@ namespace Interfaz
             this.PanelBusquedaPost.TabIndex = 33;
             this.PanelBusquedaPost.Visible = false;
             // 
+            // BtnMostrarTodosLosPost
+            // 
+            this.BtnMostrarTodosLosPost.Location = new System.Drawing.Point(261, 42);
+            this.BtnMostrarTodosLosPost.Name = "BtnMostrarTodosLosPost";
+            this.BtnMostrarTodosLosPost.Size = new System.Drawing.Size(101, 23);
+            this.BtnMostrarTodosLosPost.TabIndex = 11;
+            this.BtnMostrarTodosLosPost.Text = "Mostrar todos ";
+            this.BtnMostrarTodosLosPost.UseVisualStyleBackColor = true;
+            this.BtnMostrarTodosLosPost.Click += new System.EventHandler(this.BtnMostrarTodosLosPost_Click);
+            // 
             // LbPostNombreDeUsuario
             // 
             this.LbPostNombreDeUsuario.AutoSize = true;
@@ -334,7 +350,7 @@ namespace Interfaz
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(368, 361);
+            this.label6.Location = new System.Drawing.Point(365, 377);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 13);
             this.label6.TabIndex = 8;
@@ -342,7 +358,7 @@ namespace Interfaz
             // 
             // TboxMostrarContenidoPost
             // 
-            this.TboxMostrarContenidoPost.Location = new System.Drawing.Point(368, 119);
+            this.TboxMostrarContenidoPost.Location = new System.Drawing.Point(368, 135);
             this.TboxMostrarContenidoPost.Multiline = true;
             this.TboxMostrarContenidoPost.Name = "TboxMostrarContenidoPost";
             this.TboxMostrarContenidoPost.ReadOnly = true;
@@ -409,6 +425,7 @@ namespace Interfaz
             this.DgridListarPulicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgridListarPulicaciones.Location = new System.Drawing.Point(15, 119);
             this.DgridListarPulicaciones.Name = "DgridListarPulicaciones";
+            this.DgridListarPulicaciones.ReadOnly = true;
             this.DgridListarPulicaciones.Size = new System.Drawing.Size(347, 548);
             this.DgridListarPulicaciones.TabIndex = 1;
             this.DgridListarPulicaciones.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgridListarPulicaciones_CellClick);
@@ -456,14 +473,6 @@ namespace Interfaz
             this.LbGrupoIdMensaje.Name = "LbGrupoIdMensaje";
             this.LbGrupoIdMensaje.Size = new System.Drawing.Size(0, 13);
             this.LbGrupoIdMensaje.TabIndex = 12;
-            // 
-            // adminGrupo1
-            // 
-            this.adminGrupo1.Location = new System.Drawing.Point(200, 24);
-            this.adminGrupo1.Name = "adminGrupo1";
-            this.adminGrupo1.Size = new System.Drawing.Size(1173, 667);
-            this.adminGrupo1.TabIndex = 39;
-            this.adminGrupo1.Visible = false;
             // 
             // BtnGrupoLimpiarFiltro
             // 
@@ -546,6 +555,7 @@ namespace Interfaz
             this.DgridBuscarGrupo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgridBuscarGrupo.Location = new System.Drawing.Point(15, 99);
             this.DgridBuscarGrupo.Name = "DgridBuscarGrupo";
+            this.DgridBuscarGrupo.ReadOnly = true;
             this.DgridBuscarGrupo.Size = new System.Drawing.Size(363, 549);
             this.DgridBuscarGrupo.TabIndex = 1;
             this.DgridBuscarGrupo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgridBuscarGrupo_CellClick);
@@ -673,8 +683,26 @@ namespace Interfaz
             this.DgridUsuarios.Location = new System.Drawing.Point(15, 97);
             this.DgridUsuarios.MultiSelect = false;
             this.DgridUsuarios.Name = "DgridUsuarios";
+            this.DgridUsuarios.ReadOnly = true;
             this.DgridUsuarios.Size = new System.Drawing.Size(363, 528);
             this.DgridUsuarios.TabIndex = 46;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(368, 119);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Contenido:";
+            // 
+            // adminGrupo1
+            // 
+            this.adminGrupo1.Location = new System.Drawing.Point(200, 24);
+            this.adminGrupo1.Name = "adminGrupo1";
+            this.adminGrupo1.Size = new System.Drawing.Size(1173, 667);
+            this.adminGrupo1.TabIndex = 39;
+            this.adminGrupo1.Visible = false;
             // 
             // AdministracionDeUsuarios
             // 
@@ -684,18 +712,27 @@ namespace Interfaz
             this.AdministracionDeUsuarios.TabIndex = 20;
             this.AdministracionDeUsuarios.Visible = false;
             // 
+            // LbCuentaPostId
+            // 
+            this.LbCuentaPostId.AutoSize = true;
+            this.LbCuentaPostId.Location = new System.Drawing.Point(440, 377);
+            this.LbCuentaPostId.Name = "LbCuentaPostId";
+            this.LbCuentaPostId.Size = new System.Drawing.Size(18, 13);
+            this.LbCuentaPostId.TabIndex = 13;
+            this.LbCuentaPostId.Text = "ID";
+            // 
             // MainBackoffice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 703);
-            this.Controls.Add(this.adminGrupo1);
             this.Controls.Add(this.MainPanelBotones);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.PanelBusquedaPost);
+            this.Controls.Add(this.adminGrupo1);
             this.Controls.Add(this.AdministracionDeUsuarios);
             this.Controls.Add(this.PanelBusquedaGrupo);
             this.Controls.Add(this.PanelBusquedaUsuario);
-            this.Controls.Add(this.PanelBusquedaPost);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainBackoffice";
@@ -782,5 +819,8 @@ namespace Interfaz
         private System.Windows.Forms.Label LbPostNombreDeUsuario;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TboxMostrarContenidoPost;
+        private System.Windows.Forms.Button BtnMostrarTodosLosPost;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label LbCuentaPostId;
     }
 }

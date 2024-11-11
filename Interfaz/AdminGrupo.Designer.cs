@@ -171,6 +171,7 @@ namespace Interfaz
             this.DgridComentarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgridComentarios.Location = new System.Drawing.Point(241, 459);
             this.DgridComentarios.Name = "DgridComentarios";
+            this.DgridComentarios.ReadOnly = true;
             this.DgridComentarios.Size = new System.Drawing.Size(363, 186);
             this.DgridComentarios.TabIndex = 67;
             this.DgridComentarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgridComentarios_CellClick);
@@ -185,6 +186,7 @@ namespace Interfaz
             this.DgridPublicaciones.Location = new System.Drawing.Point(241, 30);
             this.DgridPublicaciones.MultiSelect = false;
             this.DgridPublicaciones.Name = "DgridPublicaciones";
+            this.DgridPublicaciones.ReadOnly = true;
             this.DgridPublicaciones.Size = new System.Drawing.Size(363, 391);
             this.DgridPublicaciones.TabIndex = 66;
             this.DgridPublicaciones.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgridPublicaciones_CellClick);
@@ -308,6 +310,7 @@ namespace Interfaz
             this.DgridUsuariosDeGrupo.Location = new System.Drawing.Point(787, 30);
             this.DgridUsuariosDeGrupo.MultiSelect = false;
             this.DgridUsuariosDeGrupo.Name = "DgridUsuariosDeGrupo";
+            this.DgridUsuariosDeGrupo.ReadOnly = true;
             this.DgridUsuariosDeGrupo.Size = new System.Drawing.Size(257, 391);
             this.DgridUsuariosDeGrupo.TabIndex = 82;
             // 
@@ -330,6 +333,7 @@ namespace Interfaz
             this.DgridResponsables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgridResponsables.Location = new System.Drawing.Point(16, 462);
             this.DgridResponsables.Name = "DgridResponsables";
+            this.DgridResponsables.ReadOnly = true;
             this.DgridResponsables.Size = new System.Drawing.Size(201, 144);
             this.DgridResponsables.TabIndex = 84;
             // 

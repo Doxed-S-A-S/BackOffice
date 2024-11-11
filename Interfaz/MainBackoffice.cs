@@ -92,9 +92,9 @@ namespace Interfaz
 
         private void DgridListarPulicaciones_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             int i = DgridListarPulicaciones.CurrentCell.RowIndex;
-            string idPost = DgridListarPulicaciones.Rows[i].Cells["Contenido"].Value.ToString();
+            TboxMostrarContenidoPost.Text = DgridListarPulicaciones.Rows[i].Cells["Contenido"].Value.ToString();
+            LbCuentaPostId.Text = DgridListarPulicaciones.Rows[i].Cells["ID de cuenta"].Value.ToString();
         }
 
         private void refrescarTablaDePublicacionReportada()
@@ -107,6 +107,12 @@ namespace Interfaz
         private int IndexUsuario()
         {
             int i = DgridUsuarios.CurrentCell.RowIndex;
+            return i;
+        }
+
+        private int IndexPost()
+        {
+            int i = DgridListarPulicaciones.CurrentCell.RowIndex;
             return i;
         }
 
@@ -128,11 +134,19 @@ namespace Interfaz
             AdministracionDeUsuarios.BringToFront();
         }
 
+
+        int mdiX = 500;
+        int mdiY = 0;
+
         private void BtnSeleccionar_Click(object sender, EventArgs e)
         {
             AdministracionPost AdminPost = new AdministracionPost();
             AdminPost.MdiParent = this;
+            AdminPost.CargarDatosDePublicacion(DgridListarPulicaciones.Rows[IndexPost()].Cells["ID del post"].Value.ToString());
             AdminPost.Show();
+            AdminPost.BringToFront();
+            AdminPost.Location = new Point(mdiX, mdiY);
+            this.mdiY = mdiY + 20;
         }
 
         private void BtnBuscarGrupo_Click(object sender, EventArgs e)
@@ -223,6 +237,15 @@ namespace Interfaz
         {
             DgridListarPulicaciones.Refresh();
             DgridListarPulicaciones.DataSource = ControlPosts.ListarPostEspecificos(idPost);
+            DgridListarPulicaciones.Columns["ID de cuenta"].Visible = false;
+            this.DgridListarPulicaciones.Columns["ID del post"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.DgridListarPulicaciones.Columns["Contenido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        private void BtnMostrarTodosLosPost_Click(object sender, EventArgs e)
+        {
+            DgridListarPulicaciones.Refresh();
+            DgridListarPulicaciones.DataSource = ControlPosts.ListarTodos();
             DgridListarPulicaciones.Columns["ID de cuenta"].Visible = false;
             this.DgridListarPulicaciones.Columns["ID del post"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.DgridListarPulicaciones.Columns["Contenido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;

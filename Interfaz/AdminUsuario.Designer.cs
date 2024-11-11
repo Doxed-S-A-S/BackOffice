@@ -203,6 +203,7 @@ namespace Interfaz
             this.DgridPublicaciones.Location = new System.Drawing.Point(241, 30);
             this.DgridPublicaciones.MultiSelect = false;
             this.DgridPublicaciones.Name = "DgridPublicaciones";
+            this.DgridPublicaciones.ReadOnly = true;
             this.DgridPublicaciones.Size = new System.Drawing.Size(363, 391);
             this.DgridPublicaciones.TabIndex = 35;
             this.DgridPublicaciones.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgridPublicaciones_CellClick);
@@ -217,6 +218,7 @@ namespace Interfaz
             this.DgridComentarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgridComentarios.Location = new System.Drawing.Point(241, 459);
             this.DgridComentarios.Name = "DgridComentarios";
+            this.DgridComentarios.ReadOnly = true;
             this.DgridComentarios.Size = new System.Drawing.Size(363, 186);
             this.DgridComentarios.TabIndex = 36;
             this.DgridComentarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgridComentarios_CellClick);
