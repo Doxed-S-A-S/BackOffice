@@ -21,6 +21,7 @@ namespace Modelos
         public string imagen_perfil = "pic"; //placeholder
         public string rol_cuenta;
         public string miembro_desde;
+        public bool eliminado;
 
         public int reports;
 
@@ -324,6 +325,8 @@ namespace Modelos
                     cuenta.nombre_usuario = this.Lector["nombre_usuario"].ToString();
                     cuenta.rol_cuenta = this.Lector["rol_cuenta"].ToString();
                     cuenta.miembro_desde = this.Lector["fecha_registro"].ToString();
+                    cuenta.reports = Int32.Parse(this.Lector["reports"].ToString());
+                    cuenta.eliminado = Boolean.Parse(this.Lector["eliminado"].ToString());
                     cuentas.Add(cuenta);
                 }
                 this.Lector.Close();

@@ -121,6 +121,8 @@ namespace Interfaz
             DgridUsuarios.Refresh();
             DgridUsuarios.DataSource = ControlCuenta.ListarCuentas();
             DgridUsuarios.Columns["ID"].Visible = false;
+            DgridUsuarios.Columns["Reports"].Visible = false;
+            DgridUsuarios.Columns["Blocked"].Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -186,6 +188,7 @@ namespace Interfaz
         private void DgridBuscarGrupo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             TboxGrupoDescripcion.Text = DgridBuscarGrupo.Rows[IndexGrupo()].Cells["Descripcion"].Value.ToString();
+
         }
 
         private void TboxBuscarGrupo_TextChanged(object sender, EventArgs e)
@@ -249,6 +252,43 @@ namespace Interfaz
             DgridListarPulicaciones.Columns["ID de cuenta"].Visible = false;
             this.DgridListarPulicaciones.Columns["ID del post"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.DgridListarPulicaciones.Columns["Contenido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        private void ChBoxUsuarioTutores_CheckedChanged(object sender, EventArgs e)
+        {
+            NoDiseñado();
+        }
+
+        private void NoDiseñado()
+        {
+            MessageBox.Show("Funcionalidad no diseñada");
+        }
+
+        private void ChBoxUsuarioReportados_CheckedChanged(object sender, EventArgs e)
+        {
+            MostrarReportados();
+        }
+
+        private void MostrarReportados()
+        {
+            foreach (DataGridViewRow fila in DgridUsuarios.Rows)
+            {
+                if (Convert.ToInt32(fila.Cells["Reports"].Value) == 0)
+                    fila.Visible = false;
+                if (!ChBoxUsuarioReportados.Checked)
+                    fila.Visible = true;
+            }
+        }
+
+        private void MostrarBloqueados()
+        {
+            foreach (DataGridViewRow fila in DgridUsuarios.Rows)
+            {
+                if (fila.Cells["Blocked"].Value == true)
+                    fila.Visible = false;
+                if (!ChBoxUsuarioReportados.Checked)
+                    fila.Visible = true;
+            }
         }
     }
 }

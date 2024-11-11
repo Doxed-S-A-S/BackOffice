@@ -29,7 +29,7 @@ namespace Interfaz
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.backOfficeappnameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.propiedadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,6 +56,8 @@ namespace Interfaz
             this.BtnBusquedaUsuarios = new System.Windows.Forms.Button();
             this.BtnContUsuarios = new System.Windows.Forms.Button();
             this.PanelBusquedaPost = new System.Windows.Forms.Panel();
+            this.LbCuentaPostId = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.BtnMostrarTodosLosPost = new System.Windows.Forms.Button();
             this.LbPostNombreDeUsuario = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -91,10 +93,8 @@ namespace Interfaz
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.DgridUsuarios = new System.Windows.Forms.DataGridView();
-            this.label7 = new System.Windows.Forms.Label();
-            this.adminGrupo1 = new Interfaz.AdminGrupo();
             this.AdministracionDeUsuarios = new Interfaz.AdminUsuario();
-            this.LbCuentaPostId = new System.Windows.Forms.Label();
+            this.adminGrupo1 = new Interfaz.AdminGrupo();
             this.menuStrip1.SuspendLayout();
             this.MainPanelBotones.SuspendLayout();
             this.PanelBusquedaPost.SuspendLayout();
@@ -329,6 +329,24 @@ namespace Interfaz
             this.PanelBusquedaPost.TabIndex = 33;
             this.PanelBusquedaPost.Visible = false;
             // 
+            // LbCuentaPostId
+            // 
+            this.LbCuentaPostId.AutoSize = true;
+            this.LbCuentaPostId.Location = new System.Drawing.Point(440, 377);
+            this.LbCuentaPostId.Name = "LbCuentaPostId";
+            this.LbCuentaPostId.Size = new System.Drawing.Size(18, 13);
+            this.LbCuentaPostId.TabIndex = 13;
+            this.LbCuentaPostId.Text = "ID";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(368, 119);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Contenido:";
+            // 
             // BtnMostrarTodosLosPost
             // 
             this.BtnMostrarTodosLosPost.Location = new System.Drawing.Point(261, 42);
@@ -414,14 +432,14 @@ namespace Interfaz
             // 
             // DgridListarPulicaciones
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgridListarPulicaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgridListarPulicaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DgridListarPulicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgridListarPulicaciones.Location = new System.Drawing.Point(15, 119);
             this.DgridListarPulicaciones.Name = "DgridListarPulicaciones";
@@ -615,6 +633,7 @@ namespace Interfaz
             this.ChBoxUsuarioTutores.TabIndex = 53;
             this.ChBoxUsuarioTutores.Text = "Tutores";
             this.ChBoxUsuarioTutores.UseVisualStyleBackColor = true;
+            this.ChBoxUsuarioTutores.CheckedChanged += new System.EventHandler(this.ChBoxUsuarioTutores_CheckedChanged);
             // 
             // ChBoxUsuarioReportados
             // 
@@ -625,6 +644,7 @@ namespace Interfaz
             this.ChBoxUsuarioReportados.TabIndex = 52;
             this.ChBoxUsuarioReportados.Text = "Reportados";
             this.ChBoxUsuarioReportados.UseVisualStyleBackColor = true;
+            this.ChBoxUsuarioReportados.CheckedChanged += new System.EventHandler(this.ChBoxUsuarioReportados_CheckedChanged);
             // 
             // label2
             // 
@@ -687,14 +707,13 @@ namespace Interfaz
             this.DgridUsuarios.Size = new System.Drawing.Size(363, 528);
             this.DgridUsuarios.TabIndex = 46;
             // 
-            // label7
+            // AdministracionDeUsuarios
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(368, 119);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 13);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Contenido:";
+            this.AdministracionDeUsuarios.Location = new System.Drawing.Point(200, 24);
+            this.AdministracionDeUsuarios.Name = "AdministracionDeUsuarios";
+            this.AdministracionDeUsuarios.Size = new System.Drawing.Size(1104, 648);
+            this.AdministracionDeUsuarios.TabIndex = 20;
+            this.AdministracionDeUsuarios.Visible = false;
             // 
             // adminGrupo1
             // 
@@ -704,23 +723,6 @@ namespace Interfaz
             this.adminGrupo1.TabIndex = 39;
             this.adminGrupo1.Visible = false;
             // 
-            // AdministracionDeUsuarios
-            // 
-            this.AdministracionDeUsuarios.Location = new System.Drawing.Point(201, 24);
-            this.AdministracionDeUsuarios.Name = "AdministracionDeUsuarios";
-            this.AdministracionDeUsuarios.Size = new System.Drawing.Size(1104, 648);
-            this.AdministracionDeUsuarios.TabIndex = 20;
-            this.AdministracionDeUsuarios.Visible = false;
-            // 
-            // LbCuentaPostId
-            // 
-            this.LbCuentaPostId.AutoSize = true;
-            this.LbCuentaPostId.Location = new System.Drawing.Point(440, 377);
-            this.LbCuentaPostId.Name = "LbCuentaPostId";
-            this.LbCuentaPostId.Size = new System.Drawing.Size(18, 13);
-            this.LbCuentaPostId.TabIndex = 13;
-            this.LbCuentaPostId.Text = "ID";
-            // 
             // MainBackoffice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -728,11 +730,11 @@ namespace Interfaz
             this.ClientSize = new System.Drawing.Size(1370, 703);
             this.Controls.Add(this.MainPanelBotones);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.PanelBusquedaUsuario);
             this.Controls.Add(this.PanelBusquedaPost);
             this.Controls.Add(this.adminGrupo1);
             this.Controls.Add(this.AdministracionDeUsuarios);
             this.Controls.Add(this.PanelBusquedaGrupo);
-            this.Controls.Add(this.PanelBusquedaUsuario);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainBackoffice";

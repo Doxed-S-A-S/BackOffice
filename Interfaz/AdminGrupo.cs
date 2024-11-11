@@ -55,7 +55,7 @@ namespace Interfaz
         private void refrescarTablaDeComentariosGrupo()
         {
             DgridComentarios.Refresh();
-            string id = DgridPublicaciones.Rows[IndexPublicacion()].Cells["Id_post"].Value.ToString();
+            string id = DgridPublicaciones.Rows[IndexPublicacion()].Cells["ID"].Value.ToString();
             DgridComentarios.DataSource = ControlComentarios.ListarComentarios(id);
         }
         private void refrescarTablaDeIntegrantes()
