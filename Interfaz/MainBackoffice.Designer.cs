@@ -29,7 +29,7 @@ namespace Interfaz
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.backOfficeappnameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.propiedadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,6 +56,9 @@ namespace Interfaz
             this.BtnBusquedaUsuarios = new System.Windows.Forms.Button();
             this.BtnContUsuarios = new System.Windows.Forms.Button();
             this.PanelBusquedaPost = new System.Windows.Forms.Panel();
+            this.LbCuentaPostId = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.BtnMostrarTodosLosPost = new System.Windows.Forms.Button();
             this.LbPostNombreDeUsuario = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.TboxMostrarContenidoPost = new System.Windows.Forms.TextBox();
@@ -69,7 +72,6 @@ namespace Interfaz
             this.PanelBusquedaGrupo = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.LbGrupoIdMensaje = new System.Windows.Forms.Label();
-            this.adminGrupo1 = new Interfaz.AdminGrupo();
             this.BtnGrupoLimpiarFiltro = new System.Windows.Forms.Button();
             this.TboxBuscarIdGrupo = new System.Windows.Forms.TextBox();
             this.TboxGrupoDescripcion = new System.Windows.Forms.TextBox();
@@ -82,7 +84,6 @@ namespace Interfaz
             this.TboxBuscarGrupo = new System.Windows.Forms.TextBox();
             this.PanelBusquedaUsuario = new System.Windows.Forms.Panel();
             this.BtnAcualtizarListaUsuarios = new System.Windows.Forms.Button();
-            this.ChBoxUsuarioSuspendidos = new System.Windows.Forms.CheckBox();
             this.ChBoxUsuarioTutores = new System.Windows.Forms.CheckBox();
             this.ChBoxUsuarioReportados = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -91,6 +92,7 @@ namespace Interfaz
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.DgridUsuarios = new System.Windows.Forms.DataGridView();
+            this.adminGrupo1 = new Interfaz.AdminGrupo();
             this.AdministracionDeUsuarios = new Interfaz.AdminUsuario();
             this.menuStrip1.SuspendLayout();
             this.MainPanelBotones.SuspendLayout();
@@ -307,6 +309,9 @@ namespace Interfaz
             // 
             // PanelBusquedaPost
             // 
+            this.PanelBusquedaPost.Controls.Add(this.LbCuentaPostId);
+            this.PanelBusquedaPost.Controls.Add(this.label7);
+            this.PanelBusquedaPost.Controls.Add(this.BtnMostrarTodosLosPost);
             this.PanelBusquedaPost.Controls.Add(this.LbPostNombreDeUsuario);
             this.PanelBusquedaPost.Controls.Add(this.label6);
             this.PanelBusquedaPost.Controls.Add(this.TboxMostrarContenidoPost);
@@ -323,6 +328,34 @@ namespace Interfaz
             this.PanelBusquedaPost.TabIndex = 33;
             this.PanelBusquedaPost.Visible = false;
             // 
+            // LbCuentaPostId
+            // 
+            this.LbCuentaPostId.AutoSize = true;
+            this.LbCuentaPostId.Location = new System.Drawing.Point(440, 377);
+            this.LbCuentaPostId.Name = "LbCuentaPostId";
+            this.LbCuentaPostId.Size = new System.Drawing.Size(18, 13);
+            this.LbCuentaPostId.TabIndex = 13;
+            this.LbCuentaPostId.Text = "ID";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(368, 119);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Contenido:";
+            // 
+            // BtnMostrarTodosLosPost
+            // 
+            this.BtnMostrarTodosLosPost.Location = new System.Drawing.Point(261, 42);
+            this.BtnMostrarTodosLosPost.Name = "BtnMostrarTodosLosPost";
+            this.BtnMostrarTodosLosPost.Size = new System.Drawing.Size(101, 23);
+            this.BtnMostrarTodosLosPost.TabIndex = 11;
+            this.BtnMostrarTodosLosPost.Text = "Mostrar todos ";
+            this.BtnMostrarTodosLosPost.UseVisualStyleBackColor = true;
+            this.BtnMostrarTodosLosPost.Click += new System.EventHandler(this.BtnMostrarTodosLosPost_Click);
+            // 
             // LbPostNombreDeUsuario
             // 
             this.LbPostNombreDeUsuario.AutoSize = true;
@@ -334,7 +367,7 @@ namespace Interfaz
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(368, 361);
+            this.label6.Location = new System.Drawing.Point(365, 377);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 13);
             this.label6.TabIndex = 8;
@@ -342,7 +375,7 @@ namespace Interfaz
             // 
             // TboxMostrarContenidoPost
             // 
-            this.TboxMostrarContenidoPost.Location = new System.Drawing.Point(368, 119);
+            this.TboxMostrarContenidoPost.Location = new System.Drawing.Point(368, 135);
             this.TboxMostrarContenidoPost.Multiline = true;
             this.TboxMostrarContenidoPost.Name = "TboxMostrarContenidoPost";
             this.TboxMostrarContenidoPost.ReadOnly = true;
@@ -376,6 +409,8 @@ namespace Interfaz
             this.ChBoxPostBloqueados.TabIndex = 4;
             this.ChBoxPostBloqueados.Text = "Mostrar post bloqueados";
             this.ChBoxPostBloqueados.UseVisualStyleBackColor = true;
+            this.ChBoxPostBloqueados.Visible = false;
+            this.ChBoxPostBloqueados.CheckedChanged += new System.EventHandler(this.ChBoxPostBloqueados_CheckedChanged);
             // 
             // BtnSeleccionar
             // 
@@ -385,6 +420,7 @@ namespace Interfaz
             this.BtnSeleccionar.TabIndex = 3;
             this.BtnSeleccionar.Text = "Seleccionar post";
             this.BtnSeleccionar.UseVisualStyleBackColor = true;
+            this.BtnSeleccionar.Visible = false;
             this.BtnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click);
             // 
             // StaticLbBuscarPub
@@ -398,17 +434,18 @@ namespace Interfaz
             // 
             // DgridListarPulicaciones
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgridListarPulicaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgridListarPulicaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DgridListarPulicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgridListarPulicaciones.Location = new System.Drawing.Point(15, 119);
             this.DgridListarPulicaciones.Name = "DgridListarPulicaciones";
+            this.DgridListarPulicaciones.ReadOnly = true;
             this.DgridListarPulicaciones.Size = new System.Drawing.Size(347, 548);
             this.DgridListarPulicaciones.TabIndex = 1;
             this.DgridListarPulicaciones.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgridListarPulicaciones_CellClick);
@@ -456,14 +493,6 @@ namespace Interfaz
             this.LbGrupoIdMensaje.Name = "LbGrupoIdMensaje";
             this.LbGrupoIdMensaje.Size = new System.Drawing.Size(0, 13);
             this.LbGrupoIdMensaje.TabIndex = 12;
-            // 
-            // adminGrupo1
-            // 
-            this.adminGrupo1.Location = new System.Drawing.Point(200, 24);
-            this.adminGrupo1.Name = "adminGrupo1";
-            this.adminGrupo1.Size = new System.Drawing.Size(1173, 667);
-            this.adminGrupo1.TabIndex = 39;
-            this.adminGrupo1.Visible = false;
             // 
             // BtnGrupoLimpiarFiltro
             // 
@@ -546,6 +575,7 @@ namespace Interfaz
             this.DgridBuscarGrupo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgridBuscarGrupo.Location = new System.Drawing.Point(15, 99);
             this.DgridBuscarGrupo.Name = "DgridBuscarGrupo";
+            this.DgridBuscarGrupo.ReadOnly = true;
             this.DgridBuscarGrupo.Size = new System.Drawing.Size(363, 549);
             this.DgridBuscarGrupo.TabIndex = 1;
             this.DgridBuscarGrupo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgridBuscarGrupo_CellClick);
@@ -562,7 +592,6 @@ namespace Interfaz
             // PanelBusquedaUsuario
             // 
             this.PanelBusquedaUsuario.Controls.Add(this.BtnAcualtizarListaUsuarios);
-            this.PanelBusquedaUsuario.Controls.Add(this.ChBoxUsuarioSuspendidos);
             this.PanelBusquedaUsuario.Controls.Add(this.ChBoxUsuarioTutores);
             this.PanelBusquedaUsuario.Controls.Add(this.ChBoxUsuarioReportados);
             this.PanelBusquedaUsuario.Controls.Add(this.label2);
@@ -586,16 +615,6 @@ namespace Interfaz
             this.BtnAcualtizarListaUsuarios.Text = "Acutalizar lista";
             this.BtnAcualtizarListaUsuarios.UseVisualStyleBackColor = true;
             // 
-            // ChBoxUsuarioSuspendidos
-            // 
-            this.ChBoxUsuarioSuspendidos.AutoSize = true;
-            this.ChBoxUsuarioSuspendidos.Location = new System.Drawing.Point(170, 74);
-            this.ChBoxUsuarioSuspendidos.Name = "ChBoxUsuarioSuspendidos";
-            this.ChBoxUsuarioSuspendidos.Size = new System.Drawing.Size(87, 17);
-            this.ChBoxUsuarioSuspendidos.TabIndex = 54;
-            this.ChBoxUsuarioSuspendidos.Text = "Suspendidos";
-            this.ChBoxUsuarioSuspendidos.UseVisualStyleBackColor = true;
-            // 
             // ChBoxUsuarioTutores
             // 
             this.ChBoxUsuarioTutores.AutoSize = true;
@@ -605,6 +624,7 @@ namespace Interfaz
             this.ChBoxUsuarioTutores.TabIndex = 53;
             this.ChBoxUsuarioTutores.Text = "Tutores";
             this.ChBoxUsuarioTutores.UseVisualStyleBackColor = true;
+            this.ChBoxUsuarioTutores.CheckedChanged += new System.EventHandler(this.ChBoxUsuarioTutores_CheckedChanged);
             // 
             // ChBoxUsuarioReportados
             // 
@@ -615,6 +635,7 @@ namespace Interfaz
             this.ChBoxUsuarioReportados.TabIndex = 52;
             this.ChBoxUsuarioReportados.Text = "Reportados";
             this.ChBoxUsuarioReportados.UseVisualStyleBackColor = true;
+            this.ChBoxUsuarioReportados.CheckedChanged += new System.EventHandler(this.ChBoxUsuarioReportados_CheckedChanged);
             // 
             // label2
             // 
@@ -673,12 +694,21 @@ namespace Interfaz
             this.DgridUsuarios.Location = new System.Drawing.Point(15, 97);
             this.DgridUsuarios.MultiSelect = false;
             this.DgridUsuarios.Name = "DgridUsuarios";
+            this.DgridUsuarios.ReadOnly = true;
             this.DgridUsuarios.Size = new System.Drawing.Size(363, 528);
             this.DgridUsuarios.TabIndex = 46;
             // 
+            // adminGrupo1
+            // 
+            this.adminGrupo1.Location = new System.Drawing.Point(200, 24);
+            this.adminGrupo1.Name = "adminGrupo1";
+            this.adminGrupo1.Size = new System.Drawing.Size(1173, 667);
+            this.adminGrupo1.TabIndex = 39;
+            this.adminGrupo1.Visible = false;
+            // 
             // AdministracionDeUsuarios
             // 
-            this.AdministracionDeUsuarios.Location = new System.Drawing.Point(201, 24);
+            this.AdministracionDeUsuarios.Location = new System.Drawing.Point(200, 24);
             this.AdministracionDeUsuarios.Name = "AdministracionDeUsuarios";
             this.AdministracionDeUsuarios.Size = new System.Drawing.Size(1104, 648);
             this.AdministracionDeUsuarios.TabIndex = 20;
@@ -689,13 +719,13 @@ namespace Interfaz
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 703);
-            this.Controls.Add(this.adminGrupo1);
             this.Controls.Add(this.MainPanelBotones);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.PanelBusquedaPost);
+            this.Controls.Add(this.adminGrupo1);
             this.Controls.Add(this.AdministracionDeUsuarios);
             this.Controls.Add(this.PanelBusquedaGrupo);
             this.Controls.Add(this.PanelBusquedaUsuario);
-            this.Controls.Add(this.PanelBusquedaPost);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainBackoffice";
@@ -751,7 +781,6 @@ namespace Interfaz
         private System.Windows.Forms.Label StaticLbBuscarPub;
         private System.Windows.Forms.Panel PanelBusquedaUsuario;
         private System.Windows.Forms.Button BtnAcualtizarListaUsuarios;
-        private System.Windows.Forms.CheckBox ChBoxUsuarioSuspendidos;
         private System.Windows.Forms.CheckBox ChBoxUsuarioTutores;
         private System.Windows.Forms.CheckBox ChBoxUsuarioReportados;
         private System.Windows.Forms.Label label2;
@@ -782,5 +811,8 @@ namespace Interfaz
         private System.Windows.Forms.Label LbPostNombreDeUsuario;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox TboxMostrarContenidoPost;
+        private System.Windows.Forms.Button BtnMostrarTodosLosPost;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label LbCuentaPostId;
     }
 }

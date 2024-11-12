@@ -35,7 +35,16 @@ namespace Controlador
             post.GuardarPost();
         }
 
-        public static DataTable Listar(string idCuenta)  
+        public static void ModificarTodoElPost(string id, string contenido, string url)
+        {
+            ModeloPost post = new ModeloPost();
+            post.Id_Post = Int32.Parse(id);
+            post.Contenido = contenido;
+            post.url_contenido = url;
+            post.GuardarPost();
+        }
+
+        public static DataTable ListarPostDeUsuario(string idCuenta)  
         {
             DataTable tabla = new DataTable();
             tabla.Columns.Add("Id_Post", typeof(int));
@@ -55,6 +64,26 @@ namespace Controlador
 
         }
 
+        public static DataTable ListarTodos()
+        {
+            DataTable tabla = new DataTable();
+            tabla.Columns.Add("ID del post", typeof(int));
+            tabla.Columns.Add("Contenido", typeof(string));
+            tabla.Columns.Add("ID de cuenta", typeof(int));
+
+
+            ModeloPost post = new ModeloPost();
+            foreach (ModeloPost p in post.ObtenerTodosLosPosts())
+            {
+                DataRow fila = tabla.NewRow();
+                fila["ID del post"] = p.Id_Post;
+                fila["Contenido"] = p.Contenido;
+                fila["ID de cuenta"] = p.Id_Cuenta;
+                tabla.Rows.Add(fila);
+            }
+            return tabla;
+        }
+
         public static Dictionary<string,string> ObtenerPost(string idPost)
         {
             Dictionary<string, string> post = new Dictionary<string, string>();
@@ -62,9 +91,11 @@ namespace Controlador
             if (p.ObtenerPost(Int32.Parse(idPost)))
             {
                 post.Add("resultado", "true");
+                post.Add("id Post", p.Id_Post.ToString());
                 post.Add("contenido", p.Contenido);
                 post.Add("fecha", p.fecha);
                 post.Add("url_contenido", p.url_contenido);
+                post.Add("imagen", p.imagen);
                 post.Add("reports", p.reports.ToString());
                 post.Add("id_cuenta", p.Id_Cuenta.ToString());
                 return post;
@@ -76,16 +107,20 @@ namespace Controlador
         public static DataTable ListarReportados() //ExBackO
         {
             DataTable tabla = new DataTable();
-            tabla.Columns.Add("Id_Post", typeof(int));
+            tabla.Columns.Add("ID del post", typeof(int));
+            tabla.Columns.Add("ID de cuenta", typeof(int));
             tabla.Columns.Add("Contenido", typeof(string));
+            tabla.Columns.Add("Reports", typeof(int));
 
 
             ModeloPost post = new ModeloPost();
             foreach (ModeloPost p in post.ObtenerPostsReportados())
             {
                 DataRow fila = tabla.NewRow();
-                fila["Id_post"] = p.Id_Post;
+                fila["ID del post"] = p.Id_Post;
+                fila["ID de cuenta"] = p.Id_Cuenta;
                 fila["Contenido"] = p.Contenido;
+                fila["Reports"] = p.reports;
                 tabla.Rows.Add(fila);
             }
             return tabla;

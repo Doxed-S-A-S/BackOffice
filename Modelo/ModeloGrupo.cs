@@ -165,6 +165,7 @@ namespace Modelos
                     ModeloGrupo grupo = new ModeloGrupo();
                     grupo.id_grupo = Int32.Parse(this.Lector["id_grupo"].ToString());
                     grupo.nombre_grupo = this.Lector["nombre_grupo"].ToString();
+                    grupo.descripcion = this.Lector["descripcion"].ToString();
                     grupos.Add(grupo);
                 }
                 this.Lector.Close();

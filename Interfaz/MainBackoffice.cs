@@ -92,9 +92,9 @@ namespace Interfaz
 
         private void DgridListarPulicaciones_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             int i = DgridListarPulicaciones.CurrentCell.RowIndex;
-            string idPost = DgridListarPulicaciones.Rows[i].Cells["Contenido"].Value.ToString();
+            TboxMostrarContenidoPost.Text = DgridListarPulicaciones.Rows[i].Cells["Contenido"].Value.ToString();
+            LbCuentaPostId.Text = DgridListarPulicaciones.Rows[i].Cells["ID de cuenta"].Value.ToString();
         }
 
         private void refrescarTablaDePublicacionReportada()
@@ -110,11 +110,28 @@ namespace Interfaz
             return i;
         }
 
+        private int IndexPost()
+        {
+            try
+            {
+                int i = DgridListarPulicaciones.CurrentCell.RowIndex;
+                return i;
+            }
+            catch
+            {
+                MessageBox.Show("Seleccione un post");
+                return 0;
+            }
+
+        }
+
         private void refrescarTablaDeUsuarios()
         {
             DgridUsuarios.Refresh();
             DgridUsuarios.DataSource = ControlCuenta.ListarCuentas();
             DgridUsuarios.Columns["ID"].Visible = false;
+            DgridUsuarios.Columns["Reports"].Visible = false;
+            //DgridUsuarios.Columns["Blocked"].Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -128,11 +145,20 @@ namespace Interfaz
             AdministracionDeUsuarios.BringToFront();
         }
 
+
+        int mdiX = 500;
+        int mdiY = 0;
+
         private void BtnSeleccionar_Click(object sender, EventArgs e)
         {
-            AdministracionPost AdminPost = new AdministracionPost();
-            AdminPost.MdiParent = this;
-            AdminPost.Show();
+                AdministracionPost AdminPost = new AdministracionPost();
+                AdminPost.MdiParent = this;
+                AdminPost.CargarDatosDePublicacion(DgridListarPulicaciones.Rows[IndexPost()].Cells["ID del post"].Value.ToString());
+                AdminPost.Show();
+                AdminPost.BringToFront();
+                AdminPost.Location = new Point(mdiX, mdiY);
+                this.mdiY = mdiY + 20;
+
         }
 
         private void BtnBuscarGrupo_Click(object sender, EventArgs e)
@@ -172,6 +198,7 @@ namespace Interfaz
         private void DgridBuscarGrupo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             TboxGrupoDescripcion.Text = DgridBuscarGrupo.Rows[IndexGrupo()].Cells["Descripcion"].Value.ToString();
+
         }
 
         private void TboxBuscarGrupo_TextChanged(object sender, EventArgs e)
@@ -226,6 +253,66 @@ namespace Interfaz
             DgridListarPulicaciones.Columns["ID de cuenta"].Visible = false;
             this.DgridListarPulicaciones.Columns["ID del post"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.DgridListarPulicaciones.Columns["Contenido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        private void BtnMostrarTodosLosPost_Click(object sender, EventArgs e)
+        {
+            DgridListarPulicaciones.Refresh();
+            DgridListarPulicaciones.DataSource = ControlPosts.ListarTodos();
+            DgridListarPulicaciones.Columns["ID de cuenta"].Visible = false;
+            this.DgridListarPulicaciones.Columns["ID del post"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.DgridListarPulicaciones.Columns["Contenido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            BtnSeleccionar.Visible = true;
+            ChBoxPostBloqueados.Visible = true;
+        }
+
+        private void ChBoxUsuarioTutores_CheckedChanged(object sender, EventArgs e)
+        {
+            NoDiseñado();
+        }
+
+        private void NoDiseñado()
+        {
+            MessageBox.Show("Funcionalidad no diseñada");
+        }
+
+        private void ChBoxUsuarioReportados_CheckedChanged(object sender, EventArgs e)
+        {
+            MostrarReportados();
+        }
+
+        private void MostrarReportados()
+        {
+            foreach (DataGridViewRow fila in DgridUsuarios.Rows)
+            {
+                if (Convert.ToInt32(fila.Cells["Reports"].Value) == 0)
+                    fila.Visible = false;
+                if (!ChBoxUsuarioReportados.Checked)
+                    fila.Visible = true;
+            }
+        }
+
+        private void ChBoxPostBloqueados_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChBoxPostBloqueados.Checked)
+            {
+                DgridListarPulicaciones.Refresh();
+                DgridListarPulicaciones.DataSource = ControlPosts.ListarReportados();
+                DgridListarPulicaciones.Columns["ID de cuenta"].Visible = false;
+                this.DgridListarPulicaciones.Columns["ID del post"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+                this.DgridListarPulicaciones.Columns["Contenido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+            if (!ChBoxPostBloqueados.Checked)
+            {
+                DgridListarPulicaciones.Refresh();
+                DgridListarPulicaciones.DataSource = ControlPosts.ListarTodos();
+                DgridListarPulicaciones.Columns["ID de cuenta"].Visible = false;
+                this.DgridListarPulicaciones.Columns["ID del post"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+                this.DgridListarPulicaciones.Columns["Contenido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+
+
+
         }
     }
 }

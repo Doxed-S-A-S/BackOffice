@@ -10,8 +10,8 @@ namespace Modelos
     public class ModeloPost : Modelo
     {
         public long Id_Post;
-        public string url_contenido = "url"; //placeholder
-        public string tipo_contenido = "tag"; //placeholder
+        public string url_contenido = "url"; 
+        public string tipo_contenido = "tag"; 
         public string Contenido;
         public string fecha;
         public int reports;
@@ -78,6 +78,7 @@ namespace Modelos
                 this.Id_Post = Int32.Parse(this.Lector["id_post"].ToString());
                 this.fecha = this.Lector["fecha_creacion"].ToString();
                 this.url_contenido = this.Lector["url_contenido"].ToString();
+                this.imagen = this.Lector["url_imagen"].ToString();
                 this.tipo_contenido = this.Lector["tipo_contenido"].ToString();
                 this.Contenido = this.Lector["contenido"].ToString();
                 this.reports = Int32.Parse(this.Lector["reports"].ToString());
@@ -106,6 +107,26 @@ namespace Modelos
             return posts;
         }
 
+        public List<ModeloPost> ObtenerTodosLosPosts()
+        {
+            List<ModeloPost> posts = new List<ModeloPost>();
+
+            string sql = $"select * from posts where eliminado = false";
+            this.Comando.CommandText = sql;
+            this.Lector = this.Comando.ExecuteReader();
+
+            while (this.Lector.Read())
+            {
+                ModeloPost post = new ModeloPost();
+                post.Id_Post = Int32.Parse(this.Lector["Id_post"].ToString());
+                post.Contenido = this.Lector["Contenido"].ToString();
+                post.Id_Cuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
+                posts.Add(post);
+            }
+            this.Lector.Close();
+            return posts;
+        }
+
         public List<ModeloPost> ObtenerPostsReportados() //ExBack
         {
             List<ModeloPost> posts = new List<ModeloPost>();
@@ -118,7 +139,9 @@ namespace Modelos
             {
                 ModeloPost post = new ModeloPost();
                 post.Id_Post = Int32.Parse(this.Lector["Id_post"].ToString());
+                post.Id_Cuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
                 post.Contenido = this.Lector["Contenido"].ToString();
+                post.reports = Int32.Parse(this.Lector["reports"].ToString());
                 posts.Add(post);
             }
             this.Lector.Close();
