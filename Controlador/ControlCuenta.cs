@@ -265,6 +265,59 @@ namespace Controlador
 
             throw new Exception("UNKNOWN_ERROR");
         }
+
+        public static Boolean CrearModerador(string nombre,string pass, string super)
+        {
+            try
+            {
+                ModeloCuenta mod = new ModeloCuenta();
+
+                mod.mod_nombre = nombre;
+                mod.mod_contraseña = pass;
+                mod.mod_super = super;
+
+                mod.CrearModerador();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+
+        public static void EliminarMod(string nombre)
+        {
+            ModeloCuenta mod = new ModeloCuenta();
+
+            mod.mod_nombre = nombre;
+
+            mod.EliminarModerador();
+        }
+
+        public static DataTable ListarMods()
+        {
+            try
+            {
+                DataTable tabla = new DataTable();
+                tabla.Columns.Add("Nombre", typeof(string));
+                
+
+                ModeloCuenta cuenta = new ModeloCuenta();
+                foreach (ModeloCuenta m in cuenta.ObtenerMods())
+                {
+                    DataRow fila = tabla.NewRow();
+                    fila["Nombre"] = m.mod_nombre.ToString();
+                    tabla.Rows.Add(fila);
+                }
+                return tabla;
+            }
+            catch (Exception e)
+            {
+                ErrorHandle(e);
+                return null;
+            }
+        }
     }
 }
 

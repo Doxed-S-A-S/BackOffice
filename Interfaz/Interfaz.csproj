@@ -90,6 +90,12 @@
     <Compile Include="TestingWindow.Designer.cs">
       <DependentUpon>TestingWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="VentanaCrearMod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VentanaCrearMod.Designer.cs">
+      <DependentUpon>VentanaCrearMod.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminGrupo.resx">
       <DependentUpon>AdminGrupo.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,6 +125,9 @@
     </Compile>
     <EmbeddedResource Include="TestingWindow.resx">
       <DependentUpon>TestingWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentanaCrearMod.resx">
+      <DependentUpon>VentanaCrearMod.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

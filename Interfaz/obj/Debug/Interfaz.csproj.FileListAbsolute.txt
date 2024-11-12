@@ -47,3 +47,4 @@ C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\obj\Deb
 C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\obj\Debug\Interfaz.exe
 C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\obj\Debug\Interfaz.pdb
 C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\obj\Debug\Interfaz.PanelDeEventos.resources
+C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\obj\Debug\Interfaz.VentanaCrearMod.resources

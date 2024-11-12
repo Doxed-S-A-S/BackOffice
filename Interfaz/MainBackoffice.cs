@@ -340,5 +340,20 @@ namespace Interfaz
         {
             this.Close();
         }
+
+        private void crearNuevoModeradorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VentanaCrearMod mod = new VentanaCrearMod();
+            mod.Show();
+            mod.BringToFront();
+        }
+
+        private void eliminarModeradorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VentanaCrearMod mod = new VentanaCrearMod();
+            mod.Show();
+            mod.refrescarTablaMods();
+            mod.BringToFront();
+        }
     }
 }

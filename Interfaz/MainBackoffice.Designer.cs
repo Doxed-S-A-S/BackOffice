@@ -29,7 +29,7 @@ namespace Interfaz
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.backOfficeappnameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.propiedadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -362,14 +362,14 @@ namespace Interfaz
             // 
             // DgridListarPulicaciones
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgridListarPulicaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgridListarPulicaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DgridListarPulicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgridListarPulicaciones.Location = new System.Drawing.Point(15, 119);
             this.DgridListarPulicaciones.Name = "DgridListarPulicaciones";
@@ -644,12 +644,14 @@ namespace Interfaz
             this.crearNuevoModeradorToolStripMenuItem.Name = "crearNuevoModeradorToolStripMenuItem";
             this.crearNuevoModeradorToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.crearNuevoModeradorToolStripMenuItem.Text = "Crear nuevo moderador";
+            this.crearNuevoModeradorToolStripMenuItem.Click += new System.EventHandler(this.crearNuevoModeradorToolStripMenuItem_Click);
             // 
             // eliminarModeradorToolStripMenuItem
             // 
             this.eliminarModeradorToolStripMenuItem.Name = "eliminarModeradorToolStripMenuItem";
             this.eliminarModeradorToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.eliminarModeradorToolStripMenuItem.Text = "Eliminar moderador";
+            this.eliminarModeradorToolStripMenuItem.Click += new System.EventHandler(this.eliminarModeradorToolStripMenuItem_Click);
             // 
             // MainBackoffice
             // 

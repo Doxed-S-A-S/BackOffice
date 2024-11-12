@@ -648,5 +648,52 @@ namespace Modelos
         }
 
 
+        public long id_mod;
+        public string mod_nombre;
+        public string mod_contraseña;
+        public string mod_super;
+        public void CrearModerador()
+        {
+            string sql = $"insert into moderadores_bo (user,pass,super) values ('{this.mod_nombre}','{this.mod_contraseña}',{this.mod_super})";
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+        }
+
+        public void EliminarModerador()
+        {
+            string sql = $"delete from moderadores_bo where user = '{this.mod_nombre}'";
+            this.Comando.CommandText = sql;
+            this.Comando.ExecuteNonQuery();
+        }
+
+        public List<ModeloCuenta> ObtenerMods()
+        {
+            try
+            {
+                List<ModeloCuenta> mods = new List<ModeloCuenta>();
+
+                string sql = $"select user from moderadores_bo";
+                this.Comando.CommandText = sql;
+                this.Lector = this.Comando.ExecuteReader();
+
+                while (this.Lector.Read())
+                {
+                    ModeloCuenta mod = new ModeloCuenta();
+                    mod.mod_nombre = this.Lector["user"].ToString();
+                    mods.Add(mod);
+                }
+                this.Lector.Close();
+                return mods;
+            }
+            catch (MySqlException sqlx)
+            {
+                MySqlErrorCatch(sqlx);
+                return null;
+            }
+            catch (Exception)
+            {
+                throw new Exception("UNKNOWN_ERROR");
+            }
+        }
     }
 }
