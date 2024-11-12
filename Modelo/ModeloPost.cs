@@ -139,7 +139,9 @@ namespace Modelos
             {
                 ModeloPost post = new ModeloPost();
                 post.Id_Post = Int32.Parse(this.Lector["Id_post"].ToString());
+                post.Id_Cuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
                 post.Contenido = this.Lector["Contenido"].ToString();
+                post.reports = Int32.Parse(this.Lector["reports"].ToString());
                 posts.Add(post);
             }
             this.Lector.Close();

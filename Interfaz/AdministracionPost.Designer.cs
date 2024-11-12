@@ -108,6 +108,7 @@ namespace Interfaz
             this.BtnEliminarComentario.TabIndex = 43;
             this.BtnEliminarComentario.Text = "Eliminar";
             this.BtnEliminarComentario.UseVisualStyleBackColor = false;
+            this.BtnEliminarComentario.Click += new System.EventHandler(this.BtnEliminarComentario_Click);
             // 
             // BtnEditarComentario
             // 
@@ -117,6 +118,7 @@ namespace Interfaz
             this.BtnEditarComentario.TabIndex = 42;
             this.BtnEditarComentario.Text = "Modificar";
             this.BtnEditarComentario.UseVisualStyleBackColor = true;
+            this.BtnEditarComentario.Click += new System.EventHandler(this.BtnEditarComentario_Click);
             // 
             // TboxComentarios
             // 

@@ -112,8 +112,17 @@ namespace Interfaz
 
         private int IndexPost()
         {
-            int i = DgridListarPulicaciones.CurrentCell.RowIndex;
-            return i;
+            try
+            {
+                int i = DgridListarPulicaciones.CurrentCell.RowIndex;
+                return i;
+            }
+            catch
+            {
+                MessageBox.Show("Seleccione un post");
+                return 0;
+            }
+
         }
 
         private void refrescarTablaDeUsuarios()
@@ -142,13 +151,14 @@ namespace Interfaz
 
         private void BtnSeleccionar_Click(object sender, EventArgs e)
         {
-            AdministracionPost AdminPost = new AdministracionPost();
-            AdminPost.MdiParent = this;
-            AdminPost.CargarDatosDePublicacion(DgridListarPulicaciones.Rows[IndexPost()].Cells["ID del post"].Value.ToString());
-            AdminPost.Show();
-            AdminPost.BringToFront();
-            AdminPost.Location = new Point(mdiX, mdiY);
-            this.mdiY = mdiY + 20;
+                AdministracionPost AdminPost = new AdministracionPost();
+                AdminPost.MdiParent = this;
+                AdminPost.CargarDatosDePublicacion(DgridListarPulicaciones.Rows[IndexPost()].Cells["ID del post"].Value.ToString());
+                AdminPost.Show();
+                AdminPost.BringToFront();
+                AdminPost.Location = new Point(mdiX, mdiY);
+                this.mdiY = mdiY + 20;
+
         }
 
         private void BtnBuscarGrupo_Click(object sender, EventArgs e)
@@ -252,6 +262,8 @@ namespace Interfaz
             DgridListarPulicaciones.Columns["ID de cuenta"].Visible = false;
             this.DgridListarPulicaciones.Columns["ID del post"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.DgridListarPulicaciones.Columns["Contenido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            BtnSeleccionar.Visible = true;
+            ChBoxPostBloqueados.Visible = true;
         }
 
         private void ChBoxUsuarioTutores_CheckedChanged(object sender, EventArgs e)
@@ -278,6 +290,29 @@ namespace Interfaz
                 if (!ChBoxUsuarioReportados.Checked)
                     fila.Visible = true;
             }
+        }
+
+        private void ChBoxPostBloqueados_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChBoxPostBloqueados.Checked)
+            {
+                DgridListarPulicaciones.Refresh();
+                DgridListarPulicaciones.DataSource = ControlPosts.ListarReportados();
+                DgridListarPulicaciones.Columns["ID de cuenta"].Visible = false;
+                this.DgridListarPulicaciones.Columns["ID del post"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+                this.DgridListarPulicaciones.Columns["Contenido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+            if (!ChBoxPostBloqueados.Checked)
+            {
+                DgridListarPulicaciones.Refresh();
+                DgridListarPulicaciones.DataSource = ControlPosts.ListarTodos();
+                DgridListarPulicaciones.Columns["ID de cuenta"].Visible = false;
+                this.DgridListarPulicaciones.Columns["ID del post"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+                this.DgridListarPulicaciones.Columns["Contenido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+
+
+
         }
     }
 }

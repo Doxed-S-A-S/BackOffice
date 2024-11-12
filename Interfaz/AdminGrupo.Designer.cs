@@ -135,12 +135,14 @@ namespace Interfaz
             // 
             // BtnEliminarComentario
             // 
+            this.BtnEliminarComentario.BackColor = System.Drawing.Color.Red;
+            this.BtnEliminarComentario.ForeColor = System.Drawing.SystemColors.Control;
             this.BtnEliminarComentario.Location = new System.Drawing.Point(704, 597);
             this.BtnEliminarComentario.Name = "BtnEliminarComentario";
             this.BtnEliminarComentario.Size = new System.Drawing.Size(75, 23);
             this.BtnEliminarComentario.TabIndex = 70;
             this.BtnEliminarComentario.Text = "Eliminar";
-            this.BtnEliminarComentario.UseVisualStyleBackColor = true;
+            this.BtnEliminarComentario.UseVisualStyleBackColor = false;
             this.BtnEliminarComentario.Click += new System.EventHandler(this.BtnEliminarComentario_Click);
             // 
             // BtnEditarComentario

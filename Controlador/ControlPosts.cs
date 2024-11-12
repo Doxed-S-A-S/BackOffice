@@ -107,16 +107,20 @@ namespace Controlador
         public static DataTable ListarReportados() //ExBackO
         {
             DataTable tabla = new DataTable();
-            tabla.Columns.Add("Id_Post", typeof(int));
+            tabla.Columns.Add("ID del post", typeof(int));
+            tabla.Columns.Add("ID de cuenta", typeof(int));
             tabla.Columns.Add("Contenido", typeof(string));
+            tabla.Columns.Add("Reports", typeof(int));
 
 
             ModeloPost post = new ModeloPost();
             foreach (ModeloPost p in post.ObtenerPostsReportados())
             {
                 DataRow fila = tabla.NewRow();
-                fila["Id_post"] = p.Id_Post;
+                fila["ID del post"] = p.Id_Post;
+                fila["ID de cuenta"] = p.Id_Cuenta;
                 fila["Contenido"] = p.Contenido;
+                fila["Reports"] = p.reports;
                 tabla.Rows.Add(fila);
             }
             return tabla;
