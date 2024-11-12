@@ -216,5 +216,13 @@ namespace Controlador
             return tabla;
         }
 
+        public static void PostResuelto(string id_post)
+        {
+            ModeloPost post = new ModeloPost();
+            post.Id_Post = Int32.Parse(id_post);
+
+            post.ResetearReports();
+        }
+
     }
 }

@@ -63,6 +63,9 @@ namespace Interfaz
             DgridUsuariosDeGrupo.Refresh();
             DgridUsuariosDeGrupo.DataSource = ControlGrupo.ObtenerIntegrantesDeGrupo(LbIdGrupo.Text);
             DgridUsuariosDeGrupo.Columns["nombre_grupo"].Visible = false;
+            DgridUsuariosDeGrupo.Columns["ID cuenta"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+
         }
         private void refrescarTablaDeResponsables()
         {
@@ -149,7 +152,7 @@ namespace Interfaz
 
         private void BtnSeleccionarUsuario_Click(object sender, EventArgs e)
         {
-            string id = DgridComentarios.Rows[IndexComentario()].Cells["IdComentario"].Value.ToString();
+            NoDiseñado();
         }
 
         private void BtnEliminarGrupo_Click(object sender, EventArgs e)
@@ -197,6 +200,11 @@ namespace Interfaz
             PanelDeEventos Ev = new PanelDeEventos();
             Ev.CargarEventoDeGrupo(LbIdGrupo.Text,LbNombreGrupo.Text);
             Ev.Show();
+        }
+
+        private void NoDiseñado()
+        {
+            MessageBox.Show("Funcionalidad no diseñada");
         }
     }
 }

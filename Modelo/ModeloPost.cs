@@ -338,6 +338,24 @@ namespace Modelos
                 throw new Exception("UNKNOWN_ERROR");
             }
         }
+
+        public void ResetearReports()
+        {
+            try
+            {
+                string sql = $"update posts set reports = 0, eliminado = false where id_post = {this.Id_Post}";
+                this.Comando.CommandText = sql;
+                this.Comando.ExecuteNonQuery();
+            }
+            catch (MySqlException sqlx)
+            {
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
+            }
+            catch (Exception)
+            {
+                throw new Exception("UNKNOWN_ERROR");
+            }
+        }
     }
 
 }

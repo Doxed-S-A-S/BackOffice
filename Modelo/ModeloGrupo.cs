@@ -189,7 +189,7 @@ namespace Modelos
             {
                 List<ModeloGrupo> grupos = new List<ModeloGrupo>();
 
-                string sql = $"SELECT cuenta.nombre_usuario, grupos.nombre_grupo AS nombre_grupo, conforma.rol " +
+                string sql = $"SELECT cuenta.nombre_usuario, grupos.nombre_grupo AS nombre_grupo, conforma.rol, cuenta.id_cuenta " +
                              $"FROM cuenta JOIN conforma ON cuenta.id_cuenta = conforma.id_cuenta " +
                              $"JOIN grupos ON conforma.id_grupo = grupos.id_grupo " +
                              $"WHERE grupos.id_grupo ='{id}'";
@@ -199,6 +199,7 @@ namespace Modelos
                 while (this.Lector.Read())
                 {
                     ModeloGrupo grupo = new ModeloGrupo();
+                    grupo.id_cuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
                     grupo.nombre_usuario = this.Lector["nombre_usuario"].ToString();
                     grupo.nombre_grupo = this.Lector["nombre_grupo"].ToString();
                     grupo.rol = this.Lector["rol"].ToString();

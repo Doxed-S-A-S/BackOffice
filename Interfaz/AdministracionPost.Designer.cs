@@ -136,6 +136,7 @@ namespace Interfaz
             this.BtnPublicacionResuelta.TabIndex = 44;
             this.BtnPublicacionResuelta.Text = "Resuelto";
             this.BtnPublicacionResuelta.UseVisualStyleBackColor = true;
+            this.BtnPublicacionResuelta.Click += new System.EventHandler(this.BtnPublicacionResuelta_Click);
             // 
             // LbUserId
             // 

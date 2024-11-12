@@ -54,7 +54,6 @@ namespace Interfaz
             this.TestingBtnCerrar = new System.Windows.Forms.Button();
             this.BtnBuscarPublicaciones = new System.Windows.Forms.Button();
             this.BtnBusquedaUsuarios = new System.Windows.Forms.Button();
-            this.BtnContUsuarios = new System.Windows.Forms.Button();
             this.PanelBusquedaPost = new System.Windows.Forms.Panel();
             this.LbCuentaPostId = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -75,8 +74,6 @@ namespace Interfaz
             this.BtnGrupoLimpiarFiltro = new System.Windows.Forms.Button();
             this.TboxBuscarIdGrupo = new System.Windows.Forms.TextBox();
             this.TboxGrupoDescripcion = new System.Windows.Forms.TextBox();
-            this.LbGrupoNumUsuarios = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.StaticLbBusquedaGrupo = new System.Windows.Forms.Label();
             this.BtnSeleccionarGrupo = new System.Windows.Forms.Button();
@@ -250,7 +247,6 @@ namespace Interfaz
             this.MainPanelBotones.Controls.Add(this.TestingBtnCerrar);
             this.MainPanelBotones.Controls.Add(this.BtnBuscarPublicaciones);
             this.MainPanelBotones.Controls.Add(this.BtnBusquedaUsuarios);
-            this.MainPanelBotones.Controls.Add(this.BtnContUsuarios);
             this.MainPanelBotones.Dock = System.Windows.Forms.DockStyle.Left;
             this.MainPanelBotones.Location = new System.Drawing.Point(0, 24);
             this.MainPanelBotones.Name = "MainPanelBotones";
@@ -296,16 +292,6 @@ namespace Interfaz
             this.BtnBusquedaUsuarios.Text = "Buscar usuarios";
             this.BtnBusquedaUsuarios.UseVisualStyleBackColor = true;
             this.BtnBusquedaUsuarios.Click += new System.EventHandler(this.BtnBusquedaUsuarios_Click);
-            // 
-            // BtnContUsuarios
-            // 
-            this.BtnContUsuarios.Location = new System.Drawing.Point(32, 255);
-            this.BtnContUsuarios.Name = "BtnContUsuarios";
-            this.BtnContUsuarios.Size = new System.Drawing.Size(131, 36);
-            this.BtnContUsuarios.TabIndex = 0;
-            this.BtnContUsuarios.Text = "Control de usuarios";
-            this.BtnContUsuarios.UseVisualStyleBackColor = true;
-            this.BtnContUsuarios.Click += new System.EventHandler(this.BtnContUsuarios_Click);
             // 
             // PanelBusquedaPost
             // 
@@ -464,8 +450,6 @@ namespace Interfaz
             this.PanelBusquedaGrupo.Controls.Add(this.BtnGrupoLimpiarFiltro);
             this.PanelBusquedaGrupo.Controls.Add(this.TboxBuscarIdGrupo);
             this.PanelBusquedaGrupo.Controls.Add(this.TboxGrupoDescripcion);
-            this.PanelBusquedaGrupo.Controls.Add(this.LbGrupoNumUsuarios);
-            this.PanelBusquedaGrupo.Controls.Add(this.label4);
             this.PanelBusquedaGrupo.Controls.Add(this.label3);
             this.PanelBusquedaGrupo.Controls.Add(this.StaticLbBusquedaGrupo);
             this.PanelBusquedaGrupo.Controls.Add(this.BtnSeleccionarGrupo);
@@ -521,24 +505,6 @@ namespace Interfaz
             this.TboxGrupoDescripcion.ReadOnly = true;
             this.TboxGrupoDescripcion.Size = new System.Drawing.Size(129, 205);
             this.TboxGrupoDescripcion.TabIndex = 8;
-            // 
-            // LbGrupoNumUsuarios
-            // 
-            this.LbGrupoNumUsuarios.AutoSize = true;
-            this.LbGrupoNumUsuarios.Location = new System.Drawing.Point(508, 387);
-            this.LbGrupoNumUsuarios.Name = "LbGrupoNumUsuarios";
-            this.LbGrupoNumUsuarios.Size = new System.Drawing.Size(13, 13);
-            this.LbGrupoNumUsuarios.TabIndex = 7;
-            this.LbGrupoNumUsuarios.Text = "0";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(405, 387);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Numero de usuarios:";
             // 
             // label3
             // 
@@ -655,6 +621,7 @@ namespace Interfaz
             this.button2.TabIndex = 50;
             this.button2.Text = " Seleccionar usuario  (Ventana emergente)";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // BtnSeleccionarUsuario
             // 
@@ -721,11 +688,11 @@ namespace Interfaz
             this.ClientSize = new System.Drawing.Size(1370, 703);
             this.Controls.Add(this.MainPanelBotones);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.PanelBusquedaGrupo);
+            this.Controls.Add(this.PanelBusquedaUsuario);
             this.Controls.Add(this.PanelBusquedaPost);
             this.Controls.Add(this.adminGrupo1);
             this.Controls.Add(this.AdministracionDeUsuarios);
-            this.Controls.Add(this.PanelBusquedaGrupo);
-            this.Controls.Add(this.PanelBusquedaUsuario);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainBackoffice";
@@ -770,7 +737,6 @@ namespace Interfaz
         private System.Windows.Forms.ToolStripMenuItem eliminarLosDatosToolStripMenuItem;
         private System.Windows.Forms.Panel MainPanelBotones;
         private AdminUsuario AdministracionDeUsuarios;
-        private System.Windows.Forms.Button BtnContUsuarios;
         private System.Windows.Forms.Button BtnBusquedaUsuarios;
         private System.Windows.Forms.ToolStripMenuItem abrirVentanaDeTestingToolStripMenuItem;
         private System.Windows.Forms.Button BtnBuscarPublicaciones;
@@ -797,8 +763,6 @@ namespace Interfaz
         private System.Windows.Forms.TextBox TboxBuscarGrupo;
         private System.Windows.Forms.Button BtnBuscarGrupo;
         private System.Windows.Forms.TextBox TboxGrupoDescripcion;
-        private System.Windows.Forms.Label LbGrupoNumUsuarios;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private AdminGrupo adminGrupo1;
         private System.Windows.Forms.TextBox TboxBuscarIdGrupo;

@@ -125,6 +125,7 @@ namespace Controlador
             try
             {
                 DataTable tabla = new DataTable();
+                tabla.Columns.Add("ID cuenta", typeof(int));
                 tabla.Columns.Add("nombre_grupo", typeof(string));
                 tabla.Columns.Add("Username", typeof(string));
                 tabla.Columns.Add("Rol", typeof(string));
@@ -134,6 +135,7 @@ namespace Controlador
                 foreach (ModeloGrupo p in grupo.ObtenerIntegrantesDeGrupo(Int32.Parse(id_grupo)))
                 {
                     DataRow fila = tabla.NewRow();
+                    fila["ID cuenta"] = p.id_cuenta;
                     fila["nombre_grupo"] = p.nombre_grupo;
                     fila["Username"] = p.nombre_usuario;
                     fila["Rol"] = p.rol;

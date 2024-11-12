@@ -96,5 +96,20 @@ namespace Interfaz
                 TboxComentarios.Clear();
             }
         }
+
+        private void BtnPublicacionResuelta_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show(
+                "Esta seguro que el problema con este post esta resuelto?",
+                "Esta seguro",
+                MessageBoxButtons.YesNo);
+
+            if(resultado.ToString() == "Yes")
+            {
+                ControlPosts.PostResuelto(LbIdPost.Text);
+                MessageBox.Show("Post resuelto");
+                this.Close();
+            }
+        }
     }
 }
