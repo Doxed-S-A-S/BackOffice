@@ -695,5 +695,32 @@ namespace Modelos
                 throw new Exception("UNKNOWN_ERROR");
             }
         }
+
+        public bool VerificarRegistroMod()
+        {
+            try
+            {
+                string sql = $"select count(*) from moderadores_bo where user = @user and pass = @pass";
+                this.Comando.CommandText = sql;
+                this.Comando.Parameters.AddWithValue("@user", this.mod_nombre);
+                this.Comando.Parameters.AddWithValue("@pass", this.mod_contraseña);
+                this.Comando.Prepare();
+                string resultado = this.Comando.ExecuteScalar().ToString();
+
+                if (resultado == "1")
+                    return true;
+                return false;
+            }
+            catch (MySqlException sqlx)
+            {
+                MySqlErrorCatch(sqlx);
+                return false;
+            }
+            catch (Exception)
+            {
+                throw new Exception("UNKNOWN_ERROR");
+            }
+
+        }
     }
 }

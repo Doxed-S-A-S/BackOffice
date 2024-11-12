@@ -318,6 +318,16 @@ namespace Controlador
                 return null;
             }
         }
+
+        public static Boolean AutenticarMod(string nombre, string pass)
+        {
+            ModeloCuenta cuenta = new ModeloCuenta();
+
+            cuenta.mod_nombre = nombre;
+            cuenta.mod_contraseña = pass;
+
+            return cuenta.VerificarRegistroMod();
+        }
     }
 }
 

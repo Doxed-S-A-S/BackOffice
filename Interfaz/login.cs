@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Controlador;
 
 namespace Interfaz
 {
@@ -19,15 +20,14 @@ namespace Interfaz
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            string admin = "admin";
-            if (TboxUsrLogin.Text == admin && TboxPassLogin.Text == admin)
+            if (ControlCuenta.AutenticarMod(TboxUsrLogin.Text,TboxPassLogin.Text))
             {
                 this.Hide();
                 var MainInterface = new MainBackoffice();
                 MainInterface.Closed += (s, args) => this.Close();
                 MainInterface.Show();
             }
-            StaticLbErrorMsg.Text = "Credenciales incorrectas (admin en los 2 campos)";
+            StaticLbErrorMsg.Text = "Credenciales incorrectas verifique";
         }
     }
 }
