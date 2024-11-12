@@ -195,10 +195,12 @@ namespace Modelos
                     this.id_cuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
                     this.nombre_usuario = this.Lector["nombre_usuario"].ToString();
                     //this.imagen_perfil = this.Lector["imagen_perfil"].ToString();
+                    this.rol_cuenta = this.Lector["rol_cuenta"].ToString();
                     this.reports = Int32.Parse(this.Lector["reports"].ToString());
                     this.id_usuario = Int32.Parse(this.Lector["id_usuario"].ToString());
                     this.id_muro = Int32.Parse(this.Lector["id_muro"].ToString());
                     this.id_preferencia = Int32.Parse(this.Lector["id_preferencia"].ToString());
+
                     this.Lector.Close();
                     return true;
                 }
@@ -644,5 +646,7 @@ namespace Modelos
 
             throw new Exception("UNKNOWN_DB_ERROR");
         }
+
+
     }
 }

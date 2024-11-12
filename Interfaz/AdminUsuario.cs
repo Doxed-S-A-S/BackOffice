@@ -31,7 +31,7 @@ namespace Interfaz
                 LbIdUsuario.Text = ControlCuenta.BuscarUsuario(id)["id_usuario"].ToString();
                 LbUsername.Text = ControlCuenta.BuscarUsuario(id)["nombre_usuario"].ToString();
                 LbNombreCompelto.Text = GenerarNombreCompleto(id);
-                // estado
+                LbRolUsr.Text = ControlCuenta.BuscarUsuario(id)["rol"].ToString();
                 LbNumReportes.Text = ControlCuenta.BuscarUsuario(id)["reports"].ToString();
                 TboxModificarCorreo.Text = ControlCuenta.BuscarUsuario(id)["email"].ToString();
                 TboxModificarBiografia.Text = ControlCuenta.BuscarUsuario(id)["biografia"].ToString();
@@ -50,8 +50,6 @@ namespace Interfaz
         }
 
 
-
-        /********************************************Publicaciones***************************************************************/
         private int IndexPublicacion()
         {
             int i = DgridPublicaciones.CurrentCell.RowIndex;
@@ -67,6 +65,9 @@ namespace Interfaz
 
         private void DgridPublicaciones_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            foreach (DataGridViewRow row in DgridPublicaciones.Rows)
+                row.DefaultCellStyle.BackColor = Color.White;
+            DgridPublicaciones.Rows[IndexPublicacion()].DefaultCellStyle.BackColor = Color.Blue;
             TboxContenido.Text = DgridPublicaciones.Rows[IndexPublicacion()].Cells["Contenido"].Value.ToString();
             refrescarTablaDeComentarios();
         }
@@ -108,7 +109,7 @@ namespace Interfaz
             }
         }
 
-        /********************************************Comentarios***************************************************************/
+
         private int IndexComentario()
         {
             int i = DgridComentarios.CurrentCell.RowIndex;
@@ -126,6 +127,9 @@ namespace Interfaz
 
         private void DgridComentarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            foreach (DataGridViewRow row in DgridComentarios.Rows)
+                row.DefaultCellStyle.BackColor = Color.White;
+            DgridComentarios.Rows[IndexComentario()].DefaultCellStyle.BackColor = Color.Blue;
             TboxComentarios.Text = DgridComentarios.Rows[IndexComentario()].Cells["Comentario"].Value.ToString();
         }
 

@@ -83,6 +83,9 @@ namespace Interfaz
         }
         private void DgridPublicaciones_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            foreach (DataGridViewRow row in DgridPublicaciones.Rows)
+                row.DefaultCellStyle.BackColor = Color.White;
+            DgridPublicaciones.Rows[IndexPublicacion()].DefaultCellStyle.BackColor = Color.Blue;
             TboxContenido.Text = DgridPublicaciones.Rows[IndexPublicacion()].Cells["Contenido"].Value.ToString();
             refrescarTablaDeComentariosGrupo();
         }
@@ -126,6 +129,9 @@ namespace Interfaz
 
         private void DgridComentarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            foreach (DataGridViewRow row in DgridComentarios.Rows)
+                row.DefaultCellStyle.BackColor = Color.White;
+            DgridComentarios.Rows[IndexComentario()].DefaultCellStyle.BackColor = Color.Blue;
             TboxComentarios.Text = DgridComentarios.Rows[IndexComentario()].Cells["Comentario"].Value.ToString();
         }
 
@@ -205,6 +211,20 @@ namespace Interfaz
         private void NoDiseñado()
         {
             MessageBox.Show("Funcionalidad no diseñada");
+        }
+
+        private void DgridUsuariosDeGrupo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in DgridUsuariosDeGrupo.Rows)
+                row.DefaultCellStyle.BackColor = Color.White;
+            DgridUsuariosDeGrupo.Rows[DgridUsuariosDeGrupo.CurrentCell.RowIndex].DefaultCellStyle.BackColor = Color.Blue;
+        }
+
+        private void DgridResponsables_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in DgridResponsables.Rows)
+                row.DefaultCellStyle.BackColor = Color.White;
+            DgridResponsables.Rows[DgridResponsables.CurrentCell.RowIndex].DefaultCellStyle.BackColor = Color.Blue;
         }
     }
 }

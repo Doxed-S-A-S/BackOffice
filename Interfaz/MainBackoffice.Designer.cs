@@ -29,22 +29,14 @@ namespace Interfaz
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.backOfficeappnameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.propiedadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aparienciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarAltF4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buscarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buscarGrupoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buscarEventoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirVentanaDeTestingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.historialDeAccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verUsuariosBloqueadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verGruposReportadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verEventosReportadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.peticionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deProfesoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deDesbloqueosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,8 +81,12 @@ namespace Interfaz
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.DgridUsuarios = new System.Windows.Forms.DataGridView();
+            this.historialDeAccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminGrupo1 = new Interfaz.AdminGrupo();
             this.AdministracionDeUsuarios = new Interfaz.AdminUsuario();
+            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.crearNuevoModeradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarModeradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.MainPanelBotones.SuspendLayout();
             this.PanelBusquedaPost.SuspendLayout();
@@ -106,8 +102,8 @@ namespace Interfaz
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.backOfficeappnameToolStripMenuItem,
             this.herramientasToolStripMenuItem,
-            this.reportesToolStripMenuItem,
-            this.peticionesToolStripMenuItem});
+            this.peticionesToolStripMenuItem,
+            this.adminToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1370, 24);
@@ -141,35 +137,16 @@ namespace Interfaz
             this.cerrarAltF4ToolStripMenuItem.Name = "cerrarAltF4ToolStripMenuItem";
             this.cerrarAltF4ToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.cerrarAltF4ToolStripMenuItem.Text = "Cerrar         ( Alt + F4 )";
+            this.cerrarAltF4ToolStripMenuItem.Click += new System.EventHandler(this.cerrarAltF4ToolStripMenuItem_Click);
             // 
             // herramientasToolStripMenuItem
             // 
             this.herramientasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.buscarUsuarioToolStripMenuItem,
-            this.buscarGrupoToolStripMenuItem,
-            this.buscarEventoToolStripMenuItem,
-            this.abrirVentanaDeTestingToolStripMenuItem});
+            this.abrirVentanaDeTestingToolStripMenuItem,
+            this.historialDeAccionesToolStripMenuItem});
             this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
             this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.herramientasToolStripMenuItem.Text = "Herramientas";
-            // 
-            // buscarUsuarioToolStripMenuItem
-            // 
-            this.buscarUsuarioToolStripMenuItem.Name = "buscarUsuarioToolStripMenuItem";
-            this.buscarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.buscarUsuarioToolStripMenuItem.Text = "Buscar Usuario";
-            // 
-            // buscarGrupoToolStripMenuItem
-            // 
-            this.buscarGrupoToolStripMenuItem.Name = "buscarGrupoToolStripMenuItem";
-            this.buscarGrupoToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.buscarGrupoToolStripMenuItem.Text = "Buscar Grupo";
-            // 
-            // buscarEventoToolStripMenuItem
-            // 
-            this.buscarEventoToolStripMenuItem.Name = "buscarEventoToolStripMenuItem";
-            this.buscarEventoToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.buscarEventoToolStripMenuItem.Text = "Buscar Evento";
             // 
             // abrirVentanaDeTestingToolStripMenuItem
             // 
@@ -177,41 +154,6 @@ namespace Interfaz
             this.abrirVentanaDeTestingToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.abrirVentanaDeTestingToolStripMenuItem.Text = "Abrir ventana de testing";
             this.abrirVentanaDeTestingToolStripMenuItem.Click += new System.EventHandler(this.abrirVentanaDeTestingToolStripMenuItem_Click);
-            // 
-            // reportesToolStripMenuItem
-            // 
-            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.historialDeAccionesToolStripMenuItem,
-            this.verUsuariosBloqueadosToolStripMenuItem,
-            this.verGruposReportadosToolStripMenuItem,
-            this.verEventosReportadosToolStripMenuItem});
-            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.reportesToolStripMenuItem.Text = "Reportes";
-            // 
-            // historialDeAccionesToolStripMenuItem
-            // 
-            this.historialDeAccionesToolStripMenuItem.Name = "historialDeAccionesToolStripMenuItem";
-            this.historialDeAccionesToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.historialDeAccionesToolStripMenuItem.Text = "Historial de acciones";
-            // 
-            // verUsuariosBloqueadosToolStripMenuItem
-            // 
-            this.verUsuariosBloqueadosToolStripMenuItem.Name = "verUsuariosBloqueadosToolStripMenuItem";
-            this.verUsuariosBloqueadosToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.verUsuariosBloqueadosToolStripMenuItem.Text = "Ver usuarios bloqueados";
-            // 
-            // verGruposReportadosToolStripMenuItem
-            // 
-            this.verGruposReportadosToolStripMenuItem.Name = "verGruposReportadosToolStripMenuItem";
-            this.verGruposReportadosToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.verGruposReportadosToolStripMenuItem.Text = "Ver grupos reportados";
-            // 
-            // verEventosReportadosToolStripMenuItem
-            // 
-            this.verEventosReportadosToolStripMenuItem.Name = "verEventosReportadosToolStripMenuItem";
-            this.verEventosReportadosToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.verEventosReportadosToolStripMenuItem.Text = "Ver eventos reportados";
             // 
             // peticionesToolStripMenuItem
             // 
@@ -420,14 +362,14 @@ namespace Interfaz
             // 
             // DgridListarPulicaciones
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgridListarPulicaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgridListarPulicaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DgridListarPulicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgridListarPulicaciones.Location = new System.Drawing.Point(15, 119);
             this.DgridListarPulicaciones.Name = "DgridListarPulicaciones";
@@ -664,6 +606,13 @@ namespace Interfaz
             this.DgridUsuarios.ReadOnly = true;
             this.DgridUsuarios.Size = new System.Drawing.Size(363, 528);
             this.DgridUsuarios.TabIndex = 46;
+            this.DgridUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgridUsuarios_CellClick);
+            // 
+            // historialDeAccionesToolStripMenuItem
+            // 
+            this.historialDeAccionesToolStripMenuItem.Name = "historialDeAccionesToolStripMenuItem";
+            this.historialDeAccionesToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.historialDeAccionesToolStripMenuItem.Text = "Historial de acciones";
             // 
             // adminGrupo1
             // 
@@ -680,6 +629,27 @@ namespace Interfaz
             this.AdministracionDeUsuarios.Size = new System.Drawing.Size(1104, 648);
             this.AdministracionDeUsuarios.TabIndex = 20;
             this.AdministracionDeUsuarios.Visible = false;
+            // 
+            // adminToolStripMenuItem
+            // 
+            this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.crearNuevoModeradorToolStripMenuItem,
+            this.eliminarModeradorToolStripMenuItem});
+            this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.adminToolStripMenuItem.Text = "Admin";
+            // 
+            // crearNuevoModeradorToolStripMenuItem
+            // 
+            this.crearNuevoModeradorToolStripMenuItem.Name = "crearNuevoModeradorToolStripMenuItem";
+            this.crearNuevoModeradorToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.crearNuevoModeradorToolStripMenuItem.Text = "Crear nuevo moderador";
+            // 
+            // eliminarModeradorToolStripMenuItem
+            // 
+            this.eliminarModeradorToolStripMenuItem.Name = "eliminarModeradorToolStripMenuItem";
+            this.eliminarModeradorToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.eliminarModeradorToolStripMenuItem.Text = "Eliminar moderador";
             // 
             // MainBackoffice
             // 
@@ -723,14 +693,6 @@ namespace Interfaz
         private System.Windows.Forms.ToolStripMenuItem aparienciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarAltF4ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem herramientasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem buscarUsuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem buscarGrupoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem buscarEventoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem historialDeAccionesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verUsuariosBloqueadosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verGruposReportadosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verEventosReportadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem peticionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deProfesoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deDesbloqueosToolStripMenuItem;
@@ -778,5 +740,9 @@ namespace Interfaz
         private System.Windows.Forms.Button BtnMostrarTodosLosPost;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label LbCuentaPostId;
+        private System.Windows.Forms.ToolStripMenuItem historialDeAccionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem crearNuevoModeradorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarModeradorToolStripMenuItem;
     }
 }

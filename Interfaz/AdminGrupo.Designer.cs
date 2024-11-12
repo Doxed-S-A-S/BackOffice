@@ -317,6 +317,7 @@ namespace Interfaz
             this.DgridUsuariosDeGrupo.ReadOnly = true;
             this.DgridUsuariosDeGrupo.Size = new System.Drawing.Size(257, 391);
             this.DgridUsuariosDeGrupo.TabIndex = 82;
+            this.DgridUsuariosDeGrupo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgridUsuariosDeGrupo_CellClick);
             // 
             // StaticLbUsuariosGrupo
             // 
@@ -340,6 +341,7 @@ namespace Interfaz
             this.DgridResponsables.ReadOnly = true;
             this.DgridResponsables.Size = new System.Drawing.Size(201, 144);
             this.DgridResponsables.TabIndex = 84;
+            this.DgridResponsables.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgridResponsables_CellClick);
             // 
             // BtnSeleccionarUsuario
             // 

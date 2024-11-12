@@ -177,6 +177,7 @@ namespace Controlador
                     usuario.Add("email", ObtenerCorreo(id));
                     usuario.Add("biografia", u.biografia);
                     usuario.Add("reports", u.reports.ToString());
+                    usuario.Add("rol", u.rol_cuenta);
                     return usuario;
                 }
                 usuario.Add("resultado", "false");
