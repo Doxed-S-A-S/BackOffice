@@ -199,7 +199,7 @@ namespace Controlador
                 tabla.Columns.Add("Rol", typeof(string));
                 tabla.Columns.Add("Miembro desde", typeof(DateTime));
                 tabla.Columns.Add("Reports", typeof(int));
-                tabla.Columns.Add("Blocked", typeof(bool));
+                tabla.Columns.Add("Blocked", typeof(string));
 
                 ModeloCuenta cuenta = new ModeloCuenta();
                 foreach (ModeloCuenta c in cuenta.ObtenerCuentas())
@@ -210,7 +210,7 @@ namespace Controlador
                     fila["Rol"] = c.rol_cuenta;
                     fila["Miembro desde"] = c.miembro_desde;
                     fila["Reports"] = c.reports;
-                    fila["Blocked"] = c.eliminado;
+                    fila["Blocked"] = c.eliminado.ToString();
                     tabla.Rows.Add(fila);
                 }
                 return tabla;

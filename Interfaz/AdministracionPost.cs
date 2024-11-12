@@ -49,6 +49,27 @@ namespace Interfaz
             TboxComentarios.Text = DgridComentarios.Rows[IndexComentario()].Cells["Comentario"].Value.ToString();
         }
 
+        private void BtnEliminarPost_Click(object sender, EventArgs e)
+        {
+            string id_post = LbIdPost.Text;
+            DialogResult resultado = MessageBox.Show(
+                $"Esta seguro que quiere eliminar el post {id_post}?",
+                "Esta seguro?",
+                MessageBoxButtons.YesNo);
 
+            if (resultado.ToString() == "Yes")
+            {
+                ControlPosts.ElimiarPost(id_post);
+                MessageBox.Show("Post eliminado");
+            }
+            this.Close();
+        }
+
+        private void BtnEditarPost_Click(object sender, EventArgs e)
+        {
+            string id = LbIdPost.Text;
+            ControlPosts.ModificarTodoElPost(id, TboxPublicacion.Text,TboxUrlMultimedia.Text);
+            MessageBox.Show("Se modifico el contenido");
+        }
     }
 }

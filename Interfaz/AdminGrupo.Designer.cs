@@ -193,12 +193,14 @@ namespace Interfaz
             // 
             // BtnEliminarPost
             // 
+            this.BtnEliminarPost.BackColor = System.Drawing.Color.Red;
+            this.BtnEliminarPost.ForeColor = System.Drawing.SystemColors.Control;
             this.BtnEliminarPost.Location = new System.Drawing.Point(704, 167);
             this.BtnEliminarPost.Name = "BtnEliminarPost";
             this.BtnEliminarPost.Size = new System.Drawing.Size(75, 23);
             this.BtnEliminarPost.TabIndex = 65;
             this.BtnEliminarPost.Text = "Eliminar";
-            this.BtnEliminarPost.UseVisualStyleBackColor = true;
+            this.BtnEliminarPost.UseVisualStyleBackColor = false;
             this.BtnEliminarPost.Click += new System.EventHandler(this.BtnEliminarPost_Click);
             // 
             // BtnEditarPost

@@ -37,7 +37,6 @@ namespace Interfaz
             this.BtnEditarComentario = new System.Windows.Forms.Button();
             this.TboxComentarios = new System.Windows.Forms.TextBox();
             this.BtnPublicacionResuelta = new System.Windows.Forms.Button();
-            this.BtnMostrarMultimedia = new System.Windows.Forms.Button();
             this.LbUserId = new System.Windows.Forms.Label();
             this.LbIdPost = new System.Windows.Forms.Label();
             this.LbNumeroDeReports = new System.Windows.Forms.Label();
@@ -49,6 +48,7 @@ namespace Interfaz
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgridComentarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,21 +56,23 @@ namespace Interfaz
             // 
             this.BtnEliminarPost.BackColor = System.Drawing.Color.Red;
             this.BtnEliminarPost.ForeColor = System.Drawing.Color.White;
-            this.BtnEliminarPost.Location = new System.Drawing.Point(176, 148);
+            this.BtnEliminarPost.Location = new System.Drawing.Point(177, 226);
             this.BtnEliminarPost.Name = "BtnEliminarPost";
             this.BtnEliminarPost.Size = new System.Drawing.Size(75, 23);
             this.BtnEliminarPost.TabIndex = 34;
             this.BtnEliminarPost.Text = "Eliminar";
             this.BtnEliminarPost.UseVisualStyleBackColor = false;
+            this.BtnEliminarPost.Click += new System.EventHandler(this.BtnEliminarPost_Click);
             // 
             // BtnEditarPost
             // 
-            this.BtnEditarPost.Location = new System.Drawing.Point(12, 148);
+            this.BtnEditarPost.Location = new System.Drawing.Point(12, 226);
             this.BtnEditarPost.Name = "BtnEditarPost";
             this.BtnEditarPost.Size = new System.Drawing.Size(75, 23);
             this.BtnEditarPost.TabIndex = 33;
             this.BtnEditarPost.Text = "Modificar";
             this.BtnEditarPost.UseVisualStyleBackColor = true;
+            this.BtnEditarPost.Click += new System.EventHandler(this.BtnEditarPost_Click);
             // 
             // TboxPublicacion
             // 
@@ -133,15 +135,6 @@ namespace Interfaz
             this.BtnPublicacionResuelta.Text = "Resuelto";
             this.BtnPublicacionResuelta.UseVisualStyleBackColor = true;
             // 
-            // BtnMostrarMultimedia
-            // 
-            this.BtnMostrarMultimedia.Location = new System.Drawing.Point(175, 202);
-            this.BtnMostrarMultimedia.Name = "BtnMostrarMultimedia";
-            this.BtnMostrarMultimedia.Size = new System.Drawing.Size(75, 23);
-            this.BtnMostrarMultimedia.TabIndex = 45;
-            this.BtnMostrarMultimedia.Text = "Modificar";
-            this.BtnMostrarMultimedia.UseVisualStyleBackColor = true;
-            // 
             // LbUserId
             // 
             this.LbUserId.AutoSize = true;
@@ -163,11 +156,11 @@ namespace Interfaz
             // LbNumeroDeReports
             // 
             this.LbNumeroDeReports.AutoSize = true;
-            this.LbNumeroDeReports.Location = new System.Drawing.Point(12, 520);
+            this.LbNumeroDeReports.Location = new System.Drawing.Point(81, 521);
             this.LbNumeroDeReports.Name = "LbNumeroDeReports";
-            this.LbNumeroDeReports.Size = new System.Drawing.Size(72, 13);
+            this.LbNumeroDeReports.Size = new System.Drawing.Size(15, 13);
             this.LbNumeroDeReports.TabIndex = 48;
-            this.LbNumeroDeReports.Text = "N° de reports:";
+            this.LbNumeroDeReports.Text = "N";
             // 
             // LbFechaDePost
             // 
@@ -180,9 +173,9 @@ namespace Interfaz
             // 
             // TboxUrlMultimedia
             // 
-            this.TboxUrlMultimedia.Location = new System.Drawing.Point(11, 204);
+            this.TboxUrlMultimedia.Location = new System.Drawing.Point(11, 167);
             this.TboxUrlMultimedia.Name = "TboxUrlMultimedia";
-            this.TboxUrlMultimedia.Size = new System.Drawing.Size(159, 20);
+            this.TboxUrlMultimedia.Size = new System.Drawing.Size(240, 20);
             this.TboxUrlMultimedia.TabIndex = 50;
             // 
             // label1
@@ -197,7 +190,7 @@ namespace Interfaz
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 188);
+            this.label2.Location = new System.Drawing.Point(13, 151);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 13);
             this.label2.TabIndex = 52;
@@ -214,7 +207,7 @@ namespace Interfaz
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 230);
+            this.button1.Location = new System.Drawing.Point(78, 193);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 23);
             this.button1.TabIndex = 54;
@@ -239,11 +232,21 @@ namespace Interfaz
             this.label5.TabIndex = 56;
             this.label5.Text = "Post ID:";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 520);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 13);
+            this.label6.TabIndex = 57;
+            this.label6.Text = "N° de reports:";
+            // 
             // AdministracionPost
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(263, 542);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
@@ -255,7 +258,6 @@ namespace Interfaz
             this.Controls.Add(this.LbNumeroDeReports);
             this.Controls.Add(this.LbIdPost);
             this.Controls.Add(this.LbUserId);
-            this.Controls.Add(this.BtnMostrarMultimedia);
             this.Controls.Add(this.BtnPublicacionResuelta);
             this.Controls.Add(this.BtnEliminarComentario);
             this.Controls.Add(this.BtnEditarComentario);
@@ -284,7 +286,6 @@ namespace Interfaz
         private System.Windows.Forms.Button BtnEditarComentario;
         private System.Windows.Forms.TextBox TboxComentarios;
         private System.Windows.Forms.Button BtnPublicacionResuelta;
-        private System.Windows.Forms.Button BtnMostrarMultimedia;
         private System.Windows.Forms.Label LbUserId;
         private System.Windows.Forms.Label LbIdPost;
         private System.Windows.Forms.Label LbNumeroDeReports;
@@ -296,5 +297,6 @@ namespace Interfaz
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

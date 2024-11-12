@@ -35,6 +35,15 @@ namespace Controlador
             post.GuardarPost();
         }
 
+        public static void ModificarTodoElPost(string id, string contenido, string url)
+        {
+            ModeloPost post = new ModeloPost();
+            post.Id_Post = Int32.Parse(id);
+            post.Contenido = contenido;
+            post.url_contenido = url;
+            post.GuardarPost();
+        }
+
         public static DataTable ListarPostDeUsuario(string idCuenta)  
         {
             DataTable tabla = new DataTable();

@@ -10,8 +10,8 @@ namespace Modelos
     public class ModeloPost : Modelo
     {
         public long Id_Post;
-        public string url_contenido = "url"; //placeholder
-        public string tipo_contenido = "tag"; //placeholder
+        public string url_contenido = "url"; 
+        public string tipo_contenido = "tag"; 
         public string Contenido;
         public string fecha;
         public int reports;

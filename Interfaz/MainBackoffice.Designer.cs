@@ -29,7 +29,7 @@ namespace Interfaz
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.backOfficeappnameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.propiedadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,7 +84,6 @@ namespace Interfaz
             this.TboxBuscarGrupo = new System.Windows.Forms.TextBox();
             this.PanelBusquedaUsuario = new System.Windows.Forms.Panel();
             this.BtnAcualtizarListaUsuarios = new System.Windows.Forms.Button();
-            this.ChBoxUsuarioSuspendidos = new System.Windows.Forms.CheckBox();
             this.ChBoxUsuarioTutores = new System.Windows.Forms.CheckBox();
             this.ChBoxUsuarioReportados = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -432,14 +431,14 @@ namespace Interfaz
             // 
             // DgridListarPulicaciones
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgridListarPulicaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgridListarPulicaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DgridListarPulicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgridListarPulicaciones.Location = new System.Drawing.Point(15, 119);
             this.DgridListarPulicaciones.Name = "DgridListarPulicaciones";
@@ -590,7 +589,6 @@ namespace Interfaz
             // PanelBusquedaUsuario
             // 
             this.PanelBusquedaUsuario.Controls.Add(this.BtnAcualtizarListaUsuarios);
-            this.PanelBusquedaUsuario.Controls.Add(this.ChBoxUsuarioSuspendidos);
             this.PanelBusquedaUsuario.Controls.Add(this.ChBoxUsuarioTutores);
             this.PanelBusquedaUsuario.Controls.Add(this.ChBoxUsuarioReportados);
             this.PanelBusquedaUsuario.Controls.Add(this.label2);
@@ -613,16 +611,6 @@ namespace Interfaz
             this.BtnAcualtizarListaUsuarios.TabIndex = 55;
             this.BtnAcualtizarListaUsuarios.Text = "Acutalizar lista";
             this.BtnAcualtizarListaUsuarios.UseVisualStyleBackColor = true;
-            // 
-            // ChBoxUsuarioSuspendidos
-            // 
-            this.ChBoxUsuarioSuspendidos.AutoSize = true;
-            this.ChBoxUsuarioSuspendidos.Location = new System.Drawing.Point(170, 74);
-            this.ChBoxUsuarioSuspendidos.Name = "ChBoxUsuarioSuspendidos";
-            this.ChBoxUsuarioSuspendidos.Size = new System.Drawing.Size(87, 17);
-            this.ChBoxUsuarioSuspendidos.TabIndex = 54;
-            this.ChBoxUsuarioSuspendidos.Text = "Suspendidos";
-            this.ChBoxUsuarioSuspendidos.UseVisualStyleBackColor = true;
             // 
             // ChBoxUsuarioTutores
             // 
@@ -730,11 +718,11 @@ namespace Interfaz
             this.ClientSize = new System.Drawing.Size(1370, 703);
             this.Controls.Add(this.MainPanelBotones);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.PanelBusquedaUsuario);
-            this.Controls.Add(this.PanelBusquedaPost);
             this.Controls.Add(this.adminGrupo1);
             this.Controls.Add(this.AdministracionDeUsuarios);
             this.Controls.Add(this.PanelBusquedaGrupo);
+            this.Controls.Add(this.PanelBusquedaUsuario);
+            this.Controls.Add(this.PanelBusquedaPost);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainBackoffice";
@@ -790,7 +778,6 @@ namespace Interfaz
         private System.Windows.Forms.Label StaticLbBuscarPub;
         private System.Windows.Forms.Panel PanelBusquedaUsuario;
         private System.Windows.Forms.Button BtnAcualtizarListaUsuarios;
-        private System.Windows.Forms.CheckBox ChBoxUsuarioSuspendidos;
         private System.Windows.Forms.CheckBox ChBoxUsuarioTutores;
         private System.Windows.Forms.CheckBox ChBoxUsuarioReportados;
         private System.Windows.Forms.Label label2;
