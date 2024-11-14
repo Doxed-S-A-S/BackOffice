@@ -35,6 +35,8 @@ namespace Interfaz
                 LbNumReportes.Text = ControlCuenta.BuscarUsuario(id)["reports"].ToString();
                 TboxModificarCorreo.Text = ControlCuenta.BuscarUsuario(id)["email"].ToString();
                 TboxModificarBiografia.Text = ControlCuenta.BuscarUsuario(id)["biografia"].ToString();
+                pictureBox1.ImageLocation = @"C:/Users/Matias/Desktop/ProyectoCodigos/Programacion/CentroDeAPIs/ApiUsuarios/Uploads/fotarda.jpg";
+
             }
         }
 

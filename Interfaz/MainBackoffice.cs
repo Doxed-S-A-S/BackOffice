@@ -19,6 +19,12 @@ namespace Interfaz
             InitializeComponent();
         }
 
+        public void TipoUsuario(string super)
+        {
+            if (super == "True")
+                adminToolStripMenuItem.Visible = true;
+        }
+
         private void OcultarUserControll()
         {
             adminGrupo1.Hide();

@@ -319,14 +319,30 @@ namespace Controlador
             }
         }
 
-        public static Boolean AutenticarMod(string nombre, string pass)
+        public static Dictionary<string, string> AutenticarMod(string nombre, string pass)
         {
-            ModeloCuenta cuenta = new ModeloCuenta();
+            try
+            {
+                Dictionary<string, string> resultado = new Dictionary<string, string>();
+                ModeloCuenta cuenta = new ModeloCuenta();
 
-            cuenta.mod_nombre = nombre;
-            cuenta.mod_contraseña = pass;
+                cuenta.mod_nombre = nombre;
+                cuenta.mod_contraseña = pass;
 
-            return cuenta.VerificarRegistroMod();
+                if (cuenta.VerificarRegistroMod())
+                {
+                    resultado.Add("resultado", "true");
+                    resultado.Add("super", cuenta.mod_super);
+                    return resultado;
+                }
+                resultado.Add("resultado", "false");
+                return resultado;
+            }
+            catch (Exception e)
+            {
+                ErrorHandle(e);
+                return null;
+            }
         }
     }
 }

@@ -29,7 +29,7 @@ namespace Interfaz
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.backOfficeappnameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.propiedadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,10 +37,14 @@ namespace Interfaz
             this.cerrarAltF4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirVentanaDeTestingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historialDeAccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.peticionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deProfesoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deDesbloqueosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarLosDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.crearNuevoModeradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarModeradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainPanelBotones = new System.Windows.Forms.Panel();
             this.BtnBuscarGrupo = new System.Windows.Forms.Button();
             this.TestingBtnCerrar = new System.Windows.Forms.Button();
@@ -81,12 +85,8 @@ namespace Interfaz
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.DgridUsuarios = new System.Windows.Forms.DataGridView();
-            this.historialDeAccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminGrupo1 = new Interfaz.AdminGrupo();
             this.AdministracionDeUsuarios = new Interfaz.AdminUsuario();
-            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.crearNuevoModeradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarModeradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.MainPanelBotones.SuspendLayout();
             this.PanelBusquedaPost.SuspendLayout();
@@ -117,8 +117,8 @@ namespace Interfaz
             this.aparienciaToolStripMenuItem,
             this.cerrarAltF4ToolStripMenuItem});
             this.backOfficeappnameToolStripMenuItem.Name = "backOfficeappnameToolStripMenuItem";
-            this.backOfficeappnameToolStripMenuItem.Size = new System.Drawing.Size(137, 20);
-            this.backOfficeappnameToolStripMenuItem.Text = "BackOffice (appname)";
+            this.backOfficeappnameToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+            this.backOfficeappnameToolStripMenuItem.Text = "BackOffice";
             // 
             // propiedadesToolStripMenuItem
             // 
@@ -155,6 +155,12 @@ namespace Interfaz
             this.abrirVentanaDeTestingToolStripMenuItem.Text = "Abrir ventana de testing";
             this.abrirVentanaDeTestingToolStripMenuItem.Click += new System.EventHandler(this.abrirVentanaDeTestingToolStripMenuItem_Click);
             // 
+            // historialDeAccionesToolStripMenuItem
+            // 
+            this.historialDeAccionesToolStripMenuItem.Name = "historialDeAccionesToolStripMenuItem";
+            this.historialDeAccionesToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.historialDeAccionesToolStripMenuItem.Text = "Historial de acciones";
+            // 
             // peticionesToolStripMenuItem
             // 
             this.peticionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -182,6 +188,30 @@ namespace Interfaz
             this.eliminarLosDatosToolStripMenuItem.Name = "eliminarLosDatosToolStripMenuItem";
             this.eliminarLosDatosToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.eliminarLosDatosToolStripMenuItem.Text = "Eliminar datos de usuario";
+            // 
+            // adminToolStripMenuItem
+            // 
+            this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.crearNuevoModeradorToolStripMenuItem,
+            this.eliminarModeradorToolStripMenuItem});
+            this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.adminToolStripMenuItem.Text = "Admin";
+            this.adminToolStripMenuItem.Visible = false;
+            // 
+            // crearNuevoModeradorToolStripMenuItem
+            // 
+            this.crearNuevoModeradorToolStripMenuItem.Name = "crearNuevoModeradorToolStripMenuItem";
+            this.crearNuevoModeradorToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.crearNuevoModeradorToolStripMenuItem.Text = "Crear nuevo moderador";
+            this.crearNuevoModeradorToolStripMenuItem.Click += new System.EventHandler(this.crearNuevoModeradorToolStripMenuItem_Click);
+            // 
+            // eliminarModeradorToolStripMenuItem
+            // 
+            this.eliminarModeradorToolStripMenuItem.Name = "eliminarModeradorToolStripMenuItem";
+            this.eliminarModeradorToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.eliminarModeradorToolStripMenuItem.Text = "Eliminar moderador";
+            this.eliminarModeradorToolStripMenuItem.Click += new System.EventHandler(this.eliminarModeradorToolStripMenuItem_Click);
             // 
             // MainPanelBotones
             // 
@@ -362,14 +392,14 @@ namespace Interfaz
             // 
             // DgridListarPulicaciones
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgridListarPulicaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgridListarPulicaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DgridListarPulicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgridListarPulicaciones.Location = new System.Drawing.Point(15, 119);
             this.DgridListarPulicaciones.Name = "DgridListarPulicaciones";
@@ -608,12 +638,6 @@ namespace Interfaz
             this.DgridUsuarios.TabIndex = 46;
             this.DgridUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgridUsuarios_CellClick);
             // 
-            // historialDeAccionesToolStripMenuItem
-            // 
-            this.historialDeAccionesToolStripMenuItem.Name = "historialDeAccionesToolStripMenuItem";
-            this.historialDeAccionesToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.historialDeAccionesToolStripMenuItem.Text = "Historial de acciones";
-            // 
             // adminGrupo1
             // 
             this.adminGrupo1.Location = new System.Drawing.Point(200, 24);
@@ -630,29 +654,6 @@ namespace Interfaz
             this.AdministracionDeUsuarios.TabIndex = 20;
             this.AdministracionDeUsuarios.Visible = false;
             // 
-            // adminToolStripMenuItem
-            // 
-            this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.crearNuevoModeradorToolStripMenuItem,
-            this.eliminarModeradorToolStripMenuItem});
-            this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.adminToolStripMenuItem.Text = "Admin";
-            // 
-            // crearNuevoModeradorToolStripMenuItem
-            // 
-            this.crearNuevoModeradorToolStripMenuItem.Name = "crearNuevoModeradorToolStripMenuItem";
-            this.crearNuevoModeradorToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.crearNuevoModeradorToolStripMenuItem.Text = "Crear nuevo moderador";
-            this.crearNuevoModeradorToolStripMenuItem.Click += new System.EventHandler(this.crearNuevoModeradorToolStripMenuItem_Click);
-            // 
-            // eliminarModeradorToolStripMenuItem
-            // 
-            this.eliminarModeradorToolStripMenuItem.Name = "eliminarModeradorToolStripMenuItem";
-            this.eliminarModeradorToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.eliminarModeradorToolStripMenuItem.Text = "Eliminar moderador";
-            this.eliminarModeradorToolStripMenuItem.Click += new System.EventHandler(this.eliminarModeradorToolStripMenuItem_Click);
-            // 
             // MainBackoffice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -668,7 +669,7 @@ namespace Interfaz
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainBackoffice";
-            this.Text = "Form1";
+            this.Text = "LinguaLink Back Office";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainBackoffice_Load);
             this.menuStrip1.ResumeLayout(false);

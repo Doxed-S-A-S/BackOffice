@@ -700,15 +700,24 @@ namespace Modelos
         {
             try
             {
-                string sql = $"select count(*) from moderadores_bo where user = @user and pass = @pass";
+                string sql = $"select count(*) as total, super from moderadores_bo where user = @user and pass = @pass group by super";
                 this.Comando.CommandText = sql;
                 this.Comando.Parameters.AddWithValue("@user", this.mod_nombre);
                 this.Comando.Parameters.AddWithValue("@pass", this.mod_contraseña);
                 this.Comando.Prepare();
-                string resultado = this.Comando.ExecuteScalar().ToString();
+                this.Lector = this.Comando.ExecuteReader();
 
-                if (resultado == "1")
-                    return true;
+                if (this.Lector.HasRows)
+                {
+                    this.Lector.Read();
+                    int resultado = Int32.Parse(this.Lector["total"].ToString());
+                    this.mod_super = this.Lector["super"].ToString();
+                    this.Lector.Close();
+
+
+                    if (resultado == 1)
+                        return true;
+                }
                 return false;
             }
             catch (MySqlException sqlx)
