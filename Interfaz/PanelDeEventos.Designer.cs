@@ -170,6 +170,7 @@ namespace Interfaz
             this.BtnEliminarEvento.TabIndex = 102;
             this.BtnEliminarEvento.Text = "Eliminar evento";
             this.BtnEliminarEvento.UseVisualStyleBackColor = false;
+            this.BtnEliminarEvento.Click += new System.EventHandler(this.BtnEliminarEvento_Click);
             // 
             // label6
             // 

@@ -187,12 +187,14 @@ namespace Interfaz
             // 
             // BtnEliminarPost
             // 
+            this.BtnEliminarPost.BackColor = System.Drawing.Color.Red;
+            this.BtnEliminarPost.ForeColor = System.Drawing.SystemColors.Control;
             this.BtnEliminarPost.Location = new System.Drawing.Point(704, 169);
             this.BtnEliminarPost.Name = "BtnEliminarPost";
             this.BtnEliminarPost.Size = new System.Drawing.Size(75, 23);
             this.BtnEliminarPost.TabIndex = 31;
             this.BtnEliminarPost.Text = "Eliminar";
-            this.BtnEliminarPost.UseVisualStyleBackColor = true;
+            this.BtnEliminarPost.UseVisualStyleBackColor = false;
             this.BtnEliminarPost.Click += new System.EventHandler(this.BtnEliminarPost_Click);
             // 
             // DgridPublicaciones
@@ -236,12 +238,14 @@ namespace Interfaz
             // 
             // BtnEliminarComentario
             // 
+            this.BtnEliminarComentario.BackColor = System.Drawing.Color.Red;
+            this.BtnEliminarComentario.ForeColor = System.Drawing.SystemColors.Control;
             this.BtnEliminarComentario.Location = new System.Drawing.Point(704, 600);
             this.BtnEliminarComentario.Name = "BtnEliminarComentario";
             this.BtnEliminarComentario.Size = new System.Drawing.Size(75, 23);
             this.BtnEliminarComentario.TabIndex = 40;
             this.BtnEliminarComentario.Text = "Eliminar";
-            this.BtnEliminarComentario.UseVisualStyleBackColor = true;
+            this.BtnEliminarComentario.UseVisualStyleBackColor = false;
             this.BtnEliminarComentario.Click += new System.EventHandler(this.BtnEliminarComentario_Click);
             // 
             // BtnEditarComentario

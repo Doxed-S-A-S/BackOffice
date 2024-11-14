@@ -289,7 +289,7 @@ namespace Interfaz
             // LbCuentaPostId
             // 
             this.LbCuentaPostId.AutoSize = true;
-            this.LbCuentaPostId.Location = new System.Drawing.Point(440, 377);
+            this.LbCuentaPostId.Location = new System.Drawing.Point(440, 424);
             this.LbCuentaPostId.Name = "LbCuentaPostId";
             this.LbCuentaPostId.Size = new System.Drawing.Size(18, 13);
             this.LbCuentaPostId.TabIndex = 13;
@@ -298,7 +298,7 @@ namespace Interfaz
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(368, 119);
+            this.label7.Location = new System.Drawing.Point(368, 166);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(58, 13);
             this.label7.TabIndex = 12;
@@ -317,7 +317,7 @@ namespace Interfaz
             // LbPostNombreDeUsuario
             // 
             this.LbPostNombreDeUsuario.AutoSize = true;
-            this.LbPostNombreDeUsuario.Location = new System.Drawing.Point(438, 361);
+            this.LbPostNombreDeUsuario.Location = new System.Drawing.Point(438, 408);
             this.LbPostNombreDeUsuario.Name = "LbPostNombreDeUsuario";
             this.LbPostNombreDeUsuario.Size = new System.Drawing.Size(0, 13);
             this.LbPostNombreDeUsuario.TabIndex = 9;
@@ -325,7 +325,7 @@ namespace Interfaz
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(365, 377);
+            this.label6.Location = new System.Drawing.Point(365, 424);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 13);
             this.label6.TabIndex = 8;
@@ -333,7 +333,7 @@ namespace Interfaz
             // 
             // TboxMostrarContenidoPost
             // 
-            this.TboxMostrarContenidoPost.Location = new System.Drawing.Point(368, 135);
+            this.TboxMostrarContenidoPost.Location = new System.Drawing.Point(368, 182);
             this.TboxMostrarContenidoPost.Multiline = true;
             this.TboxMostrarContenidoPost.Name = "TboxMostrarContenidoPost";
             this.TboxMostrarContenidoPost.ReadOnly = true;
@@ -372,9 +372,9 @@ namespace Interfaz
             // 
             // BtnSeleccionar
             // 
-            this.BtnSeleccionar.Location = new System.Drawing.Point(261, 92);
+            this.BtnSeleccionar.Location = new System.Drawing.Point(368, 119);
             this.BtnSeleccionar.Name = "BtnSeleccionar";
-            this.BtnSeleccionar.Size = new System.Drawing.Size(101, 23);
+            this.BtnSeleccionar.Size = new System.Drawing.Size(128, 36);
             this.BtnSeleccionar.TabIndex = 3;
             this.BtnSeleccionar.Text = "Seleccionar post";
             this.BtnSeleccionar.UseVisualStyleBackColor = true;
@@ -661,11 +661,11 @@ namespace Interfaz
             this.ClientSize = new System.Drawing.Size(1370, 703);
             this.Controls.Add(this.MainPanelBotones);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.PanelBusquedaGrupo);
-            this.Controls.Add(this.PanelBusquedaUsuario);
             this.Controls.Add(this.PanelBusquedaPost);
             this.Controls.Add(this.adminGrupo1);
             this.Controls.Add(this.AdministracionDeUsuarios);
+            this.Controls.Add(this.PanelBusquedaGrupo);
+            this.Controls.Add(this.PanelBusquedaUsuario);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainBackoffice";

@@ -54,8 +54,16 @@ namespace Interfaz
 
         private int IndexPublicacion()
         {
-            int i = DgridPublicaciones.CurrentCell.RowIndex;
-            return i;
+            try
+            {
+                int i = DgridPublicaciones.CurrentCell.RowIndex;
+                return i;
+            }
+            catch
+            {
+                return 0;
+            }
+
         }
 
         private void refrescarTablaDePublicaciones()
