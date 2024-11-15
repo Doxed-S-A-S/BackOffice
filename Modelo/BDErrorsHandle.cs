@@ -29,6 +29,8 @@ namespace Modelos
                 throw new Exception("ERROR_CHILD_ROW");
             if (sqlx.Number == MYSQL_TABLE_NOT_EXIST)
                 throw new Exception(" MYSQL_TABLE_NOT_EXIST");
+            if (sqlx.Number == MYSQL_INCORRECT_DATE)
+                throw new Exception("MYSQL_INCORRECT_DATE");
 
             throw new Exception("UNKNOWN_DB_ERROR");
         }

@@ -26,11 +26,6 @@ namespace Modelos
         public int reports;
 
 
-        const int MYSQL_DUPLICATE_ENTRY = 1062;
-        const int MYSQL_ACCESS_DENIED = 1045;
-        const int MYSQL_UNKNOWN_COLUMN = 1054;
-        const int MYSQL_ERROR_CHILD_ROW = 1452;
-
         public void Registro()
         {
             try
@@ -47,7 +42,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
             catch (Exception)
             {
@@ -71,7 +66,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
             catch (Exception)
             {
@@ -94,7 +89,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
                 return false;
             }
             catch (Exception)
@@ -119,7 +114,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
                 return false;
             }
             catch (Exception)
@@ -149,7 +144,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
             catch (Exception)
             {
@@ -172,7 +167,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
                 return false;
             }
             catch (Exception)
@@ -208,7 +203,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
                 return false;
             }
             catch (Exception)
@@ -232,7 +227,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
                 return false;
             }
             catch (Exception)
@@ -259,7 +254,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
                 return false;
             }
             catch (Exception)
@@ -284,7 +279,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
                 return false;
             }
             catch (Exception)
@@ -303,7 +298,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
             catch (Exception)
             {
@@ -336,7 +331,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
                 return null;
             }
             catch (Exception)
@@ -361,12 +356,11 @@ namespace Modelos
     $"values ('{this.nombre}','{this.apellido1}','{this.apellido2}','{this.pais}','{this.idiomas_hablados}')";
                 this.Comando.CommandText = sql;
                 this.Comando.ExecuteNonQuery();
-                PrintDesktop(sql);
                 id_usuario = this.Comando.LastInsertedId;
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
             catch (Exception)
             {
@@ -395,7 +389,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
                 return false;
             }
             catch (Exception)
@@ -417,12 +411,11 @@ namespace Modelos
                 string sql = $"insert into muro (detalles,pub_destacada,biografia) values ('{this.detalles}',{this.pub_destacada},'{this.biografia}')";
                 this.Comando.CommandText = sql;
                 this.Comando.ExecuteNonQuery();
-                PrintDesktop(sql);
                 id_muro = this.Comando.LastInsertedId;
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
             catch (Exception)
             {
@@ -449,7 +442,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
                 return false;
             }
             catch (Exception)
@@ -473,7 +466,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
             catch (Exception)
             {
@@ -491,7 +484,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
             catch (Exception)
             {
@@ -509,7 +502,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
             catch (Exception)
             {
@@ -535,12 +528,11 @@ namespace Modelos
                 string sql = $"insert into set_preferencias (tema_de_apariencia) value('{this.tema_de_apariencia}')";
                 this.Comando.CommandText = sql;
                 this.Comando.ExecuteNonQuery();
-                PrintDesktop(sql);
                 id_preferencia = this.Comando.LastInsertedId;
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
             catch (Exception)
             {
@@ -573,7 +565,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
                 return false;
             }
             catch (Exception)
@@ -594,7 +586,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
             catch (Exception)
             {
@@ -625,7 +617,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
                 return false;
             }
             catch (Exception)
@@ -633,19 +625,7 @@ namespace Modelos
                 throw new Exception("UNKNOWN_ERROR");
             }
         }
-        private void MySqlErrorCatch(MySqlException sqlx)
-        {
-            if (sqlx.Number == MYSQL_DUPLICATE_ENTRY)
-                throw new Exception("DUPLICATE_ENTRY");
-            if (sqlx.Number == MYSQL_ACCESS_DENIED)
-                throw new Exception("ACCESS_DENIED");
-            if (sqlx.Number == MYSQL_UNKNOWN_COLUMN)
-                throw new Exception("UNKNOWN_COLUMN");
-            if (sqlx.Number == MYSQL_ERROR_CHILD_ROW)
-                throw new Exception("ERROR_CHILD_ROW");
 
-            throw new Exception("UNKNOWN_DB_ERROR");
-        }
 
 
         public long id_mod;
@@ -687,7 +667,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
                 return null;
             }
             catch (Exception)
@@ -722,7 +702,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
                 return false;
             }
             catch (Exception)

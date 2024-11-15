@@ -45,6 +45,7 @@
     <Compile Include="ControlComentarios.cs" />
     <Compile Include="ControlGrupo.cs" />
     <Compile Include="ControlPosts.cs" />
+    <Compile Include="ErrorsHandle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
