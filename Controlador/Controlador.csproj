@@ -43,8 +43,9 @@
   <ItemGroup>
     <Compile Include="ControlCuenta.cs" />
     <Compile Include="ControlComentarios.cs" />
-    <Compile Include="ControlGrupo1.cs" />
+    <Compile Include="ControlGrupo.cs" />
     <Compile Include="ControlPosts.cs" />
+    <Compile Include="ErrorsHandle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +53,9 @@
       <Project>{12bd6a2e-27ea-430a-baa2-d47d3a40864e}</Project>
       <Name>Modelos</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

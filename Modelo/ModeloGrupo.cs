@@ -13,7 +13,7 @@ namespace Modelos
         public long id_grupo;
         public string nombre_grupo;
         public string descripcion;
-        public string banner;
+        public string url_imagen;
         public Boolean privacidad;
         public int reports;
 
@@ -24,11 +24,6 @@ namespace Modelos
         public int id_post;
         public string postContenido;
 
-        const int MYSQL_DUPLICATE_ENTRY = 1062;
-        const int MYSQL_ACCESS_DENIED = 1045;
-        const int MYSQL_UNKNOWN_COLUMN = 1054;
-        const int MYSQL_ERROR_CHILD_ROW = 1452;
-
         public void Guardar()
         {
             if (this.id_grupo == 0) CrearGrupo();
@@ -38,11 +33,11 @@ namespace Modelos
         {
             try
             {
-                string sql = $"insert into grupos (nombre_grupo,descripcion,privacidad,banner) values(@nombre_grupo,@descripcion,{this.privacidad},@banner)";
+                string sql = $"insert into grupos (nombre_grupo,descripcion,privacidad,url_imagen) values(@nombre_grupo,@descripcion,{this.privacidad},@url_imagen)";
                 this.Comando.CommandText = sql;
                 this.Comando.Parameters.AddWithValue("@nombre_grupo", this.nombre_grupo);
                 this.Comando.Parameters.AddWithValue("@descripcion", this.descripcion);
-                this.Comando.Parameters.AddWithValue("@banner", this.banner);
+                this.Comando.Parameters.AddWithValue("@url_imagen", this.url_imagen);
                 this.Comando.Prepare();
                 this.Comando.ExecuteNonQuery();
                 this.id_grupo = this.Comando.LastInsertedId;
@@ -50,7 +45,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
             catch (Exception)
             {
@@ -61,17 +56,16 @@ namespace Modelos
         {
             try
             {
-                string sql = $"UPDATE grupos set nombre_grupo =@nombre_grupo, descripcion = @descripcion, banner = @banner WHERE id_grupo = {this.id_grupo}";
+                string sql = $"UPDATE grupos set nombre_grupo =@nombre_grupo, descripcion = @descripcion WHERE id_grupo = {this.id_grupo}";
                 this.Comando.CommandText = sql;
                 this.Comando.Parameters.AddWithValue("@nombre_grupo", this.nombre_grupo);
                 this.Comando.Parameters.AddWithValue("@descripcion", this.descripcion);
-                this.Comando.Parameters.AddWithValue("@banner", this.banner);
                 this.Comando.Prepare();
                 this.Comando.ExecuteNonQuery();
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
             catch (Exception )
             {
@@ -90,7 +84,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
             catch (Exception)
             {
@@ -109,7 +103,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
             catch (Exception)
             {
@@ -127,26 +121,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
-            }
-            catch (Exception)
-            {
-                throw new Exception("UNKNOWN_ERROR");
-            }
-        }
-        public void ModificarBannerGrupo()
-        {
-            try
-            {
-                string sql = $"update grupos set banner = @banner where id_grupo = '{this.id_grupo}'";
-                this.Comando.CommandText = sql;
-                this.Comando.Parameters.AddWithValue("@banner", this.banner);
-                this.Comando.Prepare();
-                this.Comando.ExecuteNonQuery();
-            }
-            catch (MySqlException sqlx)
-            {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
             catch (Exception)
             {
@@ -163,7 +138,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
             catch (Exception)
             {
@@ -185,6 +160,7 @@ namespace Modelos
                     ModeloGrupo grupo = new ModeloGrupo();
                     grupo.id_grupo = Int32.Parse(this.Lector["id_grupo"].ToString());
                     grupo.nombre_grupo = this.Lector["nombre_grupo"].ToString();
+                    grupo.descripcion = this.Lector["descripcion"].ToString();
                     grupos.Add(grupo);
                 }
                 this.Lector.Close();
@@ -193,7 +169,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
                 return null;
             }
             catch (Exception)
@@ -208,7 +184,7 @@ namespace Modelos
             {
                 List<ModeloGrupo> grupos = new List<ModeloGrupo>();
 
-                string sql = $"SELECT cuenta.nombre_usuario, grupos.nombre_grupo AS nombre_grupo, conforma.rol " +
+                string sql = $"SELECT cuenta.nombre_usuario, grupos.nombre_grupo AS nombre_grupo, conforma.rol, cuenta.id_cuenta " +
                              $"FROM cuenta JOIN conforma ON cuenta.id_cuenta = conforma.id_cuenta " +
                              $"JOIN grupos ON conforma.id_grupo = grupos.id_grupo " +
                              $"WHERE grupos.id_grupo ='{id}'";
@@ -218,6 +194,7 @@ namespace Modelos
                 while (this.Lector.Read())
                 {
                     ModeloGrupo grupo = new ModeloGrupo();
+                    grupo.id_cuenta = Int32.Parse(this.Lector["id_cuenta"].ToString());
                     grupo.nombre_usuario = this.Lector["nombre_usuario"].ToString();
                     grupo.nombre_grupo = this.Lector["nombre_grupo"].ToString();
                     grupo.rol = this.Lector["rol"].ToString();
@@ -229,7 +206,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
                 return null;
             }
             catch (Exception)
@@ -266,7 +243,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
                 return null;
             }
             catch (Exception)
@@ -303,7 +280,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
                 return null;
             }
             catch (Exception)
@@ -327,7 +304,7 @@ namespace Modelos
                     this.id_grupo = Int32.Parse(this.Lector["id_grupo"].ToString());
                     this.nombre_grupo = this.Lector["nombre_grupo"].ToString();
                     this.descripcion = this.Lector["descripcion"].ToString();
-                    this.banner = this.Lector["banner"].ToString();
+                    this.url_imagen = this.Lector["url_imagen"].ToString();
                     this.reports = Int32.Parse(this.Lector["reports"].ToString());
                     this.privacidad = bool.Parse(this.Lector["privacidad"].ToString());
                     this.Lector.Close();
@@ -339,7 +316,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
                 return false;
             }
             catch (Exception)
@@ -364,7 +341,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
                 return false;
             }
             catch (Exception)
@@ -382,7 +359,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
             catch (Exception)
             {
@@ -399,7 +376,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
             catch (Exception)
             {
@@ -417,7 +394,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
             catch (Exception)
             {
@@ -435,7 +412,7 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
             catch (Exception)
             {
@@ -453,27 +430,12 @@ namespace Modelos
             }
             catch (MySqlException sqlx)
             {
-                MySqlErrorCatch(sqlx);
+                BDErrorsHandle.MySqlErrorCatch(sqlx);
             }
             catch (Exception)
             {
                 throw new Exception("UNKNOWN_ERROR");
             }
-        }
-
-
-        private void MySqlErrorCatch(MySqlException sqlx)
-        {
-            if (sqlx.Number == MYSQL_DUPLICATE_ENTRY)
-                throw new Exception("DUPLICATE_ENTRY");
-            if (sqlx.Number == MYSQL_ACCESS_DENIED)
-                throw new Exception("ACCESS_DENIED");
-            if (sqlx.Number == MYSQL_UNKNOWN_COLUMN)
-                throw new Exception("UNKNOWN_COLUMN");
-            if (sqlx.Number == MYSQL_ERROR_CHILD_ROW)
-                throw new Exception("ERROR_CHILD_ROW");
-
-            throw new Exception("UNKNOWN_DB_ERROR");
         }
 
     }

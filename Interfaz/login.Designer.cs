@@ -36,6 +36,8 @@ namespace Interfaz
             this.TboxPassLogin = new System.Windows.Forms.TextBox();
             this.StaticLbErrorMsg = new System.Windows.Forms.Label();
             this.BtnLogin = new System.Windows.Forms.Button();
+            this.PboxLogin = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.PboxLogin)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -50,7 +52,7 @@ namespace Interfaz
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(109, 156);
+            this.label2.Location = new System.Drawing.Point(109, 173);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 1;
@@ -59,7 +61,7 @@ namespace Interfaz
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(102, 206);
+            this.label3.Location = new System.Drawing.Point(102, 223);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 2;
@@ -67,14 +69,14 @@ namespace Interfaz
             // 
             // TboxUsrLogin
             // 
-            this.TboxUsrLogin.Location = new System.Drawing.Point(51, 172);
+            this.TboxUsrLogin.Location = new System.Drawing.Point(51, 189);
             this.TboxUsrLogin.Name = "TboxUsrLogin";
             this.TboxUsrLogin.Size = new System.Drawing.Size(163, 20);
             this.TboxUsrLogin.TabIndex = 3;
             // 
             // TboxPassLogin
             // 
-            this.TboxPassLogin.Location = new System.Drawing.Point(51, 222);
+            this.TboxPassLogin.Location = new System.Drawing.Point(51, 239);
             this.TboxPassLogin.Name = "TboxPassLogin";
             this.TboxPassLogin.PasswordChar = '*';
             this.TboxPassLogin.Size = new System.Drawing.Size(163, 20);
@@ -90,7 +92,7 @@ namespace Interfaz
             // 
             // BtnLogin
             // 
-            this.BtnLogin.Location = new System.Drawing.Point(76, 285);
+            this.BtnLogin.Location = new System.Drawing.Point(76, 302);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(112, 34);
             this.BtnLogin.TabIndex = 6;
@@ -98,11 +100,22 @@ namespace Interfaz
             this.BtnLogin.UseVisualStyleBackColor = true;
             this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
+            // PboxLogin
+            // 
+            this.PboxLogin.BackgroundImage = global::Interfaz.Properties.Resources.imag2;
+            this.PboxLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.PboxLogin.Location = new System.Drawing.Point(48, 8);
+            this.PboxLogin.Name = "PboxLogin";
+            this.PboxLogin.Size = new System.Drawing.Size(174, 154);
+            this.PboxLogin.TabIndex = 7;
+            this.PboxLogin.TabStop = false;
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(264, 369);
+            this.Controls.Add(this.PboxLogin);
             this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.StaticLbErrorMsg);
             this.Controls.Add(this.TboxPassLogin);
@@ -111,7 +124,9 @@ namespace Interfaz
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "login";
-            this.Text = "Form1";
+            this.Text = "Login";
+            this.Load += new System.EventHandler(this.login_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.PboxLogin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,6 +141,7 @@ namespace Interfaz
         private System.Windows.Forms.TextBox TboxPassLogin;
         private System.Windows.Forms.Label StaticLbErrorMsg;
         private System.Windows.Forms.Button BtnLogin;
+        private System.Windows.Forms.PictureBox PboxLogin;
     }
 }
 

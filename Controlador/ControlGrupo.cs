@@ -11,7 +11,7 @@ namespace Controlador
 {
     public class ControlGrupo
     {
-        public static void CrearGrupo(string id_cuenta, string nombreGrupo, string descripcion, string privacidad, string banner)
+        public static void CrearGrupo(string idCuenta, string nombreGrupo, string descripcion, string privacidad, string urlImagen)
         {
             try
             {
@@ -19,18 +19,18 @@ namespace Controlador
                 grupo.nombre_grupo = nombreGrupo;
                 grupo.descripcion = descripcion;
                 grupo.privacidad = bool.Parse(privacidad);
-                grupo.banner = banner;
-                grupo.id_cuenta = Int32.Parse(id_cuenta);
+                grupo.url_imagen = urlImagen;
+                grupo.id_cuenta = Int32.Parse(idCuenta);
 
                 grupo.CrearGrupo();
             }
             catch (Exception e)
             {
-                ErrorHandle(e);
+                ErrorsHandle.ErrorHandle(e);
             }
         }
 
-        public static bool ModificarGrupo(string id, string nombre, string descripcion, string banner)
+        public static bool ModificarGrupo(string id, string nombre, string descripcion)
         {
             try
             {
@@ -39,7 +39,6 @@ namespace Controlador
                 {
                     grupo.nombre_grupo = nombre;
                     grupo.descripcion = descripcion;
-                    grupo.banner = banner;
 
                     grupo.Guardar();
                     return true;
@@ -48,81 +47,36 @@ namespace Controlador
             }
             catch (Exception e)
             {
-                ErrorHandle(e);
+                ErrorsHandle.ErrorHandle(e);
                 return false;
             }
         }
 
-        public static void ModificarNombreGrupo(string id, string nombre)
+
+        public static void ModificarPrivacidadGrupo(string idGrupo, string privacidad)
         {
             try
             {
                 ModeloGrupo grupo = new Modelos.ModeloGrupo();
-                grupo.id_grupo = Int32.Parse(id);
-                grupo.nombre_grupo = nombre;
-
-                grupo.ModificarNombreGrupo();
-            }
-            catch (Exception e)
-            {
-                ErrorHandle(e);
-            }
-        }
-
-        public static void ModificarDescripcionGrupo(string id, string descripcion)
-        {
-            try
-            {
-                ModeloGrupo grupo = new Modelos.ModeloGrupo();
-                grupo.id_grupo = Int32.Parse(id);
-                grupo.nombre_grupo = descripcion;
-
-                grupo.ModificarDescripcionGrupo();
-            }
-            catch (Exception e)
-            {
-                ErrorHandle(e);
-            }
-        }
-
-        public static void ModificarPrivacidadGrupo(string id_grupo, string privacidad)
-        {
-            try
-            {
-                ModeloGrupo grupo = new Modelos.ModeloGrupo();
-                grupo.id_grupo = Int32.Parse(id_grupo);
+                grupo.id_grupo = Int32.Parse(idGrupo);
                 grupo.privacidad = bool.Parse(privacidad);
 
                 grupo.ModificarPrivacidadGrupo();
             }
             catch (Exception e)
             {
-                ErrorHandle(e);
+                ErrorsHandle.ErrorHandle(e);
             }
         }
 
-        public static void ModificarBannerGrupo(string id, string banner)
+
+
+        public static bool EliminarGrupo(string idGrupo)
         {
             try
             {
                 ModeloGrupo grupo = new Modelos.ModeloGrupo();
-                grupo.id_grupo = Int32.Parse(id);
-                grupo.nombre_grupo = banner;
-
-                grupo.ModificarBannerGrupo();
-            }
-            catch (Exception e)
-            {
-                ErrorHandle(e);
-            }
-        }
-
-        public static bool EliminarGrupo(string id)
-        {
-            try
-            {
-                ModeloGrupo grupo = new Modelos.ModeloGrupo();
-                if (grupo.BuscarGrupo(Int32.Parse(id)))
+                if (grupo.BuscarGrupo(Int32.Parse(idGrupo)))
                 {
                     grupo.EliminarGrupo();
                     return true;
@@ -132,16 +86,17 @@ namespace Controlador
             }
             catch (Exception e)
             {
-                ErrorHandle(e);
+                ErrorsHandle.ErrorHandle(e);
                 return false;
             }
         }
 
         public static DataTable ObtenerGrupos()
         {
+            DataTable tabla = new DataTable();
             try
             {
-                DataTable tabla = new DataTable();
+                
                 tabla.Columns.Add("ID del grupo", typeof(int));
                 tabla.Columns.Add("Nombre", typeof(string));
                 tabla.Columns.Add("Descripcion", typeof(string));
@@ -161,28 +116,31 @@ namespace Controlador
             }
             catch (Exception e)
             {
-                ErrorHandle(e);
-                return null;
+                ErrorsHandle.ErrorHandle(e);
+                return tabla;
             }
         }
 
-        public static DataTable ObtenerIntegrantesDeGrupo(string id_grupo)
+        public static DataTable ObtenerIntegrantesDeGrupo(string idGrupo)
         {
+            DataTable tabla = new DataTable();
             try
             {
-                DataTable tabla = new DataTable();
+                
+                tabla.Columns.Add("ID cuenta", typeof(int));
                 tabla.Columns.Add("nombre_grupo", typeof(string));
-                tabla.Columns.Add("nombre_usuario", typeof(string));
-                tabla.Columns.Add("rol", typeof(string));
+                tabla.Columns.Add("Username", typeof(string));
+                tabla.Columns.Add("Rol", typeof(string));
 
 
                 ModeloGrupo grupo = new ModeloGrupo();
-                foreach (ModeloGrupo p in grupo.ObtenerIntegrantesDeGrupo(Int32.Parse(id_grupo)))
+                foreach (ModeloGrupo p in grupo.ObtenerIntegrantesDeGrupo(Int32.Parse(idGrupo)))
                 {
                     DataRow fila = tabla.NewRow();
+                    fila["ID cuenta"] = p.id_cuenta;
                     fila["nombre_grupo"] = p.nombre_grupo;
-                    fila["nombre_usuario"] = p.nombre_usuario;
-                    fila["rol"] = p.rol;
+                    fila["Username"] = p.nombre_usuario;
+                    fila["Rol"] = p.rol;
                     tabla.Rows.Add(fila);
                 }
 
@@ -190,27 +148,28 @@ namespace Controlador
             }
             catch (Exception e)
             {
-                ErrorHandle(e);
-                return null;
+                ErrorsHandle.ErrorHandle(e);
+                return tabla;
             }
         }
 
-        public static DataTable ObtenerResponsablesDeGrupo(string id_grupo)
+        public static DataTable ObtenerResponsablesDeGrupo(string idGrupo)
         {
+            DataTable tabla = new DataTable();
             try
             {
-                DataTable tabla = new DataTable();
+                
                 tabla.Columns.Add("id_cuenta", typeof(int));
-                tabla.Columns.Add("nombre_usuario", typeof(string));
+                tabla.Columns.Add("Username", typeof(string));
                 tabla.Columns.Add("rol", typeof(string));
 
 
                 ModeloGrupo grupo = new ModeloGrupo();
-                foreach (ModeloGrupo g in grupo.ObtenerResponsablesDeGrupo(Int32.Parse(id_grupo)))
+                foreach (ModeloGrupo g in grupo.ObtenerResponsablesDeGrupo(Int32.Parse(idGrupo)))
                 {
                     DataRow fila = tabla.NewRow();
                     fila["id_cuenta"] = g.id_cuenta;
-                    fila["nombre_usuario"] = g.nombre_usuario;
+                    fila["Username"] = g.nombre_usuario;
                     fila["rol"] = g.rol;
                     tabla.Rows.Add(fila);
                 }
@@ -218,18 +177,19 @@ namespace Controlador
             }
             catch (Exception e)
             {
-                ErrorHandle(e);
-                return null;
+                ErrorsHandle.ErrorHandle(e);
+                return tabla;
             }
         }
 
-        public static Dictionary<string, string> BuscarGrupo(string id_grupo)
+        public static Dictionary<string, string> BuscarGrupo(string idGrupo)
         {
+            Dictionary<string, string> resultado = new Dictionary<string, string>();
             try
             {
-                Dictionary<string, string> resultado = new Dictionary<string, string>();
+                
                 ModeloGrupo grupo = new ModeloGrupo();
-                if (grupo.BuscarGrupo(Int32.Parse(id_grupo)))
+                if (grupo.BuscarGrupo(Int32.Parse(idGrupo)))
                 {
                     resultado.Add("resultado", "true");
                     resultado.Add("id", grupo.id_grupo.ToString());
@@ -237,7 +197,7 @@ namespace Controlador
                     resultado.Add("descripcion", grupo.descripcion);
                     resultado.Add("reports", grupo.reports.ToString());
                     resultado.Add("privacidad", grupo.privacidad.ToString());
-                    resultado.Add("banner", grupo.banner);
+                    resultado.Add("url_imagen", grupo.url_imagen);
                     return resultado;
                 }
                 resultado.Add("resultado", "false");
@@ -245,20 +205,22 @@ namespace Controlador
             }
             catch (Exception e)
             {
-                ErrorHandle(e);
-                return null;
+                ErrorsHandle.ErrorHandle(e);
+                resultado.Add("resultado", "false");
+                return resultado;
             }
         }
 
-        public static Dictionary<string, string> AgregarCuentaEnGrupo(string rol, string id_grupo, string id_cuenta)
+        public static Dictionary<string, string> AgregarCuentaEnGrupo(string rol, string idGrupo, string idCuenta)
         {
+            Dictionary<string, string> resultado = new Dictionary<string, string>();
             try
             {
-                Dictionary<string, string> resultado = new Dictionary<string, string>();
+                
 
                 ModeloGrupo grupo = new ModeloGrupo();
-                grupo.id_cuenta = Int32.Parse(id_cuenta);
-                grupo.id_grupo = Int32.Parse(id_grupo);
+                grupo.id_cuenta = Int32.Parse(idCuenta);
+                grupo.id_grupo = Int32.Parse(idGrupo);
                 grupo.rol = rol;
 
                 if (!grupo.FormaParteDelGrupo())
@@ -272,19 +234,21 @@ namespace Controlador
             }
             catch (Exception e)
             {
-                ErrorHandle(e);
-                return null;
+                ErrorsHandle.ErrorHandle(e);
+                resultado.Add("resultado", "false");
+                return resultado;
             }
         }
-        public static Dictionary<string, string> EliminarCuentaDeGrupo(string id_grupo, string id_cuenta)
+        public static Dictionary<string, string> EliminarCuentaDeGrupo(string idGrupo, string idCuenta)
         {
+            Dictionary<string, string> resultado = new Dictionary<string, string>();
             try
             {
-                Dictionary<string, string> resultado = new Dictionary<string, string>();
+                
 
                 ModeloGrupo grupo = new ModeloGrupo();
-                grupo.id_cuenta = Int32.Parse(id_cuenta);
-                grupo.id_grupo = Int32.Parse(id_grupo);
+                grupo.id_cuenta = Int32.Parse(idCuenta);
+                grupo.id_grupo = Int32.Parse(idGrupo);
 
                 if (!grupo.FormaParteDelGrupo())
                 {
@@ -298,19 +262,21 @@ namespace Controlador
             }
             catch (Exception e)
             {
-                ErrorHandle(e);
-                return null;
+                ErrorsHandle.ErrorHandle(e);
+                resultado.Add("resultado", "false");
+                return resultado;
             }
         }
-        public static Dictionary<string, string> CambiarRolDeCuentaEnGrupo(string id_cuenta, string id_grupo, string rol)
+        public static Dictionary<string, string> CambiarRolDeCuentaEnGrupo(string idCuenta, string idGrupo, string rol)
         {
+            Dictionary<string, string> resultado = new Dictionary<string, string>();
             try
             {
-                Dictionary<string, string> resultado = new Dictionary<string, string>();
+                
 
                 ModeloGrupo grupo = new ModeloGrupo();
-                grupo.id_cuenta = Int32.Parse(id_cuenta);
-                grupo.id_grupo = Int32.Parse(id_grupo);
+                grupo.id_cuenta = Int32.Parse(idCuenta);
+                grupo.id_grupo = Int32.Parse(idGrupo);
                 grupo.rol = rol;
 
                 if (!grupo.FormaParteDelGrupo())
@@ -324,8 +290,9 @@ namespace Controlador
             }
             catch (Exception e)
             {
-                ErrorHandle(e);
-                return null;
+                ErrorsHandle.ErrorHandle(e);
+                resultado.Add("resultado", "false");
+                return resultado;
             }
         }
 
@@ -340,44 +307,28 @@ namespace Controlador
             }
             catch (Exception e)
             {
-                ErrorHandle(e);
+                ErrorsHandle.ErrorHandle(e);
             }
         }
 
-        public static DataTable PostDeGrupo(string id_grupo)
+        public static DataTable PostDeGrupo(string idGrupo)
         {
             DataTable tabla = new DataTable();
             tabla.Columns.Add("Username", typeof(string));
-            tabla.Columns.Add("Id_Post", typeof(int));
+            tabla.Columns.Add("ID", typeof(int));
             tabla.Columns.Add("Contenido", typeof(string));
 
 
             ModeloGrupo grupo = new ModeloGrupo();
-            foreach (ModeloGrupo g in grupo.ObtenerPostsDeGrupo(Int32.Parse(id_grupo)))
+            foreach (ModeloGrupo g in grupo.ObtenerPostsDeGrupo(Int32.Parse(idGrupo)))
             {
                 DataRow fila = tabla.NewRow();
                 fila["Username"] = g.nombre_usuario;
-                fila["Id_post"] = g.id_post;
+                fila["ID"] = g.id_post;
                 fila["Contenido"] = g.postContenido;
                 tabla.Rows.Add(fila);
             }
             return tabla;
-        }
-
-        private static void ErrorHandle(Exception ex)
-        {
-            if (ex.Message == "DUPLICATE_ENTRY")
-                throw new Exception("DUPLICATE_ENTRY");
-            if (ex.Message == "ACCESS_DENIED")
-                throw new Exception("ACCESS_DENIED");
-            if (ex.Message == "UNKNOWN_COLUMN")
-                throw new Exception("UNKNOWN_COLUMN");
-            if (ex.Message == "UNKNOWN_DB_ERROR")
-                throw new Exception("UNKNOWN_DB_ERROR");
-            if (ex.Message == "ERROR_CHILD_ROW")
-                throw new Exception("ERROR_CHILD_ROW");
-
-            throw new Exception("UNKNOWN_ERROR");
         }
 
     }

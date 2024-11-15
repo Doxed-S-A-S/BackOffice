@@ -28,6 +28,7 @@ namespace Interfaz
             if (id != null)
             {
                 LbIdGrupo.Text = ControlGrupo.BuscarGrupo(id)["id"].ToString();
+                TboxNombreGrupo.Text = ControlGrupo.BuscarGrupo(id)["nombre_grupo"];
                 LbNombreGrupo.Text = ControlGrupo.BuscarGrupo(id)["nombre_grupo"];
                 TboxModificarDescripcion.Text = ControlGrupo.BuscarGrupo(id)["descripcion"];
                 LbNumReportes.Text = ControlGrupo.BuscarGrupo(id)["reports"];
@@ -48,17 +49,23 @@ namespace Interfaz
         {
             DgridPublicaciones.Refresh();
             DgridPublicaciones.DataSource = ControlGrupo.PostDeGrupo(LbIdGrupo.Text);
+            DgridPublicaciones.Columns["ID"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            DgridPublicaciones.Columns["Username"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
         private void refrescarTablaDeComentariosGrupo()
         {
             DgridComentarios.Refresh();
-            string id = DgridPublicaciones.Rows[IndexPublicacion()].Cells["Id_post"].Value.ToString();
+            string id = DgridPublicaciones.Rows[IndexPublicacion()].Cells["ID"].Value.ToString();
             DgridComentarios.DataSource = ControlComentarios.ListarComentarios(id);
         }
         private void refrescarTablaDeIntegrantes()
         {
             DgridUsuariosDeGrupo.Refresh();
             DgridUsuariosDeGrupo.DataSource = ControlGrupo.ObtenerIntegrantesDeGrupo(LbIdGrupo.Text);
+            DgridUsuariosDeGrupo.Columns["nombre_grupo"].Visible = false;
+            DgridUsuariosDeGrupo.Columns["ID cuenta"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+
         }
         private void refrescarTablaDeResponsables()
         {
@@ -67,20 +74,8 @@ namespace Interfaz
             DgridResponsables.Columns["id_cuenta"].Visible = false;
         }
 
-        private void BtnModificarDescripcion_Click(object sender, EventArgs e)
-        {
-            DialogResult check = MessageBox.Show(
-                $"Esta seguro que desea modificar la Descripcion del grupo {LbNombreGrupo.Text}?",
-                "Esta seguro?",
-                MessageBoxButtons.YesNo);
 
-            if (check.ToString() == "Yes")
-            {
-                ControlGrupo.ModificarDescripcionGrupo(LbIdGrupo.Text, TboxModificarDescripcion.Text);
-            }
 
-            
-        }
         private int IndexPublicacion()
         {
             int i = DgridPublicaciones.CurrentCell.RowIndex;
@@ -88,6 +83,9 @@ namespace Interfaz
         }
         private void DgridPublicaciones_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            foreach (DataGridViewRow row in DgridPublicaciones.Rows)
+                row.DefaultCellStyle.BackColor = Color.White;
+            DgridPublicaciones.Rows[IndexPublicacion()].DefaultCellStyle.BackColor = Color.Blue;
             TboxContenido.Text = DgridPublicaciones.Rows[IndexPublicacion()].Cells["Contenido"].Value.ToString();
             refrescarTablaDeComentariosGrupo();
         }
@@ -131,6 +129,9 @@ namespace Interfaz
 
         private void DgridComentarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            foreach (DataGridViewRow row in DgridComentarios.Rows)
+                row.DefaultCellStyle.BackColor = Color.White;
+            DgridComentarios.Rows[IndexComentario()].DefaultCellStyle.BackColor = Color.Blue;
             TboxComentarios.Text = DgridComentarios.Rows[IndexComentario()].Cells["Comentario"].Value.ToString();
         }
 
@@ -157,7 +158,7 @@ namespace Interfaz
 
         private void BtnSeleccionarUsuario_Click(object sender, EventArgs e)
         {
-            string id = DgridComentarios.Rows[IndexComentario()].Cells["IdComentario"].Value.ToString();
+            NoDiseñado();
         }
 
         private void BtnEliminarGrupo_Click(object sender, EventArgs e)
@@ -170,7 +171,7 @@ namespace Interfaz
             }
 
             DialogResult resultado = MessageBox.Show(
-                $"Esta seguro que quiere eliminar el grupo {LbNombreGrupo.Text}?",
+                $"Esta seguro que quiere eliminar el grupo {TboxNombreGrupo.Text}?",
                 "Esta seguro?",
                 MessageBoxButtons.YesNo);
 
@@ -182,6 +183,51 @@ namespace Interfaz
             }
             TboxVerificarNombreGrupo.Clear();
             TboxVerificarNombreGrupo.Hide();
+        }
+
+        private void BtnModificarDescripcion_Click(object sender, EventArgs e)
+        {
+            if(TboxNombreGrupo.TextLength < 70 & TboxModificarDescripcion.TextLength < 256){
+                DialogResult check = MessageBox.Show(
+                $"Esta seguro que desea modificar los datos generales del grupo {TboxNombreGrupo.Text}?",
+                "Esta seguro?",
+                MessageBoxButtons.YesNo);
+
+                if (check.ToString() == "Yes")
+                {
+                    ControlGrupo.ModificarGrupo(LbIdGrupo.Text, TboxNombreGrupo.Text, TboxModificarDescripcion.Text);
+                    LbNombreGrupo.Text = TboxNombreGrupo.Text;
+                }
+            }
+            
+
+
+        }
+
+        private void BtnVerEventos_Click(object sender, EventArgs e)
+        {
+            PanelDeEventos Ev = new PanelDeEventos();
+            Ev.CargarEventoDeGrupo(LbIdGrupo.Text,LbNombreGrupo.Text);
+            Ev.Show();
+        }
+
+        private void NoDiseñado()
+        {
+            MessageBox.Show("Funcionalidad no diseñada");
+        }
+
+        private void DgridUsuariosDeGrupo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in DgridUsuariosDeGrupo.Rows)
+                row.DefaultCellStyle.BackColor = Color.White;
+            DgridUsuariosDeGrupo.Rows[DgridUsuariosDeGrupo.CurrentCell.RowIndex].DefaultCellStyle.BackColor = Color.Blue;
+        }
+
+        private void DgridResponsables_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in DgridResponsables.Rows)
+                row.DefaultCellStyle.BackColor = Color.White;
+            DgridResponsables.Rows[DgridResponsables.CurrentCell.RowIndex].DefaultCellStyle.BackColor = Color.Blue;
         }
     }
 }

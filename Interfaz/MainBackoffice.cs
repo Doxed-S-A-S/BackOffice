@@ -19,6 +19,12 @@ namespace Interfaz
             InitializeComponent();
         }
 
+        public void TipoUsuario(string super)
+        {
+            if (super == "True")
+                adminToolStripMenuItem.Visible = true;
+        }
+
         private void OcultarUserControll()
         {
             adminGrupo1.Hide();
@@ -92,15 +98,27 @@ namespace Interfaz
 
         private void DgridListarPulicaciones_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            foreach (DataGridViewRow row in DgridListarPulicaciones.Rows)
+                row.DefaultCellStyle.BackColor = Color.White;
             int i = DgridListarPulicaciones.CurrentCell.RowIndex;
-            string idPost = DgridListarPulicaciones.Rows[i].Cells["Contenido"].Value.ToString();
+            DgridListarPulicaciones.Rows[i].DefaultCellStyle.BackColor = Color.Blue;
+            TboxMostrarContenidoPost.Text = DgridListarPulicaciones.Rows[i].Cells["Contenido"].Value.ToString();
+            LbCuentaPostId.Text = DgridListarPulicaciones.Rows[i].Cells["ID de cuenta"].Value.ToString();
         }
 
         private void refrescarTablaDePublicacionReportada()
         {
             DgridListarPulicaciones.Refresh();
             DgridListarPulicaciones.DataSource = ControlPosts.ListarReportados();
+        }
+
+        private void refrescarTablaDePost(string idPost)
+        {
+            DgridListarPulicaciones.Refresh();
+            DgridListarPulicaciones.DataSource = ControlPosts.ListarPostEspecificos(idPost);
+            DgridListarPulicaciones.Columns["ID de cuenta"].Visible = false;
+            this.DgridListarPulicaciones.Columns["ID del post"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.DgridListarPulicaciones.Columns["Contenido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
 
@@ -110,11 +128,34 @@ namespace Interfaz
             return i;
         }
 
+        private int IndexPost()
+        {
+            try
+            {
+                int i = DgridListarPulicaciones.CurrentCell.RowIndex;
+                return i;
+            }
+            catch
+            {
+                MessageBox.Show("Seleccione un post");
+                return 0;
+            }
+
+        }
+
+        private int IndexGrupo()
+        {
+            int i = DgridBuscarGrupo.CurrentCell.RowIndex;
+            return i;
+        }
+
         private void refrescarTablaDeUsuarios()
         {
             DgridUsuarios.Refresh();
             DgridUsuarios.DataSource = ControlCuenta.ListarCuentas();
             DgridUsuarios.Columns["ID"].Visible = false;
+            DgridUsuarios.Columns["Reports"].Visible = false;
+            DgridUsuarios.Columns["Blocked"].Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -128,11 +169,20 @@ namespace Interfaz
             AdministracionDeUsuarios.BringToFront();
         }
 
+
+        int mdiX = 500;
+        int mdiY = 0;
+
         private void BtnSeleccionar_Click(object sender, EventArgs e)
         {
-            AdministracionPost AdminPost = new AdministracionPost();
-            AdminPost.MdiParent = this;
-            AdminPost.Show();
+                AdministracionPost AdminPost = new AdministracionPost();
+                AdminPost.MdiParent = this;
+                AdminPost.CargarDatosDePublicacion(DgridListarPulicaciones.Rows[IndexPost()].Cells["ID del post"].Value.ToString());
+                AdminPost.Show();
+                AdminPost.BringToFront();
+                AdminPost.Location = new Point(mdiX, mdiY);
+                this.mdiY = mdiY + 20;
+
         }
 
         private void BtnBuscarGrupo_Click(object sender, EventArgs e)
@@ -163,14 +213,13 @@ namespace Interfaz
             adminGrupo1.Show();
             adminGrupo1.BringToFront();
         }
-        private int IndexGrupo()
-        {
-            int i = DgridBuscarGrupo.CurrentCell.RowIndex;
-            return i;
-        }
+
 
         private void DgridBuscarGrupo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            foreach (DataGridViewRow row in DgridBuscarGrupo.Rows)
+                row.DefaultCellStyle.BackColor = Color.White;
+            DgridBuscarGrupo.Rows[IndexGrupo()].DefaultCellStyle.BackColor = Color.Blue;
             TboxGrupoDescripcion.Text = DgridBuscarGrupo.Rows[IndexGrupo()].Cells["Descripcion"].Value.ToString();
         }
 
@@ -219,13 +268,98 @@ namespace Interfaz
             return;
         }
 
-        private void refrescarTablaDePost(string idPost)
+
+
+        private void BtnMostrarTodosLosPost_Click(object sender, EventArgs e)
         {
             DgridListarPulicaciones.Refresh();
-            DgridListarPulicaciones.DataSource = ControlPosts.ListarPostEspecificos(idPost);
+            DgridListarPulicaciones.DataSource = ControlPosts.ListarTodos();
             DgridListarPulicaciones.Columns["ID de cuenta"].Visible = false;
             this.DgridListarPulicaciones.Columns["ID del post"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.DgridListarPulicaciones.Columns["Contenido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            BtnSeleccionar.Visible = true;
+            ChBoxPostBloqueados.Visible = true;
+        }
+
+        private void ChBoxUsuarioTutores_CheckedChanged(object sender, EventArgs e)
+        {
+            NoDiseñado();
+        }
+
+        private void NoDiseñado()
+        {
+            MessageBox.Show("Funcionalidad no diseñada");
+        }
+
+        private void ChBoxUsuarioReportados_CheckedChanged(object sender, EventArgs e)
+        {
+            MostrarReportados();
+        }
+
+        private void MostrarReportados()
+        {
+            foreach (DataGridViewRow fila in DgridUsuarios.Rows)
+            {
+                if (Convert.ToInt32(fila.Cells["Reports"].Value) == 0)
+                    fila.Visible = false;
+                if (!ChBoxUsuarioReportados.Checked)
+                    fila.Visible = true;
+            }
+        }
+
+        private void ChBoxPostBloqueados_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChBoxPostBloqueados.Checked)
+            {
+                DgridListarPulicaciones.Refresh();
+                DgridListarPulicaciones.DataSource = ControlPosts.ListarReportados();
+                DgridListarPulicaciones.Columns["ID de cuenta"].Visible = false;
+                this.DgridListarPulicaciones.Columns["ID del post"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+                this.DgridListarPulicaciones.Columns["Contenido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+            if (!ChBoxPostBloqueados.Checked)
+            {
+                DgridListarPulicaciones.Refresh();
+                DgridListarPulicaciones.DataSource = ControlPosts.ListarTodos();
+                DgridListarPulicaciones.Columns["ID de cuenta"].Visible = false;
+                this.DgridListarPulicaciones.Columns["ID del post"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+                this.DgridListarPulicaciones.Columns["Contenido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            NoDiseñado();
+        }
+
+        private void DgridUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in DgridUsuarios.Rows)
+                row.DefaultCellStyle.BackColor = Color.White;
+            DgridUsuarios.Rows[DgridUsuarios.CurrentCell.RowIndex].DefaultCellStyle.BackColor = Color.Blue;
+        }
+
+        private void cerrarAltF4ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void crearNuevoModeradorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VentanaCrearMod mod = new VentanaCrearMod();
+            mod.Show();
+            mod.BringToFront();
+        }
+
+        private void eliminarModeradorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VentanaCrearMod mod = new VentanaCrearMod();
+            mod.Show();
+            mod.refrescarTablaMods();
+            mod.BringToFront();
         }
     }
 }
