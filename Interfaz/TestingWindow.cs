@@ -21,28 +21,50 @@ namespace Interfaz
 
         private void TestingButtonCrearUsr_Click(object sender, EventArgs e)
         {
-            ControlCuenta.CrearCuenta(TestingTboxUsername.Text, TestingTboxEmail.Text, TestingTboxContraseña.Text);
-            DialogResult Hecho = MessageBox.Show(
-    $"Usuario creado, quiere limipar las cajas de texto?",
-    "",
-    MessageBoxButtons.YesNo);
-
-            if (Hecho.ToString() == "Yes")
+            try
             {
-                TestingTboxUsername.Clear();
-                TestingTboxEmail.Clear();
-                TestingTboxContraseña.Clear();
+                ControlCuenta.CrearCuenta(TestingTboxUsername.Text, TestingTboxEmail.Text, TestingTboxContraseña.Text);
+                DialogResult Hecho = MessageBox.Show(
+        $"Usuario creado, quiere limipar las cajas de texto?",
+        "",
+        MessageBoxButtons.YesNo);
+
+                if (Hecho.ToString() == "Yes")
+                {
+                    TestingTboxUsername.Clear();
+                    TestingTboxEmail.Clear();
+                    TestingTboxContraseña.Clear();
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void TestingBtnPub_Click(object sender, EventArgs e)
         {
-            ControlPosts.CrearPost(TestingTboxPub.Text,TestingTboxIdUser.Text);
+            try
+            {
+                ControlPosts.CrearPost(TestingTboxPub.Text, TestingTboxIdUser.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void TestingBtnPuliComentario_Click(object sender, EventArgs e)
         {
-            ControlComentarios.CrearComentario(TestingTboxIdUserComent.Text,TestingTboxIdPub.Text, TestingTboxComentario.Text);
+            try
+            {
+                ControlComentarios.CrearComentario(TestingTboxIdUserComent.Text, TestingTboxIdPub.Text, TestingTboxComentario.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -52,13 +74,27 @@ namespace Interfaz
 
         private void TestingBtnCrearGrupo_Click(object sender, EventArgs e)
         {
-            string banner = "Banner";
-            ControlGrupo.CrearGrupo(TestingTboxAddUserID.Text,TestingTboxNombreGrupo.Text,TestingTboxDescripcion.Text,TestingChBoxGrupoPrivado.Checked.ToString(),banner);
+            try
+            {
+                string banner = "Banner";
+                ControlGrupo.CrearGrupo(TestingTboxAddUserID.Text, TestingTboxNombreGrupo.Text, TestingTboxDescripcion.Text, TestingChBoxGrupoPrivado.Checked.ToString(), banner);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void TestingBtnAgregarGrupo_Click(object sender, EventArgs e)
         {
-            ControlGrupo.AgregarCuentaEnGrupo(TestingComboBxRolGrupo.ToString(),TestingTboxAddGrupoID.Text, TestingTboxAddUserID.Text);
+            try
+            {
+                ControlGrupo.AgregarCuentaEnGrupo(TestingComboBxRolGrupo.ToString(), TestingTboxAddGrupoID.Text, TestingTboxAddUserID.Text);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

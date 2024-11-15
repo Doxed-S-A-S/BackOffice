@@ -20,16 +20,23 @@ namespace Interfaz
 
         private void BtnCrearMod_Click(object sender, EventArgs e)
         {
-            bool resultado = ControlCuenta.CrearModerador(TboxNombreMod.Text, TboxPassMod.Text, ChBoxSuperMod.Checked.ToString());
-            if (resultado)
+            try
             {
-                MessageBox.Show("Moderador creado");
-                this.Close();
+                bool resultado = ControlCuenta.CrearModerador(TboxNombreMod.Text, TboxPassMod.Text, ChBoxSuperMod.Checked.ToString());
+                if (resultado)
+                {
+                    MessageBox.Show("Moderador creado");
+                    this.Close();
+                }
+
+                if (!resultado)
+                    MessageBox.Show("Error, verifique los datos");
+
             }
-
-            if(!resultado)
-                MessageBox.Show("Error, verifique los datos");
-
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
@@ -52,17 +59,24 @@ namespace Interfaz
 
         private void BtnEliminarMod_Click(object sender, EventArgs e)
         {
-            string user = DgridModeradores.Rows[DgridModeradores.CurrentCell.RowIndex].Cells["nombre"].Value.ToString();
-            DialogResult resultado = MessageBox.Show(
-                $"Esta seguro que quiere eliminar el moderador {user}?",
-                "Esta seguro?",
-                MessageBoxButtons.YesNo);
-
-            if (resultado.ToString() == "Yes")
+            try
             {
-                ControlCuenta.EliminarMod(user);
-                MessageBox.Show("Moderador eliminado");
-                this.Close();
+                string user = DgridModeradores.Rows[DgridModeradores.CurrentCell.RowIndex].Cells["nombre"].Value.ToString();
+                DialogResult resultado = MessageBox.Show(
+                    $"Esta seguro que quiere eliminar el moderador {user}?",
+                    "Esta seguro?",
+                    MessageBoxButtons.YesNo);
+
+                if (resultado.ToString() == "Yes")
+                {
+                    ControlCuenta.EliminarMod(user);
+                    MessageBox.Show("Moderador eliminado");
+                    this.Close();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

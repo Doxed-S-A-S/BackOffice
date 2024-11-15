@@ -49,27 +49,31 @@ namespace Interfaz
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string imagenUrl = "urlTest";
-
-            if (ChBoxEliminarImg.Checked == true)
-                imagenUrl = "null";
-
-
-            DialogResult resultado = MessageBox.Show(
-               $"Esta seguro que quiere modificar el contenido de este evento?",
-               "Esta seguro?",
-               MessageBoxButtons.YesNo);
-
-            if (resultado.ToString() == "Yes")
+            try
             {
-                ControlPosts.ModificarEvento(LbEventoPostId.Text, LbEventoId.Text, TboxEventoMultimedia.Text, TboxEventoContenido.Text,
-TboxEventoNombre.Text, imagenUrl, TboxEventoDescripcion.Text, LbEventoUsuarioCreador.Text);
-                refrescarTablaDeEventosDelGrupo(LbIdGrupo.Text);
-                MessageBox.Show("Evento modificado");
+                string imagenUrl = "urlTest";
+
+                if (ChBoxEliminarImg.Checked == true)
+                    imagenUrl = "null";
+
+
+                DialogResult resultado = MessageBox.Show(
+                   $"Esta seguro que quiere modificar el contenido de este evento?",
+                   "Esta seguro?",
+                   MessageBoxButtons.YesNo);
+
+                if (resultado.ToString() == "Yes")
+                {
+                    ControlPosts.ModificarEvento(LbEventoPostId.Text, LbEventoId.Text, TboxEventoMultimedia.Text, TboxEventoContenido.Text,
+    TboxEventoNombre.Text, imagenUrl, TboxEventoDescripcion.Text, LbEventoUsuarioCreador.Text);
+                    refrescarTablaDeEventosDelGrupo(LbIdGrupo.Text);
+                    MessageBox.Show("Evento modificado");
+                }
             }
-
-
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }.
         }
 
         private void DgridEventosGrupo_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -88,15 +92,22 @@ TboxEventoNombre.Text, imagenUrl, TboxEventoDescripcion.Text, LbEventoUsuarioCre
 
         private void BtnEliminarEvento_Click(object sender, EventArgs e)
         {
-            DialogResult resultado = MessageBox.Show(
-               $"Esta seguro que quiere eliminar el evento?",
-               "Esta seguro?",
-               MessageBoxButtons.YesNo);
-
-            if (resultado.ToString() == "Yes")
+            try
             {
-                ControlPosts.ElimiarEvento(LbEventoPostId.Text, LbEventoId.Text);
-                MessageBox.Show("Evento eliminado");
+                DialogResult resultado = MessageBox.Show(
+   $"Esta seguro que quiere eliminar el evento?",
+   "Esta seguro?",
+   MessageBoxButtons.YesNo);
+
+                if (resultado.ToString() == "Yes")
+                {
+                    ControlPosts.ElimiarEvento(LbEventoPostId.Text, LbEventoId.Text);
+                    MessageBox.Show("Evento eliminado");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             
         }

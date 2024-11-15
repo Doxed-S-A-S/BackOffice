@@ -24,6 +24,8 @@ namespace Controlador
                 throw new Exception("MYSQL_TABLE_NOT_EXIST");
             if (ex.Message == "MYSQL_INCORRECT_DATE")
                 throw new Exception("MYSQL_INCORRECT_DATE");
+            if (ex.Message == "CANNOT_CONNECT_TO_DB")
+                throw new Exception("CANNOT_CONNECT_TO_DB");
 
             throw new Exception("UNKNOWN_ERROR");
         }

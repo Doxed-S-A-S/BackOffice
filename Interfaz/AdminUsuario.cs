@@ -84,38 +84,59 @@ namespace Interfaz
 
         private void BtnEdit_Click(object sender, EventArgs e)
         {
-            string id = DgridPublicaciones.Rows[IndexPublicacion()].Cells["Id_post"].Value.ToString();
-            ControlPosts.ModificarPost(id, TboxContenido.Text);
-            MessageBox.Show("Se modifico el contenido");
-            refrescarTablaDePublicaciones();
+            try
+            {
+                string id = DgridPublicaciones.Rows[IndexPublicacion()].Cells["Id_post"].Value.ToString();
+                ControlPosts.ModificarPost(id, TboxContenido.Text);
+                MessageBox.Show("Se modifico el contenido");
+                refrescarTablaDePublicaciones();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void BtnEliminarPost_Click(object sender, EventArgs e)
         {
-            string id_post = DgridPublicaciones.Rows[IndexPublicacion()].Cells["Id_Post"].Value.ToString();
-            DialogResult resultado = MessageBox.Show(
-                $"Esta seguro que quiere eliminar el post {id_post}?",
-                "Esta seguro?",
-                MessageBoxButtons.YesNo);
-
-            if (resultado.ToString() == "Yes")
+            try
             {
-                ControlPosts.ElimiarPost(id_post);
-                refrescarTablaDePublicaciones();
-                MessageBox.Show("Post eliminado");
+                string id_post = DgridPublicaciones.Rows[IndexPublicacion()].Cells["Id_Post"].Value.ToString();
+                DialogResult resultado = MessageBox.Show(
+                    $"Esta seguro que quiere eliminar el post {id_post}?",
+                    "Esta seguro?",
+                    MessageBoxButtons.YesNo);
+
+                if (resultado.ToString() == "Yes")
+                {
+                    ControlPosts.ElimiarPost(id_post);
+                    refrescarTablaDePublicaciones();
+                    MessageBox.Show("Post eliminado");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void BtnModificarCorreo_Click(object sender, EventArgs e)
         {
-            DialogResult seguro = MessageBox.Show(
-                $"Esta seguro que desea modificar el Email del usuario {LbUsername.Text}?",
-                "Esta seguro?",
-                MessageBoxButtons.YesNo);
-
-           if (seguro.ToString()== "Yes")
+            try
             {
-                ControlCuenta.ModificarCorreo(LbIdUsuario.Text, TboxModificarCorreo.Text);
+                DialogResult seguro = MessageBox.Show(
+    $"Esta seguro que desea modificar el Email del usuario {LbUsername.Text}?",
+    "Esta seguro?",
+    MessageBoxButtons.YesNo);
+
+                if (seguro.ToString() == "Yes")
+                {
+                    ControlCuenta.ModificarCorreo(LbIdUsuario.Text, TboxModificarCorreo.Text);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -145,57 +166,85 @@ namespace Interfaz
 
         private void BtnEditarComentario_Click(object sender, EventArgs e)
         {
-            string id = DgridComentarios.Rows[IndexComentario()].Cells["IdComentario"].Value.ToString();
-            ControlComentarios.ModificarComentario(id, TboxComentarios.Text);
-            MessageBox.Show("Se modifico el comentario");
-            refrescarTablaDeComentarios();
+            try
+            {
+                string id = DgridComentarios.Rows[IndexComentario()].Cells["IdComentario"].Value.ToString();
+                ControlComentarios.ModificarComentario(id, TboxComentarios.Text);
+                MessageBox.Show("Se modifico el comentario");
+                refrescarTablaDeComentarios();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void BtnEliminarComentario_Click(object sender, EventArgs e)
         {
-            string id = DgridComentarios.Rows[IndexComentario()].Cells["IdComentario"].Value.ToString();
-            DialogResult resultado = MessageBox.Show(
-                $"Esta seguro que quiere eliminar el comentario selecionado?",
-                "Esta seguro?",
-                MessageBoxButtons.YesNo);
-
-            if (resultado.ToString() == "Yes")
+            try
             {
-                ControlComentarios.EliminarComentario(id);
-                refrescarTablaDeComentarios();
-                MessageBox.Show("Comentario eliminado");
-            }
-        }
+                string id = DgridComentarios.Rows[IndexComentario()].Cells["IdComentario"].Value.ToString();
+                DialogResult resultado = MessageBox.Show(
+                    $"Esta seguro que quiere eliminar el comentario selecionado?",
+                    "Esta seguro?",
+                    MessageBoxButtons.YesNo);
 
-        private void BtnActualizarDatosCuenta_Click(object sender, EventArgs e)
+                if (resultado.ToString() == "Yes")
+                {
+                    ControlComentarios.EliminarComentario(id);
+                    refrescarTablaDeComentarios();
+                    MessageBox.Show("Comentario eliminado");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }            
+
+    private void BtnActualizarDatosCuenta_Click(object sender, EventArgs e)
         {
-            refrescarTablaDePublicaciones();
-            DgridComentarios.Refresh();
-            refrescarTablaDeComentarios();
+            try
+            {
+                refrescarTablaDePublicaciones();
+                DgridComentarios.Refresh();
+                refrescarTablaDeComentarios();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void BtnEliminarCuenta_Click(object sender, EventArgs e)
         {
-            if(TboxVerificarUsername.Text.Length == 0)
+            try
             {
-                MessageBox.Show("Introduzca debajo del boton el nombre de usuario para verificar");
-                TboxVerificarUsername.Show();
-                return;
-            }
+                if (TboxVerificarUsername.Text.Length == 0)
+                {
+                    MessageBox.Show("Introduzca debajo del boton el nombre de usuario para verificar");
+                    TboxVerificarUsername.Show();
+                    return;
+                }
 
-            DialogResult resultado = MessageBox.Show(
-                $"Esta seguro que quiere eliminar el usuario {LbUsername.Text}?",
-                "Esta seguro?",
-                MessageBoxButtons.YesNo);
-                
-            if (resultado.ToString() == "Yes")
-            {
-                ControlCuenta.EliminarCuenta(LbIdUsuario.Text,TboxVerificarUsername.Text);
-                refrescarTablaDeComentarios();
-                MessageBox.Show("Usuario eliminado");
+                DialogResult resultado = MessageBox.Show(
+                    $"Esta seguro que quiere eliminar el usuario {LbUsername.Text}?",
+                    "Esta seguro?",
+                    MessageBoxButtons.YesNo);
+
+                if (resultado.ToString() == "Yes")
+                {
+                    ControlCuenta.EliminarCuenta(LbIdUsuario.Text, TboxVerificarUsername.Text);
+                    refrescarTablaDeComentarios();
+                    MessageBox.Show("Usuario eliminado");
+                }
+                TboxVerificarUsername.Clear();
+                TboxVerificarUsername.Hide();
             }
-            TboxVerificarUsername.Clear();
-            TboxVerificarUsername.Hide();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void TboxComentarios_TextChanged(object sender, EventArgs e)
@@ -205,16 +254,23 @@ namespace Interfaz
 
         private void BtnModificarBiografia_Click(object sender, EventArgs e)
         {
-            DialogResult seguro = MessageBox.Show(
-    $"Esta seguro que desea modificar la biografia del usuario {LbUsername.Text}?",
-    "Esta seguro?",
-    MessageBoxButtons.YesNo);
-
-            if (seguro.ToString() == "Yes")
+            try
             {
-                ControlCuenta.ModificarBio(LbIdUsuario.Text, TboxModificarBiografia.Text);
+                DialogResult seguro = MessageBox.Show(
+$"Esta seguro que desea modificar la biografia del usuario {LbUsername.Text}?",
+"Esta seguro?",
+MessageBoxButtons.YesNo);
+
+                if (seguro.ToString() == "Yes")
+                {
+                    ControlCuenta.ModificarBio(LbIdUsuario.Text, TboxModificarBiografia.Text);
+                }
+
             }
-            
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

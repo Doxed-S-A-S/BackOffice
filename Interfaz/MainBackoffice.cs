@@ -39,19 +39,33 @@ namespace Interfaz
 
         private void BtnContUsuarios_Click(object sender, EventArgs e)
         {
-            OcultarUserControll();
-            AdministracionDeUsuarios.Show();
-            AdministracionDeUsuarios.BringToFront();
+            try
+            {
+                OcultarUserControll();
+                AdministracionDeUsuarios.Show();
+                AdministracionDeUsuarios.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
 
         private void BtnBusquedaUsuarios_Click(object sender, EventArgs e)
         {
-            OcultarUserControll();
-            CerrarChildren();
-            CerrarPaneles();
-            PanelBusquedaUsuario.Show();
-            refrescarTablaDeUsuarios();
+            try
+            {
+                OcultarUserControll();
+                CerrarChildren();
+                CerrarPaneles();
+                PanelBusquedaUsuario.Show();
+                refrescarTablaDeUsuarios();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void MainBackoffice_Load(object sender, EventArgs e)
@@ -76,10 +90,17 @@ namespace Interfaz
 
         private void BtnBuscarPublicaciones_Click(object sender, EventArgs e)
         {
-            OcultarUserControll();
-            CerrarPaneles();
-            CerrarChildren();
-            PanelBusquedaPost.Show();
+            try
+            {
+                OcultarUserControll();
+                CerrarPaneles();
+                CerrarChildren();
+                PanelBusquedaPost.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void TestingBtnCerrar_Click(object sender, EventArgs e)
@@ -175,6 +196,8 @@ namespace Interfaz
 
         private void BtnSeleccionar_Click(object sender, EventArgs e)
         {
+            try
+            {
                 AdministracionPost AdminPost = new AdministracionPost();
                 AdminPost.MdiParent = this;
                 AdminPost.CargarDatosDePublicacion(DgridListarPulicaciones.Rows[IndexPost()].Cells["ID del post"].Value.ToString());
@@ -182,17 +205,29 @@ namespace Interfaz
                 AdminPost.BringToFront();
                 AdminPost.Location = new Point(mdiX, mdiY);
                 this.mdiY = mdiY + 20;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
         private void BtnBuscarGrupo_Click(object sender, EventArgs e)
         {
-            CerrarChildren();
-            CerrarPaneles();
-            OcultarUserControll();
-            PanelBusquedaGrupo.Show();
-            PanelBusquedaGrupo.BringToFront();
-            ActualizarListaDeGrupos();
+            try
+            {
+                CerrarChildren();
+                CerrarPaneles();
+                OcultarUserControll();
+                PanelBusquedaGrupo.Show();
+                PanelBusquedaGrupo.BringToFront();
+                ActualizarListaDeGrupos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void ActualizarListaDeGrupos()
@@ -205,13 +240,20 @@ namespace Interfaz
         }
         private void BtnSeleccionarGrupo_Click(object sender, EventArgs e)
         {
-            string idGrupo = DgridBuscarGrupo.Rows[IndexGrupo()].Cells["ID del grupo"].Value.ToString();
-            CerrarChildren();
-            CerrarPaneles();
-            OcultarUserControll();
-            adminGrupo1.CargarGrupo(idGrupo);
-            adminGrupo1.Show();
-            adminGrupo1.BringToFront();
+            try
+            {
+                string idGrupo = DgridBuscarGrupo.Rows[IndexGrupo()].Cells["ID del grupo"].Value.ToString();
+                CerrarChildren();
+                CerrarPaneles();
+                OcultarUserControll();
+                adminGrupo1.CargarGrupo(idGrupo);
+                adminGrupo1.Show();
+                adminGrupo1.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
 
@@ -242,8 +284,15 @@ namespace Interfaz
 
         private void BtnGrupoLimpiarFiltro_Click(object sender, EventArgs e)
         {
-            TboxBuscarGrupo.Clear();
-            TboxBuscarIdGrupo.Clear();
+            try
+            {
+                TboxBuscarGrupo.Clear();
+                TboxBuscarIdGrupo.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void TboxBuscarIdGrupo_MouseClick(object sender, MouseEventArgs e)
@@ -258,27 +307,41 @@ namespace Interfaz
 
         private void BtnBuscarPost_Click(object sender, EventArgs e)
         {
-            if(TboxFiltroPublicacion.Text.Length > 0 && int.TryParse(TboxFiltroPublicacion.Text, out int parse))
+            try
             {
-                LbPostMensaje.Text = "";
-                refrescarTablaDePost(TboxFiltroPublicacion.Text);
+                if (TboxFiltroPublicacion.Text.Length > 0 && int.TryParse(TboxFiltroPublicacion.Text, out int parse))
+                {
+                    LbPostMensaje.Text = "";
+                    refrescarTablaDePost(TboxFiltroPublicacion.Text);
+                    return;
+                }
+                LbPostMensaje.Text = "Solo se permiten numeros sin espacios en este filtro";
                 return;
             }
-            LbPostMensaje.Text = "Solo se permiten numeros sin espacios en este filtro";
-            return;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
 
 
         private void BtnMostrarTodosLosPost_Click(object sender, EventArgs e)
         {
-            DgridListarPulicaciones.Refresh();
-            DgridListarPulicaciones.DataSource = ControlPosts.ListarTodos();
-            DgridListarPulicaciones.Columns["ID de cuenta"].Visible = false;
-            this.DgridListarPulicaciones.Columns["ID del post"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.DgridListarPulicaciones.Columns["Contenido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            BtnSeleccionar.Visible = true;
-            ChBoxPostBloqueados.Visible = true;
+            try
+            {
+                DgridListarPulicaciones.Refresh();
+                DgridListarPulicaciones.DataSource = ControlPosts.ListarTodos();
+                DgridListarPulicaciones.Columns["ID de cuenta"].Visible = false;
+                this.DgridListarPulicaciones.Columns["ID del post"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+                this.DgridListarPulicaciones.Columns["Contenido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                BtnSeleccionar.Visible = true;
+                ChBoxPostBloqueados.Visible = true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void ChBoxUsuarioTutores_CheckedChanged(object sender, EventArgs e)

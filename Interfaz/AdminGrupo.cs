@@ -92,34 +92,55 @@ namespace Interfaz
 
         private void BtnEditarPost_Click(object sender, EventArgs e)
         {
-            string id = DgridPublicaciones.Rows[IndexPublicacion()].Cells["Id_post"].Value.ToString();
-            ControlPosts.ModificarPost(id, TboxContenido.Text);
-            MessageBox.Show("Se modifico el contenido");
-            refrescarTablaDePublicacionesGrupo();
+            try
+            {
+                string id = DgridPublicaciones.Rows[IndexPublicacion()].Cells["Id_post"].Value.ToString();
+                ControlPosts.ModificarPost(id, TboxContenido.Text);
+                MessageBox.Show("Se modifico el contenido");
+                refrescarTablaDePublicacionesGrupo();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void BtnEliminarPost_Click(object sender, EventArgs e)
         {
-            string id_post = DgridPublicaciones.Rows[IndexPublicacion()].Cells["Id_Post"].Value.ToString();
-            DialogResult resultado = MessageBox.Show(
-                $"Esta seguro que quiere eliminar el post {id_post}?",
-                "Esta seguro?",
-                MessageBoxButtons.YesNo);
-
-            if (resultado.ToString() == "Yes")
+            try
             {
-                ControlPosts.ElimiarPost(id_post);
-                refrescarTablaDePublicacionesGrupo();
-                MessageBox.Show("Post eliminado");
+                string id_post = DgridPublicaciones.Rows[IndexPublicacion()].Cells["Id_Post"].Value.ToString();
+                DialogResult resultado = MessageBox.Show(
+                    $"Esta seguro que quiere eliminar el post {id_post}?",
+                    "Esta seguro?",
+                    MessageBoxButtons.YesNo);
+
+                if (resultado.ToString() == "Yes")
+                {
+                    ControlPosts.ElimiarPost(id_post);
+                    refrescarTablaDePublicacionesGrupo();
+                    MessageBox.Show("Post eliminado");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void BtnEditarComentario_Click(object sender, EventArgs e)
         {
-            string id = DgridComentarios.Rows[IndexComentario()].Cells["IdComentario"].Value.ToString();
-            ControlComentarios.ModificarComentario(id, TboxComentarios.Text);
-            MessageBox.Show("Se modifico el comentario");
-            refrescarTablaDeComentariosGrupo();
+            try
+            {
+                string id = DgridComentarios.Rows[IndexComentario()].Cells["IdComentario"].Value.ToString();
+                ControlComentarios.ModificarComentario(id, TboxComentarios.Text);
+                MessageBox.Show("Se modifico el comentario");
+                refrescarTablaDeComentariosGrupo();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private int IndexComentario()
         {
@@ -137,17 +158,24 @@ namespace Interfaz
 
         private void BtnEliminarComentario_Click(object sender, EventArgs e)
         {
-            string id = DgridComentarios.Rows[IndexComentario()].Cells["IdComentario"].Value.ToString();
-            DialogResult resultado = MessageBox.Show(
-                $"Esta seguro que quiere eliminar el comentario selecionado?",
-                "Esta seguro?",
-                MessageBoxButtons.YesNo);
-
-            if (resultado.ToString() == "Yes")
+            try
             {
-                ControlComentarios.EliminarComentario(id);
-                refrescarTablaDeComentariosGrupo();
-                MessageBox.Show("Comentario eliminado");
+                string id = DgridComentarios.Rows[IndexComentario()].Cells["IdComentario"].Value.ToString();
+                DialogResult resultado = MessageBox.Show(
+                    $"Esta seguro que quiere eliminar el comentario selecionado?",
+                    "Esta seguro?",
+                    MessageBoxButtons.YesNo);
+
+                if (resultado.ToString() == "Yes")
+                {
+                    ControlComentarios.EliminarComentario(id);
+                    refrescarTablaDeComentariosGrupo();
+                    MessageBox.Show("Comentario eliminado");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
         private int IndexUsuario()
@@ -163,52 +191,71 @@ namespace Interfaz
 
         private void BtnEliminarGrupo_Click(object sender, EventArgs e)
         {
-            if (TboxVerificarNombreGrupo.Text.Length == 0)
+            try
             {
-                MessageBox.Show("Introduzca debajo del boton el nombre del grupo para verificar");
-                TboxVerificarNombreGrupo.Show();
-                return;
+                if (TboxVerificarNombreGrupo.Text.Length == 0)
+                {
+                    MessageBox.Show("Introduzca debajo del boton el nombre del grupo para verificar");
+                    TboxVerificarNombreGrupo.Show();
+                    return;
+                }
+
+                DialogResult resultado = MessageBox.Show(
+                    $"Esta seguro que quiere eliminar el grupo {TboxNombreGrupo.Text}?",
+                    "Esta seguro?",
+                    MessageBoxButtons.YesNo);
+
+                if (resultado.ToString() == "Yes")
+                {
+                    ControlGrupo.EliminarGrupo(LbIdGrupo.Text);
+                    RefrescarTodo();
+                    MessageBox.Show("Grupo eliminado");
+                }
+                TboxVerificarNombreGrupo.Clear();
+                TboxVerificarNombreGrupo.Hide();
             }
-
-            DialogResult resultado = MessageBox.Show(
-                $"Esta seguro que quiere eliminar el grupo {TboxNombreGrupo.Text}?",
-                "Esta seguro?",
-                MessageBoxButtons.YesNo);
-
-            if (resultado.ToString() == "Yes")
+            catch (Exception ex)
             {
-                ControlGrupo.EliminarGrupo(LbIdGrupo.Text);
-                RefrescarTodo();
-                MessageBox.Show("Grupo eliminado");
+                MessageBox.Show(ex.Message);
             }
-            TboxVerificarNombreGrupo.Clear();
-            TboxVerificarNombreGrupo.Hide();
         }
 
         private void BtnModificarDescripcion_Click(object sender, EventArgs e)
         {
-            if(TboxNombreGrupo.TextLength < 70 & TboxModificarDescripcion.TextLength < 256){
-                DialogResult check = MessageBox.Show(
-                $"Esta seguro que desea modificar los datos generales del grupo {TboxNombreGrupo.Text}?",
-                "Esta seguro?",
-                MessageBoxButtons.YesNo);
-
-                if (check.ToString() == "Yes")
+            try
+            {
+                if (TboxNombreGrupo.TextLength < 70 & TboxModificarDescripcion.TextLength < 256)
                 {
-                    ControlGrupo.ModificarGrupo(LbIdGrupo.Text, TboxNombreGrupo.Text, TboxModificarDescripcion.Text);
-                    LbNombreGrupo.Text = TboxNombreGrupo.Text;
+                    DialogResult check = MessageBox.Show(
+                    $"Esta seguro que desea modificar los datos generales del grupo {TboxNombreGrupo.Text}?",
+                    "Esta seguro?",
+                    MessageBoxButtons.YesNo);
+
+                    if (check.ToString() == "Yes")
+                    {
+                        ControlGrupo.ModificarGrupo(LbIdGrupo.Text, TboxNombreGrupo.Text, TboxModificarDescripcion.Text);
+                        LbNombreGrupo.Text = TboxNombreGrupo.Text;
+                    }
                 }
             }
-            
-
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void BtnVerEventos_Click(object sender, EventArgs e)
         {
-            PanelDeEventos Ev = new PanelDeEventos();
-            Ev.CargarEventoDeGrupo(LbIdGrupo.Text,LbNombreGrupo.Text);
-            Ev.Show();
+            try
+            {
+                PanelDeEventos Ev = new PanelDeEventos();
+                Ev.CargarEventoDeGrupo(LbIdGrupo.Text, LbNombreGrupo.Text);
+                Ev.Show();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void NoDiseñado()

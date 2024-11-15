@@ -51,64 +51,99 @@ namespace Interfaz
 
         private void BtnEliminarPost_Click(object sender, EventArgs e)
         {
-            string id_post = LbIdPost.Text;
-            DialogResult resultado = MessageBox.Show(
-                $"Esta seguro que quiere eliminar el post {id_post}?",
-                "Esta seguro?",
-                MessageBoxButtons.YesNo);
-
-            if (resultado.ToString() == "Yes")
+            try
             {
-                ControlPosts.ElimiarPost(id_post);
-                MessageBox.Show("Post eliminado");
+                string id_post = LbIdPost.Text;
+                DialogResult resultado = MessageBox.Show(
+                    $"Esta seguro que quiere eliminar el post {id_post}?",
+                    "Esta seguro?",
+                    MessageBoxButtons.YesNo);
+
+                if (resultado.ToString() == "Yes")
+                {
+                    ControlPosts.ElimiarPost(id_post);
+                    MessageBox.Show("Post eliminado");
+                }
+                this.Close();
             }
-            this.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void BtnEditarPost_Click(object sender, EventArgs e)
         {
-            string id = LbIdPost.Text;
-            ControlPosts.ModificarTodoElPost(id, TboxPublicacion.Text,TboxUrlMultimedia.Text);
-            MessageBox.Show("Se modifico el contenido");
+            try
+            {
+                string id = LbIdPost.Text;
+                ControlPosts.ModificarTodoElPost(id, TboxPublicacion.Text, TboxUrlMultimedia.Text);
+                MessageBox.Show("Se modifico el contenido");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void BtnEditarComentario_Click(object sender, EventArgs e)
         {
-            string id = DgridComentarios.Rows[IndexComentario()].Cells["IdComentario"].Value.ToString();
-            ControlComentarios.ModificarComentario(id, TboxComentarios.Text);
-            MessageBox.Show("Se modifico el comentario");
-            RefrescarDgridComentariosAdminPost();
+            try
+            {
+                string id = DgridComentarios.Rows[IndexComentario()].Cells["IdComentario"].Value.ToString();
+                ControlComentarios.ModificarComentario(id, TboxComentarios.Text);
+                MessageBox.Show("Se modifico el comentario");
+                RefrescarDgridComentariosAdminPost();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void BtnEliminarComentario_Click(object sender, EventArgs e)
         {
-            string id = DgridComentarios.Rows[IndexComentario()].Cells["IdComentario"].Value.ToString();
-            DialogResult resultado = MessageBox.Show(
-                $"Esta seguro que quiere eliminar el comentario selecionado?",
-                "Esta seguro?",
-                MessageBoxButtons.YesNo);
-
-            if (resultado.ToString() == "Yes")
+            try
             {
-                ControlComentarios.EliminarComentario(id);
-                RefrescarDgridComentariosAdminPost();
-                MessageBox.Show("Comentario eliminado");
-                TboxComentarios.Clear();
+                string id = DgridComentarios.Rows[IndexComentario()].Cells["IdComentario"].Value.ToString();
+                DialogResult resultado = MessageBox.Show(
+                    $"Esta seguro que quiere eliminar el comentario selecionado?",
+                    "Esta seguro?",
+                    MessageBoxButtons.YesNo);
+
+                if (resultado.ToString() == "Yes")
+                {
+                    ControlComentarios.EliminarComentario(id);
+                    RefrescarDgridComentariosAdminPost();
+                    MessageBox.Show("Comentario eliminado");
+                    TboxComentarios.Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void BtnPublicacionResuelta_Click(object sender, EventArgs e)
         {
-            DialogResult resultado = MessageBox.Show(
-                "Esta seguro que el problema con este post esta resuelto?",
-                "Esta seguro",
-                MessageBoxButtons.YesNo);
-
-            if(resultado.ToString() == "Yes")
+            try
             {
-                ControlPosts.PostResuelto(LbIdPost.Text);
-                MessageBox.Show("Post resuelto");
-                this.Close();
+                DialogResult resultado = MessageBox.Show(
+    "Esta seguro que el problema con este post esta resuelto?",
+    "Esta seguro",
+    MessageBoxButtons.YesNo);
+
+                if (resultado.ToString() == "Yes")
+                {
+                    ControlPosts.PostResuelto(LbIdPost.Text);
+                    MessageBox.Show("Post resuelto");
+                    this.Close();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
