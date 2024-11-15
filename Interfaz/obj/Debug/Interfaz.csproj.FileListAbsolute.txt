@@ -42,9 +42,12 @@ C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\bin\Deb
 C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\bin\Debug\System.IO.Pipelines.xml
 C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\bin\Debug\K4os.Hash.xxHash.xml
 C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\bin\Debug\System.Numerics.Vectors.xml
-C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\obj\Debug\Interfaz.exe.config
 C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\obj\Debug\Interfaz.csproj.CopyComplete
 C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\obj\Debug\Interfaz.exe
 C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\obj\Debug\Interfaz.pdb
 C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\obj\Debug\Interfaz.PanelDeEventos.resources
 C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\obj\Debug\Interfaz.VentanaCrearMod.resources
+C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\bin\Debug\MD5.dll
+C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\bin\Debug\Controlador.dll.config
+C:\Users\Matias\Desktop\ProyectoCodigos\Programacion\BackOffice\Interfaz\bin\Debug\Newtonsoft.Json.xml

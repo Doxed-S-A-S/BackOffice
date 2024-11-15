@@ -170,6 +170,7 @@ namespace Interfaz
             // TboxContenido
             // 
             this.TboxContenido.Location = new System.Drawing.Point(610, 51);
+            this.TboxContenido.MaxLength = 255;
             this.TboxContenido.Multiline = true;
             this.TboxContenido.Name = "TboxContenido";
             this.TboxContenido.Size = new System.Drawing.Size(169, 112);
@@ -230,6 +231,7 @@ namespace Interfaz
             // TboxComentarios
             // 
             this.TboxComentarios.Location = new System.Drawing.Point(610, 482);
+            this.TboxComentarios.MaxLength = 255;
             this.TboxComentarios.Multiline = true;
             this.TboxComentarios.Name = "TboxComentarios";
             this.TboxComentarios.Size = new System.Drawing.Size(169, 112);
@@ -288,6 +290,7 @@ namespace Interfaz
             // TboxModificarCorreo
             // 
             this.TboxModificarCorreo.Location = new System.Drawing.Point(16, 259);
+            this.TboxModificarCorreo.MaxLength = 100;
             this.TboxModificarCorreo.Name = "TboxModificarCorreo";
             this.TboxModificarCorreo.Size = new System.Drawing.Size(201, 20);
             this.TboxModificarCorreo.TabIndex = 44;
@@ -305,6 +308,7 @@ namespace Interfaz
             // TboxModificarBiografia
             // 
             this.TboxModificarBiografia.Location = new System.Drawing.Point(16, 330);
+            this.TboxModificarBiografia.MaxLength = 255;
             this.TboxModificarBiografia.Multiline = true;
             this.TboxModificarBiografia.Name = "TboxModificarBiografia";
             this.TboxModificarBiografia.Size = new System.Drawing.Size(201, 77);

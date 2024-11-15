@@ -101,6 +101,7 @@ namespace Interfaz
             // TboxModificarDescripcion
             // 
             this.TboxModificarDescripcion.Location = new System.Drawing.Point(16, 256);
+            this.TboxModificarDescripcion.MaxLength = 255;
             this.TboxModificarDescripcion.Multiline = true;
             this.TboxModificarDescripcion.Name = "TboxModificarDescripcion";
             this.TboxModificarDescripcion.Size = new System.Drawing.Size(201, 151);
@@ -158,6 +159,7 @@ namespace Interfaz
             // TboxComentarios
             // 
             this.TboxComentarios.Location = new System.Drawing.Point(610, 479);
+            this.TboxComentarios.MaxLength = 255;
             this.TboxComentarios.Multiline = true;
             this.TboxComentarios.Name = "TboxComentarios";
             this.TboxComentarios.Size = new System.Drawing.Size(169, 112);
@@ -218,6 +220,7 @@ namespace Interfaz
             // TboxContenido
             // 
             this.TboxContenido.Location = new System.Drawing.Point(610, 49);
+            this.TboxContenido.MaxLength = 255;
             this.TboxContenido.Multiline = true;
             this.TboxContenido.Name = "TboxContenido";
             this.TboxContenido.Size = new System.Drawing.Size(169, 112);
@@ -394,6 +397,7 @@ namespace Interfaz
             // TboxNombreGrupo
             // 
             this.TboxNombreGrupo.Location = new System.Drawing.Point(73, 161);
+            this.TboxNombreGrupo.MaxLength = 70;
             this.TboxNombreGrupo.Name = "TboxNombreGrupo";
             this.TboxNombreGrupo.Size = new System.Drawing.Size(144, 20);
             this.TboxNombreGrupo.TabIndex = 93;

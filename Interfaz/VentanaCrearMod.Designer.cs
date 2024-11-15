@@ -39,8 +39,8 @@ namespace Interfaz
             this.label3 = new System.Windows.Forms.Label();
             this.PanelEliminarMod = new System.Windows.Forms.FlowLayoutPanel();
             this.DgridModeradores = new System.Windows.Forms.DataGridView();
-            this.BtnEliminarMod = new System.Windows.Forms.Button();
             this.BtnCancelarEliminarMod = new System.Windows.Forms.Button();
+            this.BtnEliminarMod = new System.Windows.Forms.Button();
             this.PanelEliminarMod.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgridModeradores)).BeginInit();
             this.SuspendLayout();
@@ -48,6 +48,7 @@ namespace Interfaz
             // TboxNombreMod
             // 
             this.TboxNombreMod.Location = new System.Drawing.Point(12, 56);
+            this.TboxNombreMod.MaxLength = 20;
             this.TboxNombreMod.Name = "TboxNombreMod";
             this.TboxNombreMod.Size = new System.Drawing.Size(196, 20);
             this.TboxNombreMod.TabIndex = 2;
@@ -55,6 +56,7 @@ namespace Interfaz
             // TboxPassMod
             // 
             this.TboxPassMod.Location = new System.Drawing.Point(12, 105);
+            this.TboxPassMod.MaxLength = 100;
             this.TboxPassMod.Name = "TboxPassMod";
             this.TboxPassMod.Size = new System.Drawing.Size(196, 20);
             this.TboxPassMod.TabIndex = 3;
@@ -139,6 +141,16 @@ namespace Interfaz
             this.DgridModeradores.Size = new System.Drawing.Size(205, 150);
             this.DgridModeradores.TabIndex = 0;
             // 
+            // BtnCancelarEliminarMod
+            // 
+            this.BtnCancelarEliminarMod.Location = new System.Drawing.Point(3, 159);
+            this.BtnCancelarEliminarMod.Name = "BtnCancelarEliminarMod";
+            this.BtnCancelarEliminarMod.Size = new System.Drawing.Size(75, 23);
+            this.BtnCancelarEliminarMod.TabIndex = 2;
+            this.BtnCancelarEliminarMod.Text = "Cancelar";
+            this.BtnCancelarEliminarMod.UseVisualStyleBackColor = true;
+            this.BtnCancelarEliminarMod.Click += new System.EventHandler(this.BtnCancelarEliminarMod_Click);
+            // 
             // BtnEliminarMod
             // 
             this.BtnEliminarMod.BackColor = System.Drawing.Color.Red;
@@ -151,22 +163,11 @@ namespace Interfaz
             this.BtnEliminarMod.UseVisualStyleBackColor = false;
             this.BtnEliminarMod.Click += new System.EventHandler(this.BtnEliminarMod_Click);
             // 
-            // BtnCancelarEliminarMod
-            // 
-            this.BtnCancelarEliminarMod.Location = new System.Drawing.Point(3, 159);
-            this.BtnCancelarEliminarMod.Name = "BtnCancelarEliminarMod";
-            this.BtnCancelarEliminarMod.Size = new System.Drawing.Size(75, 23);
-            this.BtnCancelarEliminarMod.TabIndex = 2;
-            this.BtnCancelarEliminarMod.Text = "Cancelar";
-            this.BtnCancelarEliminarMod.UseVisualStyleBackColor = true;
-            this.BtnCancelarEliminarMod.Click += new System.EventHandler(this.BtnCancelarEliminarMod_Click);
-            // 
             // VentanaCrearMod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(220, 220);
-            this.Controls.Add(this.PanelEliminarMod);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BtnCrearMod);
@@ -175,6 +176,7 @@ namespace Interfaz
             this.Controls.Add(this.TboxPassMod);
             this.Controls.Add(this.TboxNombreMod);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.PanelEliminarMod);
             this.Name = "VentanaCrearMod";
             this.Text = "VentanaCrearMod";
             this.PanelEliminarMod.ResumeLayout(false);

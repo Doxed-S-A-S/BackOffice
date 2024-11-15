@@ -187,16 +187,19 @@ namespace Interfaz
 
         private void BtnModificarDescripcion_Click(object sender, EventArgs e)
         {
-            DialogResult check = MessageBox.Show(
+            if(TboxNombreGrupo.TextLength < 70 & TboxModificarDescripcion.TextLength < 256){
+                DialogResult check = MessageBox.Show(
                 $"Esta seguro que desea modificar los datos generales del grupo {TboxNombreGrupo.Text}?",
                 "Esta seguro?",
                 MessageBoxButtons.YesNo);
 
-            if (check.ToString() == "Yes")
-            {
-                ControlGrupo.ModificarGrupo(LbIdGrupo.Text, TboxNombreGrupo.Text, TboxModificarDescripcion.Text);
-                LbNombreGrupo.Text = TboxNombreGrupo.Text;
+                if (check.ToString() == "Yes")
+                {
+                    ControlGrupo.ModificarGrupo(LbIdGrupo.Text, TboxNombreGrupo.Text, TboxModificarDescripcion.Text);
+                    LbNombreGrupo.Text = TboxNombreGrupo.Text;
+                }
             }
+            
 
 
         }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using MD5Hash;
 
 namespace Modelos
 {
@@ -634,8 +635,10 @@ namespace Modelos
         public string mod_super;
         public void CrearModerador()
         {
-            string sql = $"insert into moderadores_bo (user,pass,super) values ('{this.mod_nombre}','{this.mod_contraseña}',{this.mod_super})";
+            string sql = $"insert into moderadores_bo (user,pass,super) values (@nombre_mod,@pass_mod,{this.mod_super})";
             this.Comando.CommandText = sql;
+            this.Comando.Parameters.AddWithValue("@nombre_mod", this.mod_nombre);
+            this.Comando.Parameters.AddWithValue("@pass_mod", Hash.Content(this.mod_contraseña));
             this.Comando.ExecuteNonQuery();
         }
 
