@@ -13,49 +13,79 @@ namespace Controlador
     {
         public static void CrearComentario(string idCuenta, string idPost,string comentario)
         {
-            ModeloComentario coment = new ModeloComentario();
-            coment.idCuenta = Int32.Parse(idCuenta);
-            coment.IdPost = Int32.Parse(idPost);
-            coment.Contenido = comentario;
+            try
+            {
+                ModeloComentario coment = new ModeloComentario();
+                coment.id_cuenta = Int32.Parse(idCuenta);
+                coment.id_post = Int32.Parse(idPost);
+                coment.Contenido = comentario;
 
-            coment.GuardarComentario();
+                coment.GuardarComentario();
+            }
+            catch (Exception e)
+            {
+                ErrorsHandle.ErrorHandle(e);
+            }
         }
 
         public static void EliminarComentario(string idcoment)
         {
-            ModeloComentario coment = new ModeloComentario();
-            coment.IdComentario = Int32.Parse(idcoment);
-            coment.EliminarComentario();
+            try
+            {
+                ModeloComentario coment = new ModeloComentario();
+                coment.id_comentario = Int32.Parse(idcoment);
+                coment.EliminarComentario();
+            }
+            catch (Exception e)
+            {
+                ErrorsHandle.ErrorHandle(e);
+            }
         }
 
         public static void ModificarComentario(string idcoment,string comentario)
         {
-            ModeloComentario coment = new ModeloComentario();
-            coment.IdComentario = Int32.Parse(idcoment);
-            coment.Contenido = comentario;
-            coment.GuardarComentario();
+            try
+            {
+                ModeloComentario coment = new ModeloComentario();
+                coment.id_comentario = Int32.Parse(idcoment);
+                coment.Contenido = comentario;
+                coment.GuardarComentario();
+            }
+            catch (Exception e)
+            {
+                ErrorsHandle.ErrorHandle(e);
+            }
         }
 
 
         public static DataTable ListarComentarios(string idPost)
-        { 
+        {
             DataTable tabla = new DataTable();
-            tabla.Columns.Add("IdComentario", typeof(int));
-            tabla.Columns.Add("IdPost", typeof(int));
-            tabla.Columns.Add("Comentario", typeof(string));
-
-
-            ModeloComentario coment = new ModeloComentario();
-            foreach (ModeloComentario p in coment.ObtenerComentarios(idPost))
+            try
             {
-                DataRow fila = tabla.NewRow();
-                fila["IdComentario"] = p.IdComentario;
-                fila["IdPost"] = p.IdPost;
-                fila["Comentario"] = p.Contenido;
-                tabla.Rows.Add(fila);
-            }
+                
+                tabla.Columns.Add("IdComentario", typeof(int));
+                tabla.Columns.Add("IdPost", typeof(int));
+                tabla.Columns.Add("Comentario", typeof(string));
 
-            return tabla;
+
+                ModeloComentario coment = new ModeloComentario();
+                foreach (ModeloComentario p in coment.ObtenerComentarios(idPost))
+                {
+                    DataRow fila = tabla.NewRow();
+                    fila["IdComentario"] = p.id_comentario;
+                    fila["IdPost"] = p.id_post;
+                    fila["Comentario"] = p.Contenido;
+                    tabla.Rows.Add(fila);
+                }
+
+                return tabla;
+            }
+            catch(Exception e)
+            {
+                ErrorsHandle.ErrorHandle(e);
+                return tabla;
+            }
 
         }
     }

@@ -100,6 +100,7 @@ namespace Interfaz
             // TestingTboxEmail
             // 
             this.TestingTboxEmail.Location = new System.Drawing.Point(15, 95);
+            this.TestingTboxEmail.MaxLength = 50;
             this.TestingTboxEmail.Name = "TestingTboxEmail";
             this.TestingTboxEmail.Size = new System.Drawing.Size(172, 20);
             this.TestingTboxEmail.TabIndex = 51;
@@ -107,6 +108,7 @@ namespace Interfaz
             // TestingTboxUsername
             // 
             this.TestingTboxUsername.Location = new System.Drawing.Point(15, 53);
+            this.TestingTboxUsername.MaxLength = 50;
             this.TestingTboxUsername.Name = "TestingTboxUsername";
             this.TestingTboxUsername.Size = new System.Drawing.Size(172, 20);
             this.TestingTboxUsername.TabIndex = 50;
@@ -158,6 +160,7 @@ namespace Interfaz
             // TestingTboxComentario
             // 
             this.TestingTboxComentario.Location = new System.Drawing.Point(394, 53);
+            this.TestingTboxComentario.MaxLength = 255;
             this.TestingTboxComentario.Multiline = true;
             this.TestingTboxComentario.Name = "TestingTboxComentario";
             this.TestingTboxComentario.Size = new System.Drawing.Size(172, 96);
@@ -194,6 +197,7 @@ namespace Interfaz
             // TestingTboxPub
             // 
             this.TestingTboxPub.Location = new System.Drawing.Point(204, 53);
+            this.TestingTboxPub.MaxLength = 100;
             this.TestingTboxPub.Multiline = true;
             this.TestingTboxPub.Name = "TestingTboxPub";
             this.TestingTboxPub.Size = new System.Drawing.Size(172, 96);
@@ -261,6 +265,7 @@ namespace Interfaz
             // TestingTboxContraseña
             // 
             this.TestingTboxContraseña.Location = new System.Drawing.Point(15, 139);
+            this.TestingTboxContraseña.MaxLength = 50;
             this.TestingTboxContraseña.Name = "TestingTboxContraseña";
             this.TestingTboxContraseña.Size = new System.Drawing.Size(172, 20);
             this.TestingTboxContraseña.TabIndex = 52;
@@ -277,6 +282,7 @@ namespace Interfaz
             // TestingTboxNombreGrupo
             // 
             this.TestingTboxNombreGrupo.Location = new System.Drawing.Point(583, 53);
+            this.TestingTboxNombreGrupo.MaxLength = 50;
             this.TestingTboxNombreGrupo.Name = "TestingTboxNombreGrupo";
             this.TestingTboxNombreGrupo.Size = new System.Drawing.Size(172, 20);
             this.TestingTboxNombreGrupo.TabIndex = 63;
@@ -284,6 +290,7 @@ namespace Interfaz
             // TestingTboxDescripcion
             // 
             this.TestingTboxDescripcion.Location = new System.Drawing.Point(583, 95);
+            this.TestingTboxDescripcion.MaxLength = 255;
             this.TestingTboxDescripcion.Multiline = true;
             this.TestingTboxDescripcion.Name = "TestingTboxDescripcion";
             this.TestingTboxDescripcion.Size = new System.Drawing.Size(172, 106);

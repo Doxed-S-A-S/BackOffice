@@ -85,5 +85,20 @@ TboxEventoNombre.Text, imagenUrl, TboxEventoDescripcion.Text, LbEventoUsuarioCre
             LbEventoUsuarioCreador.Text = DgridEventosGrupo.Rows[IndexEvento()].Cells["Id_Cuenta"].Value.ToString();
 
         }
+
+        private void BtnEliminarEvento_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show(
+               $"Esta seguro que quiere eliminar el evento?",
+               "Esta seguro?",
+               MessageBoxButtons.YesNo);
+
+            if (resultado.ToString() == "Yes")
+            {
+                ControlPosts.ElimiarEvento(LbEventoPostId.Text, LbEventoId.Text);
+                MessageBox.Show("Evento eliminado");
+            }
+            
+        }
     }
 }

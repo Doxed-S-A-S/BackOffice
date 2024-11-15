@@ -19,6 +19,12 @@ namespace Interfaz
             InitializeComponent();
         }
 
+        public void TipoUsuario(string super)
+        {
+            if (super == "True")
+                adminToolStripMenuItem.Visible = true;
+        }
+
         private void OcultarUserControll()
         {
             adminGrupo1.Hide();
@@ -92,7 +98,10 @@ namespace Interfaz
 
         private void DgridListarPulicaciones_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            foreach (DataGridViewRow row in DgridListarPulicaciones.Rows)
+                row.DefaultCellStyle.BackColor = Color.White;
             int i = DgridListarPulicaciones.CurrentCell.RowIndex;
+            DgridListarPulicaciones.Rows[i].DefaultCellStyle.BackColor = Color.Blue;
             TboxMostrarContenidoPost.Text = DgridListarPulicaciones.Rows[i].Cells["Contenido"].Value.ToString();
             LbCuentaPostId.Text = DgridListarPulicaciones.Rows[i].Cells["ID de cuenta"].Value.ToString();
         }
@@ -101,6 +110,15 @@ namespace Interfaz
         {
             DgridListarPulicaciones.Refresh();
             DgridListarPulicaciones.DataSource = ControlPosts.ListarReportados();
+        }
+
+        private void refrescarTablaDePost(string idPost)
+        {
+            DgridListarPulicaciones.Refresh();
+            DgridListarPulicaciones.DataSource = ControlPosts.ListarPostEspecificos(idPost);
+            DgridListarPulicaciones.Columns["ID de cuenta"].Visible = false;
+            this.DgridListarPulicaciones.Columns["ID del post"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.DgridListarPulicaciones.Columns["Contenido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
 
@@ -125,13 +143,19 @@ namespace Interfaz
 
         }
 
+        private int IndexGrupo()
+        {
+            int i = DgridBuscarGrupo.CurrentCell.RowIndex;
+            return i;
+        }
+
         private void refrescarTablaDeUsuarios()
         {
             DgridUsuarios.Refresh();
             DgridUsuarios.DataSource = ControlCuenta.ListarCuentas();
             DgridUsuarios.Columns["ID"].Visible = false;
             DgridUsuarios.Columns["Reports"].Visible = false;
-            //DgridUsuarios.Columns["Blocked"].Visible = false;
+            DgridUsuarios.Columns["Blocked"].Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -189,16 +213,14 @@ namespace Interfaz
             adminGrupo1.Show();
             adminGrupo1.BringToFront();
         }
-        private int IndexGrupo()
-        {
-            int i = DgridBuscarGrupo.CurrentCell.RowIndex;
-            return i;
-        }
+
 
         private void DgridBuscarGrupo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            foreach (DataGridViewRow row in DgridBuscarGrupo.Rows)
+                row.DefaultCellStyle.BackColor = Color.White;
+            DgridBuscarGrupo.Rows[IndexGrupo()].DefaultCellStyle.BackColor = Color.Blue;
             TboxGrupoDescripcion.Text = DgridBuscarGrupo.Rows[IndexGrupo()].Cells["Descripcion"].Value.ToString();
-
         }
 
         private void TboxBuscarGrupo_TextChanged(object sender, EventArgs e)
@@ -246,14 +268,7 @@ namespace Interfaz
             return;
         }
 
-        private void refrescarTablaDePost(string idPost)
-        {
-            DgridListarPulicaciones.Refresh();
-            DgridListarPulicaciones.DataSource = ControlPosts.ListarPostEspecificos(idPost);
-            DgridListarPulicaciones.Columns["ID de cuenta"].Visible = false;
-            this.DgridListarPulicaciones.Columns["ID del post"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.DgridListarPulicaciones.Columns["Contenido"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-        }
+
 
         private void BtnMostrarTodosLosPost_Click(object sender, EventArgs e)
         {
@@ -313,6 +328,38 @@ namespace Interfaz
 
 
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            NoDiseñado();
+        }
+
+        private void DgridUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in DgridUsuarios.Rows)
+                row.DefaultCellStyle.BackColor = Color.White;
+            DgridUsuarios.Rows[DgridUsuarios.CurrentCell.RowIndex].DefaultCellStyle.BackColor = Color.Blue;
+        }
+
+        private void cerrarAltF4ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void crearNuevoModeradorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VentanaCrearMod mod = new VentanaCrearMod();
+            mod.Show();
+            mod.BringToFront();
+        }
+
+        private void eliminarModeradorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VentanaCrearMod mod = new VentanaCrearMod();
+            mod.Show();
+            mod.refrescarTablaMods();
+            mod.BringToFront();
         }
     }
 }

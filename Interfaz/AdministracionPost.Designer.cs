@@ -77,6 +77,7 @@ namespace Interfaz
             // TboxPublicacion
             // 
             this.TboxPublicacion.Location = new System.Drawing.Point(12, 54);
+            this.TboxPublicacion.MaxLength = 255;
             this.TboxPublicacion.Multiline = true;
             this.TboxPublicacion.Name = "TboxPublicacion";
             this.TboxPublicacion.Size = new System.Drawing.Size(239, 88);
@@ -123,6 +124,7 @@ namespace Interfaz
             // TboxComentarios
             // 
             this.TboxComentarios.Location = new System.Drawing.Point(12, 372);
+            this.TboxComentarios.MaxLength = 255;
             this.TboxComentarios.Multiline = true;
             this.TboxComentarios.Name = "TboxComentarios";
             this.TboxComentarios.Size = new System.Drawing.Size(240, 88);
@@ -136,6 +138,7 @@ namespace Interfaz
             this.BtnPublicacionResuelta.TabIndex = 44;
             this.BtnPublicacionResuelta.Text = "Resuelto";
             this.BtnPublicacionResuelta.UseVisualStyleBackColor = true;
+            this.BtnPublicacionResuelta.Click += new System.EventHandler(this.BtnPublicacionResuelta_Click);
             // 
             // LbUserId
             // 
@@ -176,6 +179,7 @@ namespace Interfaz
             // TboxUrlMultimedia
             // 
             this.TboxUrlMultimedia.Location = new System.Drawing.Point(11, 167);
+            this.TboxUrlMultimedia.MaxLength = 100;
             this.TboxUrlMultimedia.Name = "TboxUrlMultimedia";
             this.TboxUrlMultimedia.Size = new System.Drawing.Size(240, 20);
             this.TboxUrlMultimedia.TabIndex = 50;

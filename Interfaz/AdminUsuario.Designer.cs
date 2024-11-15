@@ -63,8 +63,10 @@ namespace Interfaz
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.BtnModificarCorreo = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgridPublicaciones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridComentarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // StaticLbPublicacion
@@ -168,6 +170,7 @@ namespace Interfaz
             // TboxContenido
             // 
             this.TboxContenido.Location = new System.Drawing.Point(610, 51);
+            this.TboxContenido.MaxLength = 255;
             this.TboxContenido.Multiline = true;
             this.TboxContenido.Name = "TboxContenido";
             this.TboxContenido.Size = new System.Drawing.Size(169, 112);
@@ -185,12 +188,14 @@ namespace Interfaz
             // 
             // BtnEliminarPost
             // 
+            this.BtnEliminarPost.BackColor = System.Drawing.Color.Red;
+            this.BtnEliminarPost.ForeColor = System.Drawing.SystemColors.Control;
             this.BtnEliminarPost.Location = new System.Drawing.Point(704, 169);
             this.BtnEliminarPost.Name = "BtnEliminarPost";
             this.BtnEliminarPost.Size = new System.Drawing.Size(75, 23);
             this.BtnEliminarPost.TabIndex = 31;
             this.BtnEliminarPost.Text = "Eliminar";
-            this.BtnEliminarPost.UseVisualStyleBackColor = true;
+            this.BtnEliminarPost.UseVisualStyleBackColor = false;
             this.BtnEliminarPost.Click += new System.EventHandler(this.BtnEliminarPost_Click);
             // 
             // DgridPublicaciones
@@ -226,6 +231,7 @@ namespace Interfaz
             // TboxComentarios
             // 
             this.TboxComentarios.Location = new System.Drawing.Point(610, 482);
+            this.TboxComentarios.MaxLength = 255;
             this.TboxComentarios.Multiline = true;
             this.TboxComentarios.Name = "TboxComentarios";
             this.TboxComentarios.Size = new System.Drawing.Size(169, 112);
@@ -234,12 +240,14 @@ namespace Interfaz
             // 
             // BtnEliminarComentario
             // 
+            this.BtnEliminarComentario.BackColor = System.Drawing.Color.Red;
+            this.BtnEliminarComentario.ForeColor = System.Drawing.SystemColors.Control;
             this.BtnEliminarComentario.Location = new System.Drawing.Point(704, 600);
             this.BtnEliminarComentario.Name = "BtnEliminarComentario";
             this.BtnEliminarComentario.Size = new System.Drawing.Size(75, 23);
             this.BtnEliminarComentario.TabIndex = 40;
             this.BtnEliminarComentario.Text = "Eliminar";
-            this.BtnEliminarComentario.UseVisualStyleBackColor = true;
+            this.BtnEliminarComentario.UseVisualStyleBackColor = false;
             this.BtnEliminarComentario.Click += new System.EventHandler(this.BtnEliminarComentario_Click);
             // 
             // BtnEditarComentario
@@ -282,6 +290,7 @@ namespace Interfaz
             // TboxModificarCorreo
             // 
             this.TboxModificarCorreo.Location = new System.Drawing.Point(16, 259);
+            this.TboxModificarCorreo.MaxLength = 100;
             this.TboxModificarCorreo.Name = "TboxModificarCorreo";
             this.TboxModificarCorreo.Size = new System.Drawing.Size(201, 20);
             this.TboxModificarCorreo.TabIndex = 44;
@@ -299,6 +308,7 @@ namespace Interfaz
             // TboxModificarBiografia
             // 
             this.TboxModificarBiografia.Location = new System.Drawing.Point(16, 330);
+            this.TboxModificarBiografia.MaxLength = 255;
             this.TboxModificarBiografia.Multiline = true;
             this.TboxModificarBiografia.Name = "TboxModificarBiografia";
             this.TboxModificarBiografia.Size = new System.Drawing.Size(201, 77);
@@ -389,10 +399,21 @@ namespace Interfaz
             this.BtnModificarCorreo.UseVisualStyleBackColor = true;
             this.BtnModificarCorreo.Click += new System.EventHandler(this.BtnModificarCorreo_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ImageLocation = "";
+            this.pictureBox1.Location = new System.Drawing.Point(55, 51);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 94;
+            this.pictureBox1.TabStop = false;
+            // 
             // AdminUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TboxVerificarUsername);
@@ -432,6 +453,7 @@ namespace Interfaz
             this.Load += new System.EventHandler(this.AdminUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgridPublicaciones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgridComentarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -473,5 +495,6 @@ namespace Interfaz
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button BtnModificarCorreo;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

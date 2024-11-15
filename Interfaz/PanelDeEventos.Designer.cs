@@ -87,6 +87,7 @@ namespace Interfaz
             // TboxEventoNombre
             // 
             this.TboxEventoNombre.Location = new System.Drawing.Point(356, 121);
+            this.TboxEventoNombre.MaxLength = 50;
             this.TboxEventoNombre.Name = "TboxEventoNombre";
             this.TboxEventoNombre.Size = new System.Drawing.Size(208, 20);
             this.TboxEventoNombre.TabIndex = 92;
@@ -103,6 +104,7 @@ namespace Interfaz
             // TboxEventoDescripcion
             // 
             this.TboxEventoDescripcion.Location = new System.Drawing.Point(356, 295);
+            this.TboxEventoDescripcion.MaxLength = 255;
             this.TboxEventoDescripcion.Multiline = true;
             this.TboxEventoDescripcion.Name = "TboxEventoDescripcion";
             this.TboxEventoDescripcion.Size = new System.Drawing.Size(208, 98);
@@ -129,6 +131,7 @@ namespace Interfaz
             // TboxEventoContenido
             // 
             this.TboxEventoContenido.Location = new System.Drawing.Point(356, 167);
+            this.TboxEventoContenido.MaxLength = 255;
             this.TboxEventoContenido.Multiline = true;
             this.TboxEventoContenido.Name = "TboxEventoContenido";
             this.TboxEventoContenido.Size = new System.Drawing.Size(208, 98);
@@ -146,6 +149,7 @@ namespace Interfaz
             // TboxEventoMultimedia
             // 
             this.TboxEventoMultimedia.Location = new System.Drawing.Point(356, 420);
+            this.TboxEventoMultimedia.MaxLength = 100;
             this.TboxEventoMultimedia.Name = "TboxEventoMultimedia";
             this.TboxEventoMultimedia.Size = new System.Drawing.Size(208, 20);
             this.TboxEventoMultimedia.TabIndex = 98;
@@ -170,6 +174,7 @@ namespace Interfaz
             this.BtnEliminarEvento.TabIndex = 102;
             this.BtnEliminarEvento.Text = "Eliminar evento";
             this.BtnEliminarEvento.UseVisualStyleBackColor = false;
+            this.BtnEliminarEvento.Click += new System.EventHandler(this.BtnEliminarEvento_Click);
             // 
             // label6
             // 

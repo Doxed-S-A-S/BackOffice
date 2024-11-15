@@ -29,32 +29,27 @@ namespace Interfaz
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.backOfficeappnameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.propiedadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aparienciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarAltF4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buscarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buscarGrupoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buscarEventoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirVentanaDeTestingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historialDeAccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verUsuariosBloqueadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verGruposReportadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verEventosReportadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.peticionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deProfesoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deDesbloqueosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarLosDatosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.crearNuevoModeradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarModeradorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainPanelBotones = new System.Windows.Forms.Panel();
             this.BtnBuscarGrupo = new System.Windows.Forms.Button();
             this.TestingBtnCerrar = new System.Windows.Forms.Button();
             this.BtnBuscarPublicaciones = new System.Windows.Forms.Button();
             this.BtnBusquedaUsuarios = new System.Windows.Forms.Button();
-            this.BtnContUsuarios = new System.Windows.Forms.Button();
             this.PanelBusquedaPost = new System.Windows.Forms.Panel();
             this.LbCuentaPostId = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -75,8 +70,6 @@ namespace Interfaz
             this.BtnGrupoLimpiarFiltro = new System.Windows.Forms.Button();
             this.TboxBuscarIdGrupo = new System.Windows.Forms.TextBox();
             this.TboxGrupoDescripcion = new System.Windows.Forms.TextBox();
-            this.LbGrupoNumUsuarios = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.StaticLbBusquedaGrupo = new System.Windows.Forms.Label();
             this.BtnSeleccionarGrupo = new System.Windows.Forms.Button();
@@ -109,8 +102,8 @@ namespace Interfaz
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.backOfficeappnameToolStripMenuItem,
             this.herramientasToolStripMenuItem,
-            this.reportesToolStripMenuItem,
-            this.peticionesToolStripMenuItem});
+            this.peticionesToolStripMenuItem,
+            this.adminToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1370, 24);
@@ -124,8 +117,8 @@ namespace Interfaz
             this.aparienciaToolStripMenuItem,
             this.cerrarAltF4ToolStripMenuItem});
             this.backOfficeappnameToolStripMenuItem.Name = "backOfficeappnameToolStripMenuItem";
-            this.backOfficeappnameToolStripMenuItem.Size = new System.Drawing.Size(137, 20);
-            this.backOfficeappnameToolStripMenuItem.Text = "BackOffice (appname)";
+            this.backOfficeappnameToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+            this.backOfficeappnameToolStripMenuItem.Text = "BackOffice";
             // 
             // propiedadesToolStripMenuItem
             // 
@@ -144,35 +137,16 @@ namespace Interfaz
             this.cerrarAltF4ToolStripMenuItem.Name = "cerrarAltF4ToolStripMenuItem";
             this.cerrarAltF4ToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.cerrarAltF4ToolStripMenuItem.Text = "Cerrar         ( Alt + F4 )";
+            this.cerrarAltF4ToolStripMenuItem.Click += new System.EventHandler(this.cerrarAltF4ToolStripMenuItem_Click);
             // 
             // herramientasToolStripMenuItem
             // 
             this.herramientasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.buscarUsuarioToolStripMenuItem,
-            this.buscarGrupoToolStripMenuItem,
-            this.buscarEventoToolStripMenuItem,
-            this.abrirVentanaDeTestingToolStripMenuItem});
+            this.abrirVentanaDeTestingToolStripMenuItem,
+            this.historialDeAccionesToolStripMenuItem});
             this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
             this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.herramientasToolStripMenuItem.Text = "Herramientas";
-            // 
-            // buscarUsuarioToolStripMenuItem
-            // 
-            this.buscarUsuarioToolStripMenuItem.Name = "buscarUsuarioToolStripMenuItem";
-            this.buscarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.buscarUsuarioToolStripMenuItem.Text = "Buscar Usuario";
-            // 
-            // buscarGrupoToolStripMenuItem
-            // 
-            this.buscarGrupoToolStripMenuItem.Name = "buscarGrupoToolStripMenuItem";
-            this.buscarGrupoToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.buscarGrupoToolStripMenuItem.Text = "Buscar Grupo";
-            // 
-            // buscarEventoToolStripMenuItem
-            // 
-            this.buscarEventoToolStripMenuItem.Name = "buscarEventoToolStripMenuItem";
-            this.buscarEventoToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.buscarEventoToolStripMenuItem.Text = "Buscar Evento";
             // 
             // abrirVentanaDeTestingToolStripMenuItem
             // 
@@ -181,40 +155,11 @@ namespace Interfaz
             this.abrirVentanaDeTestingToolStripMenuItem.Text = "Abrir ventana de testing";
             this.abrirVentanaDeTestingToolStripMenuItem.Click += new System.EventHandler(this.abrirVentanaDeTestingToolStripMenuItem_Click);
             // 
-            // reportesToolStripMenuItem
-            // 
-            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.historialDeAccionesToolStripMenuItem,
-            this.verUsuariosBloqueadosToolStripMenuItem,
-            this.verGruposReportadosToolStripMenuItem,
-            this.verEventosReportadosToolStripMenuItem});
-            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.reportesToolStripMenuItem.Text = "Reportes";
-            // 
             // historialDeAccionesToolStripMenuItem
             // 
             this.historialDeAccionesToolStripMenuItem.Name = "historialDeAccionesToolStripMenuItem";
-            this.historialDeAccionesToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.historialDeAccionesToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.historialDeAccionesToolStripMenuItem.Text = "Historial de acciones";
-            // 
-            // verUsuariosBloqueadosToolStripMenuItem
-            // 
-            this.verUsuariosBloqueadosToolStripMenuItem.Name = "verUsuariosBloqueadosToolStripMenuItem";
-            this.verUsuariosBloqueadosToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.verUsuariosBloqueadosToolStripMenuItem.Text = "Ver usuarios bloqueados";
-            // 
-            // verGruposReportadosToolStripMenuItem
-            // 
-            this.verGruposReportadosToolStripMenuItem.Name = "verGruposReportadosToolStripMenuItem";
-            this.verGruposReportadosToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.verGruposReportadosToolStripMenuItem.Text = "Ver grupos reportados";
-            // 
-            // verEventosReportadosToolStripMenuItem
-            // 
-            this.verEventosReportadosToolStripMenuItem.Name = "verEventosReportadosToolStripMenuItem";
-            this.verEventosReportadosToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.verEventosReportadosToolStripMenuItem.Text = "Ver eventos reportados";
             // 
             // peticionesToolStripMenuItem
             // 
@@ -244,13 +189,36 @@ namespace Interfaz
             this.eliminarLosDatosToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.eliminarLosDatosToolStripMenuItem.Text = "Eliminar datos de usuario";
             // 
+            // adminToolStripMenuItem
+            // 
+            this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.crearNuevoModeradorToolStripMenuItem,
+            this.eliminarModeradorToolStripMenuItem});
+            this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.adminToolStripMenuItem.Text = "Admin";
+            this.adminToolStripMenuItem.Visible = false;
+            // 
+            // crearNuevoModeradorToolStripMenuItem
+            // 
+            this.crearNuevoModeradorToolStripMenuItem.Name = "crearNuevoModeradorToolStripMenuItem";
+            this.crearNuevoModeradorToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.crearNuevoModeradorToolStripMenuItem.Text = "Crear nuevo moderador";
+            this.crearNuevoModeradorToolStripMenuItem.Click += new System.EventHandler(this.crearNuevoModeradorToolStripMenuItem_Click);
+            // 
+            // eliminarModeradorToolStripMenuItem
+            // 
+            this.eliminarModeradorToolStripMenuItem.Name = "eliminarModeradorToolStripMenuItem";
+            this.eliminarModeradorToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.eliminarModeradorToolStripMenuItem.Text = "Eliminar moderador";
+            this.eliminarModeradorToolStripMenuItem.Click += new System.EventHandler(this.eliminarModeradorToolStripMenuItem_Click);
+            // 
             // MainPanelBotones
             // 
             this.MainPanelBotones.Controls.Add(this.BtnBuscarGrupo);
             this.MainPanelBotones.Controls.Add(this.TestingBtnCerrar);
             this.MainPanelBotones.Controls.Add(this.BtnBuscarPublicaciones);
             this.MainPanelBotones.Controls.Add(this.BtnBusquedaUsuarios);
-            this.MainPanelBotones.Controls.Add(this.BtnContUsuarios);
             this.MainPanelBotones.Dock = System.Windows.Forms.DockStyle.Left;
             this.MainPanelBotones.Location = new System.Drawing.Point(0, 24);
             this.MainPanelBotones.Name = "MainPanelBotones";
@@ -297,16 +265,6 @@ namespace Interfaz
             this.BtnBusquedaUsuarios.UseVisualStyleBackColor = true;
             this.BtnBusquedaUsuarios.Click += new System.EventHandler(this.BtnBusquedaUsuarios_Click);
             // 
-            // BtnContUsuarios
-            // 
-            this.BtnContUsuarios.Location = new System.Drawing.Point(32, 255);
-            this.BtnContUsuarios.Name = "BtnContUsuarios";
-            this.BtnContUsuarios.Size = new System.Drawing.Size(131, 36);
-            this.BtnContUsuarios.TabIndex = 0;
-            this.BtnContUsuarios.Text = "Control de usuarios";
-            this.BtnContUsuarios.UseVisualStyleBackColor = true;
-            this.BtnContUsuarios.Click += new System.EventHandler(this.BtnContUsuarios_Click);
-            // 
             // PanelBusquedaPost
             // 
             this.PanelBusquedaPost.Controls.Add(this.LbCuentaPostId);
@@ -331,7 +289,7 @@ namespace Interfaz
             // LbCuentaPostId
             // 
             this.LbCuentaPostId.AutoSize = true;
-            this.LbCuentaPostId.Location = new System.Drawing.Point(440, 377);
+            this.LbCuentaPostId.Location = new System.Drawing.Point(440, 424);
             this.LbCuentaPostId.Name = "LbCuentaPostId";
             this.LbCuentaPostId.Size = new System.Drawing.Size(18, 13);
             this.LbCuentaPostId.TabIndex = 13;
@@ -340,7 +298,7 @@ namespace Interfaz
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(368, 119);
+            this.label7.Location = new System.Drawing.Point(368, 166);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(58, 13);
             this.label7.TabIndex = 12;
@@ -359,7 +317,7 @@ namespace Interfaz
             // LbPostNombreDeUsuario
             // 
             this.LbPostNombreDeUsuario.AutoSize = true;
-            this.LbPostNombreDeUsuario.Location = new System.Drawing.Point(438, 361);
+            this.LbPostNombreDeUsuario.Location = new System.Drawing.Point(438, 408);
             this.LbPostNombreDeUsuario.Name = "LbPostNombreDeUsuario";
             this.LbPostNombreDeUsuario.Size = new System.Drawing.Size(0, 13);
             this.LbPostNombreDeUsuario.TabIndex = 9;
@@ -367,7 +325,7 @@ namespace Interfaz
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(365, 377);
+            this.label6.Location = new System.Drawing.Point(365, 424);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 13);
             this.label6.TabIndex = 8;
@@ -375,7 +333,7 @@ namespace Interfaz
             // 
             // TboxMostrarContenidoPost
             // 
-            this.TboxMostrarContenidoPost.Location = new System.Drawing.Point(368, 135);
+            this.TboxMostrarContenidoPost.Location = new System.Drawing.Point(368, 182);
             this.TboxMostrarContenidoPost.Multiline = true;
             this.TboxMostrarContenidoPost.Name = "TboxMostrarContenidoPost";
             this.TboxMostrarContenidoPost.ReadOnly = true;
@@ -414,9 +372,9 @@ namespace Interfaz
             // 
             // BtnSeleccionar
             // 
-            this.BtnSeleccionar.Location = new System.Drawing.Point(261, 92);
+            this.BtnSeleccionar.Location = new System.Drawing.Point(368, 119);
             this.BtnSeleccionar.Name = "BtnSeleccionar";
-            this.BtnSeleccionar.Size = new System.Drawing.Size(101, 23);
+            this.BtnSeleccionar.Size = new System.Drawing.Size(128, 36);
             this.BtnSeleccionar.TabIndex = 3;
             this.BtnSeleccionar.Text = "Seleccionar post";
             this.BtnSeleccionar.UseVisualStyleBackColor = true;
@@ -434,14 +392,14 @@ namespace Interfaz
             // 
             // DgridListarPulicaciones
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgridListarPulicaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgridListarPulicaciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DgridListarPulicaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgridListarPulicaciones.Location = new System.Drawing.Point(15, 119);
             this.DgridListarPulicaciones.Name = "DgridListarPulicaciones";
@@ -464,8 +422,6 @@ namespace Interfaz
             this.PanelBusquedaGrupo.Controls.Add(this.BtnGrupoLimpiarFiltro);
             this.PanelBusquedaGrupo.Controls.Add(this.TboxBuscarIdGrupo);
             this.PanelBusquedaGrupo.Controls.Add(this.TboxGrupoDescripcion);
-            this.PanelBusquedaGrupo.Controls.Add(this.LbGrupoNumUsuarios);
-            this.PanelBusquedaGrupo.Controls.Add(this.label4);
             this.PanelBusquedaGrupo.Controls.Add(this.label3);
             this.PanelBusquedaGrupo.Controls.Add(this.StaticLbBusquedaGrupo);
             this.PanelBusquedaGrupo.Controls.Add(this.BtnSeleccionarGrupo);
@@ -521,24 +477,6 @@ namespace Interfaz
             this.TboxGrupoDescripcion.ReadOnly = true;
             this.TboxGrupoDescripcion.Size = new System.Drawing.Size(129, 205);
             this.TboxGrupoDescripcion.TabIndex = 8;
-            // 
-            // LbGrupoNumUsuarios
-            // 
-            this.LbGrupoNumUsuarios.AutoSize = true;
-            this.LbGrupoNumUsuarios.Location = new System.Drawing.Point(508, 387);
-            this.LbGrupoNumUsuarios.Name = "LbGrupoNumUsuarios";
-            this.LbGrupoNumUsuarios.Size = new System.Drawing.Size(13, 13);
-            this.LbGrupoNumUsuarios.TabIndex = 7;
-            this.LbGrupoNumUsuarios.Text = "0";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(405, 387);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Numero de usuarios:";
             // 
             // label3
             // 
@@ -655,6 +593,7 @@ namespace Interfaz
             this.button2.TabIndex = 50;
             this.button2.Text = " Seleccionar usuario  (Ventana emergente)";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // BtnSeleccionarUsuario
             // 
@@ -697,6 +636,7 @@ namespace Interfaz
             this.DgridUsuarios.ReadOnly = true;
             this.DgridUsuarios.Size = new System.Drawing.Size(363, 528);
             this.DgridUsuarios.TabIndex = 46;
+            this.DgridUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgridUsuarios_CellClick);
             // 
             // adminGrupo1
             // 
@@ -729,7 +669,7 @@ namespace Interfaz
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainBackoffice";
-            this.Text = "Form1";
+            this.Text = "LinguaLink Back Office";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainBackoffice_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -756,21 +696,12 @@ namespace Interfaz
         private System.Windows.Forms.ToolStripMenuItem aparienciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarAltF4ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem herramientasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem buscarUsuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem buscarGrupoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem buscarEventoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem historialDeAccionesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verUsuariosBloqueadosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verGruposReportadosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verEventosReportadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem peticionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deProfesoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deDesbloqueosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarLosDatosToolStripMenuItem;
         private System.Windows.Forms.Panel MainPanelBotones;
         private AdminUsuario AdministracionDeUsuarios;
-        private System.Windows.Forms.Button BtnContUsuarios;
         private System.Windows.Forms.Button BtnBusquedaUsuarios;
         private System.Windows.Forms.ToolStripMenuItem abrirVentanaDeTestingToolStripMenuItem;
         private System.Windows.Forms.Button BtnBuscarPublicaciones;
@@ -797,8 +728,6 @@ namespace Interfaz
         private System.Windows.Forms.TextBox TboxBuscarGrupo;
         private System.Windows.Forms.Button BtnBuscarGrupo;
         private System.Windows.Forms.TextBox TboxGrupoDescripcion;
-        private System.Windows.Forms.Label LbGrupoNumUsuarios;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private AdminGrupo adminGrupo1;
         private System.Windows.Forms.TextBox TboxBuscarIdGrupo;
@@ -814,5 +743,9 @@ namespace Interfaz
         private System.Windows.Forms.Button BtnMostrarTodosLosPost;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label LbCuentaPostId;
+        private System.Windows.Forms.ToolStripMenuItem historialDeAccionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem crearNuevoModeradorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarModeradorToolStripMenuItem;
     }
 }
